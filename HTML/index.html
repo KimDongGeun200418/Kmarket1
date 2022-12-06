@@ -40,7 +40,7 @@
     </script>
     <style>
         
-
+        /* main */
         main {
             width: 1200px;
             height: auto;
@@ -48,7 +48,308 @@
             overflow: hidden
         }
 
+        /* cate, side bar*/
+        /* cate */
+        main > aside {
+            float: left;
+            width: 215px;
+            height: 100%;
+        }
+
+        main > aside > .category {
+            position: relative;
+            width: 100%;
+            height: 425px;
+            background: #333949;
+        }
+        main > aside > .category > li {
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            color: #ccc;
+            font-size: 13px;
+            font-weight: bold;
+            border-bottom: 1px solid #2b313f;
+            box-sizing: border-box;
+        }
+        main > aside > .category > li:first-child {
+            padding: 0 20px;
+            color: #fff;
+        }
+
+        main > aside > .category i {
+            width: 22px;
+            font-size: 16px;
+            margin-right: 12px;
+        }
+
+        main > aside > .category > li > a {
+            display: block;
+            padding: 0 20px;
+            line-height: 40px;
+            color: #ccc;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 1em;
+        }
+
+        main > aside > .category > li > a:hover {
+            background: #2b313f;
+            color: #fff;
+        }
+
+        main > aside > .category > li:hover > ol {
+            display: block;
+        }
+
+        main > aside > .category > li i.fa-angle-right {
+            float: right;
+            width: auto;
+            margin-top: 10px;
+            margin-right: 0;
+        }
         
+        main > aside > .category ol {
+            position: absolute;
+            left: 215px;
+            top: 0;
+            display: none;
+            width: 215px;
+            height: 100%;
+            border: 1px solid #787f89;
+            background: #fff;
+            box-sizing: border-box;
+            z-index: 100;
+        }
+        main > aside > .category ol > li {
+            width: 100%;
+            height: 24px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        /* side bar */
+        main > aside > .best {
+            width: 215px;
+            height: auto;
+            border: 1px solid #dbdbdb;
+            box-sizing: border-box;
+            box-shadow: 0 0 5px rgb(55 55 5 / 20%);
+        }
+        main > aside > .best > h1 {
+            font-size: 14px;
+            font-weight: bold;
+            color: #111;
+            margin: 6px;
+        }
+        main > aside > .best > h1 > i {
+            margin-right: 6px;
+            font-size: 18px;
+        }
+        main > aside > .best > ol {
+            width: 100%;
+        }
+        main > aside > .best > ol > li {
+            width: 100%;
+            height: 100%;
+            padding: 0 6px;
+            box-sizing: border-box;
+            margin-bottom: 16px;
+        }
+        main > aside > .best > ol > li > a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        main > aside > .best > ol > li > a > .thumb {
+            float: left;
+            position: relative;
+            width: 50px;
+            height: 50px;
+            overflow: hidden;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+        main > aside > .best > ol > li:first-child > a > .thumb {
+            position: relative;
+            float: none;
+            width: 100%;
+            height: 100%;
+        }
+        main > aside > .best > ol > li:first-child > a > .thumb > i {
+            width: 35px;
+            height: 26px;
+        }
+        main > aside > .best > ol > li > a > .thumb > i {
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: inline-block;
+            width: 16px;
+            height: 20px;
+            font-size: 14px;
+            padding: 0;
+            color: #ef3e42;
+            border-bottom: 1px solid #ef3e42;
+            font-weight: bold;
+            font-style: italic;
+            text-align: center;
+            line-height: 18px;
+        }
+        main > aside > .best > ol > li > a > .thumb > img {
+            width: 100%;
+        }
+
+        main > aside > .best > ol > li > a > article {
+            float: left;
+            width: 148px;
+            padding-left: 6px;
+            box-sizing: border-box;
+        }
+
+        main > aside > .best > ol > li > a h2 {
+            margin-top: 4px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        main > aside > .best > ol > li > a .org_price {}
+        main > aside > .best > ol > li > a .org_price > del {
+            font-size: 10px;
+            color: #aaa;
+        }
+        main > aside > .best > ol > li > a .org_price > del::after {
+            content: "원";
+        }
+        main > aside > .best > ol > li > a .org_price > span {
+            font-size: 10px;
+            color: #eb000a;
+        }
+        main > aside > .best > ol > li > a .org_price > span::after {
+            content: "↓";
+        }
+
+        main > aside > .best > ol > li > a .dis_price {}
+        main > aside > .best > ol > li > a .dis_price > ins {
+            font-size: 14px;
+            text-decoration: none;
+        }
+        main > aside > .best > ol > li > a .dis_price > ins::after {
+            content: "원";
+        }
+
+
+        /* main product */
+
+        main > section {
+            float: right;
+            width: 985px;
+            height: auto;
+            box-sizing: border-box;
+        }
+
+        /* slider */
+        main > section > .slider {
+            width: 100%;
+            height: 425px;
+            overflow: hidden;
+        }
+        main > section > .slider > .bx-wrapper {
+            -moz-box-shadow: none;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            border: none;
+            background: #fff;
+        }
+        
+
+        main > section > .hit {}
+        main > section > .recommend {}
+        main > section > .new {}
+        main > section > .discount {}
+
+        main > section > section > h3 > span {
+            display: inline-block;
+            margin: 10px;
+            border-bottom: 2px solid #111;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        
+        main > section > section > article {
+            float: left;
+            width: 25%;
+            height: 345px;
+        }
+
+        main > section >section > article > a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        main > section > section > article .thumb {
+            width: 100%;
+            height: 230px;
+            margin: 0 auto;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        main > section > section > article h2 {
+            font-size: 15px;
+            font-weight: bold;
+            margin-top: 4px;
+            text-align: center;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        main > section > section > article p {
+            color: #222;
+            font-size: 12px;
+            line-height: 16px;
+            margin: 4px 0;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        main > section > section > article .org_price > del {
+            color: #aaa;
+        }
+        main > section > section > article .org_price > del::after {
+            content: "원";
+        }
+        main > section > section > article .org_price > span {
+            color: #eb000a;
+        }
+        main > section > section > article .org_price > span::after {
+            content: "↓";
+        }
+
+        main > section > section > article .dis_price {
+            margin-top: 4px;
+        }
+        main > section > section > article .dis_price > ins {
+            font-size: 14px;
+            text-decoration: none;
+        }
+        main > section > section > article .dis_price > ins::after {
+            content: "원";
+        }
+        main > section > section > article .dis_price > .free {
+            display: inline-block;
+            font-size: 0;
+            vertical-align: text-bottom;
+            width: 55px;
+            height: 13px;
+            background: url("./img/ico_freeshipping.gif") no-repeat;
+        }
 
     </style>
 </head>
@@ -100,7 +401,146 @@
         <main>
             <!-- cate, best product -->
             <aside>
+                <!-- cate -->
+                <ul class="category">
+                    <li>
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                        카테고리
+                    </li>
+                    <li>
+                      <a href="#"><i class="fas fa-tshirt" aria-hidden="true"></i>
+                        패션·의류·뷰티
+                        <i class="fas fa-angle-right" aria-hidden="true"></i></a>
+                      <ol>
+                        <li><a href="#">남성의류</a></li>
+                        <li><a href="#">여성의류</a></li>
+                        <li><a href="#">잡화</a></li>
+                        <li><a href="#">뷰티</a></li>
+                      </ol>
+                    </li>
+                    <li>
+                      <a href="#"><i class="fas fa-laptop" aria-hidden="true"></i>가전·디지털<i class="fas fa-angle-right" aria-hidden="true"></i></a>
+                      <ol>
+                        <li><a href="#">노트북/PC</a></li>
+                        <li><a href="#">가전</a></li>
+                        <li><a href="#">휴대폰</a></li>
+                        <li><a href="#">기타</a></li>
+                      </ol>
+                    </li>
+                    <li>
+                      <a href="#"><i class="fas fa-utensils" aria-hidden="true"></i>식품·생필품<i class="fas fa-angle-right" aria-hidden="true"></i></a>
+                      <ol>
+                        <li><a href="#">신선식품</a></li>
+                        <li><a href="#">가공식품</a></li>
+                        <li><a href="#">건강식품</a></li>
+                        <li><a href="#">생필품</a></li>
+                      </ol>
+                    </li>
+                    <li>
+                      <a href="#"><i class="fas fa-home" aria-hidden="true"></i>홈·문구·취미<i class="fas fa-angle-right" aria-hidden="true"></i></a>
+                      <ol>
+                        <li><a href="#">가구/DIY</a></li>
+                        <li><a href="#">침구·커튼</a></li>
+                        <li><a href="#">생활용품</a></li>
+                        <li><a href="#">사무용품</a></li>
+                      </ol>
+                    </li>
+                </ul>
 
+                <!-- side bar -->
+                <article class="best" style="position: static;">
+                    <h1><i class="fas fa-crown" aria-hidden="true"></i>베스트상품</h1>
+                    <ol>
+                      <li>
+                        <a href="#">
+                          <div class="thumb">
+                            <i>1</i>
+                            <img src="https://via.placeholder.com/230" alt="item1">
+                          </div>
+                          <h2>상품명</h2>
+                          <div class="org_price">
+                            <del>30,000</del>
+                            <span>10%</span>
+                          </div>
+                          <div class="dis_price">
+                            <ins>27,000</ins>
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <div class="thumb">
+                            <i>2</i>
+                            <img src="https://via.placeholder.com/50" alt="item1">
+                          </div>
+                          <article>
+                            <h2>상품명</h2>
+                            <div class="org_price">
+                              <del>30,000</del>
+                              <span>10%</span>
+                            </div>
+                            <div class="dis_price">
+                              <ins>27,000</ins>
+                            </div>
+                          </article>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <div class="thumb">
+                            <i>3</i>
+                            <img src="https://via.placeholder.com/50" alt="item1">
+                          </div>
+                          <article>
+                            <h2>상품명</h2>
+                            <div class="org_price">
+                              <del>30,000</del>
+                              <span>10%</span>
+                            </div>
+                            <div class="dis_price">
+                              <ins>27,000</ins>
+                            </div>
+                          </article>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <div class="thumb">
+                            <i>4</i>
+                            <img src="https://via.placeholder.com/50" alt="item1">
+                          </div>
+                          <article>
+                            <h2>상품명</h2>
+                            <div class="org_price">
+                              <del>30,000</del>
+                              <span>10%</span>
+                            </div>
+                            <div class="dis_price">
+                              <ins>27,000</ins>
+                            </div>
+                          </article>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <div class="thumb">
+                            <i>5</i>
+                            <img src="https://via.placeholder.com/50" alt="item1">
+                          </div>
+                          <article>
+                            <h2>상품명</h2>
+                            <div class="org_price">
+                              <del>30,000</del>
+                              <span>10%</span>
+                            </div>
+                            <div class="dis_price">
+                              <ins>27,000</ins>
+                            </div>
+                          </article>
+                        </a>
+                      </li>
+                    </ol>
+                  </article>
             </aside>
             <!-- main product page -->
             <section>
@@ -132,28 +572,591 @@
                                 </li>
                             </ul>
                         </div>
-                    <div class="bx-controls bx-has-controls-direction bx-has-pager">
-                        <div class="bx-controls-direction">
-                            <a class="bx-prev" href="">Prev</a>
-                            <a class="bx-next" href="">Next</a>
-                        </div>
-                    <div class="bx-pager bx-default-pager">
-                        <div class="bx-pager-item">
-                            <a href="" data-slide-index="0" class="bx-pager-link">1</a>
-                        </div>
-                        <div class="bx-pager-item">
-                            <a href="" data-slide-index="1" class="bx-pager-link active">2</a>
-                        </div>
-                        <div class="bx-pager-item">
-                            <a href="" data-slide-index="2" class="bx-pager-link">3</a>
-                        </div>
-                        <div class="bx-pager-item">
-                            <a href="" data-slide-index="3" class="bx-pager-link">4</a>
-                        </div>
-                        <div class="bx-pager-item">
-                            <a href="" data-slide-index="4" class="bx-pager-link">5</a>
+                        <div class="bx-controls bx-has-controls-direction bx-has-pager">
+                            <div class="bx-controls-direction">
+                                <a class="bx-prev" href="">Prev</a>
+                                <a class="bx-next" href="">Next</a>
+                            </div>
+                            <div class="bx-pager bx-default-pager">
+                                <div class="bx-pager-item">
+                                    <a href="" data-slide-index="0" class="bx-pager-link">1</a>
+                                </div>
+                                <div class="bx-pager-item">
+                                    <a href="" data-slide-index="1" class="bx-pager-link active">2</a>
+                                </div>
+                                <div class="bx-pager-item">
+                                    <a href="" data-slide-index="2" class="bx-pager-link">3</a>
+                                </div>
+                                <div class="bx-pager-item">
+                                    <a href="" data-slide-index="3" class="bx-pager-link">4</a>
+                                </div>
+                                <div class="bx-pager-item">
+                                    <a href="" data-slide-index="4" class="bx-pager-link">5</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                  </section>
+
+                  <!-- hit -->
+                  <section class="hit">
+                    <h3><span>히트상품</span></h3>
+                    <article>
+                      <a href="#">
+                        <div class="thumb">
+                          <img src="https://via.placeholder.com/230x230" alt="t1">
+                        </div>
+                        <h2>상품명</h2>
+                        <p>간단한 상품 설명</p>
+                        <div class="org_price">
+                          <del>30,000</del>
+                          <span>10%</span>
+                        </div>
+                        <div class="dis_price">
+                          <ins>27,000</ins>
+                          <span class="free">무료배송</span>
+                        </div>
+                      </a>
+                    </article>
+                    <article>
+                      <a href="#">
+                        <div class="thumb">
+                          <img src="https://via.placeholder.com/230x230" alt="t1">
+                        </div>
+                        <h2>상품명</h2>
+                        <p>간단한 상품 설명</p>
+                        <div class="org_price">
+                          <del>30,000</del>
+                          <span>10%</span>
+                        </div>
+                        <div class="dis_price">
+                          <ins>27,000</ins>
+                          <span class="free">무료배송</span>
+                        </div>
+                      </a>
+                    </article>
+                    <article>
+                      <a href="#">
+                        <div class="thumb">
+                          <img src="https://via.placeholder.com/230x230" alt="t1">
+                        </div>
+                        <h2>상품명</h2>
+                        <p>간단한 상품 설명</p>
+                        <div class="org_price">
+                          <del>30,000</del>
+                          <span>10%</span>
+                        </div>
+                        <div class="dis_price">
+                          <ins>27,000</ins>
+                          <span class="free">무료배송</span>
+                        </div>
+                      </a>
+                    </article>
+                    <article>
+                      <a href="#">
+                        <div class="thumb">
+                          <img src="https://via.placeholder.com/230x230" alt="t1">
+                        </div>
+                        <h2>상품명</h2>
+                        <p>간단한 상품 설명</p>
+                        <div class="org_price">
+                          <del>30,000</del>
+                          <span>10%</span>
+                        </div>
+                        <div class="dis_price">
+                          <ins>27,000</ins>
+                          <span class="free">무료배송</span>
+                        </div>
+                      </a>
+                    </article>
+                    <article>
+                      <a href="#">
+                        <div class="thumb">
+                          <img src="https://via.placeholder.com/230x230" alt="t1">
+                        </div>
+                        <h2>상품명</h2>
+                        <p>간단한 상품 설명</p>
+                        <div class="org_price">
+                          <del>30,000</del>
+                          <span>10%</span>
+                        </div>
+                        <div class="dis_price">
+                          <ins>27,000</ins>
+                          <span class="free">무료배송</span>
+                        </div>
+                      </a>
+                    </article>
+                    <article>
+                      <a href="#">
+                        <div class="thumb">
+                          <img src="https://via.placeholder.com/230x230" alt="t1">
+                        </div>
+                        <h2>상품명</h2>
+                        <p>간단한 상품 설명</p>
+                        <div class="org_price">
+                          <del>30,000</del>
+                          <span>10%</span>
+                        </div>
+                        <div class="dis_price">
+                          <ins>27,000</ins>
+                          <span class="free">무료배송</span>
+                        </div>
+                      </a>
+                    </article>
+                    <article>
+                      <a href="#">
+                        <div class="thumb">
+                          <img src="https://via.placeholder.com/230x230" alt="t1">
+                        </div>
+                        <h2>상품명</h2>
+                        <p>간단한 상품 설명</p>
+                        <div class="org_price">
+                          <del>30,000</del>
+                          <span>10%</span>
+                        </div>
+                        <div class="dis_price">
+                          <ins>27,000</ins>
+                          <span class="free">무료배송</span>
+                        </div>
+                      </a>
+                    </article>
+                    <article>
+                      <a href="#">
+                        <div class="thumb">
+                          <img src="https://via.placeholder.com/230x230" alt="t1">
+                        </div>
+                        <h2>상품명</h2>
+                        <p>간단한 상품 설명</p>
+                        <div class="org_price">
+                          <del>30,000</del>
+                          <span>10%</span>
+                        </div>
+                        <div class="dis_price">
+                          <ins>27,000</ins>
+                          <span class="free">무료배송</span>
+                        </div>
+                      </a>
+                    </article>
+                  </section>
+                  <!-- recommend -->
+                  <section class="recommend">
+                    <h3><span>추천상품</span></h3>
+                    <article>
+                      <a href="#">
+                        <div class="thumb">
+                          <img src="https://via.placeholder.com/230x230" alt="t1">
+                        </div>
+                        <h2>상품명</h2>
+                        <p>간단한 상품 설명</p>
+                        <div class="org_price">
+                          <del>30,000</del>
+                          <span>10%</span>
+                        </div>
+                        <div class="dis_price">
+                          <ins>27,000</ins>
+                          <span>배송비 2500</span>
+                        </div>
+                      </a>
+                    </article>
+                    <article>
+                      <a href="#">
+                        <div class="thumb">
+                          <img src="https://via.placeholder.com/230x230" alt="t1">
+                        </div>
+                        <h2>상품명</h2>
+                        <p>간단한 상품 설명</p>
+                        <div class="org_price">
+                          <del>30,000</del>
+                          <span>10%</span>
+                        </div>
+                        <div class="dis_price">
+                          <ins>27,000</ins>
+                          <span>배송비 2500</span>
+                        </div>
+                      </a>
+                    </article>
+                    <article>
+                      <a href="#">
+                        <div class="thumb">
+                          <img src="https://via.placeholder.com/230x230" alt="t1">
+                        </div>
+                        <h2>상품명</h2>
+                        <p>간단한 상품 설명</p>
+                        <div class="org_price">
+                          <del>30,000</del>
+                          <span>10%</span>
+                        </div>
+                        <div class="dis_price">
+                          <ins>27,000</ins>
+                          <span>배송비 2500</span>
+                        </div>
+                      </a>
+                    </article>
+                    <article>
+                      <a href="#">
+                        <div class="thumb">
+                          <img src="https://via.placeholder.com/230x230" alt="t1">
+                        </div>
+                        <h2>상품명</h2>
+                        <p>간단한 상품 설명</p>
+                        <div class="org_price">
+                          <del>30,000</del>
+                          <span>10%</span>
+                        </div>
+                        <div class="dis_price">
+                          <ins>27,000</ins>
+                          <span>배송비 2500</span>
+                        </div>
+                      </a>
+                    </article>
+                    <article>
+                      <a href="#">
+                        <div class="thumb">
+                          <img src="https://via.placeholder.com/230x230" alt="t1">
+                        </div>
+                        <h2>상품명</h2>
+                        <p>간단한 상품 설명</p>
+                        <div class="org_price">
+                          <del>30,000</del>
+                          <span>10%</span>
+                        </div>
+                        <div class="dis_price">
+                          <ins>27,000</ins>
+                          <span>배송비 2500</span>
+                        </div>
+                      </a>
+                    </article>
+                    <article>
+                      <a href="#">
+                        <div class="thumb">
+                          <img src="https://via.placeholder.com/230x230" alt="t1">
+                        </div>
+                        <h2>상품명</h2>
+                        <p>간단한 상품 설명</p>
+                        <div class="org_price">
+                          <del>30,000</del>
+                          <span>10%</span>
+                        </div>
+                        <div class="dis_price">
+                          <ins>27,000</ins>
+                          <span>배송비 2500</span>
+                        </div>
+                      </a>
+                    </article>
+                    <article>
+                      <a href="#">
+                        <div class="thumb">
+                          <img src="https://via.placeholder.com/230x230" alt="t1">
+                        </div>
+                        <h2>상품명</h2>
+                        <p>간단한 상품 설명</p>
+                        <div class="org_price">
+                          <del>30,000</del>
+                          <span>10%</span>
+                        </div>
+                        <div class="dis_price">
+                          <ins>27,000</ins>
+                          <span>배송비 2500</span>
+                        </div>
+                      </a>
+                    </article>
+                    <article>
+                      <a href="#">
+                        <div class="thumb">
+                          <img src="https://via.placeholder.com/230x230" alt="t1">
+                        </div>
+                        <h2>상품명</h2>
+                        <p>간단한 상품 설명</p>
+                        <div class="org_price">
+                          <del>30,000</del>
+                          <span>10%</span>
+                        </div>
+                        <div class="dis_price">
+                          <ins>27,000</ins>
+                          <span>배송비 2500</span>
+                        </div>
+                      </a>
+                    </article>
+                  </section>
+                  <!-- new -->
+                  <section class="new">
+                    <h3><span>최신상품</span></h3>
+                    <article>
+                      <a href="#">
+                        <div class="thumb">
+                          <img src="https://via.placeholder.com/230x230" alt="t1">
+                        </div>
+                        <h2>상품명</h2>
+                        <p>간단한 상품 설명</p>
+                        <div class="org_price">
+                          <del>30,000</del>
+                          <span>10%</span>
+                        </div>
+                        <div class="dis_price">
+                          <ins>27,000</ins>
+                          <span class="free">무료배송</span>
+                        </div>
+                      </a>
+                    </article>
+                    <article>
+                      <a href="#">
+                        <div class="thumb">
+                          <img src="https://via.placeholder.com/230x230" alt="t1">
+                        </div>
+                        <h2>상품명</h2>
+                        <p>간단한 상품 설명</p>
+                        <div class="org_price">
+                          <del>30,000</del>
+                          <span>10%</span>
+                        </div>
+                        <div class="dis_price">
+                          <ins>27,000</ins>
+                          <span class="free">무료배송</span>
+                        </div>
+                      </a>
+                    </article>
+                    <article>
+                      <a href="#">
+                        <div class="thumb">
+                          <img src="https://via.placeholder.com/230x230" alt="t1">
+                        </div>
+                        <h2>상품명</h2>
+                        <p>간단한 상품 설명</p>
+                        <div class="org_price">
+                          <del>30,000</del>
+                          <span>10%</span>
+                        </div>
+                        <div class="dis_price">
+                          <ins>27,000</ins>
+                          <span class="free">무료배송</span>
+                        </div>
+                      </a>
+                    </article>
+                    <article>
+                      <a href="#">
+                        <div class="thumb">
+                          <img src="https://via.placeholder.com/230x230" alt="t1">
+                        </div>
+                        <h2>상품명</h2>
+                        <p>간단한 상품 설명</p>
+                        <div class="org_price">
+                          <del>30,000</del>
+                          <span>10%</span>
+                        </div>
+                        <div class="dis_price">
+                          <ins>27,000</ins>
+                          <span class="free">무료배송</span>
+                        </div>
+                      </a>
+                    </article>
+                    <article>
+                      <a href="#">
+                        <div class="thumb">
+                          <img src="https://via.placeholder.com/230x230" alt="t1">
+                        </div>
+                        <h2>상품명</h2>
+                        <p>간단한 상품 설명</p>
+                        <div class="org_price">
+                          <del>30,000</del>
+                          <span>10%</span>
+                        </div>
+                        <div class="dis_price">
+                          <ins>27,000</ins>
+                          <span class="free">무료배송</span>
+                        </div>
+                      </a>
+                    </article>
+                    <article>
+                      <a href="#">
+                        <div class="thumb">
+                          <img src="https://via.placeholder.com/230x230" alt="t1">
+                        </div>
+                        <h2>상품명</h2>
+                        <p>간단한 상품 설명</p>
+                        <div class="org_price">
+                          <del>30,000</del>
+                          <span>10%</span>
+                        </div>
+                        <div class="dis_price">
+                          <ins>27,000</ins>
+                          <span class="free">무료배송</span>
+                        </div>
+                      </a>
+                    </article>
+                    <article>
+                      <a href="#">
+                        <div class="thumb">
+                          <img src="https://via.placeholder.com/230x230" alt="t1">
+                        </div>
+                        <h2>상품명</h2>
+                        <p>간단한 상품 설명</p>
+                        <div class="org_price">
+                          <del>30,000</del>
+                          <span>10%</span>
+                        </div>
+                        <div class="dis_price">
+                          <ins>27,000</ins>
+                          <span class="free">무료배송</span>
+                        </div>
+                      </a>
+                    </article>
+                    <article>
+                      <a href="#">
+                        <div class="thumb">
+                          <img src="https://via.placeholder.com/230x230" alt="t1">
+                        </div>
+                        <h2>상품명</h2>
+                        <p>간단한 상품 설명</p>
+                        <div class="org_price">
+                          <del>30,000</del>
+                          <span>10%</span>
+                        </div>
+                        <div class="dis_price">
+                          <ins>27,000</ins>
+                          <span class="free">무료배송</span>
+                        </div>
+                      </a>
+                    </article>
+                  </section>
+                  <!-- discount -->
+                  <section class="discount">
+                    <h3><span>할인상품</span></h3>
+                    <article>
+                      <a href="#">
+                        <div class="thumb">
+                          <img src="https://via.placeholder.com/230x230" alt="t1">
+                        </div>
+                        <h2>상품명</h2>
+                        <p>간단한 상품 설명</p>
+                        <div class="org_price">
+                          <del>30,000</del>
+                          <span>10%</span>
+                        </div>
+                        <div class="dis_price">
+                          <ins>27,000</ins>
+                          <span class="free">무료배송</span>
+                        </div>
+                      </a>
+                    </article>
+                    <article>
+                      <a href="#">
+                        <div class="thumb">
+                          <img src="https://via.placeholder.com/230x230" alt="t1">
+                        </div>
+                        <h2>상품명</h2>
+                        <p>간단한 상품 설명</p>
+                        <div class="org_price">
+                          <del>30,000</del>
+                          <span>10%</span>
+                        </div>
+                        <div class="dis_price">
+                          <ins>27,000</ins>
+                          <span class="free">무료배송</span>
+                        </div>
+                      </a>
+                    </article>
+                    <article>
+                      <a href="#">
+                        <div class="thumb">
+                          <img src="https://via.placeholder.com/230x230" alt="t1">
+                        </div>
+                        <h2>상품명</h2>
+                        <p>간단한 상품 설명</p>
+                        <div class="org_price">
+                          <del>30,000</del>
+                          <span>10%</span>
+                        </div>
+                        <div class="dis_price">
+                          <ins>27,000</ins>
+                          <span class="free">무료배송</span>
+                        </div>
+                      </a>
+                    </article>
+                    <article>
+                      <a href="#">
+                        <div class="thumb">
+                          <img src="https://via.placeholder.com/230x230" alt="t1">
+                        </div>
+                        <h2>상품명</h2>
+                        <p>간단한 상품 설명</p>
+                        <div class="org_price">
+                          <del>30,000</del>
+                          <span>10%</span>
+                        </div>
+                        <div class="dis_price">
+                          <ins>27,000</ins>
+                          <span class="free">무료배송</span>
+                        </div>
+                      </a>
+                    </article>
+                    <article>
+                      <a href="#">
+                        <div class="thumb">
+                          <img src="https://via.placeholder.com/230x230" alt="t1">
+                        </div>
+                        <h2>상품명</h2>
+                        <p>간단한 상품 설명</p>
+                        <div class="org_price">
+                          <del>30,000</del>
+                          <span>10%</span>
+                        </div>
+                        <div class="dis_price">
+                          <ins>27,000</ins>
+                          <span class="free">무료배송</span>
+                        </div>
+                      </a>
+                    </article>
+                    <article>
+                      <a href="#">
+                        <div class="thumb">
+                          <img src="https://via.placeholder.com/230x230" alt="t1">
+                        </div>
+                        <h2>상품명</h2>
+                        <p>간단한 상품 설명</p>
+                        <div class="org_price">
+                          <del>30,000</del>
+                          <span>10%</span>
+                        </div>
+                        <div class="dis_price">
+                          <ins>27,000</ins>
+                          <span class="free">무료배송</span>
+                        </div>
+                      </a>
+                    </article>
+                    <article>
+                      <a href="#">
+                        <div class="thumb">
+                          <img src="https://via.placeholder.com/230x230" alt="t1">
+                        </div>
+                        <h2>상품명</h2>
+                        <p>간단한 상품 설명</p>
+                        <div class="org_price">
+                          <del>30,000</del>
+                          <span>10%</span>
+                        </div>
+                        <div class="dis_price">
+                          <ins>27,000</ins>
+                          <span class="free">무료배송</span>
+                        </div>
+                      </a>
+                    </article>
+                    <article>
+                      <a href="#">
+                        <div class="thumb">
+                          <img src="https://via.placeholder.com/230x230" alt="t1">
+                        </div>
+                        <h2>상품명</h2>
+                        <p>간단한 상품 설명</p>
+                        <div class="org_price">
+                          <del>30,000</del>
+                          <span>10%</span>
+                        </div>
+                        <div class="dis_price">
+                          <ins>27,000</ins>
+                          <span class="free">무료배송</span>
+                        </div>
+                      </a>
+                    </article>
                   </section>
             </section>
         </main>
