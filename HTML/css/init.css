@@ -22,3 +22,33 @@ input, textarea {outline: none;}
     text-rendering: auto;
     line-height: 1;
 }
+
+
+
+/* product */
+#product > .list {}
+
+#product > section {
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+/* title, page nav */
+#product > section > nav {
+    width: 100%;
+    height: 36px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #000;
+    box-sizing: border-box;
+}
+#product > section > nav > h1 {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 1.5em;
+    padding: 0 0 7px;
+    line-height: 1em;
+}
+#product > section > nav > p {
+    float: right;
+    margin-top: 10px;
+}
