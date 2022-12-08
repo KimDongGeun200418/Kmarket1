@@ -1,0 +1,222 @@
+/* side bar */
+main > aside > .best {
+    width: 215px;
+    height: auto;
+    border: 1px solid #dbdbdb;
+    box-sizing: border-box;
+    box-shadow: 0 0 5px rgb(55 55 5 / 20%);
+}
+main > aside > .best > h1 {
+    font-size: 14px;
+    font-weight: bold;
+    color: #111;
+    margin: 6px;
+}
+main > aside > .best > h1 > i {
+    margin-right: 6px;
+    font-size: 18px;
+}
+main > aside > .best > ol {
+    width: 100%;
+}
+main > aside > .best > ol > li {
+    width: 100%;
+    height: 100%;
+    padding: 0 6px;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+}
+main > aside > .best > ol > li > a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+main > aside > .best > ol > li > a > .thumb {
+    float: left;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+main > aside > .best > ol > li:first-child > a > .thumb {
+    position: relative;
+    float: none;
+    width: 100%;
+    height: 100%;
+}
+main > aside > .best > ol > li:first-child > a > .thumb > i {
+    width: 35px;
+    height: 26px;
+}
+main > aside > .best > ol > li > a > .thumb > i {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: inline-block;
+    width: 16px;
+    height: 20px;
+    font-size: 14px;
+    padding: 0;
+    color: #ef3e42;
+    border-bottom: 1px solid #ef3e42;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+    line-height: 18px;
+}
+main > aside > .best > ol > li > a > .thumb > img {
+    width: 100%;
+}
+
+main > aside > .best > ol > li > a > article {
+    float: left;
+    width: 148px;
+    padding-left: 6px;
+    box-sizing: border-box;
+}
+
+main > aside > .best > ol > li > a h2 {
+    margin-top: 4px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+main > aside > .best > ol > li > a .org_price {}
+main > aside > .best > ol > li > a .org_price > del {
+    font-size: 10px;
+    color: #aaa;
+}
+main > aside > .best > ol > li > a .org_price > del::after {
+    content: "원";
+}
+main > aside > .best > ol > li > a .org_price > span {
+    font-size: 10px;
+    color: #eb000a;
+}
+main > aside > .best > ol > li > a .org_price > span::after {
+    content: "↓";
+}
+
+main > aside > .best > ol > li > a .dis_price {}
+main > aside > .best > ol > li > a .dis_price > ins {
+    font-size: 14px;
+    text-decoration: none;
+}
+main > aside > .best > ol > li > a .dis_price > ins::after {
+    content: "원";
+}
+
+
+/* main product */
+
+main > #main {
+    float: right;
+    width: 985px;
+    height: auto;
+    box-sizing: border-box;
+}
+
+/* slider */
+main > #main > .slider {
+    width: 100%;
+    height: 425px;
+    overflow: hidden;
+}
+main > #main > .slider > .bx-wrapper {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: none;
+    background: #fff;
+}
+
+
+main > #main > .hit {}
+main > #main > .recommend {}
+main > #main > .new {}
+main > #main > .discount {}
+
+main > #main > section > h3 > span {
+    display: inline-block;
+    margin: 10px;
+    border-bottom: 2px solid #111;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+main > #main > section > article {
+    float: left;
+    width: 25%;
+    height: 345px;
+}
+
+main > #main >section > article > a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+main > #main > section > article .thumb {
+    width: 100%;
+    height: 230px;
+    margin: 0 auto;
+    overflow: hidden;
+    text-align: center;
+}
+
+main > #main > section > article h2 {
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 4px;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+main > #main > section > article p {
+    color: #222;
+    font-size: 12px;
+    line-height: 16px;
+    margin: 4px 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+main > #main > section > article .org_price > del {
+    color: #aaa;
+}
+main > #main > section > article .org_price > del::after {
+    content: "원";
+}
+main > #main > section > article .org_price > span {
+    color: #eb000a;
+}
+main > #main > section > article .org_price > span::after {
+    content: "↓";
+}
+
+main > #main > section > article .dis_price {
+    margin-top: 4px;
+}
+main > #main > section > article .dis_price > ins {
+    font-size: 14px;
+    text-decoration: none;
+}
+main > #main > section > article .dis_price > ins::after {
+    content: "원";
+}
+main > #main > section > article .dis_price > .free {
+    display: inline-block;
+    font-size: 0;
+    vertical-align: text-bottom;
+    width: 55px;
+    height: 13px;
+    background: url("./img/ico_freeshipping.gif") no-repeat;
+}
