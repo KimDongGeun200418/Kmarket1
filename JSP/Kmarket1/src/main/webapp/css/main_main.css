@@ -218,5 +218,5 @@ main > #main > section > article .dis_price > .free {
     vertical-align: text-bottom;
     width: 55px;
     height: 13px;
-    background: url("./img/ico_freeshipping.gif") no-repeat;
+    background: url("/Kmarket1/img/ico_freeshipping.gif") no-repeat;
 }
