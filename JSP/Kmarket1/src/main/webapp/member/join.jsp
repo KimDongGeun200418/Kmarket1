@@ -1,5 +1,5 @@
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>케이마켓 로그인</title>
@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/member.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://kit.fontawesome.com/20962f3e4b.js" crossorigin="anonymous"></script>
@@ -36,45 +36,26 @@
             </div>
         </header>
         <main id="member">
-            <div class="register">
-                <nav>
-                    <h1>약관</h1>
-                </nav>
-                <section>
-                    <h3>
-                        <span class="essential">(필수)</span>케이마켓 이용약관
-                    </h3>
-                    <textarea class="terms" readonly></textarea>
-                    <label>
-                        <input type="checkbox" name="agree1">동의합니다.
-                    </label>                   
-                    <h3>
-                        <span class="essential">(필수)</span>전자금융거래약관 이용약관
-                    </h3>
-                    <textarea class="financial" readonly></textarea>
-                    <label>
-                        <input type="checkbox" name="agree2">동의합니다.
-                    </label>                   
-                    <h3>
-                        <span class="essential">(필수)</span>개인정보 수집동의
-                    </h3>
-                    <textarea class="privacy" readonly></textarea>
-                    <label>
-                        <input type="checkbox" name="agree3">동의합니다.
-                    </label>                   
-                </section>
-                <section>
-                    <h3>
-                        <span class="optional">(선택)</span>위치정보 이용약관
-                    </h3>
-                    <textarea class="location" readonly></textarea>
-                    <label>
-                        <input type="checkbox" name="agree4">동의합니다.
-                    </label>
-                </section>
-                    <div>
-                        <input type="button" class="agree" value="동의하기">
+            <div class="join">
+                <img src="../img/user/member_join_tit_welcome.gif" class="welcome" alt="케이마켓에 오신것을 환영합니다.">
+                <div class="type">
+                    <div class="normal">
+                        <img src="../img/user/member_join_tit_normal.gif" alt="구매회원 가입">
+                        <div class="txt">
+                            <img src="../img/user/member_join_txt_normal.gif" alt="개인 구매회원">
+                            <a href="./signup.html"><img src="../img/user/member_join_btn1.gif" alt="회원가입"></a>
+                        </div>
                     </div>
+                    <div class="seller">
+                        <img src="../img/user/member_join_tit_seller.gif" alt="판매회원 가입">
+                        <div class="txt">
+                            <img src="../img/user/member_join_txt_seller.gif" alt="판매회원">
+                            <a href=""><img src="../img/user/member_join_btn2.gif" alt="회원가입"></a>
+                        </div>
+                    </div>
+                </div>
+                <img src="../img/user/member_join_banner1.jpg" class="banner" alt="신규회원을 위한 기분 좋은 혜택">
+                <img src="../img/user/member_join_banner2.jpg" class="banner" alt="사업자회원을 위한 기분 좋은 혜택">
             </div>
         </main>
         <footer>

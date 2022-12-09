@@ -61,7 +61,7 @@
 
             <div class="logo">
                 <div>
-                    <a href="#">
+                    <a href="/Kmarket1/index.do">
                         <img src="/Kmarket1/img/header_logo.png" alt="로고">
                     </a>
                     <form action="#">
