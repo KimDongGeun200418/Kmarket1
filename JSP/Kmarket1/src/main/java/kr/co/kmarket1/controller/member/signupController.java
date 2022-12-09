@@ -1,4 +1,4 @@
-package kr.co.kmarket1.controller;
+package kr.co.kmarket1.controller.member;
 
 import java.io.IOException;
 
@@ -9,24 +9,30 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.co.kmarket1.dao.ArticleDAO;
+import kr.co.kmarket1.service.OtherService;
+import kr.co.kmarket1.vo.TermsVO;
 
-@WebServlet("/index.do")
-public class indexController extends HttpServlet{
+@WebServlet("/member/signup.do")
+public class signupController extends HttpServlet{
 	private static final long serialVersionUID = 1L;
+	OtherService otherService = OtherService.INSTANCE;
 	
 	@Override
 	public void init() throws ServletException {}
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/index.jsp");
+		String type = req.getParameter("type");
+		TermsVO terms = otherService.selectTerms(type);
+		req.setAttribute("terms", terms);
+		
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/member/signup.jsp");
 		dispatcher.forward(req, resp);
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	
+		
 	}
 	
 }
