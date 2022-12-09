@@ -6,9 +6,9 @@
             <div>
                 <p>
                 	홈<span>></span>
-                	<c:if test="${cate eq 'notice'}">공지사항</c:if>
-                	<c:if test="${cate eq 'faq'}">자주묻는 질문</c:if>
-                	<c:if test="${cate eq 'qna'}">문의사항</c:if>
+                	<c:if test="${group eq 'notice'}">공지사항</c:if>
+                	<c:if test="${group eq 'faq'}">자주묻는 질문</c:if>
+                	<c:if test="${group eq 'qna'}">문의사항</c:if>
                 </p>
             </div>
         </nav>
