@@ -18,7 +18,7 @@ public class ArticleDAO {
 	}
 	private ArticleDAO() {}
 	
-	public List<CsArticleVO> selectArticles(){
+	public List<CsArticleVO> selectArticles(String cate, int start){
 		
 		List<CsArticleVO> articles = new ArrayList<>();
 		
@@ -31,6 +31,7 @@ public class ArticleDAO {
 		}catch(Exception e) {
 			logger.error(e.getMessage());
 		}
+		return articles;
 	}
 	
 	

@@ -2,7 +2,6 @@ package kr.co.kmarket1.service;
 
 import java.util.List;
 
-import kr.co.farmstory2.vo.ArticleVO;
 import kr.co.kmarket1.dao.ArticleDAO;
 import kr.co.kmarket1.vo.CsArticleVO;
 
