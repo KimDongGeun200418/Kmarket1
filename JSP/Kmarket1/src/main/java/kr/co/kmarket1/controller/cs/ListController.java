@@ -1,7 +1,6 @@
 package kr.co.kmarket1.controller.cs;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,9 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.co.kmarket1.service.ArticleService;
-import kr.co.kmarket1.vo.CsArticleVO;
 
-@WebServlet("cs/list.do")
+@WebServlet("/cs/list.do")
 public class ListController extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
@@ -29,7 +27,7 @@ public class ListController extends HttpServlet{
 		String cate = req.getParameter("cate");
 		String pg = req.getParameter("pg");
 		
-		List<CsArticleVO> articles = service.selectArticles();
+		//List<CsArticleVO> articles = service.selectArticles();
 		
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/cs/"+cate+"/list.jsp");
