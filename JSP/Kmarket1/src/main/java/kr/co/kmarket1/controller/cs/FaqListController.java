@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import kr.co.kmarket1.service.ArticleService;
 import kr.co.kmarket1.vo.CsArticleVO;
 
-@WebServlet("/cs/list.do")
-public class ListController extends HttpServlet{
+@WebServlet("/cs/faq/list.do")
+public class FaqListController extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
 	private ArticleService service = ArticleService.INSTANCE;
@@ -29,17 +29,6 @@ public class ListController extends HttpServlet{
 		String group = req.getParameter("group");
 		String cate = req.getParameter("cate");
 		String cate2 = req.getParameter("cate2");
-		String pg = req.getParameter("pg");
-		
-		int currentpage = service.getCurrentPage(pg);//현재 페이지 번호
-		//int total = service.selectCountTotal();//전체 게시물 개수
-		//int lastPageNum = service.getLastPageNum(total);//마지막 페이지 번호
-		//int[] result = service.getPageGroupNum(currentPage, lastPageNum);//페이지 그룹 번호
-		//int pageStartNum = service.getPageStartNum(total, currentPage)//페이지 시작 번호
-		//int start = service.getStartNum(currentPage);//시작 인덱스		
-		
-		
-		
 	
 	}
 	
