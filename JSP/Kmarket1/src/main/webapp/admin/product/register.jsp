@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
-<jsp:include page="../_header.jsp"/>
+<jsp:include page="./_header.jsp"/>
 
         <main>
             <aside>
@@ -262,4 +262,4 @@
                 <!-- 상품등록 컨텐츠 끝 -->
             </section>
         </main>
-<jsp:include page="../_footer.jsp"/>
+<jsp:include page="./_footer.jsp"/>
