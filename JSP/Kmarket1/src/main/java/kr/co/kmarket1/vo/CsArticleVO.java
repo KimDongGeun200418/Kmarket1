@@ -1,33 +1,17 @@
 package kr.co.kmarket1.vo;
 
 public class CsArticleVO {
-	private int parent;
-	private int comment;
-	private String type;
 	private String title;
 	private String content;
 	private String uid;
 	private String regip;
 	private String rdate;
+	private String cate;
+	private String cate1;
+	private String cate2;
+	private String parent;
+	private String comment;
 	
-	public int getParent() {
-		return parent;
-	}
-	public void setParent(int parent) {
-		this.parent = parent;
-	}
-	public int getComment() {
-		return comment;
-	}
-	public void setComment(int comment) {
-		this.comment = comment;
-	}
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type = type;
-	}
 	public String getTitle() {
 		return title;
 	}
@@ -58,4 +42,35 @@ public class CsArticleVO {
 	public void setRdate(String rdate) {
 		this.rdate = rdate;
 	}
+	public String getCate() {
+		return cate;
+	}
+	public void setCate(String cate) {
+		this.cate = cate;
+	}
+	public String getCate1() {
+		return cate1;
+	}
+	public void setCate1(String cate1) {
+		this.cate1 = cate1;
+	}
+	public String getCate2() {
+		return cate2;
+	}
+	public void setCate2(String cate2) {
+		this.cate2 = cate2;
+	}
+	public String getParent() {
+		return parent;
+	}
+	public void setParent(String parent) {
+		this.parent = parent;
+	}
+	public String getComment() {
+		return comment;
+	}
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+	
 }
