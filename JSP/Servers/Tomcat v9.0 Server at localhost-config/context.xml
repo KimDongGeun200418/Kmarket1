@@ -32,7 +32,7 @@
     	auth="Container"
     	type="javax.sql.DataSource"
     	driverClassName="com.mysql.cj.jdbc.Driver"
-    	url="jdbc:mysql://127.0.0.1:3306/Kmarekt1"
+    	url="jdbc:mysql://43.201.35.110:3306/Kmarket1"
     	username="yoonsarang"
     	password="gateam6"
     	maxTotal="8"

@@ -64,7 +64,7 @@
                     <a href="/Kmarket1/index.do">
                         <img src="/Kmarket1/img/header_logo.png" alt="로고">
                     </a>
-                    <form action="#">
+                    <form action="/Kmarket1/index.do" method="POST">
                         <input type="text" name="serach">
                         <button>
                             <i class="fa fa-search" aria-hidden="true"> </i>
