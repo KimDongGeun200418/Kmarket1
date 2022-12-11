@@ -9,13 +9,10 @@
         easing: "linear",
       });
     });
-
     $(function () {
       var best = $("aside > .best");
-
       $(window).scroll(function () {
         var t = $(this).scrollTop();
-
         if (t > 620) {
           best.css({
             position: "fixed",

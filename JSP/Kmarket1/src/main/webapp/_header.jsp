@@ -23,8 +23,8 @@
         <header>
             <div class="top">
                 <div>
-                    <a href="#">로그인</a>
-                    <a href="#">회원가입</a>
+                    <a href="/Kmarket1/member/login.do">로그인</a>
+                    <a href="/Kmarket1/member/join.do">회원가입</a>
                     <a href="#">마이페이지</a>
                     <a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i> 장바구니</a>
                 </div>
@@ -35,4 +35,3 @@
                     <a href="/Kmarket1/index.do">
                         <img src="/Kmarket1/img/header_logo.png" alt="로고">
                     </a>
-                    

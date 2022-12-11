@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
-<form action="/Kmarket1/index.do" method="POST">
+			<form action="/Kmarket1/index.do" method="POST">
                 <input type="text" name="serach">
                 <button>
                     <i class="fa fa-search" aria-hidden="true"> </i>
