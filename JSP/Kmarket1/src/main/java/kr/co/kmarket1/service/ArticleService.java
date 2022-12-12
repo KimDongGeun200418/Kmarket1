@@ -10,8 +10,15 @@ public enum ArticleService {
 	INSTANCE;
 	private ArticleDAO dao = ArticleDAO.getInstance();
 	
-	public List<CsArticleVO> selectArticles(String cate, int start) {
-		return dao.selectArticles(cate, start);
+	
+	
+	public int getCurrentPage(String pg) {
+		int currentPage = 1;
+		
+		if(pg != null) {
+			currentPage = Integer.parseInt(pg);
+		}
+		return currentPage;
 	}
 	
 	
