@@ -6,30 +6,35 @@
 				<nav>
 					<h1>판매자 회원가입</h1>
 				</nav> 
-				<form action="#" method="POST">
+				<form action="/Kmarket1/member/registerSeller.do" method="POST">
+					<input type="hidden" name="type" value="${ type }"/>
+					<input type="hidden" name="provLocation" value="${ provLocation }"/>
 					<section>
-						<table>
-							<caption>필수 정보입력</caption>
-							<tr>
-								<th><span class="essential">*</span>아이디</th>
-								<td><input type="text" name="km_uid" placeholder="아이디를 입력" required /> 
-                                    <span class="msgSId">&nbsp;&nbsp;영문, 숫자로 4~12자까지 설정해 주세요.</span>
+                        <table>
+                            <caption>필수 정보입력</caption>
+                            <tr>
+                                <th><span class="essential">*</span>아이디</th>
+                                <td>
+                                    <input type="text" name="km_uid" placeholder="아이디 입력" required>
+                                    <span class="checkUid">영문, 숫자로 4~12자까지 설정해주세요.</span>
                                 </td>
-							</tr>
-							<tr>
-								<th><span class="essential">*</span>비밀번호</th>
-								<td><input type="password" name="km_pass" placeholder="비밀번호를 입력" required /> 
-                                    <span class="msgPass">&nbsp;&nbsp;영문, 숫자, 특수문자를 조합하여 8~12자까지 설정해 주세요.</span>
+                            </tr>
+                            <tr>
+                                <th><span class="essential">*</span>비밀번호</th>
+                                <td>
+                                    <input type="password" name="km_pass1" placeholder="비밀번호 입력" required>
+                                    <span class="checkPass1">영문, 숫자, 특수문자를 조합하여 8~12자까지 설정해주세요.</span>
                                 </td>
-							</tr>
-							<tr>
-								<th><span class="essential">*</span>비밀번호확인</th>
-								<td><input type="password" name="km_pass" placeholder="비밀번호를 확인" required /> 
-                                    <span class="msgPass">&nbsp;&nbsp;비밀번호 재입력</span>
+                            </tr>
+                            <tr>
+                                <th><span class="essential">*</span>비밀번호 확인</th>
+                                <td>
+                                    <input type="password" name="km_pass2" placeholder="비밀번호 확인" required>
+                                    <span class="checkPass2">비밀번호 재입력</span>
                                 </td>
-							</tr>
-						</table>
-					</section>
+                            </tr>
+                        </table>
+                    </section>
 					<section>
 						<table>
 							<caption>판매자 정보입력</caption>
@@ -98,12 +103,12 @@
 							<caption>담당자 정보입력</caption>
 							<tr>
 								<th><span class="essential">*</span>이름</th>
-								<td><input type="text" name="km_name" placeholder="이름을 입력" required /></td>
+								<td><input type="text" name="km_manager" placeholder="이름 입력" required /></td>
 							</tr>
 							<tr>
 								<th><span class="essential">*</span>휴대폰</th>
 								<td>
-                                    <input type="text" name="km_hp" maxlength="13" placeholder="휴대폰번호 입력" required /> 
+                                    <input type="text" name="km_managerHp" maxlength="13" placeholder="휴대폰번호 입력" required /> 
                                     <span class="msgHp">&nbsp;&nbsp;- 포함 13자리를 입력하세요.</span>
                                 </td>
 							</tr>

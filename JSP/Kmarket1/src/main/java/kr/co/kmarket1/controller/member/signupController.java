@@ -1,7 +1,6 @@
 package kr.co.kmarket1.controller.member;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.google.gson.JsonObject;
 
 import kr.co.kmarket1.service.OtherService;
 import kr.co.kmarket1.vo.TermsVO;
@@ -37,16 +35,20 @@ public class signupController extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		int type = Integer.parseInt(req.getParameter("type"));
-		boolean provLocation = Boolean.parseBoolean(req.getParameter("provLocation"));
-		String url = null;
-		if(type == 1 ) { url = "register.do"; }
-		else if(type == 2 ) { url = "registerSeller.do"; }
+		int provLocation = 0;
+		if(req.getParameter("agreeLocation") != null) {
+			provLocation = 1;
+		}
 		
-		//JSON 출력
-		JsonObject json = new JsonObject();
-		json.addProperty("url", url);
-		PrintWriter writer = resp.getWriter();
-		writer.print(json.toString());
+		String url = null;
+		if(type == 1 ) { url = "register.jsp"; }
+		else if(type == 2 ) { url = "registerSeller.jsp"; }
+		
+		req.setAttribute("type", type);
+		req.setAttribute("provLocation", provLocation);
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/member/"+url);
+		dispatcher.forward(req, resp);
+	
 	}
 	
 }
