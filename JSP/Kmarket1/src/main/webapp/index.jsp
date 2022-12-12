@@ -37,13 +37,13 @@
         <!-- cate -->
         <ul class="category">
             <li>
-                <i class="fa fa-bars" aria-hidden="true"></i>
-                카테고리
+                <i class="fa fa-bars" aria-hidden="true"></i>카테고리
             </li>
             <li>
-              <a href="#"><i class="fas fa-tshirt" aria-hidden="true"></i>
-                패션·의류·뷰티
-                <i class="fas fa-angle-right" aria-hidden="true"></i></a>
+              <a href="#">
+              	<i class="fas fa-tshirt" aria-hidden="true"></i>패션·의류·뷰티
+                <i class="fas fa-angle-right" aria-hidden="true"></i>
+              </a>
               <ol>
                 <li><a href="#">남성의류</a></li>
                 <li><a href="#">여성의류</a></li>
