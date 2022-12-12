@@ -11,7 +11,7 @@
                     <table border="0">
                         <tr>
                             <td>아이디</td>
-                            <td><input type="text" name="uid" placeholder="아이디 입력"></td>
+                            <td><input type="text" name="uid" value="${ uid }" placeholder="아이디 입력"></td>
                         </tr>
                         <tr>
                             <td>아이디</td>
@@ -25,7 +25,7 @@
                         </label>
                         <a href="#">아이디찾기</a>
                         <a href="#">비밀번호찾기</a>
-                        <a href="/Kmarket1/member/signup.do">회원가입</a>
+                        <a href="/Kmarket1/member/join.do">회원가입</a>
                     </span>
                     <a href="#" class="banner"><img src="/Kmarket1/member/img/member_login_banner.jpg" alt="1만원 할인 쿠폰 받기"></a>
                 </form>

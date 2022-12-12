@@ -6,29 +6,31 @@
                 <nav>
                     <h1>일반 회원가입</h1>
                 </nav>
-                <form action="#" method="post">
+                <form action="/Kmarket1/member/register.do" method="post">
+                	<input type="hidden" name="type" value="${ type }"/>
+                	<input type="hidden" name="provLocation" value="${ provLocation }"/>
                     <section>
                         <table>
                             <caption>필수 정보입력</caption>
                             <tr>
                                 <th><span class="essential">*</span>아이디</th>
                                 <td>
-                                    <input type="text" name="km_uid" placeholder="아이디를 입력" required>
-                                    <span class="msgId">영문, 숫자로 4~12자까지 설정해주세요.</span>
+                                    <input type="text" name="km_uid" placeholder="아이디 입력" required>
+                                    <span class="checkUid">영문, 숫자로 4~12자까지 설정해주세요.</span>
                                 </td>
                             </tr>
                             <tr>
                                 <th><span class="essential">*</span>비밀번호</th>
                                 <td>
-                                    <input type="password" name="km_pass" placeholder="비밀번호를 입력" required>
-                                    <span class="msgPass">영문, 숫자, 특수문자를 조합하여 8~12자까지 설정해주세요.</span>
+                                    <input type="password" name="km_pass1" placeholder="비밀번호 입력" required>
+                                    <span class="checkPass1">영문, 숫자, 특수문자를 조합하여 8~12자까지 설정해주세요.</span>
                                 </td>
                             </tr>
                             <tr>
                                 <th><span class="essential">*</span>비밀번호 확인</th>
                                 <td>
-                                    <input type="text" name="km_uid" placeholder="비밀번호를 확인" required>
-                                    <span class="msgId">비밀번호 재입력</span>
+                                    <input type="password" name="km_pass2" placeholder="비밀번호 확인" required>
+                                    <span class="checkPass2">비밀번호 재입력</span>
                                 </td>
                             </tr>
                         </table>
@@ -41,7 +43,7 @@
                                     <span class="essential">*</span>이름
                                 </th>
                                 <td>
-                                    <input type="text" name="km_name" placeholder="이름을 입력" required>
+                                    <input type="text" name="km_name" placeholder="이름 입력" required>
                                 </td>
                             </tr>
                             <tr>

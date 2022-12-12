@@ -30,16 +30,7 @@ $(function(){
 			return;
 		}
 		
-		$.ajax({
-			url: '/Kmarket1/member/signup.do',
-			method: 'POST',
-			data: {"provLocation": checkLocation, "type": type},
-			dataType: 'json',
-			success: function(data){
-				location.href="/Kmarket1/member/"+data.url;
-			}
-		});
-		
+		$('.formSignup').submit();
 		
 	});
 });

@@ -9,9 +9,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.co.kmarket1.service.MemberService;
+import kr.co.kmarket1.vo.MemberVO;
+
 @WebServlet("/member/register.do")
 public class registerController extends HttpServlet{
 	private static final long serialVersionUID = 1L;
+	MemberService memberService = MemberService.INSTANCE;
 
 	@Override
 	public void init() throws ServletException {}
@@ -24,6 +28,36 @@ public class registerController extends HttpServlet{
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String uid = req.getParameter("km_uid");
+		String pass = req.getParameter("km_pass1");
+		String name = req.getParameter("km_name");
+		String gender = req.getParameter("km_gender");
+		String email = req.getParameter("km_email");
+		String hp = req.getParameter("km_hp");
+		String type = req.getParameter("type");
+		String zip = req.getParameter("zip");
+		String addr1 = req.getParameter("addr1");
+		String addr2 = req.getParameter("addr2");
+		String provLocation = req.getParameter("provLocation");
+		
+		MemberVO member = new MemberVO();
+		member.setUid(uid);
+		member.setPass(pass);
+		member.setName(name);
+		member.setGender(gender);
+		member.setEmail(email);
+		member.setHp(hp);
+		member.setType(type);
+		member.setZip(zip);
+		member.setAddr1(addr1);
+		member.setAddr2(addr2);
+		member.setRegip(req.getRemoteAddr());
+		member.setProvLocation(provLocation);
+		
+		memberService.registerMemberId(member);
+		req.setAttribute("uid", member.getUid());
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/member/login.jsp");
+		dispatcher.forward(req, resp);
 		
 	}
 	

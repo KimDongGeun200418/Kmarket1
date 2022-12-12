@@ -15,4 +15,10 @@ public class Sql {
 	public static final String SELECT_COUNT_TOTAL_QNA = "SELECT COUNT(`title`) FROM `km_cs_qna` where `cate`=?";
 
 	public static final String SELECT_TERMS = "SELECT * FROM `km_member_terms`";
+
+	//Member
+	public static final String INSERT_MEMBER	= "INSERT INTO `km_member` SET"
+												+ "`uid`=?, `pass`=SHA2(?,256), `name`=?, `gender`=?,"
+												+ "`hp`=?, `email`=?, `type`=?, `zip`=?,"
+												+ "`addr1`=?, `addr2`=?, `regip`=?, `provLocation`=?, `rdate`=NOW()";
 }
