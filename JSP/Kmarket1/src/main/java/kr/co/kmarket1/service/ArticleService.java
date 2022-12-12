@@ -10,7 +10,51 @@ public enum ArticleService {
 	INSTANCE;
 	private ArticleDAO dao = ArticleDAO.getInstance();
 	
+	public int selectCountTotalNotice() {
+		return dao.selectCountTotalNotice();
+	}
+	public int selectCountTotalNoticeAll() {
+		return dao.selectCountTotalNotice();
+	}
 	
+	public List<CsArticleVO> selectArticlesNotice(String cate, int start) {
+		return dao.selectArticlesNotice(cate, start);
+	}
+	
+	public List<CsArticleVO> selectAllNotice(int start) {
+		return dao.selectAllNotice(start);
+	}
+	
+	public int getLastPageNum(int total) {
+		int lastPageNum = 0;
+		
+		if(total % 10 == 0) {
+			lastPageNum = total / 10;
+		}else {
+			lastPageNum = total / 10 + 1;
+		}
+		
+		return lastPageNum;
+	}
+	
+	public int[] getPageGroupNum(int currentPage, int lastPageNum) {
+		int currentPageGroup = (int)Math.ceil(currentPage / 10.0);
+		int pageGroupStart = (currentPageGroup -1) * 10 + 1;
+		int pageGroupEnd = currentPageGroup * 10;
+		
+		if(pageGroupEnd > lastPageNum) {
+			pageGroupEnd = lastPageNum;
+		}
+		
+		int[] result = {pageGroupStart, pageGroupEnd};
+		
+		return result;
+	}
+	
+	public int getPageStartNum(int total, int currentPage) {
+		int start = (currentPage - 1) * 10;
+		return total - start;
+	}
 	
 	public int getCurrentPage(String pg) {
 		int currentPage = 1;
@@ -21,5 +65,10 @@ public enum ArticleService {
 		return currentPage;
 	}
 	
+	public int getStartNum(int currentPage) {
+		return (currentPage - 1) * 10;
+	}
+	
+
 	
 }
