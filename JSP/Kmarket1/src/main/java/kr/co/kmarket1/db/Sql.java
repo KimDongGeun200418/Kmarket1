@@ -27,4 +27,12 @@ public class Sql {
 												+ "`addr1`=?, `addr2`=?, `regip`=?, `provLocation`=?, `rdate`=NOW()";
 	public static final String CHECK_UID		= "SELECT COUNT(`uid`) FROM `km_member` WHERE `uid`=?";
 
+	//Product
+	public static final String INSERT_PRODUCT	="INSERT INTO `km_product` SET"
+												+ "`cate1`=?, `cate2`=?, `prodName`=?, `descript`=?,"
+												+ "`company`=?, `price`=?, `discount`=?, `point`=?,"
+												+"`stock`=?, `delivery`=?, `status`=?, `duty`=?,"
+												+ "`receipt`=?, `bizType`=?, `origin`=?"
+												+ ",`seller`='test1', `thumb1`='1', `thumb2`='2', `thumb3`='3', `detail`='4', `ip`='5', `rdate`=NOW()";
+
 }

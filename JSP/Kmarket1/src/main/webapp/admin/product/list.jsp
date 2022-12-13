@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="./_header.jsp"/>
         <main>
             <aside>
@@ -60,7 +61,8 @@
                         HOME > 상품관리 > <strong>상품목록</strong>
                     </p>
                 </nav>
-                <!-- 상품목록 컨텐츠 시작 -->                                
+                <!-- 상품목록 컨텐츠 시작 -->           
+                           
                 <section>
                     <div>
                         <select name="search">
@@ -89,9 +91,9 @@
                         <tr>
                             <td><input type="checkbox" name="상품코드"/></td>
                             <td><img src="../img/sample_thumb.jpg" class="thumb"></td>
-                            <td>201603292</td>
-                            <td>FreeMovement BLUEFORCE</td>
-                            <td>36,000</td>
+                            <td>${ product.prodcode }</td>
+                           	<td>FreeMovement BLUEFORCE</td>
+                            <td>36,000</td>                       
                             <td>10</td>
                             <td>360</td>
                             <td>400</td>
