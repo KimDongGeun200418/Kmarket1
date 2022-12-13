@@ -13,9 +13,9 @@ import kr.co.kmarket1.service.MemberService;
 import kr.co.kmarket1.vo.MemberVO;
 
 @WebServlet("/member/register.do")
-public class registerController extends HttpServlet{
+public class RegisterController extends HttpServlet{
 	private static final long serialVersionUID = 1L;
-	MemberService memberService = MemberService.INSTANCE;
+	MemberService serviceMember = MemberService.INSTANCE;
 
 	@Override
 	public void init() throws ServletException {}
@@ -54,7 +54,7 @@ public class registerController extends HttpServlet{
 		member.setRegip(req.getRemoteAddr());
 		member.setProvLocation(provLocation);
 		
-		memberService.registerMemberId(member);
+		serviceMember.registerMemberId(member);
 		req.setAttribute("uid", member.getUid());
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/member/login.jsp");
 		dispatcher.forward(req, resp);

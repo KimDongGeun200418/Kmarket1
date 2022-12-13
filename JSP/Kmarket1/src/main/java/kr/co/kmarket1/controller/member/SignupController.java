@@ -14,9 +14,9 @@ import kr.co.kmarket1.service.OtherService;
 import kr.co.kmarket1.vo.TermsVO;
 
 @WebServlet("/member/signup.do")
-public class signupController extends HttpServlet{
+public class SignupController extends HttpServlet{
 	private static final long serialVersionUID = 1L;
-	OtherService otherService = OtherService.INSTANCE;
+	OtherService serviceOther = OtherService.INSTANCE;
 	
 	@Override
 	public void init() throws ServletException {}
@@ -24,7 +24,7 @@ public class signupController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String type = req.getParameter("type");
-		TermsVO terms = otherService.selectTerms(type);
+		TermsVO terms = serviceOther.selectTerms(type);
 		req.setAttribute("terms", terms);
 		req.setAttribute("type", type);
 		

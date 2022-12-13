@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/member/registerSeller.do")
-public class registerSellerController extends HttpServlet{
+@WebServlet("/member/join.do")
+public class JoinController extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 
 	@Override
@@ -18,7 +18,7 @@ public class registerSellerController extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/member/registerSeller.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/member/join.jsp");
 		dispatcher.forward(req, resp);
 	}
 	

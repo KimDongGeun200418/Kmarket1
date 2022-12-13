@@ -42,4 +42,22 @@ Logger logger = LoggerFactory.getLogger(this.getClass());
 			
 	};
 	
+	public int checkUid(String uid) {
+		int result = 0;
+		try {
+			logger.debug("checkUid Start...");
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.CHECK_UID);
+			psmt.setString(1, uid);
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				result = rs.getInt(1);
+			}
+			close();
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+		return result;
+	};
+	
 }
