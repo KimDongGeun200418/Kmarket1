@@ -63,7 +63,7 @@
                 </nav>
                 <!-- 상품등록 컨텐츠 시작 -->
                 <article>
-                    <form action="#">
+                    <form action="/Kmarket1/admin/product/register.do" method="POST">
 
                         <!-- 상품분류 -->
                         <section>
@@ -76,11 +76,11 @@
                                     <td>1차 분류</td>
                                     <td>
                                         <select name="category1">
-                                            <option value="cate0">1차 분류 선택</option>
-                                            <option value="cate11">패션·의류·뷰티</option>
-                                            <option value="cate12">가전·디지털</option>
-                                            <option value="cate13">식품·생필품</option>
-                                            <option value="cate14">홈·문구·취미</option>                                                
+                                            <option value="10">1차 분류 선택</option>
+                                            <option value="11">패션·의류·뷰티</option>
+                                            <option value="12">가전·디지털</option>
+                                            <option value="13">식품·생필품</option>
+                                            <option value="14">홈·문구·취미</option>                                                
                                         </select>
                                     </td>
                                 </tr>
@@ -88,11 +88,11 @@
                                     <td>2차 분류</td>
                                     <td>
                                         <select name="category2">
-                                            <option value="cate0">2차 분류 선택</option>
-                                            <option value="cate21">남성의류</option>
-                                            <option value="cate22">여성의류</option>
-                                            <option value="cate23">잡화</option>
-                                            <option value="cate24">뷰티</option>                                                
+                                            <option value="20">2차 분류 선택</option>
+                                            <option value="21">남성의류</option>
+                                            <option value="22">여성의류</option>
+                                            <option value="23">잡화</option>
+                                            <option value="24">뷰티</option>                                                
                                         </select>
                                     </td>
                                 </tr>
@@ -108,46 +108,46 @@
                             <table>
                                 <tr>
                                     <td>상품명</td>
-                                    <td><input type="text" name="#"/></td>
+                                    <td><input type="text" name="prodName"/></td>
                                 </tr>
                                 <tr>
                                     <td>기본설명</td>
                                     <td>
                                         <span>상품명 하단에 상품에 대한 추가적인 설명이 필요한 경우에 입력</span>
-                                        <input type="text" name="#"/>
+                                        <input type="text" name="descript"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>제조사</td>
-                                    <td><input type="text" name="#"/></td>
+                                    <td><input type="text" name="company"/></td>
                                 </tr>
                                 <tr>
                                     <td>판매가격</td>
-                                    <td><input type="text" name="#"/>원</td>
+                                    <td><input type="text" name="price"/>원</td>
                                 </tr>                                    
                                 <tr>
                                     <td>할인율</td>
                                     <td>
                                         <span>0을 입력하면 할인율 없음</span>
-                                        <input type="text" name="#"/>원
+                                        <input type="text" name="discount"/>원
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>포인트</td>
                                     <td>
                                         <span>0을 입력하면 포인트 없음</span>
-                                        <input type="text" name="#"/>점
+                                        <input type="text" name="point"/>점
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>재고수량</td>
-                                    <td><input type="text" name="#"/>개</td>
+                                    <td><input type="text" name="stock"/>개</td>
                                 </tr>
                                 <tr>
                                     <td>배송비</td>
                                     <td>
                                         <span>0을 입력하면 배송비 무료</span>
-                                        <input type="text" name="#"/>원
+                                        <input type="text" name="delivery"/>원
                                     </td>
                                 </tr>
                                 <tr>
@@ -181,23 +181,23 @@
                             <table>
                                 <tr>
                                     <td>상품상태</td>
-                                    <td><input type="text" name="" value="새상품"/></td>
+                                    <td><input type="text" name="status" value="새상품"/></td>
                                 </tr>
                                 <tr>
                                     <td>부가세 면세여부</td>
-                                    <td><input type="text" name="" value="과세상품"/></td>
+                                    <td><input type="text" name="duty" value="과세상품"/></td>
                                 </tr>
                                 <tr>
                                     <td>영수증발행</td>
-                                    <td><input type="text" name="" value="발행가능 - 신용카드 전표, 온라인 현금영수증"/></td>
+                                    <td><input type="text" name="receipt" value="발행가능 - 신용카드 전표, 온라인 현금영수증"/></td>
                                 </tr>
                                 <tr>
                                     <td>사업자구분</td>
-                                    <td><input type="text" name="" value="사업자 판매자"/></td>
+                                    <td><input type="text" name="bizType" value="사업자 판매자"/></td>
                                 </tr>                                
                                 <tr>
                                     <td>원산지</td>
-                                    <td><input type="text" name="" value="국내산"/></td>
+                                    <td><input type="text" name="origin" value="국내산"/></td>
                                 </tr>                                
                             </table>                                
                         </section>
