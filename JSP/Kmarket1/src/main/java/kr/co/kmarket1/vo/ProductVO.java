@@ -41,12 +41,22 @@ public class ProductVO {
 	public void setCate1(int cate1) {
 		this.cate1 = cate1;
 	}
+	
+	public void setCate1(String cate1) {
+		this.cate1 = Integer.parseInt(cate1);
+	}
+	
 	public int getCate2() {
 		return cate2;
 	}
 	public void setCate2(int cate2) {
 		this.cate2 = cate2;
 	}
+	
+	public void setCate2(String cate2) {
+		this.cate2 = Integer.parseInt(cate2);
+	}
+	
 	public String getProdName() {
 		return prodName;
 	}
@@ -77,23 +87,39 @@ public class ProductVO {
 	public void setPrice(int price) {
 		this.price = price;
 	}
+	public void setPrice(String price) {
+		this.price = Integer.parseInt(price);
+	}
 	public int getDiscount() {
 		return discount;
 	}
 	public void setDiscount(int discount) {
 		this.discount = discount;
 	}
+	
+	public void setDiscount(String discount) {
+		this.discount = Integer.parseInt(discount);
+	}
+	
 	public int getPoint() {
 		return point;
 	}
 	public void setPoint(int point) {
 		this.point = point;
 	}
+	
+	public void setPoint(String point) {
+		this.point = Integer.parseInt(point);
+	}
 	public int getStock() {
 		return stock;
 	}
 	public void setStock(int stock) {
 		this.stock = stock;
+	}
+	
+	public void setStock(String stock) {
+		this.stock = Integer.parseInt(stock);
 	}
 	public int getSold() {
 		return sold;
@@ -107,6 +133,11 @@ public class ProductVO {
 	public void setDelivery(int delivery) {
 		this.delivery = delivery;
 	}
+	
+	public void setDelivery(String delivery) {
+		this.delivery = Integer.parseInt(delivery);
+	}
+	
 	public int getHit() {
 		return hit;
 	}
