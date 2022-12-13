@@ -1,6 +1,7 @@
 package kr.co.kmarket1.vo;
 
 public class CsArticleVO {
+	private String no;
 	private String title;
 	private String content;
 	private String uid;
@@ -12,6 +13,12 @@ public class CsArticleVO {
 	private String parent;
 	private String comment;
 	
+	public String getNo() {
+		return no;
+	}
+	public void setNo(String no) {
+		this.no = no;
+	}
 	public String getTitle() {
 		return title;
 	}

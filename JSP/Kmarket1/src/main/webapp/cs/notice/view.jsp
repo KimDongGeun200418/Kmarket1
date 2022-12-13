@@ -11,43 +11,20 @@
             <aside>
                 <h2>공지사항</h2>
                 <ul>
-                    <li class="on">
-                        <a href="#">전체</a>
-                    </li>
-                    <li>
-                        <a href="#">고객서비스</a>
-                    </li>
-                    <li>
-                        <a href="#">안전거래</a>
-                    </li>
-                    <li>
-                        <a href="#">위해상품</a>
-                    </li>
-                    <li>
-                        <a href="#">이벤트당첨</a>
-                    </li>
+                    <li class="${cate == null ? 'on':'off' }"><a href="/Kmarket1/cs/notice/list.do?group=notice">전체</a></li>
+                    <li class="${cate eq 'service' ? 'on':'off' }"><a href="/Kmarket1/cs/notice/list.do?group=notice&cate=service">고객서비스</a></li>
+                    <li class="${cate eq 'safety' ? 'on':'off' }"><a href="/Kmarket1/cs/notice/list.do?group=notice&cate=safety">안전거래</a></li>
+                    <li class="${cate eq 'product' ? 'on':'off' }"><a href="/Kmarket1/cs/notice/list.do?group=notice&cate=product">위해상품</a></li>
+                    <li class="${cate eq 'event' ? 'on':'off' }"><a href="/Kmarket1/cs/notice/list.do?group=notice&cate=event">이벤트당첨</a></li>
                 </ul>
             </aside>
             <article>
                 <nav>
-                    <h2 class="title">[안내] 해외결제 사칭 문자 주의</h2>
-                    <span class="date">2022.11.20</span>
+                    <h2 class="title">${article.title}</h2>
+                    <span class="date">${article.rdate.substring(0, 10)}</span>
                 </nav>
-                <div class="content">
-                    <p>
-                        안녕하세요. K마켓입니다.<br>
-                        K마켓 해외직구를 사칭하는 피싱 문자가 최근 다시 신고되고 있어 주의 안내드립니다.<br>
-                        아래와 같이 K마켓 해외직구 승인결제 피싱 문자 또는 발신번호 006, 002 등으로 시작하는 피싱문자를
-                        수신하신 고객님께서는 통화 또는 문자 내 기재된 번호/링크 등을 클릭하지 않도록 주의하여 주시기 바랍니다.<br><br>
-                    </p>
-                    <p>
-                        ※피싱 관련 피해신고<br><br>
-                        ▶ 경찰청 사이버수사국 (국번없이)182 : http://cyberbureau.police.go.kr<br>
-                        ▶ KISA 인터넷침해대응센터 (국번없이)118 : http://www.krcert.or.kr<br>
-                        감사합니다.<br>
-                    </p>
-                </div>
-                <a href="./list.html" class="btnList">목록보기</a>
+                <div class="content">${article.content}</div>
+                <a href="/Kmarket1/cs/notice/list.do?group=notice&cate=${cate}&pg=${pg}" class="btnList">목록보기</a>
             </article>
         </section>
     </div>

@@ -1,7 +1,6 @@
 package kr.co.kmarket1.controller.cs;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import kr.co.kmarket1.service.ArticleService;
 import kr.co.kmarket1.vo.CsArticleVO;
 
-@WebServlet("/cs/qna/list.do")
-public class QnaListController extends HttpServlet{
+@WebServlet("/cs/notice/view.do")
+public class NoticeViewController extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
 	private ArticleService service = ArticleService.INSTANCE;
@@ -25,15 +24,21 @@ public class QnaListController extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	
+		
 		String group = req.getParameter("group");
 		String cate = req.getParameter("cate");
-		String cate2 = req.getParameter("cate2");
 		String pg = req.getParameter("pg");
+		String no = req.getParameter("no");
 		
+		CsArticleVO article = service.selectArticleNotice(no);
+	
+		req.setAttribute("group", group);
+		req.setAttribute("cate", cate);
+		req.setAttribute("pg", pg);
+		req.setAttribute("article", article);
 		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/Kmarket1/cs/qna/list.jsp");
-		dispatcher.forward(req, resp);	
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/cs/notice/view.jsp");
+		dispatcher.forward(req, resp);
 	}
 	
 	@Override

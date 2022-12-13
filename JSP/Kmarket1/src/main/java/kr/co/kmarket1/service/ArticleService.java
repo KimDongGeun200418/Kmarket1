@@ -10,19 +10,23 @@ public enum ArticleService {
 	INSTANCE;
 	private ArticleDAO dao = ArticleDAO.getInstance();
 	
-	public int selectCountTotalNotice() {
-		return dao.selectCountTotalNotice();
+	public int selectCountNotice(String cate) {
+		return dao.selectCountNotice(cate);
 	}
-	public int selectCountTotalNoticeAll() {
-		return dao.selectCountTotalNotice();
+	public int selectCountNoticeAll() {
+		return dao.selectCountNoticeAll();
 	}
 	
-	public List<CsArticleVO> selectArticlesNotice(String cate, int start) {
-		return dao.selectArticlesNotice(cate, start);
+	public List<CsArticleVO> selectNotice(String cate, int start) {
+		return dao.selectNotice(cate, start);
 	}
 	
 	public List<CsArticleVO> selectAllNotice(int start) {
 		return dao.selectAllNotice(start);
+	}
+	
+	public CsArticleVO selectArticleNotice(String no) {
+		return dao.selectArticleNotice(no);
 	}
 	
 	public int getLastPageNum(int total) {

@@ -26,7 +26,7 @@
             <div class="logo">
                 <div>
                     <a href="#">
-                        <img src="./img/logo.png" alt="로고">고객센터
+                        <img src="/Kmarket1/img/header_logo.png" alt="로고">고객센터
                     </a>
                 </div>
             </div>
