@@ -37,4 +37,5 @@ public class Sql {
 												+ "`receipt`=?, `bizType`=?, `origin`=?"
 												+ ",`seller`='test1', `thumb1`='1', `thumb2`='2', `thumb3`='3', `detail`='4', `ip`='5', `rdate`=NOW()";
 
+	public static final String SELECT_PRODUCTS ="SELECT * FROM `km_product`";
 }
