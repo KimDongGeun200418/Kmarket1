@@ -1,13 +1,25 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <jsp:include page="../_header.jsp"/>
 	</dib></dib></header>
+<%
+	String success = request.getParameter("success");
+	String uid = request.getParameter("uid");
+%>
+<script>
+	let success = <%= success %>
+	if (success == '100'){
+		alert('아이디/비밀번호가 틀렸습니다.');
+	} else if(success == '201'){
+		alert('로그아웃 되었습니다.');
+	}
+</script>
         <main id="member">
             <div class="login">
                 <nav>
                     <h1>로그인</h1>
                     <p>HOME > <strong>로그인</strong></p>
                 </nav>
-                <form action="#">
+                <form action="/Kmarket1/member/login.do" method="POST">
                     <table border="0">
                         <tr>
                             <td>아이디</td>

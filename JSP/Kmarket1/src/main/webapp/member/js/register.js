@@ -19,6 +19,7 @@ let checkHp = false;
 let checkCeo = false;
 let checkTel = false;
 let checkFax = false;
+let checkManager = false;
 
 
 //이메일
@@ -114,6 +115,22 @@ $(function(){
 	/*****************
 		판매자 정보 입력
 	****************/
+	//name
+	$('input[name=kms_name]').focusout(function(){
+		checkName = false;
+		let name = $('input[name=kms_name]').val();
+		
+		if(name.match(regName)){
+			$('.nameResult').css('color','green').text('');
+			checkName = true;
+		}else{
+			$('.nameResult').css('color','red').text('한글, 영문으로 2~18자까지 입력 가능합니다.');
+		}
+	});
+	$('input[name=kms_name]').keydown(function(){
+		checkName = false;
+	});
+	
 	//company
 	$('input[name=kms_company]').focusout(function(){
 		checkCompany = false;
@@ -137,7 +154,7 @@ $(function(){
 		
 		if(ceo.match(regName)){
 			$('.ceoResult').css('color','green').text('');
-			checkName = true;
+			checkCeo = true;
 		}else{
 			$('.ceoResult').css('color','red').text(' - 한글, 영문으로 2~18자까지 입력 가능합니다.');
 		}
@@ -153,7 +170,7 @@ $(function(){
 		
 		if(corpReg.match(regCorpReg)){
 			$('.corpRegResult').css('color','green').text('');
-			checkName = true;
+			checkCorpReg = true;
 		}else{
 			$('.corpRegResult').css('color','red').text(' - 표시 포함 12자리 입력, 예) 123-45-67890');
 		}
@@ -196,18 +213,18 @@ $(function(){
 	
 	//manager
 	$('input[name=kms_manager]').focusout(function(){
-		checkName = false;
+		checkManager = false;
 		let manager = $('input[name=kms_manager]').val();
 		
 		if(manager.match(regName)){
 			$('.managerResult').css('color','green').text('');
-			checkName = true;
+			checkManager = true;
 		}else{
 			$('.managerResult').css('color','red').text('한글, 영문으로 2~18자까지 입력 가능합니다.');
 		}
 	});
 	$('input[name=kms_manager]').keydown(function(){
-		checkName = false;
+		checkManager = false;
 	});
 	
 	//managerHp
@@ -306,6 +323,68 @@ $(function(){
 			alert('휴대폰을 확인 하십시오.');
 			return false;
 		}
+		//최종 전송
+		return true;
+	});
+	
+	$('.registerSeller > form').submit(function(){
+		//폼데이터 유효성 검증(Validation)
+		//아이디 검증
+		if(!checkUid){
+			alert('아이디를 확인 하십시오.');
+			return false;
+		}
+		//비밀번호 검증
+		if(!checkPass){
+			alert('비밀번호를 확인 하십시오.');
+			return false;
+		}
+		//이름 검증
+		if(!checkName){
+			alert('이름을 확인 하십시오.');
+			return false;
+		}
+		//회사 검증
+		if(!checkCompany){
+			alert('회사명을 확인 하십시오.');
+			return false;
+		}
+		//대표자 검증
+		if(!checkCeo){
+			alert('대표자란을 확인 하십시오.');
+			return false;
+		}
+		//사업자번호 검증
+		if(!checkCorpReg){
+			alert('사업자번호를 확인 하십시오.');
+			return false;
+		}
+		//전화번호 검증
+		if(!checkTel){
+			alert('전화번호를 확인 하십시오.');
+			return false;
+		}
+		//팩스번호 검증
+		if(!checkFax){
+			alert('팩스번호를 확인 하십시오.');
+			return false;
+		}
+		//이메일 검증
+		if(!checkEmail){
+			alert('이메일을 확인 하십시오.');
+			return false;
+		}
+		//대표자 검증
+		if(!checkManager){
+			alert('담당자를 확인 하십시오.');
+			return false;
+		}
+		//대표자 검증
+		if(!checkHp){
+			alert('담당자번호를 확인 하십시오.');
+			return false;
+		}
+		
 		//최종 전송
 		return true;
 	});
