@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <jsp:include page="../_header.jsp"/>
 <section id="cs">
     <div class="qna">
@@ -11,42 +13,32 @@
             <aside>
                 <h2>문의하기</h2>
                 <ul>
-                    <li class="on">
-                        <a href="#">회원</a>
-                    </li>
-                    <li>
-                        <a href="#">쿠폰/이벤트</a>
-                    </li>
-                    <li>
-                        <a href="#">주문/결제</a>
-                    </li>
-                    <li>
-                        <a href="#">배송</a>
-                    </li>
-                    <li>
-                        <a href="#">취소/반품/교환</a>
-                    </li>
-                    <li>
-                        <a href="#">여행/숙박/항공</a>
-                    </li>
-                    <li>
-                        <a href="#">안전거래</a>
-                    </li>
+                    <li class="${cate eq 'member' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=member">회원</a></li>
+                    <li class="${cate eq 'coupon' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=coupon">쿠폰/이벤트</a></li>
+                    <li class="${cate eq 'order' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=order">주문/결제</a></li>
+                    <li class="${cate eq 'delivery' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=delivery">배송</a></li>
+                    <li class="${cate eq 'cancel' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=cancel">취소/반폼/교환</a></li>
+                    <li class="${cate eq 'trip' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=trip">여행/숙박/항공</a></li>
+                    <li class="${cate eq 'safety' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=safety">안전거래</a></li>
                 </ul>
             </aside>
             <article>
                 <nav>
-                    <h2 class="title">[가입] 가입 문의내용</h2>
+                   	<c:if test="${article.cate2 eq 'a'}"><h2 class="title">[탈퇴]${article.title}</h2></c:if>
+                   	<c:if test="${article.cate2 eq 'b'}"><h2 class="title">[회원정보]${article.title}</h2></c:if>
+                   	<c:if test="${article.cate2 eq 'c'}"><h2 class="title">[로그인]${article.title}</h2></c:if>
                     <p>
-                        <span>chh**</span>
-                        <span>2022-11-21</span>
+                        <span>
+                        	${fn:substring(article.uid,0,3)}
+                        	<c:forEach begin="4" end="${fn:length(article.uid) }" step="1">
+                        	*
+                        	</c:forEach>
+                        </span>
+                        <span>${article.rdate.substring(0, 10)}</span>
                     </p>
                 </nav>
                 <div class="content">
-                    <p>
-                        개인회원에서 법인회원(사업자 회원)으로 전환은 불가하므로 
-                        법인회원(사업자 회원) 전환은 신규 가입으로 진행을 해야합니다.   
-                    </p>
+                    <p>${article.content}</p>
                     <p>
                         ※피싱 관련 피해신고<br><br>
                         ▶ 경찰청 사이버수사국 (국번없이)182 : http://cyberbureau.police.go.kr<br>
@@ -54,7 +46,12 @@
                         감사합니다.<br>
                     </p>
                 </div>
-                <a href="./list.html" class="btnList">목록보기</a>
+                <!-- 답변 -->
+                <div class="comment">
+                	<h2>[답변]${article.title}</h2>
+                	<p class="content">답변내용</p>
+                </div>
+                <a href="/Kmarket1/cs/qna/list.do?group=qna&cate=${cate}&pg=${pg}" class="btnList">목록보기</a>
             </article>
         </section>
     </div>
