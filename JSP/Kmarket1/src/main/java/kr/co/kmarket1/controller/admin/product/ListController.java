@@ -27,9 +27,9 @@ public class ListController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
-	//	List<ProductVO> products = service.selectProducts();
-	//	req.setAttribute("products",products);
-		
+		List<ProductVO> products = service.selectProducts();
+		req.setAttribute("products", products);
+	
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/admin/product/list.jsp");
 		dispatcher.forward(req, resp);
 	}
@@ -37,8 +37,7 @@ public class ListController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
-	
-	
+		
 	
 	
 	}
