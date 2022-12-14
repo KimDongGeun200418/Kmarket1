@@ -100,8 +100,8 @@
                             <td>${ product.seller }</td>
                             <td>${product.hit }</td>
                             <td>               
-                                <a href="#">[삭제]</a>
-                                <a href="#">[수정]</a>
+                                <a href="/Kmarket1/admin/product/delete.do?no=${ product.no }" class="btn btnRemove">[삭제]</a>
+                                <a href="/Kmarket1/admin/product/modify.do?no=${ product.no }" class="btn btnModify"">[수정]</a>
                             </td>
                         </tr>
                         </c:forEach>
