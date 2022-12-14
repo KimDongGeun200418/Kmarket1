@@ -27,8 +27,15 @@ public class Sql {
 												+ "`uid`=?, `pass`=SHA2(?,256), `name`=?, `gender`=?,"
 												+ "`hp`=?, `email`=?, `type`=?, `zip`=?,"
 												+ "`addr1`=?, `addr2`=?, `regip`=?, `provLocation`=?, `rdate`=NOW()";
+	public static final String INSERT_SELLER	= "INSERT INTO `km_member` SET"
+												+ "`uid`=?, `pass`=SHA2(?,256), `email`=?, `type`=?,"
+												+ "`zip`=?, `addr1`=?, `addr2`=?, `regip`=?,"
+												+ "`provLocation`=?, `company`=?, `ceo`=?, `rdate`=NOW(),"
+												+ "`bizRegNum`=?, `comRegNum`=?, `tel`=?, `fax`=?, `name`=?, `gender`=?";
 	public static final String CHECK_UID		= "SELECT COUNT(`uid`) FROM `km_member` WHERE `uid`=?";
 
+	public static final String CHECK_MEMBER_FOR_LOGIN = "select * from `km_member` where `uid`=? and `pass`=SHA2(?,256)";
+	
 	//Product
 	public static final String INSERT_PRODUCT	="INSERT INTO `km_product` SET"
 												+ "`cate1`=?, `cate2`=?, `prodName`=?, `descript`=?,"

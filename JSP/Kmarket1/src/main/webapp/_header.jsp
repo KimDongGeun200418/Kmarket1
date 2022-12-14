@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,8 +29,19 @@
         <header>
             <div class="top">
                 <div>
-                    <a href="/Kmarket1/member/login.do">로그인</a>
-                    <a href="/Kmarket1/member/join.do">회원가입</a>
+                	<c:choose>
+                		<c:when test="${ loginUser == null }">
+                		<a href="/Kmarket1/member/login.do">로그인</a>
+                    	<a href="/Kmarket1/member/join.do">회원가입</a>
+                		</c:when>
+                		<c:otherwise>
+                		<span class="nick">${ loginUser.name }</span>님 반갑습니다.
+	                	<a href="/Kmarket1/member/logout.do" class="logout">[로그아웃]</a>
+                			<c:if test="${ loginUser.type == 2 }">
+                			<a href="/Kmarket1/admin/index.do" class="admin">[관리자]</a>
+                			</c:if>
+                		</c:otherwise>
+                	</c:choose>
                     <a href="#">마이페이지</a>
                     <a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i> 장바구니</a>
                 </div>

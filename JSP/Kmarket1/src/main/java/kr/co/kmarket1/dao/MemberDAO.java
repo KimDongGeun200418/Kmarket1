@@ -42,6 +42,38 @@ Logger logger = LoggerFactory.getLogger(this.getClass());
 			
 	};
 	
+	public void insertSeller(MemberVO member) {
+		
+		try {
+			logger.debug("insertSeller Start...");
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.INSERT_SELLER);
+			psmt.setString(1, member.getUid());
+			psmt.setString(2, member.getPass());
+			psmt.setString(3, member.getEmail());
+			psmt.setInt(4, member.getType());
+			psmt.setString(5, member.getZip());
+			psmt.setString(6, member.getAddr1());
+			psmt.setString(7, member.getAddr2());
+			psmt.setString(8, member.getRegip());
+			psmt.setInt(9, member.getProvLocation());
+			psmt.setString(10, member.getCompany());
+			psmt.setString(11, member.getCeo());
+			psmt.setString(12, member.getBizRegNum());
+			psmt.setString(13, member.getComRegNum());
+			psmt.setString(14, member.getTel());
+			psmt.setString(15, member.getFax());
+			psmt.setString(16, member.getName());
+			psmt.setInt(17, member.getGender());
+			psmt.executeUpdate();
+			
+			close();
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+			
+	};
+	
 	public int checkUid(String uid) {
 		int result = 0;
 		try {
@@ -59,5 +91,48 @@ Logger logger = LoggerFactory.getLogger(this.getClass());
 		}
 		return result;
 	};
+	
+	public MemberVO selectMemberForLogin(String uid, String pass) {
+		MemberVO member = null;
+		try {
+			logger.debug("selectUserForLogin Start...");
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.CHECK_MEMBER_FOR_LOGIN);
+			psmt.setString(1, uid);
+			psmt.setString(2, pass);
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				member = new MemberVO();
+				member.setUid(rs.getString(1));
+				member.setPass(rs.getString(2));
+				member.setName(rs.getString(3));
+				member.setGender(rs.getInt(4));
+				member.setHp(rs.getString(5));
+				member.setEmail(rs.getString(6));
+				member.setType(rs.getInt(7));
+				member.setPoint(rs.getInt(8));
+				member.setLevel(rs.getInt(9));
+				member.setZip(rs.getString(10));
+				member.setAddr1(rs.getString(11));
+				member.setAddr2(rs.getString(12));
+				member.setCompany(rs.getString(13));
+				member.setCeo(rs.getString(14));
+				member.setBizRegNum(rs.getString(15));
+				member.setComRegNum(rs.getString(16));
+				member.setTel(rs.getString(17));
+				member.setManager(rs.getString(18));
+				member.setManagerHp(rs.getString(19));
+				member.setFax(rs.getString(20));
+				member.setRegip(rs.getString(21));
+				member.setWdate(rs.getString(22));
+				member.setRdate(rs.getString(23));
+				member.setProvLocation(rs.getString(24));
+			}
+			close();
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+		return member;
+	}
 	
 }

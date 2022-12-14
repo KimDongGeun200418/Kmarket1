@@ -12,10 +12,17 @@ public enum MemberService {
 	public void registerMemberId(MemberVO member){
 		dao.insertMember(member);
 	}
+	public void registerSellerId(MemberVO member){
+		dao.insertSeller(member);
+	}
 	
 	public String checkUid(String uid) {
 		JsonObject json = new JsonObject();
 		json.addProperty("result", dao.checkUid(uid));
 		return json.toString();
+	}
+	
+	public MemberVO login(String uid, String pass) {
+		return dao.selectMemberForLogin(uid, pass);
 	}
 }

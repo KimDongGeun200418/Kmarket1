@@ -18,7 +18,7 @@
                             <tr>
                                 <th><span class="essential">*</span>아이디</th>
                                 <td>
-                                    <input type="text" name="km_uid" placeholder="아이디 입력" required>
+                                    <input type="text" name="km_uid" placeholder="아이디 입력" >
                                     <button type="button" class="btnCheck" id="btnCheckUid">중복확인</button>
                                     <span class="uidResult">영문, 숫자로 4~12자까지 설정해주세요.</span>
                                 </td>
@@ -26,14 +26,14 @@
                             <tr>
                                 <th><span class="essential">*</span>비밀번호</th>
                                 <td>
-                                    <input type="password" name="km_pass1" class="checkPass" placeholder="비밀번호 입력" required>
+                                    <input type="password" name="km_pass1" class="checkPass" placeholder="비밀번호 입력" >
                                     <span class="passResult">영문, 숫자, 특수문자를 조합하여 8~12자까지 설정해주세요.</span>
                                 </td>
                             </tr>
                             <tr>
                                 <th><span class="essential">*</span>비밀번호 확인</th>
                                 <td>
-                                    <input type="password" name="km_pass2" class="checkPass" placeholder="비밀번호 확인" required>
+                                    <input type="password" name="km_pass2" class="checkPass" placeholder="비밀번호 확인" >
                                 </td>
                             </tr>
                         </table>
@@ -46,7 +46,7 @@
                                     <span class="essential">*</span>이름
                                 </th>
                                 <td>
-                                    <input type="text" name="km_name" placeholder="이름 입력" required>
+                                    <input type="text" name="km_name" placeholder="이름 입력" >
                                     <span class="nameResult"></span>
                                 </td>
                             </tr>
@@ -69,7 +69,7 @@
                                 </th>
                                 <td>
                                 	<div class="mailFirst">
-	                                    <input type="email" name="km_email" placeholder="이메일 입력" required>
+	                                    <input type="email" name="km_email" placeholder="이메일 입력" >
 	                                    <button type="button" class="btnCheck" id="btnSendEmail">메일인증</button>
                                     </div>
                                     <div class="mailSecond" style="display:none;">
@@ -84,7 +84,7 @@
                                     <span class="essential">*</span>휴대폰
                                 </th>
                                 <td>
-                                    <input type="text" name="km_hp" maxlength="13" placeholder="휴대폰번호 입력" required>
+                                    <input type="text" name="km_hp" maxlength="13" placeholder="휴대폰번호 입력" >
                                     <span class="hpResult">- 포함 13자리를 입력하세요.</span>
                                 </td>
                             </tr>
