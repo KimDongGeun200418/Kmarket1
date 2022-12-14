@@ -1,25 +1,27 @@
 package kr.co.kmarket1.db;
 
 public class Sql {
-	
+	//Cs
 	public static final String SELECT_NOTICE = "SELECT `no`,`title`, `rdate` from `km_cs_notice` WHERE `cate`= ? "
-														+"ORDER BY `rdate` DESC "
-														+"LIMIT ?, 10";
+											+"ORDER BY `no` DESC "
+											+"LIMIT ?, 10";
 	public static final String SELECT_ALL_NOTICE = "SELECT `no`,`title`, `rdate` from `km_cs_notice` "
-												+"ORDER BY `rdate` DESC "
+												+"ORDER BY `no` DESC "
 												+"LIMIT ?, 10";
 	public static final String SELECT_ARTICLE_NOTICE = "SELECT `title`,`rdate`,`content` FROM `km_cs_notice` WHERE `no`= ?";
+	public static final String SELECT_COUNT_NOTICE_ALL = "SELECT COUNT(`no`) FROM `km_cs_notice`";
+	public static final String SELECT_COUNT_NOTICE = "SELECT COUNT(`no`) FROM `km_cs_notice` where `cate`=?";
+
+	public static final String SELECT_QNA = "SELECT `no`, `cate2`, `title`, `uid`, `rdate` from `km_cs_qna` WHERE `cate`= ? "
+											+"ORDER BY `no` DESC "
+											+"LIMIT ?, 10";
+	public static final String SELECT_COUNT_QNA = "SELECT COUNT(`no`) FROM `km_cs_qna` where `cate`=?";
+	public static final String SELECT_ARTICLE_QNA = "SELECT `cate2`, `title`, `uid`, `rdate`,`content` FROM `km_cs_qna` WHERE `no`= ?";							
+	public static final String SELECT_MAX_NO = "select max(`no`) from `km_cs_qna`";
 	
-	public static final String SELECT_ARTICLES_FAQ = "SELECT `title` from `km_cs_faq` WHERE `cate`= ? and `cate2`=? "
-													+"ORDER BY `rdate` DESC";	
-	public static final String SELECT_ARTICLES_QNA = "SELECT `title`,`uid`,`rdate` from `km_cs_qna`	WHERE `cate`= ? and `cate2`=? "
-													+"ORDER BY `rdate` DESC "
-													+"LIMIT ?, 10";
-
-	public static final String SELECT_COUNT_NOTICE_ALL = "SELECT COUNT(`title`) FROM `km_cs_notice`";
-	public static final String SELECT_COUNT_NOTICE = "SELECT COUNT(`title`) FROM `km_cs_notice` where `cate`=?";
-	public static final String SELECT_COUNT_QNA = "SELECT COUNT(`title`) FROM `km_cs_qna` where `cate`=?";
-
+	public static final String INSERT_ARTICLE = "INSERT INTo `km_cs_qna` SET `title`=?,`cate2`=?, `content`=?, `uid`=?, `regip`=?";
+	public static final String SELECT_CATE2_QNA = "SELECT `cate`, `cate2` FROM `km_cs_qna`";
+	
 	public static final String SELECT_TERMS = "SELECT * FROM `km_member_terms`";
 
 	//Member

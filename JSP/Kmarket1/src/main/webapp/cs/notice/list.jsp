@@ -26,18 +26,17 @@
             </aside>
             <article>
                 <nav>
-                    <c:if test="${cate == null || cate eq ''}"><h1>전체</h1><h2>공지사항 전체</h2></c:if>
-                    <c:if test="${cate eq 'service'}"><h1>고객서비스</h1><h2>공지사항 고객서비스</h2></c:if>
-                    <c:if test="${cate eq 'safety'}"><h1>안전거래</h1><h2>공지사항 안전거래</h2></c:if>
-                    <c:if test="${cate eq 'product'}"><h1>위해상품</h1><h2>공지사항 위해상품</h2></c:if>
-                    <c:if test="${cate eq 'event'}"><h1>이벤트당첨</h1><h2>공지사항 이벤트당첨</h2></c:if>
-                    <h2>내용입니다.</h2>
+                    <c:if test="${cate == null || cate eq ''}"><h1>전체</h1><h2>공지사항 전체내용입니다.</h2></c:if>
+                    <c:if test="${cate eq 'service'}"><h1>고객서비스</h1><h2>공지사항 고객서비스내용입니다.</h2></c:if>
+                    <c:if test="${cate eq 'safety'}"><h1>안전거래</h1><h2>공지사항 안전거래내용입니다.</h2></c:if>
+                    <c:if test="${cate eq 'product'}"><h1>위해상품</h1><h2>공지사항 위해상품내용입니다.</h2></c:if>
+                    <c:if test="${cate eq 'event'}"><h1>이벤트당첨</h1><h2>공지사항 이벤트당첨내용입니다.</h2></c:if>
                 </nav>
                 <table>
                 	<c:forEach var="article" items="${articles}">
                     <tr>
                         <td>
-                            <a href="./view.do?group=notice$cate=${cate}&pg=${currentPage}&no=${article.no}">${article.title}</a>
+                            <a href="./view.do?group=notice&cate=${cate}&pg=${currentPage}&no=${article.no}">${article.title}</a>
                         </td>
                         <td>${article.rdate.substring(2, 10)}</td>
                     </tr>
@@ -50,7 +49,7 @@
                     <c:forEach var="num" begin="${pageGroupStart}" end="${pageGroupEnd}">
                     <a href="/Kmarket1/cs/notice/list.do?group=notice&cate=${cate}&pg=${num}" class="num ${num == currentPage ? 'current':'off' }">${num}</a>
                     </c:forEach>
-                    <c:if test="${pageGroupEnd > lastPageNum}">
+                    <c:if test="${pageGroupEnd < lastPageNum}">
                     <a href="/Kmarket1/cs/notice/list.do?group=notice&cate=${cate}&pg=${pageGroupEnd + 1}" class="next">다음</a>
                     </c:if>
                 </div>

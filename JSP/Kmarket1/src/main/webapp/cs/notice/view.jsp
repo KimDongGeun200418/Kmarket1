@@ -23,7 +23,15 @@
                     <h2 class="title">${article.title}</h2>
                     <span class="date">${article.rdate.substring(0, 10)}</span>
                 </nav>
-                <div class="content">${article.content}</div>
+                <div class="content">
+                	<p>${article.content}</p>
+                    <p>
+                        ※피싱 관련 피해신고<br><br>
+                        ▶ 경찰청 사이버수사국 (국번없이)182 : http://cyberbureau.police.go.kr<br>
+                        ▶ KISA 인터넷침해대응센터 (국번없이)118 : http://www.krcert.or.kr<br>
+                        감사합니다.<br>
+                    </p>
+                </div>
                 <a href="/Kmarket1/cs/notice/list.do?group=notice&cate=${cate}&pg=${pg}" class="btnList">목록보기</a>
             </article>
         </section>

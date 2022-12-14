@@ -67,7 +67,6 @@ public class NoticeListController extends HttpServlet{
 		req.setAttribute("pageStartNum", pageStartNum +1);
 		req.setAttribute("group", group);
 		req.setAttribute("cate", cate);
-		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/cs/notice/list.jsp");
 		dispatcher.forward(req, resp);	
 	}

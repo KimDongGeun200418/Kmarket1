@@ -60,7 +60,7 @@
             </ol>
         </section>
         <section class="qna">
-            <h1>문의하기<a href="/cs/qna/list.do?group=qna">전체보기</a></h1>
+            <h1>문의하기<a href="/Kmarket1/cs/qna/list.do?group=qna&cate=member">전체보기</a></h1>
             <ul>
                 <li>
                     <a href="#" class="title">[회원] 개인회원과 법인회원에 차이가 있나요?</a>

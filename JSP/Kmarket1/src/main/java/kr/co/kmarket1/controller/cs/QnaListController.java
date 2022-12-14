@@ -28,11 +28,27 @@ public class QnaListController extends HttpServlet{
 	
 		String group = req.getParameter("group");
 		String cate = req.getParameter("cate");
-		String cate2 = req.getParameter("cate2");
-		String pg = req.getParameter("pg");
+		String pg = req.getParameter("pg");	
 		
+		int currentPage = service.getCurrentPage(pg);//현재 페이지 번호
+		int total = service.selectCountQna(cate);//전체 게시물 개수
+		int lastPageNum = service.getLastPageNum(total);//마지막 페이지 번호
+		int[] result = service.getPageGroupNum(currentPage, lastPageNum);//페이지 그룹 번호
+		int pageStartNum = service.getPageStartNum(total, currentPage);//페이지 시작 번호
+		int start = service.getStartNum(currentPage);//시작 인덱스		
 		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/Kmarket1/cs/qna/list.jsp");
+		List<CsArticleVO> articles = service.selectQna(cate, start);
+		
+		req.setAttribute("articles", articles);
+		req.setAttribute("lastPageNum", lastPageNum);
+		req.setAttribute("currentPage", currentPage);
+		req.setAttribute("pageGroupStart", result[0]);
+		req.setAttribute("pageGroupEnd", result[1]);
+		req.setAttribute("pageStartNum", pageStartNum +1);
+		req.setAttribute("group", group);
+		req.setAttribute("cate", cate);
+		
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/cs/qna/list.jsp");
 		dispatcher.forward(req, resp);	
 	}
 	

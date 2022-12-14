@@ -10,25 +10,38 @@ public enum ArticleService {
 	INSTANCE;
 	private ArticleDAO dao = ArticleDAO.getInstance();
 	
+	//notice
 	public int selectCountNotice(String cate) {
 		return dao.selectCountNotice(cate);
 	}
 	public int selectCountNoticeAll() {
 		return dao.selectCountNoticeAll();
 	}
-	
 	public List<CsArticleVO> selectNotice(String cate, int start) {
 		return dao.selectNotice(cate, start);
 	}
-	
 	public List<CsArticleVO> selectAllNotice(int start) {
 		return dao.selectAllNotice(start);
 	}
-	
 	public CsArticleVO selectArticleNotice(String no) {
 		return dao.selectArticleNotice(no);
 	}
 	
+	//qna
+	public List<CsArticleVO> selectQna(String cate, int start){
+		return dao.selectQna(cate, start);
+	}
+	public int selectCountQna(String cate) {
+		return dao.selectCountQna(cate);
+	}
+	public CsArticleVO selectArticleQna(String no) {
+		return dao.selectArticleQna(no);
+	}
+	public int insertArticle(CsArticleVO article) {
+		return dao.insertArticle(article);
+	}
+	
+	//page
 	public int getLastPageNum(int total) {
 		int lastPageNum = 0;
 		

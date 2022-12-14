@@ -21,6 +21,7 @@ public class ArticleDAO extends DBHelper{
 	}
 	private ArticleDAO() {}
 	
+	//notice
 	public List<CsArticleVO> selectNotice(String cate, int start){
 		
 		List<CsArticleVO> articles = new ArrayList<>();
@@ -107,8 +108,7 @@ public class ArticleDAO extends DBHelper{
 		return article;
 	}
 	
-	
-	//게시물 카운트
+	//notice 게시물 카운트
 	public int selectCountNotice(String cate) {
 		
 		int total = 0;
@@ -154,6 +154,126 @@ public class ArticleDAO extends DBHelper{
 		
 		return total;
 	}
-
+	
+	//qna
+	public int insertArticle(CsArticleVO article) {
+		
+		int parent = 0;
+		
+		try {
+			logger.info("insertArticle...");
+			
+			conn = getConnection();
+			conn.setAutoCommit(false);
+			
+			stmt = conn.createStatement();
+			psmt = conn.prepareStatement(Sql.INSERT_ARTICLE);
+			psmt.setString(1, article.getTitle());
+			psmt.setString(2, article.getCate2());
+			psmt.setString(3, article.getContent());
+			psmt.setString(4, article.getUid());
+			psmt.setString(5, article.getRegip());
+			psmt.executeUpdate();
+			
+			rs = stmt.executeQuery(Sql.SELECT_MAX_NO);
+			
+			conn.commit();
+			
+			if(rs.next()) {
+				parent = rs.getInt(1);
+			}
+			
+			close();
+			
+		}catch(Exception e) {
+			logger.error(e.getMessage());
+		}
+		return parent;
+	}
+	
+	public List<CsArticleVO> selectQna(String cate, int start){
+		
+		List<CsArticleVO> articles = new ArrayList<>();
+		
+		try {
+			logger.info("selectQna...");
+			
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.SELECT_QNA);
+			psmt.setString(1, cate);
+			psmt.setInt(2, start);
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				CsArticleVO article = new CsArticleVO();
+				article.setNo(rs.getString(1));
+				article.setCate2(rs.getString(2));
+				article.setTitle(rs.getString(3));
+				article.setUid(rs.getString(4));
+				article.setRdate(rs.getString(5));
+				
+				articles.add(article);
+			}
+			
+			close();
+			
+		}catch(Exception e) {
+			logger.error(e.getMessage());
+		}
+		return articles;
+	}
+	public CsArticleVO selectArticleQna(String no){
+		
+		 CsArticleVO article = null;
+		
+		try {
+			logger.info("selectArticleQna...");
+			
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.SELECT_ARTICLE_QNA);
+			psmt.setString(1, no);
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				article = new CsArticleVO();
+				article.setCate2(rs.getString(1));
+				article.setTitle(rs.getString(2));
+				article.setUid(rs.getString(3));
+				article.setRdate(rs.getString(4).substring(0, 10));
+				article.setContent(rs.getString(5));
+			}
+			
+			close();
+			
+		}catch(Exception e) {
+			logger.error(e.getMessage());
+		}
+		return article;
+	}
+	
+	//qna 게시물 카운트
+	public int selectCountQna(String cate) {
+		
+		int total = 0;
+		
+		try {
+			logger.info("selectCountQna...");
+			
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.SELECT_COUNT_QNA);
+			psmt.setString(1, cate);
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				total = rs.getInt(1);
+			}
+			
+			close();
+		}catch(Exception e) {
+			logger.error(e.getMessage());
+		}
+		
+		return total;
+	}
 	
 }

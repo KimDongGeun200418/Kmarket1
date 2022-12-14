@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="../_header.jsp"/>
 <section id="cs">
     <div class="qna">
@@ -11,42 +12,29 @@
             <aside>
                 <h2>문의하기</h2>
                 <ul>
-                    <li class="on">
-                        <a href="#">회원</a>
-                    </li>
-                    <li>
-                        <a href="#">쿠폰/이벤트</a>
-                    </li>
-                    <li>
-                        <a href="#">주문/결제</a>
-                    </li>
-                    <li>
-                        <a href="#">배송</a>
-                    </li>
-                    <li>
-                        <a href="#">취소/반품/교환</a>
-                    </li>
-                    <li>
-                        <a href="#">여행/숙박/항공</a>
-                    </li>
-                    <li>
-                        <a href="#">안전거래</a>
-                    </li>
+                    <li class="${cate eq 'member' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=member">회원</a></li>
+                    <li class="${cate eq 'coupon' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=coupon">쿠폰/이벤트</a></li>
+                    <li class="${cate eq 'order' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=order">주문/결제</a></li>
+                    <li class="${cate eq 'delivery' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=delivery">배송</a></li>
+                    <li class="${cate eq 'cancel' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=cancel">취소/반폼/교환</a></li>
+                    <li class="${cate eq 'trip' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=trip">여행/숙박/항공</a></li>
+                    <li class="${cate eq 'safety' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=safety">안전거래</a></li>
                 </ul>
             </aside>
             <article>
-                <form action="#">
+                <form action="./write.do" method="post">
+                	<input type="hidden" name="group" value="${group}"/>
+        			<input type="hidden" name="cate" value="${cate}"/>
+        			<input type="hidden" name="uid" value="${uid}"/>
                     <table>
                         <tr>
                             <td>문의유형</td>
                             <td>
                                 <select name="type">
-                                    <option value="0">선택</option>
-                                    <option>가입</option>
-                                    <option>탈퇴</option>
-                                    <option>회원정보</option>
-                                    <option>로그인</option>
+                                    <option value="0">1차 선택</option>
+                                    	<option>1</option>
                                 </select>
+                                
                             </td>
                         </tr>
                         <tr>
@@ -63,7 +51,7 @@
                         </tr>
                     </table>
                     <div>
-                        <a href="./list.html" class="btnList">취소하기</a>
+                        <a href="/Kmarket1/cs/qna/list.do?group=${group}&cate=${cate}" class="btnList">취소하기</a>
                         <input type="submit" class="btnSubmit" value="등록하기">
                     </div>
                 </form>

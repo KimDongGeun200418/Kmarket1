@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import kr.co.kmarket1.service.ArticleService;
 import kr.co.kmarket1.vo.CsArticleVO;
 
-@WebServlet("/cs/notice/view.do")
-public class NoticeViewController extends HttpServlet{
+@WebServlet("/cs/qna/view.do")
+public class QnaViewController extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
 	private ArticleService service = ArticleService.INSTANCE;
@@ -30,13 +30,14 @@ public class NoticeViewController extends HttpServlet{
 		String pg = req.getParameter("pg");
 		String no = req.getParameter("no");
 		
-		CsArticleVO article = service.selectArticleNotice(no);
+		CsArticleVO article = service.selectArticleQna(no);
 	
 		req.setAttribute("group", group);
 		req.setAttribute("cate", cate);
 		req.setAttribute("pg", pg);
 		req.setAttribute("article", article);
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/cs/notice/view.jsp");
+		
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/cs/qna/view.jsp");
 		dispatcher.forward(req, resp);
 	}
 	
