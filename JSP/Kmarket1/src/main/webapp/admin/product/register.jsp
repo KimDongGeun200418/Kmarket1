@@ -1,59 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
-<jsp:include page="./_header.jsp"/>
-
-        <main>
-            <aside>
-                <!-- Global Navigation Bar -->
-                <ul id="gnb">
-                    <li>
-                        <a href="#"><i class="fa fa-cogs" aria-hidden="true"></i>환경설정</a>
-                        <ol>
-                            <li><a href="#">기본환경설정</a></li>
-                            <li><a href="#">배너관리</a></li>
-                        </ol>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fas fa-store" aria-hidden="true"></i>상점관리</a>
-                        <ol>
-                            <li><a href="#">판매자현황</a></li>
-                            <li><a href="#">재고관리</a></li>
-                        </ol>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-users" aria-hidden="true"></i>회원관리</a>
-                        <ol>
-                            <li><a href="#">회원현황</a></li>
-                            <li><a href="#">포인트관리</a></li>
-                            <li><a href="#">비회원관리</a></li>
-                            <li><a href="#">접속자집계</a></li>
-                        </ol>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fas fa-box-open" aria-hidden="true"></i>상품관리</a>
-                        <ol>
-                            <li><a href="#">상품현황</a></li>
-                            <li><a href="#">상품등록</a></li>
-                            <li><a href="#">재고관리</a></li>
-                        </ol>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-credit-card" aria-hidden="true"></i>주문관리</a>
-                        <ol>
-                            <li><a href="#">주문현황</a></li>
-                            <li><a href="#">매출현황</a></li>
-                            <li><a href="#">결제관리</a></li>
-                            <li><a href="#">배송관리</a></li>
-                        </ol>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>게시판관리</a>
-                        <ol>
-                            <li><a href="#">게시판현황</a></li>
-                            <li><a href="#">고객문의</a></li>
-                        </ol>
-                    </li>
-                </ul>
-            </aside>
+<jsp:include page="../_header.jsp"/>
+<script src="/Kmarket1/admin/js/cate.js"></script>
+<script>
+	
+</script>
             <section id="admin-product-register">
                 <nav>
                     <h3>상품등록</h3>
@@ -75,12 +25,17 @@
                                 <tr>
                                     <td>1차 분류</td>
                                     <td>
-                                        <select name="category1">
-                                            <option value="10">1차 분류 선택</option>
-                                            <option value="11">패션·의류·뷰티</option>
-                                            <option value="12">가전·디지털</option>
-                                            <option value="13">식품·생필품</option>
-                                            <option value="14">홈·문구·취미</option>                                                
+                                        <select name="category1" id="selectCate1">
+                                            <option value="99">1차 분류 선택</option>
+                                            <option value="10">브랜드패션</option>
+                                            <option value="11">패션의류/잡화/뷰티</option>
+                                            <option value="12">유아동</option>
+                                            <option value="13">식품/생필품</option>
+                                            <option value="14">홈데코/취미/반려</option>
+                                            <option value="15">컴퓨터/디지털/가전</option>
+                                            <option value="16">스포츠/건강/렌탈</option>
+                                            <option value="17">자동차/공구</option>
+                                            <option value="18">여행/도서/티켓/쿠폰</option>
                                         </select>
                                     </td>
                                 </tr>
@@ -129,7 +84,7 @@
                                     <td>할인율</td>
                                     <td>
                                         <span>0을 입력하면 할인율 없음</span>
-                                        <input type="text" name="discount"/>원
+                                        <input type="text" name="discount"/>%
                                     </td>
                                 </tr>
                                 <tr>
@@ -213,4 +168,4 @@
                 <!-- 상품등록 컨텐츠 끝 -->
             </section>
         </main>
-<jsp:include page="./_footer.jsp"/>
+<jsp:include page="../_footer.jsp"/>
