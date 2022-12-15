@@ -29,6 +29,14 @@ public enum ProductService {
 			 return dao.selectProducts();
 		}
 
+		public ProductVO selectProduct(String no) {
+			
+			return null;
+		}
+
+		
+		
+
 		
 		//write
 		public MultipartRequest uploadFile(HttpServletRequest req, String path) throws IOException {
