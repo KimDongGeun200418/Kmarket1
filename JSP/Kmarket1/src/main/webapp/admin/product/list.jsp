@@ -47,8 +47,8 @@
                             <td>${ product.seller }</td>
                             <td>${product.hit }</td>
                             <td>               
-                                <a href="/Kmarket1/admin/product/delete.do?no=${ product.no }" class="btn btnRemove">[삭제]</a>
-                                <a href="/Kmarket1/admin/product/modify.do?no=${ product.no }" class="btn btnModify"">[수정]</a>
+                                <a href="/Kmarket1/admin/product/delete.do?group=${group}&cate=${cate}&pg=${ pg }&no=${ product.no }" class="Remove">[삭제]</a>
+                                <a href="/Kmarket1/admin/product/modify.do?${group}&cate=${cate}&pg=${ pg }&no=${ product.no }" class="Modify">[수정]</a>
                             </td>
                         </tr>
                         </c:forEach>
