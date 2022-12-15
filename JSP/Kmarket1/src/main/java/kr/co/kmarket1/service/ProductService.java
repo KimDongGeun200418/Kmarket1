@@ -2,7 +2,17 @@ package kr.co.kmarket1.service;
 
 
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.UUID;
+
+import javax.servlet.http.HttpServletRequest;
+
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import kr.co.kmarket1.dao.ProductDAO;
 import kr.co.kmarket1.vo.ProductVO;
@@ -13,17 +23,31 @@ public enum ProductService {
 			
 		public void insertProduct(ProductVO product) {
 			dao.insertProduct(product);
-					
 		}
 
 		public List<ProductVO> selectProducts() {
 			 return dao.selectProducts();
-			
-		
 		}
 
 		
-	
+		//write
+		public MultipartRequest uploadFile(HttpServletRequest req, String path) throws IOException {
+			int maxSize = 1024 * 1024 * 1; // 최대 파일 업로드 허용량 1MB
+			return new MultipartRequest(req, path, maxSize, "UTF-8", new DefaultFileRenamePolicy());
+		}
+		public String renameFile(String oriName, String path) {
+			// 파일명 수정
+			int idx = oriName.lastIndexOf(".");
+			String ext = oriName.substring(idx);
+			
+			SimpleDateFormat sdf = new SimpleDateFormat("yyMMdd");
+			String now = sdf.format(new Date());
+			String newName = now+UUID.randomUUID().toString()+ext; // 221215sfdhwweew.jpg 
+			File newFile = new File(path+"/"+newName);
+			
+			return newName;
+		}
+		
 
 	
 }
