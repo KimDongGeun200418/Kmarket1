@@ -42,9 +42,9 @@
                 	<tr>
                         <td>
                             <a href="./view.do?group=qna&cate=${cate}&pg=${currentPage}&no=${article.no}">
-                            	<c:if test="${article.cate2 eq 'a'}">[탈퇴]${article.title}</c:if>
-		                    	<c:if test="${article.cate2 eq 'b'}">[회원정보]${article.title}</c:if>
-		                    	<c:if test="${article.cate2 eq 'c'}">[로그인]${article.title}</c:if>
+                            	<c:if test="${article.cate2 eq '탈퇴'}">[탈퇴]${article.title}</c:if>
+		                    	<c:if test="${article.cate2 eq '회원정보'}">[회원정보]${article.title}</c:if>
+		                    	<c:if test="${article.cate2 eq '로그인'}">[로그인]${article.title}</c:if>
                             </a>
                         </td>
                         <td>
