@@ -169,10 +169,11 @@ public class ArticleDAO extends DBHelper{
 			stmt = conn.createStatement();
 			psmt = conn.prepareStatement(Sql.INSERT_ARTICLE);
 			psmt.setString(1, article.getTitle());
-			psmt.setString(2, article.getCate2());
-			psmt.setString(3, article.getContent());
-			psmt.setString(4, article.getUid());
-			psmt.setString(5, article.getRegip());
+			psmt.setString(2, article.getCate());
+			psmt.setString(3, article.getCate2());
+			psmt.setString(4, article.getContent());
+			psmt.setString(5, article.getUid());
+			psmt.setString(6, article.getRegip());
 			psmt.executeUpdate();
 			
 			rs = stmt.executeQuery(Sql.SELECT_MAX_NO);

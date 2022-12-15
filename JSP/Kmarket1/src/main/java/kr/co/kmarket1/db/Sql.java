@@ -19,8 +19,7 @@ public class Sql {
 	public static final String SELECT_ARTICLE_QNA = "SELECT `cate2`, `title`, `uid`, `rdate`,`content` FROM `km_cs_qna` WHERE `no`= ?";							
 	public static final String SELECT_MAX_NO = "select max(`no`) from `km_cs_qna`";
 	
-	public static final String INSERT_ARTICLE = "INSERT INTo `km_cs_qna` SET `title`=?,`cate2`=?, `content`=?, `uid`=?, `regip`=?";
-	public static final String SELECT_CATE2_QNA = "SELECT `cate`, `cate2` FROM `km_cs_qna`";
+	public static final String INSERT_ARTICLE = "INSERT INTo `km_cs_qna` SET `title`=?, `cate`=?, `cate2`=?, `content`=?, `uid`=?, `regip`=?";
 	
 	public static final String SELECT_TERMS = "SELECT * FROM `km_member_terms`";
 
