@@ -13,8 +13,8 @@
                 </nav>
                 <!-- 상품등록 컨텐츠 시작 -->
                 <article>
-                    <form action="/Kmarket1/admin/product/register.do" method="POST">
-
+                    <form action="/Kmarket1/admin/product/register.do" method="POST" enctype="multipart/form-data">
+						<input type="hidden" name="uid" value="${ loginUser.uid }" />
                         <!-- 상품분류 -->
                         <section>
                             <h4>상품분류</h4>
@@ -42,12 +42,9 @@
                                 <tr>
                                     <td>2차 분류</td>
                                     <td>
-                                        <select name="category2">
+                                        <select name="category2" id="selectCate2">
                                             <option value="20">2차 분류 선택</option>
-                                            <option value="21">남성의류</option>
-                                            <option value="22">여성의류</option>
-                                            <option value="23">잡화</option>
-                                            <option value="24">뷰티</option>                                                
+                                            <option value="99">1차 카테고리를 골라주세요.</option>                                           
                                         </select>
                                     </td>
                                 </tr>
@@ -109,20 +106,20 @@
                                     <td>상품 썸네일</td>
                                     <td>
                                         <span>크기 190 x 190, 상품 목록에 출력될 이미지 입니다. </span>
-                                        <input type="file" name="#"/>
+                                        <input type="file" name="thumb1"/>
 
                                         <span>크기 230 x 230, 상품 메인에 출력될 이미지 입니다. </span>
-                                        <input type="file" name="#"/>
+                                        <input type="file" name="thumb2"/>
 
                                         <span>크기 456 x 456, 상품 상세에 출력될 이미지 입니다. </span>
-                                        <input type="file" name="#"/>
+                                        <input type="file" name="thumb3"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>상세 상품정보</td>
                                     <td>
                                         <span>크기 가로 940px 높이 제약없음, 크기 최대 1MB, 상세페이지 상품정보에 출력될 이미지 입니다.</span>
-                                        <input type="file" name="#"/>
+                                        <input type="file" name="detail"/>
                                     </td>
                                 </tr>
                             </table>                                

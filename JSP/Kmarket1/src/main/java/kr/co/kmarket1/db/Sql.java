@@ -41,10 +41,10 @@ public class Sql {
 	//Product
 	public static final String INSERT_PRODUCT	="INSERT INTO `km_product` SET"
 												+ "`cate1`=?, `cate2`=?, `prodName`=?, `descript`=?,"
-												+ "`company`=?, `price`=?, `discount`=?, `point`=?,"
-												+"`stock`=?, `delivery`=?, `status`=?, `duty`=?,"
-												+ "`receipt`=?, `bizType`=?, `origin`=?"
-												+ ",`seller`='test1', `thumb1`='1', `thumb2`='2', `thumb3`='3', `detail`='4', `ip`='5', `rdate`=NOW()";
+												+ "`company`=?, `seller`=?, `price`=?, `discount`=?,"
+												+ "`point`=?, `stock`=?, `delivery`=?, `ip`=?, `rdate`=NOW(),"
+												+ "`status`=?, `duty`=?, `receipt`=?, `bizType`=?, `origin`=?,"
+												+ "`thumb1`=?, `thumb2`='2', `thumb3`='3', `detail`='4'";
 
 	public static final String SELECT_PRODUCTS ="SELECT * FROM `km_product`";
 }
