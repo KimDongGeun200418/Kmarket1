@@ -42,9 +42,7 @@
                 	<tr>
                         <td>
                             <a href="./view.do?group=qna&cate=${cate}&pg=${currentPage}&no=${article.no}">
-                            	<c:if test="${article.cate2 eq '탈퇴'}">[탈퇴]${article.title}</c:if>
-		                    	<c:if test="${article.cate2 eq '회원정보'}">[회원정보]${article.title}</c:if>
-		                    	<c:if test="${article.cate2 eq '로그인'}">[로그인]${article.title}</c:if>
+                            	[${article.cate2}]${article.title}
                             </a>
                         </td>
                         <td>
@@ -68,7 +66,7 @@
                     <a href="/Kmarket1/cs/notice/list.do?group=notice&cate=${cate}&pg=${pageGroupEnd + 1}" class="next">다음</a>
                     </c:if>
                 </div>
-                <a href="./write.do?group=qna&cate=${cate}" class="btnWrite">문의하기</a>         
+                <a href="./write.do?group=qna" class="btnWrite">문의하기</a>         
             </article>
         </section>
     </div>

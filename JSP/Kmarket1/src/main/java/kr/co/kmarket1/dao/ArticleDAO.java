@@ -277,4 +277,85 @@ public class ArticleDAO extends DBHelper{
 		return total;
 	}
 	
+	//faq
+	public List<CsArticleVO> selectFaq(String cate){
+		
+		List<CsArticleVO> articles = new ArrayList<>();
+		
+		try {
+			logger.info("selectFaq...");
+			
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.SELECT_FAQ);
+			psmt.setString(1, cate);
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				CsArticleVO article = new CsArticleVO();
+				article.setNo(rs.getString(1));
+				article.setCate2(rs.getString(2));
+				article.setTitle(rs.getString(3));
+				
+				articles.add(article);
+			}
+			
+			close();
+			
+		}catch(Exception e) {
+			logger.error(e.getMessage());
+		}
+		return articles;
+	}
+	public List<CsArticleVO> selectFaqCate(String cate){
+		
+		List<CsArticleVO> category = new ArrayList<>();
+		
+		try {
+			logger.info("selectct...");
+			
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.SELECT_FAQ_CATE);
+			psmt.setString(1, cate);
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				CsArticleVO ct = new CsArticleVO();
+				ct.setCate2(rs.getString(1));
+				
+				category.add(ct);
+			}
+			
+			close();
+			
+		}catch(Exception e) {
+			logger.error(e.getMessage());
+		}
+		return category;
+	}
+	public CsArticleVO selectArticleFaq(String no){
+		
+		 CsArticleVO article = null;
+		
+		try {
+			logger.info("selectArticleFaq...");
+			
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.SELECT_ARTICLE_FAQ);
+			psmt.setString(1, no);
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				article = new CsArticleVO();
+				article.setTitle(rs.getString(1));
+				article.setContent(rs.getString(2));
+			}
+			
+			close();
+			
+		}catch(Exception e) {
+			logger.error(e.getMessage());
+		}
+		return article;
+	}
+	
 }

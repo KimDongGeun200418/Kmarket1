@@ -19,7 +19,16 @@ public class Sql {
 	public static final String SELECT_ARTICLE_QNA = "SELECT `cate2`, `title`, `uid`, `rdate`,`content` FROM `km_cs_qna` WHERE `no`= ?";							
 	public static final String SELECT_MAX_NO = "select max(`no`) from `km_cs_qna`";
 	
-	public static final String INSERT_ARTICLE = "INSERT INTo `km_cs_qna` SET `title`=?, `cate`=?, `cate2`=?, `content`=?, `uid`=?, `regip`=?";
+	public static final String INSERT_ARTICLE = "INSERT INTO `km_cs_qna` SET `title`=?, `cate`=?, `cate2`=?, `content`=?, `uid`=?, `regip`=?, `rdate`=now()";
+	
+	public static final String SELECT_ARTICLE_FAQ = "SELECT `title`, `content` FROM `km_cs_faq` WHERE `no`= ?";							
+											
+	public static final String SELECT_FAQ = "SELECT `no`, `cate2`, `title` from `km_cs_faq` WHERE `cate`= ? "
+			                             +"ORDER BY `no` DESC ";
+	public static final String SELECT_FAQ_CATE = "SELECT distinct `cate2` from `km_cs_faq` WHERE `cate`= ? ";
+			
+											
+	
 	
 	public static final String SELECT_TERMS = "SELECT * FROM `km_member_terms`";
 
@@ -44,9 +53,9 @@ public class Sql {
 												+ "`point`=?, `stock`=?, `delivery`=?, `ip`=?, `rdate`=NOW(),"
 												+ "`status`=?, `duty`=?, `receipt`=?, `bizType`=?, `origin`=?,"
 												+ "`thumb1`=?, `thumb2`=?, `thumb3`=?, `detail`=?";
-
 	public static final String SELECT_PRODUCT 			="SELECT * FROM `km_product` WHERE `prodNo`=?";
 	public static final String SELECT_PRODUCTS 			="SELECT * FROM `km_product`";
 	public static final String COUNT_TODAY_PRODUCTS 	="SELECT COUNT(`prodNo`) FROM `km_product` WHERE DATE(`rdate`)=CURDATE()";
 	public static final String SELECT_PRODUCTS_BY_CATE 	="SELECT * FROM `km_product` WHERE `cate1`=? AND `cate2`=?";
+
 }

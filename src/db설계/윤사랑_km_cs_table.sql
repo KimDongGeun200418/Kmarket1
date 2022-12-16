@@ -30,3 +30,4 @@ CREATE TABLE `km_cs_qna` (
 	`comment` INT(10) NULL DEFAULT '0'
 );
 
+SELECT `no`, `cate2`, `title` from `km_cs_faq` WHERE `cate`= 'member' GROUP BY `cate2` ORDER BY `no` DESC ;

@@ -41,6 +41,18 @@ public enum ArticleService {
 		return dao.insertArticle(article);
 	}
 	
+	//faq
+	public List<CsArticleVO> selectFaq(String cate) {
+		return dao.selectFaq(cate);
+	}
+	public List<CsArticleVO> selectFaqCate(String cate) {
+		return dao.selectFaqCate(cate);
+	}
+	public CsArticleVO selectArticleFaq(String no) {
+		return dao.selectArticleFaq(no);
+	}
+	
+	
 	//page
 	public int getLastPageNum(int total) {
 		int lastPageNum = 0;

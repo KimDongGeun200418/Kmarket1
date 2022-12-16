@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script>
 	function optionChange(){
 		var c1 = ['탈퇴','회원정보','로그인'];
@@ -62,7 +62,6 @@
             <article>
                 <form action="./write.do" method="post">
                 	<input type="hidden" name="group" value="${group}"/>
-        			<input type="hidden" name="cate" value="${cate}"/>
         			<input type="hidden" name="uid" value="${uid}"/>
                     <table>
                         <tr>
