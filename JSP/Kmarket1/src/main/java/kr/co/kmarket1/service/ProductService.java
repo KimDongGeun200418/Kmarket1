@@ -29,6 +29,14 @@ public enum ProductService {
 			 return dao.selectProducts();
 		}
 
+		public ProductVO selectProduct(String no) {
+			
+			return null;
+		}
+
+		
+		
+
 		
 		//write
 		public MultipartRequest uploadFile(HttpServletRequest req, String path) throws IOException {
@@ -45,7 +53,7 @@ public enum ProductService {
 			SimpleDateFormat sdf = new SimpleDateFormat("yyMMdd-");
 			String now = sdf.format(new Date());
 			String newName = now+count+alt+UUID.randomUUID().toString()+ext; // 221215sfdhwweew.jpg 
-			new File(path+"/"+newName);
+			File file = new File(path+"/"+newName);
 			
 			return newName;
 		}

@@ -37,8 +37,19 @@ public class ListController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
-		
+		String group = req.getParameter("group");
+		String cate = req.getParameter("cate");
+		String pg = req.getParameter("pg");
+		String no = req.getParameter("no");
+		ProductVO product = service.selectProduct(no);
 	
+	
+		req.setAttribute("group", group);
+		req.setAttribute("cate", cate);
+		req.setAttribute("pg", pg);
+		req.setAttribute("product", product);
+		
+		
 	
 	}
 

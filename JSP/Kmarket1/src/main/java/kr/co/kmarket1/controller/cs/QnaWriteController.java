@@ -40,9 +40,9 @@ public class QnaWriteController extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
 		String group = req.getParameter("group");
-		String cate = req.getParameter("cate");
 		String uid = req.getParameter("uid");
-		String cate2 = req.getParameter("type");
+		String cate = req.getParameter("type1");
+		String cate2 = req.getParameter("type2");
 		String title = req.getParameter("title");
 		String content = req.getParameter("content");
 		String regip = req.getRemoteAddr();
@@ -50,6 +50,7 @@ public class QnaWriteController extends HttpServlet{
 		CsArticleVO article = new CsArticleVO();
 		
 		article.setUid(uid);
+		article.setCate(cate);
 		article.setCate2(cate2);
 		article.setTitle(title);
 		article.setContent(content);
