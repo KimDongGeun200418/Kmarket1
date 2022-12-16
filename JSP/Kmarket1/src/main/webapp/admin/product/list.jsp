@@ -37,7 +37,7 @@
 						<c:forEach var="product" items="${ products }">
                         <tr>
                             <td><input type="checkbox" name="상품코드"/></td>
-                            <td><a href="/Kmarket1/product.do?no=${ product.prodNo }"></a><img src="../img/sample_thumb.jpg" class="thumb"></td>
+                            <td><a href="/Kmarket1/product.do?no=${ product.prodNo }"></a><img src="/Kmarket1/productImg/${ product.thumb1 }" class="thumb"></td>
                             <td>${ product.prodNo }</td>
                            	<td>${ product.prodName }</td>
                             <td>${ product.price }</td>                       
@@ -45,45 +45,13 @@
                             <td>${ product.point }</td>
                             <td>${ product.stock }</td>
                             <td>${ product.seller }</td>
-                            <td>${product.hit }</td>
+                            <td>${ product.hit }</td>
                             <td>               
-                                <a href="/Kmarket1/admin/product/delete.do?group=${group}&cate=${cate}&pg=${ pg }&no=${ product.no }" class="Remove">[삭제]</a>
-                                <a href="/Kmarket1/admin/product/modify.do?${group}&cate=${cate}&pg=${ pg }&no=${ product.no }" class="Modify">[수정]</a>
+                                <a href="/Kmarket1/admin/product/delete.do?no=${ product.prodNo }" class="btn btnRemove">[삭제]</a>
+                                <a href="/Kmarket1/admin/product/modify.do?no=${ product.prodNo }" class="btn btnModify"">[수정]</a>
                             </td>
                         </tr>
                         </c:forEach>
-                        <tr>
-                            <td><input type="checkbox" name="상품코드"/></td>
-                            <td><img src="../img/sample_thumb.jpg" class="thumb"></td>
-                            <td>201603292</td>
-                            <td>FreeMovement BLUEFORCE</td>
-                            <td>36,000</td>
-                            <td>10</td>
-                            <td>360</td>
-                            <td>400</td>
-                            <td>홍길동</td>
-                            <td>126</td>
-                            <td>
-                                <a href="#">[삭제]</a>
-                                <a href="#">[수정]</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" name="상품코드"/></td>
-                            <td><img src="../img/sample_thumb.jpg" class="thumb"></td>
-                            <td>201603292</td>
-                            <td>FreeMovement BLUEFORCE</td>
-                            <td>36,000</td>
-                            <td>10</td>
-                            <td>360</td>
-                            <td>400</td>
-                            <td>홍길동</td>
-                            <td>126</td>
-                            <td>
-                                <a href="#">[삭제]</a>
-                                <a href="#">[수정]</a>
-                            </td>
-                        </tr>
                         
                     </table>
 

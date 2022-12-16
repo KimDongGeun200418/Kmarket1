@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <jsp:include page="../_header.jsp"/>
 <script src="/Kmarket1/admin/js/cate.js"></script>
+<script src="/Kmarket1/admin/js/checkRegister.js"></script>
 <script>
 	
 </script>
@@ -20,7 +21,7 @@
                             <h4>상품분류</h4>
                             <p>
                                 기본분류는 반드시 선택하셔야 합니다. 하나의 상품에 1개의 분류를 지정 합니다.
-                            </p>
+           w                 </p>
                             <table>
                                 <tr>
                                     <td>1차 분류</td>
@@ -43,7 +44,7 @@
                                     <td>2차 분류</td>
                                     <td>
                                         <select name="category2" id="selectCate2">
-                                            <option value="20">2차 분류 선택</option>
+                                            <option value="99s">2차 분류 선택</option>
                                             <option value="99">1차 카테고리를 골라주세요.</option>                                           
                                         </select>
                                     </td>

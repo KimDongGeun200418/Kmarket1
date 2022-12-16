@@ -26,7 +26,7 @@
                             <td><input type="text" name="uid" value="${ uid }" placeholder="아이디 입력"></td>
                         </tr>
                         <tr>
-                            <td>아이디</td>
+                            <td>비밀번호	</td>
                             <td><input type="password" name="pass" placeholder="비밀번호 입력"></td>
                         </tr>
                     </table>

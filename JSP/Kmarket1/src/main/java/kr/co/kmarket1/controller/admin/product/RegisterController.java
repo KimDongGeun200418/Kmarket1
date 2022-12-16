@@ -61,7 +61,10 @@ public class RegisterController extends HttpServlet{
 		String thumb2	= mr.getFilesystemName("thumb2");
 		String thumb3	= mr.getFilesystemName("thumb3");
 		String detail	= mr.getFilesystemName("detail");
-		String nThumb1 = service.renameFile(thumb1, path);
+		String nThumb1 = service.renameFile(thumb1, path, "tmb1-");
+		String nThumb2 = service.renameFile(thumb2, path, "tmb2-");
+		String nThumb3 = service.renameFile(thumb3, path, "tmb3-");
+		String nDetail = service.renameFile(detail, path, "dtl-");
 		
 		ProductVO product = new ProductVO();
 		product.setCate1(category1);
@@ -82,6 +85,9 @@ public class RegisterController extends HttpServlet{
 		product.setOrigin(origin);
 		product.setIp(regip);
 		product.setThumb1(nThumb1);
+		product.setThumb2(nThumb2);
+		product.setThumb3(nThumb3);
+		product.setDetail(nDetail);
 		
 		service.insertProduct(product);
 		

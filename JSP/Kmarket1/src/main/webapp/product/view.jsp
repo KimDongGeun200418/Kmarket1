@@ -1,55 +1,15 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <jsp:include page="../_header.jsp"/>
-<jsp:include page="./_menu.jsp"/>
+<jsp:include page="../_menu.jsp"/>
+<link rel="stylesheet" href="/Kmarket1/product/css/product_view.css">
     <style>
         
     </style>
-</head>
-<body>
-    <div id="wrapper">
-        
         <main id="product">
             <!-- cate -->
             <aside>
-                <ul class="category">     
-                    <li><i class="fa fa-bars" aria-hidden="true"></i>카테고리</li>
-                    <li>
-                        <a href="#"><i class="fas fa-tshirt" aria-hidden="true"></i>패션·의류·뷰티</a>
-                        <ol>
-                            <li><a href="#">남성의류</a></li>
-                            <li><a href="#">여성의류</a></li>
-                            <li><a href="#">잡화</a></li>
-                            <li><a href="#">뷰티</a></li>
-                        </ol>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fas fa-laptop" aria-hidden="true"></i>가전·디지털</a>
-                        <ol>
-                            <li><a href="#">노트북/PC</a></li>
-                            <li><a href="#">가전</a></li>
-                            <li><a href="#">휴대폰</a></li>
-                            <li><a href="#">기타</a></li>
-                        </ol>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fas fa-utensils" aria-hidden="true"></i>식품·생필품</a>
-                        <ol>
-                            <li><a href="#">신선식품</a></li>
-                            <li><a href="#">가공식품</a></li>
-                            <li><a href="#">건강식품</a></li>
-                            <li><a href="#">생필품</a></li>
-                        </ol>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fas fa-home" aria-hidden="true"></i>홈·문구·취미</a>
-                        <ol>
-                            <li><a href="#">가구/DIY</a></li>
-                            <li><a href="#">침구·커튼</a></li>
-                            <li><a href="#">생활용품</a></li>
-                            <li><a href="#">사무용품</a></li>
-                        </ol>
-                    </li>
-                </ul>
+            	<jsp:include page="../_cate.jsp"/>
             </aside>
             <section class="view">
 
@@ -68,27 +28,28 @@
                     </div>
                     <div class="summary">
                         <nav>
-                            <h1>(주)판매자명</h1>
-                            <h2>상품번호&nbsp;:&nbsp;<span>10010118412</span></h2>
+                            <h1>${ product.seller }</h1>
+                            <h2>상품번호&nbsp;:&nbsp;<span>${ product.prodNo }</span></h2>
                         </nav>                        
                         <nav>
-                            <h3>상품명</h3>
+                            <h3>${ product.prodName }</h3>
                             <p>상품설명 출력</p>
                             <h5 class="rating star4"><a href="#">상품평보기</a></h5>
                         </nav>
                         <nav>
+                        <fmt:parseNumber var="productDisPrice" value="${ product.price * (1-(product.discount/100)) }" integerOnly="true" />
                             <div class="org_price">
-                                <del>30,000</del>
-                                <span>10%</span>
+                                <del>${ product.price }</del>
+                                <span>${ product.discount }%</span>
                             </div>
                             <div class="dis_price">
-                                <ins>27,000</ins>
+                                <ins>${ productDisPrice }</ins>
                             </div>
                         </nav>
                         <nav>
                             <span class="delivery">무료배송</span>
                             <span class="arrival">모레(금) 7/8 도착예정</span>
-                            <span class="desc">본 상품은 국내배송만 가능합니다.</span>
+                            <span class="desc">${ product.descript }</span>
                         </nav>
                         <nav>
                             <span class="card cardfree"><i>아이콘</i>무이자할부</span>&nbsp;&nbsp;
