@@ -53,8 +53,11 @@ public enum ProductService {
 			SimpleDateFormat sdf = new SimpleDateFormat("yyMMdd-");
 			String now = sdf.format(new Date());
 			String newName = now+count+alt+UUID.randomUUID().toString()+ext; // 221215sfdhwweew.jpg 
-			File file = new File(path+"/"+newName);
 			
+			File oriFile = new File(path+"/"+oriName);
+			File newFile = new File(path+"/"+newName);
+			
+			oriFile.renameTo(newFile);
 			return newName;
 		}
 		
