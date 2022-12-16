@@ -55,6 +55,7 @@ public class ProductDAO extends DBHelper{
 	public List<ProductVO> selectProducts() {
 		List<ProductVO> products = new ArrayList<>();
 		try {
+			logger.debug("selectProducts Start...");
 			conn = getConnection();
 			psmt = conn.prepareStatement(Sql.SELECT_PRODUCTS);
 			
@@ -91,11 +92,108 @@ public class ProductDAO extends DBHelper{
 												
 				products.add(product);
 			}
+			close();
 		}catch (Exception e) {
 			logger.error(e.getMessage());
 		}
 		return products;	
 	}
+	// selectProduct
+		public ProductVO selectProduct(String prodNo) {
+			ProductVO product = null;
+			try {
+				logger.debug("selectProduct Start...");
+				conn = getConnection();
+				psmt = conn.prepareStatement(Sql.SELECT_PRODUCT);
+				psmt.setString(1, prodNo);
+				rs = psmt.executeQuery();
+				if(rs.next()) {
+					product = new ProductVO();
+					product.setProdNo(rs.getInt(1));
+					product.setCate1(rs.getInt(2));
+					product.setCate2(rs.getInt(3));
+					product.setProdName(rs.getString(4));
+					product.setDescript(rs.getString(5));
+					product.setCompany(rs.getString(6));
+					product.setSeller(rs.getString(7));
+					product.setPrice(rs.getInt(8));
+					product.setDiscount(rs.getInt(9));
+					product.setPoint(rs.getInt(10));
+					product.setStock(rs.getInt(11));
+					product.setSold(rs.getInt(12));
+					product.setDelivery(rs.getInt(13));
+					product.setHit(rs.getInt(14));
+					product.setScore(rs.getInt(15));
+					product.setReview(rs.getInt(16));
+					product.setThumb1(rs.getString(17));
+					product.setThumb2(rs.getString(18));
+					product.setThumb3(rs.getString(19));
+					product.setDetail(rs.getString(20));
+					product.setStatus(rs.getString(21));
+					product.setDuty(rs.getString(22));
+					product.setReceipt(rs.getString(23));
+					product.setBizType(rs.getString(24));
+					product.setOrigin(rs.getString(25));
+					product.setIp(rs.getString(26));
+					product.setRdate(rs.getString(27));
+													
+				}
+				close();
+			}catch (Exception e) {
+				logger.error(e.getMessage());
+			}
+			return product;	
+		}
+	//selectProductsByCate
+	public List<ProductVO> selectProductsByCate(String cate1, String cate2) {
+		List<ProductVO> products = new ArrayList<>();
+		try {
+			logger.debug("selectProductsByCate Start...");
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.SELECT_PRODUCTS_BY_CATE);
+			psmt.setString(1, cate1);
+			psmt.setString(2, cate2);
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				ProductVO product = new ProductVO();
+				product.setProdNo(rs.getInt(1));
+				product.setCate1(rs.getInt(2));
+				product.setCate2(rs.getInt(3));
+				product.setProdName(rs.getString(4));
+				product.setDescript(rs.getString(5));
+				product.setCompany(rs.getString(6));
+				product.setSeller(rs.getString(7));
+				product.setPrice(rs.getInt(8));
+				product.setDiscount(rs.getInt(9));
+				product.setPoint(rs.getInt(10));
+				product.setStock(rs.getInt(11));
+				product.setSold(rs.getInt(12));
+				product.setDelivery(rs.getInt(13));
+				product.setHit(rs.getInt(14));
+				product.setScore(rs.getInt(15));
+				product.setReview(rs.getInt(16));
+				product.setThumb1(rs.getString(17));
+				product.setThumb2(rs.getString(18));
+				product.setThumb3(rs.getString(19));
+				product.setDetail(rs.getString(20));
+				product.setStatus(rs.getString(21));
+				product.setDuty(rs.getString(22));
+				product.setReceipt(rs.getString(23));
+				product.setBizType(rs.getString(24));
+				product.setOrigin(rs.getString(25));
+				product.setIp(rs.getString(26));
+				product.setRdate(rs.getString(27));
+				
+				products.add(product);
+			}
+			close();
+		}catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+		return products;	
+	}
+	
 	//today's products count
 	public int countTodayProducts() {
 		int result = 0;
@@ -106,6 +204,7 @@ public class ProductDAO extends DBHelper{
 			if(rs.next()) {
 				result = rs.getInt(1);
 			}
+			close();
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 		}

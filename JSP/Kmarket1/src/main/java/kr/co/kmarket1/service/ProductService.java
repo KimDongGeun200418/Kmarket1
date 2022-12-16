@@ -29,9 +29,8 @@ public enum ProductService {
 			 return dao.selectProducts();
 		}
 
-		public ProductVO selectProduct(String no) {
-			
-			return null;
+		public ProductVO selectProduct(String prodNo) {
+			return dao.selectProduct(prodNo);
 		}
 
 		
@@ -61,6 +60,9 @@ public enum ProductService {
 			return newName;
 		}
 		
-
+		//list
+		public List<ProductVO> selectProductsByCate(String cate1, String cate2){
+			return dao.selectProductsByCate(cate1, cate2);
+		}
 	
 }
