@@ -11,15 +11,14 @@ import kr.co.kmarket1.db.Sql;
 import kr.co.kmarket1.vo.ProductVO;
 
 public class ProductDAO extends DBHelper{
-Logger logger = LoggerFactory.getLogger(this.getClass());
-	
+	Logger logger = LoggerFactory.getLogger(this.getClass());
 	private static ProductDAO instance = new ProductDAO();
 	public static ProductDAO getInstance() {
 		return instance;
 	}
 	
+	// insertProduct
 	public void insertProduct(ProductVO product) {
-		
 		try {
 			logger.debug("insertProduct Start...");
 			conn = getConnection();
@@ -42,18 +41,17 @@ Logger logger = LoggerFactory.getLogger(this.getClass());
 			psmt.setString(16, product.getBizType());
 			psmt.setString(17, product.getOrigin());
 			psmt.setString(18, product.getThumb1());
+			psmt.setString(19, product.getThumb2());
+			psmt.setString(20, product.getThumb3());
+			psmt.setString(21, product.getDetail());
 			
 			psmt.executeUpdate();
-			
 			close();
 		} catch (Exception e) {
 			logger.error(e.getMessage());
-			
 		}
 	}
-
-
-
+	// selectProducts
 	public List<ProductVO> selectProducts() {
 		List<ProductVO> products = new ArrayList<>();
 		try {
@@ -90,15 +88,28 @@ Logger logger = LoggerFactory.getLogger(this.getClass());
 				product.setOrigin(rs.getString(25));
 				product.setIp(rs.getString(26));
 				product.setRdate(rs.getString(27));
-				
 												
 				products.add(product);
-				
 			}
 		}catch (Exception e) {
-			
+			logger.error(e.getMessage());
 		}
 		return products;	
+	}
+	//today's products count
+	public int countTodayProducts() {
+		int result = 0;
+		try {
+			conn = getConnection();
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(Sql.COUNT_TODAY_PRODUCTS);
+			if(rs.next()) {
+				result = rs.getInt(1);
+			}
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+		return result;
 	}
 }
 		
