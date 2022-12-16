@@ -43,15 +43,17 @@ public enum ProductService {
 			int maxSize = 1024 * 1024 * 1; // 최대 파일 업로드 허용량 1MB
 			return new MultipartRequest(req, path, maxSize, "UTF-8", new DefaultFileRenamePolicy());
 		}
-		public String renameFile(String oriName, String path) {
-			// 파일명 수정
+		public String renameFile(String oriName, String path, String alt) {
+			// 확장자 따오기
 			int idx = oriName.lastIndexOf(".");
 			String ext = oriName.substring(idx);
+			// 오늘 등록된 제품 개수 세기
+			int count = dao.countTodayProducts();
 			
-			SimpleDateFormat sdf = new SimpleDateFormat("yyMMdd");
+			SimpleDateFormat sdf = new SimpleDateFormat("yyMMdd-");
 			String now = sdf.format(new Date());
-			String newName = now+UUID.randomUUID().toString()+ext; // 221215sfdhwweew.jpg 
-			File newFile = new File(path+"/"+newName);
+			String newName = now+count+alt+UUID.randomUUID().toString()+ext; // 221215sfdhwweew.jpg 
+			new File(path+"/"+newName);
 			
 			return newName;
 		}

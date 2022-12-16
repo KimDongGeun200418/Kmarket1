@@ -43,7 +43,8 @@ public class Sql {
 												+ "`company`=?, `seller`=?, `price`=?, `discount`=?,"
 												+ "`point`=?, `stock`=?, `delivery`=?, `ip`=?, `rdate`=NOW(),"
 												+ "`status`=?, `duty`=?, `receipt`=?, `bizType`=?, `origin`=?,"
-												+ "`thumb1`=?, `thumb2`='2', `thumb3`='3', `detail`='4'";
+												+ "`thumb1`=?, `thumb2`=?, `thumb3`=?, `detail`=?";
 
 	public static final String SELECT_PRODUCTS ="SELECT * FROM `km_product`";
+	public static final String COUNT_TODAY_PRODUCTS ="SELECT COUNT(`prodNo`) FROM `km_product` WHERE DATE(`rdate`)=CURDATE()";
 }
