@@ -26,6 +26,12 @@ public enum ArticleService {
 	public CsArticleVO selectArticleNotice(String no) {
 		return dao.selectArticleNotice(no);
 	}
+	public List<CsArticleVO> selectLatestNotice() {
+		return dao.selectLatestNotice();
+	}
+	public List<CsArticleVO> selectLatestQna() {
+		return dao.selectLatestQna();
+	}
 	
 	//qna
 	public List<CsArticleVO> selectQna(String cate, int start){

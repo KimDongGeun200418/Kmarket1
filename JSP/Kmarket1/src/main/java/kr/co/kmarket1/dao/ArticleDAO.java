@@ -108,6 +108,35 @@ public class ArticleDAO extends DBHelper{
 		return article;
 	}
 	
+	public List<CsArticleVO> selectLatestNotice() {
+		List<CsArticleVO> notices = new ArrayList<>();
+		
+		try {
+			logger.info("selectLatestNotice...");
+			
+			conn = getConnection();
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(Sql.SELECT_LATEST_NOTICE);
+			
+			while(rs.next()) {
+				CsArticleVO ln = new CsArticleVO();
+				ln.setNo(rs.getString(1));
+				ln.setTitle(rs.getString(2));
+				ln.setRdate(rs.getString(3));
+				ln.setCate(rs.getString(4));
+				
+				notices.add(ln);
+			}
+			
+			close();
+			
+		}catch(Exception e) {
+			logger.error(e.getMessage());
+		}
+		
+		return notices;
+	}
+	
 	//notice 게시물 카운트
 	public int selectCountNotice(String cate) {
 		
@@ -212,6 +241,7 @@ public class ArticleDAO extends DBHelper{
 				article.setTitle(rs.getString(3));
 				article.setUid(rs.getString(4));
 				article.setRdate(rs.getString(5));
+				article.setComment(rs.getString(6));
 				
 				articles.add(article);
 			}
@@ -250,6 +280,36 @@ public class ArticleDAO extends DBHelper{
 			logger.error(e.getMessage());
 		}
 		return article;
+	}
+	
+	public List<CsArticleVO> selectLatestQna() {
+		List<CsArticleVO> qnas = new ArrayList<>();
+		
+		try {
+			logger.info("selectLatestQna...");
+			
+			conn = getConnection();
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(Sql.SELECT_LATEST_QNA);
+			
+			while(rs.next()) {
+				CsArticleVO lq = new CsArticleVO();
+				lq.setNo(rs.getString(1));
+				lq.setTitle(rs.getString(2));
+				lq.setUid(rs.getString(3));
+				lq.setRdate(rs.getString(4));
+				lq.setCate(rs.getString(5));
+				
+				qnas.add(lq);
+			}
+			
+			close();
+			
+		}catch(Exception e) {
+			logger.error(e.getMessage());
+		}
+		
+		return qnas;
 	}
 	
 	//qna 게시물 카운트

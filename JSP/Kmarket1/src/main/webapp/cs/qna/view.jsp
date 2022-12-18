@@ -24,9 +24,7 @@
             </aside>
             <article>
                 <nav>
-                   	<c:if test="${article.cate2 eq '탈퇴'}"><h2 class="title">[탈퇴]${article.title}</h2></c:if>
-                   	<c:if test="${article.cate2 eq '회원정보'}"><h2 class="title">[회원정보]${article.title}</h2></c:if>
-                   	<c:if test="${article.cate2 eq '로그인'}"><h2 class="title">[로그인]${article.title}</h2></c:if>
+                   	<h2 class="title">[${article.cate2}]${article.title}</h2>
                     <p>
                         <span>
                         	${fn:substring(article.uid,0,3)}

@@ -11,13 +11,17 @@ public class Sql {
 	public static final String SELECT_ARTICLE_NOTICE = "SELECT `title`,`rdate`,`content` FROM `km_cs_notice` WHERE `no`= ?";
 	public static final String SELECT_COUNT_NOTICE_ALL = "SELECT COUNT(`no`) FROM `km_cs_notice`";
 	public static final String SELECT_COUNT_NOTICE = "SELECT COUNT(`no`) FROM `km_cs_notice` where `cate`=?";
-
-	public static final String SELECT_QNA = "SELECT `no`, `cate2`, `title`, `uid`, `rdate` from `km_cs_qna` WHERE `cate`= ? "
+	public static final String SELECT_LATEST_NOTICE = "SELECT `no`,`title`,`rdate`, `cate` FROM `km_cs_notice` "
+												   +"ORDER BY `no` DESC LIMIT 5";
+	
+	public static final String SELECT_QNA = "SELECT `no`, `cate2`, `title`, `uid`, `rdate`, `comment` from `km_cs_qna` WHERE `cate`= ? "
 											+"ORDER BY `no` DESC "
 											+"LIMIT ?, 10";
 	public static final String SELECT_COUNT_QNA = "SELECT COUNT(`no`) FROM `km_cs_qna` where `cate`=?";
 	public static final String SELECT_ARTICLE_QNA = "SELECT `cate2`, `title`, `uid`, `rdate`,`content` FROM `km_cs_qna` WHERE `no`= ?";							
 	public static final String SELECT_MAX_NO = "select max(`no`) from `km_cs_qna`";
+	public static final String SELECT_LATEST_QNA = "SELECT `no`,`title`, `uid`, `rdate`, `cate` FROM `km_cs_qna` "
+			                                       +"ORDER BY `no` DESC LIMIT 5";
 	
 	public static final String INSERT_ARTICLE = "INSERT INTO `km_cs_qna` SET `title`=?, `cate`=?, `cate2`=?, `content`=?, `uid`=?, `regip`=?, `rdate`=now()";
 	

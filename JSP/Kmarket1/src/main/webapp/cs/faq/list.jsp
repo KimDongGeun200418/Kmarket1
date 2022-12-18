@@ -1,6 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <jsp:include page="../_header.jsp"/>
 <section id="cs">
     <div class="faq">
@@ -42,11 +41,11 @@
                 		<h3>${ct.cate2}</h3>
                 		<c:set var="ct.cate2" value="${ct.cate2}"/>
 	                    <c:forEach var="article" items="${articles}">
-	                    <c:if test="${article.cate2 eq ct.cate2}">
+	                    	<c:if test="${article.cate2 eq ct.cate2}">
 		                    <ul>
 		                        <li><a href="./view.do?group=faq&cate=${cate}&cate2=${article.cate2}&no=${article.no}"><span>Q.</span>${article.title}</a></li>
-		                    	</c:if>
 		                    </ul>
+		                    </c:if>
                     	</c:forEach>
                     	<ul><li class="more"><a href="#">더보기</a></li></ul>
                     </c:forEach>
