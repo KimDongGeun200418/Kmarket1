@@ -45,6 +45,10 @@
                             	[${article.cate2}]${article.title}
                             </a>
                         </td>
+                        <td style="text-align: center">
+                        	<c:if test="${article.comment eq '0'}"><span style="color:#cecbcb; font-weight:bold">검토중</span></c:if>
+                        	<c:if test="${article.comment > '0'}"><span style="color:#2da9e9; font-weight:bold">답변완료</span></c:if>
+                        </td>
                         <td>
                         	${fn:substring(article.uid,0,3)}
                         	<c:forEach begin="4" end="${fn:length(article.uid) }" step="1">
@@ -57,13 +61,13 @@
                 </table>
                 <div class="page">
                 	<c:if test="${pageGroupStart > 1}">
-                    <a href="/Kmarket1/cs/notice/list.do?group=notice&cate=${cate}&pg=${pageGroupStart - 1}" class="prev">이전</a>
+                    <a href="/Kmarket1/cs/qna/list.do?group=qna&cate=${cate}&pg=${pageGroupStart - 1}" class="prev">이전</a>
                     </c:if>
                     <c:forEach var="num" begin="${pageGroupStart}" end="${pageGroupEnd}">
-                    <a href="/Kmarket1/cs/notice/list.do?group=notice&cate=${cate}&pg=${num}" class="num ${num == currentPage ? 'current':'off' }">${num}</a>
+                    <a href="/Kmarket1/cs/qna/list.do?group=qna&cate=${cate}&pg=${num}" class="num ${num == currentPage ? 'current':'off' }">${num}</a>
                     </c:forEach>
                     <c:if test="${pageGroupEnd < lastPageNum}">
-                    <a href="/Kmarket1/cs/notice/list.do?group=notice&cate=${cate}&pg=${pageGroupEnd + 1}" class="next">다음</a>
+                    <a href="/Kmarket1/cs/qna/list.do?group=qna&cate=${cate}&pg=${pageGroupEnd + 1}" class="next">다음</a>
                     </c:if>
                 </div>
                 <a href="./write.do?group=qna" class="btnWrite">문의하기</a>         
