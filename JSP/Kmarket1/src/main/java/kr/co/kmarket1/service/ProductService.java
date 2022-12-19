@@ -11,6 +11,7 @@ import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.google.gson.JsonObject;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -88,4 +89,10 @@ public enum ProductService {
 			return dao.selectLatestProducts(amount);
 		}
 		
+		//cart
+		public String insertCart(String uid, ProductVO product, int count, int total) {
+			JsonObject json = new JsonObject();
+			json.addProperty("result", dao.insertCart(uid, product, count, total));
+			return json.toString();
+		}
 }

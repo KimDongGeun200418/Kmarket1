@@ -32,10 +32,12 @@ public class ProductViewController extends HttpServlet{
 		String cate2	= req.getParameter("cate2");
 		
 		ProductVO product = serviceProduct.selectProduct(prodNo);
-		
 		req.setAttribute("product", product);
+
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/product/view.jsp");
 		dispatcher.forward(req,	 resp);
+		
+		
 	}
 	
 	@Override
