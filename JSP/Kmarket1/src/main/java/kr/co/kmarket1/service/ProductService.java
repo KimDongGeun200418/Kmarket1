@@ -30,6 +30,7 @@ public enum ProductService {
 		}
 
 		public ProductVO selectProduct(String prodNo) {
+			dao.updateHit(prodNo);
 			return dao.selectProduct(prodNo);
 		}
 
@@ -63,6 +64,23 @@ public enum ProductService {
 		//list
 		public List<ProductVO> selectProductsByCate(String cate1, String cate2){
 			return dao.selectProductsByCate(cate1, cate2);
+		}
+		
+		//index
+		public List<ProductVO> selectBestProducts(int amount){
+			return dao.selectBestProducts(amount);
+		}
+		public List<ProductVO> selectHitProducts(int amount){
+			return dao.selectHitProducts(amount);
+		}
+		public List<ProductVO> selectScoreProducts(int amount){
+			return dao.selectScoreProducts(amount);
+		}
+		public List<ProductVO> selectDiscountProducts(int amount){
+			return dao.selectDiscountProducts(amount);
+		}
+		public List<ProductVO> selectLatestProducts(int amount){
+			return dao.selectLatestProducts(amount);
 		}
 	
 }
