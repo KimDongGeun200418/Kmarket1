@@ -66,4 +66,9 @@ public class Sql {
 	public static final String SELECT_PRODUCTS_BY_CATE 	="SELECT * FROM `km_product` WHERE `cate1`=? AND `cate2`=?";
 	public static final String UPDATE_HIT 				="UPDATE `km_product` SET `hit` = `hit`+1 WHERE `prodNo`=?";
 
+	public static final String INSERT_CART ="INSERT INTO `km_product_cart` SET "
+											+ "`uid` = ?,`prodNo`=?, `count`=?,"
+											+ "`price`=?, `discount`=?, `point`=?,"
+											+ "`delivery`=?, `total`=?, `rdate`=NOW()";
+			
 }

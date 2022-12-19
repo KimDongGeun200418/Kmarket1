@@ -467,6 +467,31 @@ public class ProductDAO extends DBHelper{
 			logger.error(e.getMessage());
 		}
 	}
+	
+	//insertCart
+	public String insertCart(String uid, ProductVO product, int count, int total) {
+		String result= "0";
+		try {
+			logger.debug("insertCart start...");
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.INSERT_CART);
+			psmt.setString(1, uid);
+			psmt.setInt(2, product.getProdNo());
+			psmt.setInt(3, count);
+			psmt.setInt(4, product.getPrice());
+			psmt.setInt(5, product.getDiscount());
+			psmt.setInt(6, product.getPoint());
+			psmt.setInt(7, product.getDelivery());
+			psmt.setInt(8, total);
+			result = Integer.toString(psmt.executeUpdate());
+			close();
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		} 
+		
+		return result;
+	}
+	
 }
 		
 
