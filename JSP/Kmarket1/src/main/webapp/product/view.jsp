@@ -4,6 +4,7 @@
 <jsp:include page="../_header.jsp"/>
 <jsp:include page="../_menu.jsp"/>
 <link rel="stylesheet" href="/Kmarket1/product/css/product_view.css">
+<script src="/Kmarket1/product/js/view.js"></script>
     <style>
         
     </style>
@@ -28,6 +29,8 @@
                         <img src="https://via.placeholder.com/460x460" alt="상품이미지">
                     </div>
                     <div class="summary">
+                    	<input type="hidden" name="uid" value="${ loginUser.uid }"/>
+                    	<input type="hidden" name="prodNo" value="${ product.prodNo }"/>
                         <nav>
                             <h1>${ product.seller }</h1>
                             <h2>상품번호&nbsp;:&nbsp;<span>${ product.prodNo }</span></h2>
