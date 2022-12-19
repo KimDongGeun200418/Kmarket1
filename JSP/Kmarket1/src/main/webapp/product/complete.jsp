@@ -80,10 +80,10 @@
                           </div>
                         </article>
                       </td>
-                      <td>17,000원</td>
-                      <td>1,000원</td>
-                      <td>1</td>
-                      <td>16,000원</td>
+                      <td>{ product.ord }</td>
+                      <td>{	product.ordDiscount }</td>
+                      <td>{ product.ordCount }</td>
+                      <td>{	product.ordPrice }</td>
                     </tr>
                     
                     <tr class="total">

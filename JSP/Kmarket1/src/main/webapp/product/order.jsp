@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="../_header.jsp"/>
 <jsp:include page="../_menu.jsp"/>
 <link rel="stylesheet" href="/Kmarket1/product/css/product_order.css">
@@ -47,7 +48,7 @@
                             </div>
                           </article>
                         </td>
-                        <td>1</td>
+                        <td>{ product.ordCount }</td>
                         <td>27,000</td>
                         <td>무료배송</td>
                         <td>27,000</td>

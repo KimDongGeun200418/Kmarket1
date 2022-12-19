@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="../_header.jsp"/>
-<jsp:include page="../_menu.jsp"/>
+<jsp:include page="./_menu.jsp"/>
 <link rel="stylesheet" href="/Kmarket1/product/css/product_cart.css">
     <style>
         
@@ -38,6 +39,7 @@
                       </tr>
                     </thead>
                     <tbody>
+                    <c:forEach var="product" items="${ products }">
                       <tr class="empty">
                         <td colspan="7">장바구니에 상품이 없습니다.</td>
                       </tr>
@@ -47,18 +49,20 @@
                           <article>
                             <a href="#"><img src="https://via.placeholder.com/80x80" alt=""></a>
                             <div>
-                              <h2><a href="#">상품명</a></h2>
-                              <p>상품설명</p>
+                              <h2><a href="#">${ product.prodName }</a></h2>
+                              <p>${ product.descript }</p>
                             </div>
                           </article>
                         </td>
-                        <td>1</td>
-                        <td>27,000</td>
-                        <td>5%</td>
-                        <td>270</td>
-                        <td>무료배송</td>
-                        <td>27,000</td>
+                        <td>${ product.count }</td>
+                        <td>${ product.price }</td>
+                        <td>${ product.discount }</td>
+                        <td>${ product.point }</td>
+                        <td>${ product.delivery }</td>
+                        <td>${ product.total }</td>
                       </tr>
+                      </c:forEach>
+                      
                       <tr>
                         <td><input type="checkbox" name=""></td>
                         <td>

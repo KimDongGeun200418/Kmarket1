@@ -32,6 +32,7 @@
                 <table border="0">                  
                     <tbody>
                     	<c:forEach var="product" items="${ products }">
+                    	<fmt:parseNumber var="productDisPrice" value="${ product.price * (1-(product.discount/100)) }" integerOnly="true" />
                         <tr>
                             <td>
                                 <a href="/Kmarket1/product/productView.do?prodNo=${ product.prodNo }" class="thumb"><img src="/Kmarket1/productImg/${ product.thumb1 }" alt="상품이미지"></a>
@@ -42,10 +43,10 @@
                             </td>
                             <td>
                                 <ul>
-                                    <li><ins class="dis-price"><fmt:formatNumber value="${ product.price * (1-(product.discount/100)) }"  pattern="#,###" /></ins></li>
+                                    <li><ins class="dis-price">${ productDisPrice }</ins></li>
                                     <li>
-                                        <del class="org-price"><fmt:formatNumber value="${ product.price }"  pattern="#,###" /></del>
-                                        <span class="discount">${ product.discount }</span>
+                                        <del class="org-price">${ product.price }</del>
+                                        <span class="discount">${ product.discount }%</span>
                                     </li>
                                     <li><span class="free-delivery">무료배송</span></li>
                                 </ul>

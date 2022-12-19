@@ -1,4 +1,4 @@
-package kr.co.kmarket1.controller;
+package kr.co.kmarket1.controller.product;
 
 import java.io.IOException;
 
@@ -9,26 +9,27 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/product/view.do")
-public class productController extends HttpServlet{
+@WebServlet("/product/productOrder.do")
+public class ProductOrderController extends HttpServlet {
+
+	
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	public void init() throws ServletException {
-	}
 
+	}
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	
-	RequestDispatcher dispatcher = req.getRequestDispatcher("/product/view.jsp");
-	dispatcher.forward(req, resp);
-	
-	
+
+		RequestDispatcher dispatcher = req.getRequestDispatcher("product/order.jsp");
+		dispatcher.forward(req, resp);
+		
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	
-	
+
 	}
 }

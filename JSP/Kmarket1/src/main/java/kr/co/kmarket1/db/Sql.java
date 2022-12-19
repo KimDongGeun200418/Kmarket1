@@ -31,12 +31,9 @@ public class Sql {
 			                             +"ORDER BY `no` DESC ";
 	public static final String SELECT_FAQ_CATE = "SELECT distinct `cate2` from `km_cs_faq` WHERE `cate`= ? ";
 			
-	//index
-	public static final String SELECT_PRODUCTS_BY_SOLD = "SELECT * FROM `km_product` ORDER BY `sold` DESC LIMIT ?";
-	public static final String SELECT_PRODUCTS_BY_HIT = "SELECT * FROM `km_product` ORDER BY `hit` DESC LIMIT ?";
-	public static final String SELECT_PRODUCTS_BY_SCORE = "SELECT * FROM `km_product` ORDER BY `score` DESC LIMIT ?";
-	public static final String SELECT_PRODUCTS_BY_DISCOUNT = "SELECT * FROM `km_product` ORDER BY `discount` DESC LIMIT ?";
-	public static final String SELECT_PRODUCTS_BY_LATEST = "SELECT * FROM `km_product` ORDER BY `prodNo` DESC LIMIT ?";
+											
+	
+	
 	public static final String SELECT_TERMS = "SELECT * FROM `km_member_terms`";
 
 	//Member
@@ -64,6 +61,5 @@ public class Sql {
 	public static final String SELECT_PRODUCTS 			="SELECT * FROM `km_product`";
 	public static final String COUNT_TODAY_PRODUCTS 	="SELECT COUNT(`prodNo`) FROM `km_product` WHERE DATE(`rdate`)=CURDATE()";
 	public static final String SELECT_PRODUCTS_BY_CATE 	="SELECT * FROM `km_product` WHERE `cate1`=? AND `cate2`=?";
-	public static final String UPDATE_HIT 				="UPDATE `km_product` SET `hit` = `hit`+1 WHERE `prodNo`=?";
 
 }

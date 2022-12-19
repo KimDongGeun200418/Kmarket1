@@ -13,29 +13,34 @@ import javax.servlet.http.HttpServletResponse;
 import kr.co.kmarket1.service.ProductService;
 import kr.co.kmarket1.vo.ProductVO;
 
-@WebServlet("/product/productView.do")
-public class ProductViewController extends HttpServlet{
-	ProductService serviceProduct = ProductService.INSTANCE;
 
-	
+
+@WebServlet("/product/productCart.do")
+public class ProductCartController extends HttpServlet{
+
 	private static final long serialVersionUID = 1L;
+	ProductService service = ProductService.INSTANCE;
 	
 	@Override
 	public void init() throws ServletException {
 
 	}
-
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		String prodNo	= req.getParameter("prodNo");
-		String cate1	= req.getParameter("cate1");
-		String cate2	= req.getParameter("cate2");
+		String cate1 = req.getParameter("cate1");
+		String cate2 = req.getParameter("cate2");
 		
-		ProductVO product = serviceProduct.selectProduct(prodNo);
-		req.setAttribute("product", product);
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/product/view.jsp");
-		dispatcher.forward(req,	 resp);
+		List<ProductVO> products = service.selectProduct();
+		req.setAttribute("products", products);
+		req.setAttribute("cate1", cate1);
+		req.setAttribute("cate2", cate2);
+		
+		
+		
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/product/productList.jsp");
+		dispatcher.forward(req, resp);
 	}
 	
 	@Override
