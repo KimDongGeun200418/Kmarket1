@@ -40,6 +40,7 @@ public class ArticleDAO extends DBHelper{
 				article.setNo(rs.getString(1));
 				article.setTitle(rs.getString(2));
 				article.setRdate(rs.getString(3));
+				article.setHit(rs.getString(4));
 				
 				articles.add(article);
 			}
@@ -69,6 +70,8 @@ public class ArticleDAO extends DBHelper{
 				article.setNo(rs.getString(1));
 				article.setTitle(rs.getString(2));
 				article.setRdate(rs.getString(3));
+				article.setHit(rs.getString(4));
+				article.setCate(rs.getString(5));
 				
 				articles.add(article);
 			}
@@ -418,4 +421,25 @@ public class ArticleDAO extends DBHelper{
 		return article;
 	}
 	
+	//admin-notice
+	public int deleteNotice(String no) {
+		
+		int result = 0;
+		
+		try {
+			logger.info("deleteNotice...");
+			
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.DELETE_NOTICE);
+			psmt.setString(1, no);
+			result = psmt.executeUpdate();
+			
+			close();
+			
+		}catch(Exception e) {
+			logger.error(e.getMessage());
+		}
+		
+		return result;
+	}
 }

@@ -2,10 +2,10 @@ package kr.co.kmarket1.db;
 
 public class Sql {
 	//Cs
-	public static final String SELECT_NOTICE = "SELECT `no`,`title`, `rdate` from `km_cs_notice` WHERE `cate`= ? "
+	public static final String SELECT_NOTICE = "SELECT `no`,`title`, `rdate`, `hit` from `km_cs_notice` WHERE `cate`= ? "
 											+"ORDER BY `no` DESC "
 											+"LIMIT ?, 10";
-	public static final String SELECT_ALL_NOTICE = "SELECT `no`,`title`, `rdate` from `km_cs_notice` "
+	public static final String SELECT_ALL_NOTICE = "SELECT `no`,`title`, `rdate`, `hit`, `cate` from `km_cs_notice` "
 												+"ORDER BY `no` DESC "
 												+"LIMIT ?, 10";
 	public static final String SELECT_ARTICLE_NOTICE = "SELECT `title`,`rdate`,`content` FROM `km_cs_notice` WHERE `no`= ?";
@@ -66,4 +66,6 @@ public class Sql {
 	public static final String SELECT_PRODUCTS_BY_CATE 	="SELECT * FROM `km_product` WHERE `cate1`=? AND `cate2`=?";
 	public static final String UPDATE_HIT 				="UPDATE `km_product` SET `hit` = `hit`+1 WHERE `prodNo`=?";
 
+	//admin_cs
+	public static final String DELETE_NOTICE = "delete from `km_cs_notice` where `no`=?";
 }

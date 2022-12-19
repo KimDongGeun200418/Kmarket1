@@ -12,7 +12,14 @@ public class CsArticleVO {
 	private String cate2;
 	private String parent;
 	private String comment;
+	private String hit;
 	
+	public String getHit() {
+		return hit;
+	}
+	public void setHit(String hit) {
+		this.hit = hit;
+	}
 	public String getNo() {
 		return no;
 	}
