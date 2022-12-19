@@ -16,6 +16,7 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import kr.co.kmarket1.dao.ProductDAO;
+import kr.co.kmarket1.vo.NavCateVO;
 import kr.co.kmarket1.vo.ProductVO;
 
 public enum ProductService {
@@ -67,6 +68,10 @@ public enum ProductService {
 			return dao.selectProductsByCate(cate1, cate2);
 		}
 		
+		public NavCateVO selectNavCate(String cate1, String cate2) {
+			return new NavCateVO();
+		}
+		
 		//index
 		public List<ProductVO> selectBestProducts(int amount){
 			return dao.selectBestProducts(amount);
@@ -90,5 +95,4 @@ public enum ProductService {
 			json.addProperty("result", dao.insertCart(uid, product, count, total));
 			return json.toString();
 		}
-	
 }
