@@ -126,7 +126,7 @@
     position: absolute;
     width: 21px;
     height: 21px;
-    background-image: url(./img/ico_sprites.png);
+    background-image: url(/Kmarket1/product/img/ico_sprites.png);
     font-size: 0;
     background-color: transparent;
     border: none;
@@ -137,10 +137,16 @@
     top: 0;
     background-position: 0px -74px;
 }
+#product > .view > .info > .summary .count > .decrease:hover {
+    background-position: -24px -74px;
+}
 #product > .view > .info > .summary .count > .increase {
     left: 70px;
     top: 0;
     background-position: -48px -74px;
+}
+#product > .view > .info > .summary .count > .increase:hover {
+    background-position: -72px -74px;
 }
 #product > .view > .info > .summary .count > input[name=num] {
     position: absolute;

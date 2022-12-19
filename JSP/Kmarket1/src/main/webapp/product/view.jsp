@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="../_header.jsp"/>
 <jsp:include page="../_menu.jsp"/>
 <link rel="stylesheet" href="/Kmarket1/product/css/product_view.css">
@@ -37,17 +38,23 @@
                             <h5 class="rating star4"><a href="#">상품평보기</a></h5>
                         </nav>
                         <nav>
-                        <fmt:parseNumber var="productDisPrice" value="${ product.price * (1-(product.discount/100)) }" integerOnly="true" />
                             <div class="org_price">
-                                <del>${ product.price }</del>
+                                <del><fmt:formatNumber value="${ product.price }"  pattern="#,###" /></del>
                                 <span>${ product.discount }%</span>
                             </div>
                             <div class="dis_price">
-                                <ins>${ productDisPrice }</ins>
+                                <ins><fmt:formatNumber value="${ product.price * (1-(product.discount/100)) }"  pattern="#,###" /></ins>
                             </div>
                         </nav>
                         <nav>
-                            <span class="delivery">무료배송</span>
+                        	<c:choose>
+	                  			<c:when test="${ product.delivery == '0' }">
+	                  				<span class="delivery">무료배송</span>
+	                  			</c:when>
+	                  			<c:otherwise>
+	                  				<span class="delivery">배송비 ${ product.delivery }</span>
+	                  			</c:otherwise>
+                  			</c:choose>
                             <span class="arrival">모레(금) 7/8 도착예정</span>
                             <span class="desc">${ product.descript }</span>
                         </nav>
@@ -62,7 +69,7 @@
                         
                         <div class="count">
                             <button class="decrease">-</button>
-                            <input type="text" name="num" value="1" readonly="">
+                            <input type="text" name="num" value="1" readonly />
                             <button class="increase">+</button>
                         </div>
                         
