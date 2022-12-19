@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.co.kmarket1.service.ProductService;
+import kr.co.kmarket1.vo.NavCateVO;
 import kr.co.kmarket1.vo.ProductVO;
 
 @WebServlet("/product/productList.do")
@@ -28,6 +29,8 @@ public class ProductListController extends HttpServlet{
 		String cate2 = req.getParameter("cate2");
 		
 		List<ProductVO> products = serviceProduct.selectProductsByCate(cate1, cate2);
+		NavCateVO navCate = serviceProduct.selectNavCate(cate1, cate2);
+		
 		req.setAttribute("products", products);
 		req.setAttribute("cate1", cate1);
 		req.setAttribute("cate2", cate2);
