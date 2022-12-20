@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="/Kmarket1/css/footer.css">
     <link rel="stylesheet" href="/Kmarket1/css/main_main.css">
     <link rel="stylesheet" href="/Kmarket1/member/css/member.css">
+    <script src="/Kmarket1/js/index.js"></script>
 
 </head>
 <body>

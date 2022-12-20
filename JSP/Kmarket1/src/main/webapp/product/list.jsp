@@ -17,16 +17,16 @@
                 <!-- title, page nav -->
                 <nav>
                     <h1>상품목록</h1>
-                    <p>HOME &gt; <span>패션·의류·뷰티</span> &gt; <strong>남성의류</strong></p>
+                    <p>HOME &gt; <span>${ navCate.cate1 }</span> &gt; <strong>${ navCate.cate2 }</strong></p>
                 </nav>
                 <!-- sort menu -->
                 <ul class="sort">
-                    <li><a href="#" class="on">판매많은순</a></li>
-                    <li><a href="#">낮은가격순</a></li>
-                    <li><a href="#">높은가격순</a></li>
-                    <li><a href="#">평점높은순</a></li>
-                    <li><a href="#">후기많은순</a></li>
-                    <li><a href="#">최근등록순</a></li>
+                    <li><a href="/Kmarket1/product/productList.do?cate1=${ cate1 }&cate2=${ cate2 }&option=sold" class="${option eq 'sold' ? 'on':'off'}">판매많은순</a></li>
+                    <li><a href="/Kmarket1/product/productList.do?cate1=${ cate1 }&cate2=${ cate2 }&option=low" class="${option eq 'low' ? 'on':'off'}">낮은가격순</a></li>
+                    <li><a href="/Kmarket1/product/productList.do?cate1=${ cate1 }&cate2=${ cate2 }&option=high" class="${option eq 'high' ? 'on':'off'}">높은가격순</a></li>
+                    <li><a href="/Kmarket1/product/productList.do?cate1=${ cate1 }&cate2=${ cate2 }&option=score" class="${option eq 'score' ? 'on':'off'}">평점높은순</a></li>
+                    <li><a href="/Kmarket1/product/productList.do?cate1=${ cate1 }&cate2=${ cate2 }&option=review" class="${option eq 'review' ? 'on':'off'}">후기많은순</a></li>
+                    <li><a href="/Kmarket1/product/productList.do?cate1=${ cate1 }&cate2=${ cate2 }&option=latest" class="${option eq 'latest' ? 'on':'off'}">최근등록순</a></li>
                 </ul>
                 <!-- product list -->
                 <table border="0">                  
@@ -110,21 +110,21 @@
                 </table>
                 <!-- page number -->
                 <div class="paging">
-                    <span class="prev">
-                        <a href="#">&lt; 이전</a>
-                    </span>
-                    <span class="num">
-                        <a href="#" class="on">1</a>
-                        <a href="#">2</a>
-                        <a href="#">3</a>
-                        <a href="#">4</a>
-                        <a href="#">5</a>
-                        <a href="#">6</a>
-                        <a href="#">7</a>
-                    </span>
-                    <span class="next">
-                        <a href="#">다음&nbsp;&gt;</a>
-                    </span>
+					<c:if test="${pageGroupStart > 1}">
+					<span class="prev">
+		            	<a href="/Kmarket1/product/productList.do?cate1=${ cate1 }&cate2=${ cate2 }&option=${ option }&pg=${pageGroupStart - 1}">&lt; 이전</a>
+		            </span>
+		            </c:if>
+		            <span class="num">
+		            <c:forEach var="num" begin="${pageGroupStart}" end="${pageGroupEnd}">
+		            	<a href="/Kmarket1/product/productList.do?cate1=${ cate1 }&cate2=${ cate2 }&option=${ option }&pg=${num}" class="${num == currentPage ? 'on':'off'}">${num}</a>
+		            </c:forEach>
+		            </span>
+		            <c:if test="${pageGroupEnd < lastPageNum}">
+		            <span class="next">
+		            	<a href="/Kmarket1/product/productList.do?cate1=${ cate1 }&cate2=${ cate2 }&option=${ option }&pg=${pageGroupEnd + 1}" class="next">다음&nbsp;&gt;</a>
+		            </span>
+		            </c:if>
                 </div>
             </section>
             <!-- 새 내용 -->
