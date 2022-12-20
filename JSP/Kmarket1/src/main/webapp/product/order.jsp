@@ -35,24 +35,26 @@
                       </tr>
                     </thead>
                     <tbody>
+                     <c:forEach var="product" items="${ products }">
                       <tr class="empty">
                         <td colspan="7">장바구니에 상품이 없습니다.</td>
                       </tr>
                       <tr>
                         <td>
                           <article>
-                            <a href="#"><img src="https://via.placeholder.com/80x80" alt=""></a>
+                            <a href="/Kmarket1/product.do?no=${ product.prodNo }"><img src="/Kmarket1/productImg/"https://via.placeholder.com/80x80" alt=""></a>
                             <div>
-                              <h2><a href="#">상품명</a></h2>
+                              <h2><a href="#">{ product.prodName }</a></h2>
                               <p>상품설명</p>
                             </div>
                           </article>
                         </td>
                         <td>{ product.ordCount }</td>
-                        <td>27,000</td>
-                        <td>무료배송</td>
-                        <td>27,000</td>
+                        <td>{ product.ordPrice }</td>
+                        <td>{ product.ordDelivery }</td>
+                        <td>{ product.ordTotPrice }</td>
                       </tr>
+                       </c:forEach>
                       <tr>
                         <td>
                           <article>

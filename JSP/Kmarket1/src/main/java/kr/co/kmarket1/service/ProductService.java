@@ -72,6 +72,7 @@ public enum ProductService {
 			return new NavCateVO();
 		}
 		
+		
 		//index
 		public List<ProductVO> selectBestProducts(int amount){
 			return dao.selectBestProducts(amount);
@@ -94,5 +95,9 @@ public enum ProductService {
 			JsonObject json = new JsonObject();
 			json.addProperty("result", dao.insertCart(uid, product, count, total));
 			return json.toString();
+			
+		
+		
+		
 		}
 }
