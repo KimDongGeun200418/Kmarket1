@@ -9,9 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.co.kmarket1.service.ProductService;
+import kr.co.kmarket1.vo.ProductVO;
+
 @WebServlet("/product/productComplete.do")
 public class ProductCompleteController extends HttpServlet{
-
 	
 	private static final long serialVersionUID = 1L;
 
@@ -22,8 +24,12 @@ public class ProductCompleteController extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-		RequestDispatcher dispatcher = req.getRequestDispatcher("product/complete.jsp");
+		
+		String prodNo = req.getParameter("prodNo");
+		
+				
+		
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/product/complete.jsp");
 		dispatcher.forward(req, resp);
 		
 	}

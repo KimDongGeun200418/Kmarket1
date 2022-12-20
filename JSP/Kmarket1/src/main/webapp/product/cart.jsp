@@ -47,7 +47,7 @@
                         <td><input type="checkbox" name=""></td>
                         <td>
                           <article>
-                            <a href="#"><img src="https://via.placeholder.com/80x80" alt=""></a>
+                            <a href="/Kmarket1/product.do?no=${ product.prodNo }"><img src="https://via.placeholder.com/80x80" alt=""></a>
                             <div>
                               <h2><a href="#">${ product.prodName }</a></h2>
                               <p>${ product.descript }</p>

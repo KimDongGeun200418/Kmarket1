@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="../_header.jsp"/>
 <jsp:include page="../_menu.jsp"/>
 <link rel="stylesheet" href="/Kmarket1/product/css/product_complete.css">
@@ -45,45 +46,45 @@
                         <article>
                           <img src="https://via.placeholder.com/80x80" alt="">
                           <div>
-                            <h2><a href="#">상품명</a></h2>
-                            <p>상품설명</p>
-                          </div>
-                        </article>
-                      </td>
-                      <td>17,000원</td>
-                      <td>1,000원</td>
-                      <td>1</td>
-                      <td>16,000원</td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <article>
-                          <img src="https://via.placeholder.com/80x80" alt="">
-                          <div>
-                            <h2><a href="#">상품명</a></h2>
-                            <p>상품설명</p>
-                          </div>
-                        </article>
-                      </td>
-                      <td>17,000원</td>
-                      <td>1,000원</td>
-                      <td>1</td>
-                      <td>16,000원</td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <article>
-                          <img src="https://via.placeholder.com/80x80" alt="">
-                          <div>
-                            <h2><a href="#">상품명</a></h2>
+                            <h2><a href="/Kmarket1/product.do?no=${ product.prodNo }"class="thumb"><img src="/Kmarket1/productImg/${ product.thumb1 }" alt="상품이미지"> </a></h2>
                             <p>상품설명</p>
                           </div>
                         </article>
                       </td>
                       <td>{ product.ord }</td>
-                      <td>{	product.ordDiscount }</td>
+                      <td>1,000원</td>
                       <td>{ product.ordCount }</td>
-                      <td>{	product.ordPrice }</td>
+                      <td>16,000원</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <article>
+                          <img src="https://via.placeholder.com/80x80" alt="">
+                          <div>
+                            <h2><a href="#">상품명</a></h2>
+                            <p>상품설명</p>
+                          </div>
+                        </article>
+                      </td>
+                      <td>17,000원</td>
+                      <td>1,000원</td>
+                      <td>1</td>
+                      <td>16,000원</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <article>
+                          <img src="https://via.placeholder.com/80x80" alt="">
+                          <div>
+                            <h2><a href="#">상품명</a></h2>
+                            <p>상품설명</p>
+                          </div>
+                        </article>
+                      </td>
+                      <td>17,000원</td>
+                      <td>1,000원</td>
+                      <td>1</td>
+                      <td>16,000원</td>
                     </tr>
                     
                     <tr class="total">
