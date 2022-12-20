@@ -422,11 +422,11 @@ footer p > strong{
     font-size: 16px;
 }
 
-#cs > .notice > .list > article > .page{
+#cs > .notice > .list > article .page{
     text-align: center;
     margin-top: 26px;
 }
-#cs > .notice > .list > article > .page > a{
+#cs > .notice > .list > article .page > a{
     display: inline-block;
     width: 34px;
     height: 34px;
@@ -437,17 +437,17 @@ footer p > strong{
     font-weight: bold;
     vertical-align: bottom;
 }
-#cs > .notice > .list > article > .page > .prev{
+#cs > .notice > .list > article .page > .prev{
     font-size: 0;
     background-image: url(../img/cs_sprites.png);
     background-position: -706px -652px;
 }
-#cs > .notice > .list > article > .page > .next{
+#cs > .notice > .list > article .page > .next{
     font-size: 0;
     background-image: url(../img/cs_sprites.png);
     background-position: -628px -652px;
 }
-#cs > .notice > .list > article > .page > .on{
+#cs > .notice > .list > article .page > .on{
     background: #006cff;
     border-radius: 17px;
     color: #fff;

@@ -31,4 +31,3 @@ CREATE TABLE `km_cs_qna` (
 	`parent` INT(10) NULL DEFAULT '0',
 	`comment` INT(10) NULL DEFAULT '0'
 );
-

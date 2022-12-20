@@ -43,8 +43,8 @@ public enum ArticleService {
 	public CsArticleVO selectArticleQna(String no) {
 		return dao.selectArticleQna(no);
 	}
-	public int insertArticle(CsArticleVO article) {
-		return dao.insertArticle(article);
+	public int insertArticleQna(CsArticleVO article) {
+		return dao.insertArticleQna(article);
 	}
 	
 	//faq

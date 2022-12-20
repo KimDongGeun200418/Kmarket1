@@ -589,3 +589,69 @@ button[type=submit] {
     background: #888;
     color: #fff;
 }
+
+/* 고객센터 글보기 */
+#admin-notice-view > .list > table{
+    width: 100%;
+    height: auto;
+    border-collapse: collapse;
+    margin: 50px 0;
+    text-align: left;
+    border-top: 2px solid #111;
+}
+#admin-notice-view > .list > table tr{
+}
+#admin-notice-view > .list > table th{
+    padding: 16px;
+    border-bottom: 1px solid #ccc;
+    font-weight: bold;
+    width: 8%;
+    text-align: center;
+}
+#admin-notice-view > .list > table th:last-child{
+	padding: 50px 0;
+}
+#admin-notice-view > .list > table td{
+   padding: 16px;
+   border-bottom: 1px solid #ccc;
+   text-align: left;
+}
+#admin-notice-view > .list > table a{
+   font-size: 12px;
+}
+#admin-notice-view .btnDelete{
+    float: right;
+    padding: 10px 20px;
+    text-align: center;
+    margin-top: -40px;
+    background-color: #bcc3cb;
+    border: 1px solid #aeb0b3;
+    border-radius: 4px;
+    font-size: 20px;
+    color: #fff;
+    box-sizing: border-box;
+}
+#admin-notice-view .btnModify{
+    float: right;
+    padding: 10px 20px;
+    text-align: center;
+    margin-top: -40px;
+    background-color: #bcc3cb;
+    border: 1px solid #aeb0b3;
+    border-radius: 4px;
+    font-size: 20px;
+    color: #fff;
+    box-sizing: border-box;
+}
+#admin-notice-view .btnList{
+    float: right;
+    padding: 10px 20px;
+    text-align: center;
+    margin-top: -40px;
+    background-color: #067dfd;
+    border: 1px solid #0063ce;
+    border-radius: 4px;
+    font-size: 20px;
+    color: #fff;
+    box-sizing: border-box;
+}

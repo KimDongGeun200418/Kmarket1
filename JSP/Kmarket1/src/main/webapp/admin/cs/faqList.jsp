@@ -2,35 +2,31 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script>
-	//체크박스 전체선택
 	function selectAll(selectAll){
 		const checkboxes = document.querySelectorAll("input[type='checkbox']");
 		
 		checkboxes.forEach((checkbox)=>{checkbox.checked = selectAll.checked})
 	}
-	//체크박스 선택삭제
+	
 	function deleteValue(){
-		let checkBoxArr = [];
+		var checkBoxArr = [];
 		
 		$("input:checkbox[name='rowCheck']:checked").each(function(){
 			checkBoxArr.push($(this).val());
 			console.log(checkBoxArr);
 		})
-		let ans = confirm("삭제하시겠습니까?");
-		if(ans){
-			$.ajax({
-				url:'/Kmarket1/admin/cs/deleteNotice.do',
-				type:'post',
-				traditional: true,//ajax 배열 넘기기 옵션
-				data:{'checkBoxArr':checkBoxArr},
-				dataType:'json',
-				success:function(result){
-					if(result > 0){
-						location.reload();//안됨
-					}
+		
+		$.ajax({
+			url:'/admin/cs/deleteNotice.do',
+			type:'get',
+			data:{checkBoxArr:checkBoxArr},
+			dataType:'json',
+			success:function(result){
+				if(result == 1){
+					location.reload();
 				}
-			});
-		}
+			}
+		});
 	}
 </script>
 <jsp:include page="../_header.jsp"/>
@@ -78,49 +74,23 @@
 		                		<td>${article.hit}</td>
 		                		<td>${article.rdate.substring(2, 10)}</td>
 		                		<td>
-		                			<c:if test="${cate == null || cate eq ''}">
-		                				<a href="./deleteNotice.do?group=notice&cate=${article.cate}&pg=${currentPage}&no=${article.no}">[삭제]
-		                			</c:if>
-		                			<c:if test="${cate != null}">
-		                				<a href="./deleteNotice.do?group=notice&cate=${cate}&pg=${currentPage}&no=${article.no}">[삭제]
-		                			</c:if>
-		                			<br/>
-		                			<c:if test="${cate == null || cate eq ''}">
-		                				<a href="./noticeModify.do?group=notice&cate=${article.cate}&pg=${currentPage}&no=${article.no}">[수정]
-		                			</c:if>
-		                			<c:if test="${cate != null}">
-		                				<a href="./noticeModify.do?group=notice&cate=${cate}&pg=${currentPage}&no=${article.no}">[수정]
-		                			</c:if>
+		                			<a href="#">[삭제]</a><br/>
+		                			<a href="#">[수정]</a>
 		                		</td>
 		                	</tr>
 	                	</c:forEach>
 	                </table>
-	                <c:if test="${cate == null || cate eq ''}">
-			            <div class="page">
-		                	<c:if test="${pageGroupStart > 1}">
-		                    <a href="/Kmarket1/admin/cs/noticeList.do?group=notice&pg=${pageGroupStart - 1}" class="prev">이전</a>
-		                    </c:if>
-		                    <c:forEach var="num" begin="${pageGroupStart}" end="${pageGroupEnd}">
-		                    <a href="/Kmarket1/admin/cs/noticeList.do?group=notice&pg=${num}" class="num ${num == currentPage ? 'current':'off' }">${num}</a>
-		                    </c:forEach>
-		                    <c:if test="${pageGroupEnd < lastPageNum}">
-		                    <a href="/Kmarket1/admin/cs/noticeList.do?group=notice&pg=${pageGroupEnd + 1}" class="next">다음</a>
-		                    </c:if>
-		                </div>
-	                </c:if>
-	                <c:if test="${cate != null}">
-			            <div class="page">
-		                	<c:if test="${pageGroupStart > 1}">
-		                    <a href="/Kmarket1/admin/cs/noticeList.do?group=notice&cate=${cate}&pg=${pageGroupStart - 1}" class="prev">이전</a>
-		                    </c:if>
-		                    <c:forEach var="num" begin="${pageGroupStart}" end="${pageGroupEnd}">
-		                    <a href="/Kmarket1/admin/cs/noticeList.do?group=notice&cate=${cate}&pg=${num}" class="num ${num == currentPage ? 'current':'off' }">${num}</a>
-		                    </c:forEach>
-		                    <c:if test="${pageGroupEnd < lastPageNum}">
-		                    <a href="/Kmarket1/admin/cs/noticeList.do?group=notice&cate=${cate}&pg=${pageGroupEnd + 1}" class="next">다음</a>
-		                    </c:if>
-		                </div>
-	                </c:if>
+		            <div class="page">
+	                	<c:if test="${pageGroupStart > 1}">
+	                    <a href="/Kmarket1/admin/cs/noticeList.do?group=notice&cate=${cate}&pg=${pageGroupStart - 1}" class="prev">이전</a>
+	                    </c:if>
+	                    <c:forEach var="num" begin="${pageGroupStart}" end="${pageGroupEnd}">
+	                    <a href="/Kmarket1/admin/cs/noticeList.do?group=notice&cate=${cate}&pg=${num}" class="num ${num == currentPage ? 'current':'off' }">${num}</a>
+	                    </c:forEach>
+	                    <c:if test="${pageGroupEnd < lastPageNum}">
+	                    <a href="/Kmarket1/admin/cs/noticeList.do?group=notice&cate=${cate}&pg=${pageGroupEnd + 1}" class="next">다음</a>
+	                    </c:if>
+	                </div>
 	                <a href="#" class="btnDelete" onclick="deleteValue();">선택삭제</a>       
 	                <a href="./noticeWrite.do?group=notice" class="btnWrite">작성하기</a>       
 	        	</article>        
