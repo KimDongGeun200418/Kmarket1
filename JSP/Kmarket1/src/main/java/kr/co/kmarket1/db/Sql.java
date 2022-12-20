@@ -2,13 +2,14 @@ package kr.co.kmarket1.db;
 
 public class Sql {
 	//Cs
+	public static final String INSERT_ARTICLE_NOTICE = "INSERT INTO `km_cs_notice` SET `title`=?, `cate`=?, `content`=?, `uid`=?, `regip`=?, `rdate`=now()";
 	public static final String SELECT_NOTICE = "SELECT `no`,`title`, `rdate`, `hit` from `km_cs_notice` WHERE `cate`= ? "
 											+"ORDER BY `no` DESC "
 											+"LIMIT ?, 10";
 	public static final String SELECT_ALL_NOTICE = "SELECT `no`,`title`, `rdate`, `hit`, `cate` from `km_cs_notice` "
 												+"ORDER BY `no` DESC "
 												+"LIMIT ?, 10";
-	public static final String SELECT_ARTICLE_NOTICE = "SELECT `title`,`rdate`,`content` FROM `km_cs_notice` WHERE `no`= ?";
+	public static final String SELECT_ARTICLE_NOTICE = "SELECT `title`,`rdate`,`content`, `cate` FROM `km_cs_notice` WHERE `no`= ?";
 	public static final String SELECT_COUNT_NOTICE_ALL = "SELECT COUNT(`no`) FROM `km_cs_notice`";
 	public static final String SELECT_COUNT_NOTICE = "SELECT COUNT(`no`) FROM `km_cs_notice` where `cate`=?";
 	public static final String SELECT_LATEST_NOTICE = "SELECT `no`,`title`,`rdate`, `cate` FROM `km_cs_notice` "
@@ -23,7 +24,7 @@ public class Sql {
 	public static final String SELECT_LATEST_QNA = "SELECT `no`,`title`, `uid`, `rdate`, `cate` FROM `km_cs_qna` "
 			                                       +"ORDER BY `no` DESC LIMIT 5";
 	
-	public static final String INSERT_ARTICLE = "INSERT INTO `km_cs_qna` SET `title`=?, `cate`=?, `cate2`=?, `content`=?, `uid`=?, `regip`=?, `rdate`=now()";
+	public static final String INSERT_ARTICLE_QNA = "INSERT INTO `km_cs_qna` SET `title`=?, `cate`=?, `cate2`=?, `content`=?, `uid`=?, `regip`=?, `rdate`=now()";
 	
 	public static final String SELECT_ARTICLE_FAQ = "SELECT `title`, `content` FROM `km_cs_faq` WHERE `no`= ?";							
 											
@@ -87,4 +88,6 @@ public class Sql {
 	
 	//admin_cs
 	public static final String DELETE_NOTICE = "delete from `km_cs_notice` where `no`=?";
+	public static final String UPDATE_ARTICLE_NOTICE = "update `km_cs_notice` set `cate`=?, `title`=?, `content`=?, `rdate`=NOW() where `no`=?";
+	
 }

@@ -22,6 +22,26 @@ public class ArticleDAO extends DBHelper{
 	private ArticleDAO() {}
 	
 	//notice
+	public void insertArticleNotice(CsArticleVO article) {
+		
+		try {
+			logger.info("insertArticleNotice...");
+			
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.INSERT_ARTICLE_NOTICE);
+			psmt.setString(1, article.getTitle());
+			psmt.setString(2, article.getCate());
+			psmt.setString(3, article.getContent());
+			psmt.setString(4, article.getUid());
+			psmt.setString(5, article.getRegip());
+			psmt.executeUpdate();
+			
+			close();
+			
+		}catch(Exception e) {
+			logger.error(e.getMessage());
+		}
+	}
 	public List<CsArticleVO> selectNotice(String cate, int start){
 		
 		List<CsArticleVO> articles = new ArrayList<>();
@@ -101,6 +121,7 @@ public class ArticleDAO extends DBHelper{
 				article.setTitle(rs.getString(1));
 				article.setRdate(rs.getString(2).substring(0, 10));
 				article.setContent(rs.getString(3));
+				article.setCate(rs.getString(4));
 			}
 			
 			close();
@@ -138,6 +159,26 @@ public class ArticleDAO extends DBHelper{
 		}
 		
 		return notices;
+	}
+	
+	public void updateArticleNotice(String no, String cate, String title, String content) {
+		
+		try {
+			logger.info("updateArticleNotice...");
+			
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.UPDATE_ARTICLE_NOTICE);
+			psmt.setString(1, cate);
+			psmt.setString(2, title);
+			psmt.setString(3, content);
+			psmt.setString(4, no);
+			psmt.executeUpdate();
+			
+			close();
+			
+		}catch(Exception e) {
+			logger.error(e.getMessage());
+		}
 	}
 	
 	//notice 게시물 카운트
@@ -188,18 +229,18 @@ public class ArticleDAO extends DBHelper{
 	}
 	
 	//qna
-	public int insertArticle(CsArticleVO article) {
+	public int insertArticleQna(CsArticleVO article) {
 		
 		int parent = 0;
 		
 		try {
-			logger.info("insertArticle...");
+			logger.info("insertArticleQna...");
 			
 			conn = getConnection();
 			conn.setAutoCommit(false);
 			
 			stmt = conn.createStatement();
-			psmt = conn.prepareStatement(Sql.INSERT_ARTICLE);
+			psmt = conn.prepareStatement(Sql.INSERT_ARTICLE_QNA);
 			psmt.setString(1, article.getTitle());
 			psmt.setString(2, article.getCate());
 			psmt.setString(3, article.getCate2());
