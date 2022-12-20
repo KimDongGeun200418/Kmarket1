@@ -5,6 +5,7 @@
 <jsp:include page="./_menu.jsp"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
 <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+<script src="/Kmarket1/js/index.js"></script>
 <script>
     $(document).ready(function () {
       $(".slider ul").bxSlider({
@@ -69,25 +70,19 @@
                 <div class="bx-viewport" aria-live="polite" style="width: 100%; overflow: hidden; position: relative; height: 447px;">
                     <ul style="width: 5215%; position: relative; transition-timing-function: linear; transition-duration: 0.5s; transform: translate3d(-1970px, 0px, 0px);">
                         <li style="float: left; list-style: none; position: relative; width: 985px;" class="bx-clone" aria-hidden="true">
-                            <a href="#"><img src="https://via.placeholder.com/985x447" alt="item5"></a>
+                            <a href="#"><img src="/Kmarket1/bannerImg/banner4.jpg" alt="item1"></a>
                         </li>
                         <li style="float: left; list-style: none; position: relative; width: 985px;" aria-hidden="true">
-                            <a href="#"><img src="https://via.placeholder.com/985x447" alt="item1"></a>
+                            <a href="#"><img src="/Kmarket1/bannerImg/banner1.jpg" alt="item2"></a>
                         </li>
                         <li aria-hidden="false" style="float: left; list-style: none; position: relative; width: 985px;">
-                            <a href="#"><img src="https://via.placeholder.com/985x447" alt="item2"></a>
+                            <a href="#"><img src="/Kmarket1/bannerImg/banner2.jpg" alt="item3"></a>
                         </li>
                         <li aria-hidden="true" style="float: left; list-style: none; position: relative; width: 985px;">
-                            <a href="#"><img src="https://via.placeholder.com/985x447" alt="item3"></a>
-                        </li>
-                        <li aria-hidden="true" style="float: left; list-style: none; position: relative; width: 985px;">
-                            <a href="#"><img src="https://via.placeholder.com/985x447" alt="item4"></a>
-                        </li>
-                        <li style="float: left; list-style: none; position: relative; width: 985px;" aria-hidden="true">
-                            <a href="#"><img src="https://via.placeholder.com/985x447" alt="item5"></a>
+                            <a href="#"><img src="/Kmarket1/bannerImg/banner3.jpg" alt="item4"></a>
                         </li>
                         <li style="float: left; list-style: none; position: relative; width: 985px;" class="bx-clone" aria-hidden="true">
-                            <a href="#"><img src="https://via.placeholder.com/985x447" alt="item1"></a>
+                            <a href="#"><img src="/Kmarket1/bannerImg/banner5.jpg" alt="item5"></a>
                         </li>
                     </ul>
                 </div>

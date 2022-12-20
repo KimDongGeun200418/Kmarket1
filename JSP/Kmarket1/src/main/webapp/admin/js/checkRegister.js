@@ -49,8 +49,7 @@ $(function(){
 			return false;
 		}
 		
-		
-		return false;
+		//이미지 확장자명
 		let t1 = $('input[name=thumb1]').val();
 		let t2 = $('input[name=thumb2]').val();
 		let t3 = $('input[name=thumb3]').val();
@@ -67,8 +66,15 @@ $(function(){
 		if(!(de.substr(de.length-3) == 'jpg' || de.substr(de.length-4) == 'jpeg' || de.substr(de.length-3) == 'png')){
 			alert('jpg(jpeg)/png파일만 올릴 수 있습니다.');
 		} 
-		
-		
+	});
+	
+	//포인트 자동입력, 숫자검사
+	$('input[name=price]').focusout(function(){
+		if(isNaN($('input[name=price]').val())){
+			return;
+		}
+		let price = Number($('input[name=price]').val())/10;
+		$('input[name=point]').attr('value', parseInt(price));
 		
 	});
 	

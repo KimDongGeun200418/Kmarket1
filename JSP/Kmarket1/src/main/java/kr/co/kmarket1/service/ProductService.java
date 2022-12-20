@@ -64,12 +64,30 @@ public enum ProductService {
 		}
 		
 		//list
-		public List<ProductVO> selectProductsByCate(String cate1, String cate2){
-			return dao.selectProductsByCate(cate1, cate2);
+		public List<ProductVO> selectProductsByCate(String cate1, String cate2, int start){
+			return dao.selectProductsByCate(cate1, cate2, start);
+		}
+		public List<ProductVO> selectProductsByCateSold(String cate1, String cate2, int start){
+			return dao.selectProductsByCateSold(cate1, cate2, start);
+		}
+		public List<ProductVO> selectProductsByCateLow(String cate1, String cate2, int start){
+			return dao.selectProductsByCateLow(cate1, cate2, start);
+		}
+		public List<ProductVO> selectProductsByCateHigh(String cate1, String cate2, int start){
+			return dao.selectProductsByCateHigh(cate1, cate2, start);
+		}
+		public List<ProductVO> selectProductsByCateScore(String cate1, String cate2, int start){
+			return dao.selectProductsByCateScore(cate1, cate2, start);
+		}
+		public List<ProductVO> selectProductsByCateReview(String cate1, String cate2, int start){
+			return dao.selectProductsByCateReview(cate1, cate2, start);
+		}
+		public List<ProductVO> selectProductsByCateLatest(String cate1, String cate2, int start){
+			return dao.selectProductsByCateLatest(cate1, cate2, start);
 		}
 		
 		public NavCateVO selectNavCate(String cate1, String cate2) {
-			return new NavCateVO();
+			return dao.selectNavCate(cate1, cate2);
 		}
 		
 		//index
@@ -94,5 +112,49 @@ public enum ProductService {
 			JsonObject json = new JsonObject();
 			json.addProperty("result", dao.insertCart(uid, product, count, total));
 			return json.toString();
+		}
+		
+		//page
+		public int countProductTotal(String cate1, String cate2) {
+			return dao.countProductTotal(cate1, cate2);
+		}
+		
+		public int getLastPageNum(int total) {
+			int lastPageNum = 0;
+			if(total % 10 == 0){
+				lastPageNum = total / 10;
+			}else{
+				lastPageNum = total / 10 + 1;
+			}
+			return lastPageNum;
+		}
+		
+		public int[] getPageGroupNum(int currentPage, int lastPageNum) {
+			int currentPageGroup = (int)Math.ceil(currentPage / 10.0);
+			int pageGroupStart = (currentPageGroup - 1) * 10 + 1;
+			int pageGroupEnd = currentPageGroup * 10;
+			if(pageGroupEnd > lastPageNum){
+				pageGroupEnd = lastPageNum;
+			}
+			int[] result = {pageGroupStart, pageGroupEnd};
+			
+			return result;
+		}
+		
+		public int getPageStartNum(int total, int currentPage) {
+			int start = (currentPage - 1) * 10;
+			return total - start;
+		}
+		
+		public int getCurrentPage(String pg) {
+			int currentPage = 1;
+			if(pg != null){
+				currentPage = Integer.parseInt(pg);	
+			}
+			return currentPage;
+		}
+		
+		public int getStartNum(int currentPage) {
+			return (currentPage - 1) * 10;
 		}
 }

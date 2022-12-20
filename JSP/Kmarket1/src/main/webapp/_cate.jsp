@@ -9,8 +9,8 @@
                 <i class="fas fa-angle-right" aria-hidden="true"></i>
               </a>
               <ol>
-                <li><a href="/Kmarket1/product/productList.do?cate1=11&cate2=11">남성의류</a></li>
-                <li><a href="/Kmarket1/product/productList.do?cate1=11&cate2=10">여성의류</a></li>
+                <li><a href="/Kmarket1/product/productList.do?cate1=11&cate2=11&option=sold">남성의류</a></li>
+                <li><a href="/Kmarket1/product/productList.do?cate1=11&cate2=10&option=sold">여성의류</a></li>
                 <li><a href="#">잡화</a></li>
                 <li><a href="#">뷰티</a></li>
               </ol>

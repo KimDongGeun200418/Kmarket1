@@ -27,13 +27,45 @@ public class ProductListController extends HttpServlet{
 		
 		String cate1 = req.getParameter("cate1");
 		String cate2 = req.getParameter("cate2");
-		
-		List<ProductVO> products = serviceProduct.selectProductsByCate(cate1, cate2);
+		String pg = req.getParameter("pg");
+		String option = req.getParameter("option");
 		NavCateVO navCate = serviceProduct.selectNavCate(cate1, cate2);
 		
-		req.setAttribute("products", products);
 		req.setAttribute("cate1", cate1);
 		req.setAttribute("cate2", cate2);
+		req.setAttribute("navCate", navCate);
+		req.setAttribute("option", option);
+		
+		//페이징
+		int total = serviceProduct.countProductTotal(cate1, cate2); // 게시글 개수
+		int currentPage = serviceProduct.getCurrentPage(pg); // 현재 페이지 번호	
+		int lastPageNum = serviceProduct.getLastPageNum(total); // 마지막 페이지 번호
+		int[] result = serviceProduct.getPageGroupNum(currentPage, lastPageNum); // 페이지 그룹 start, end 번호
+		int pageStartNum = serviceProduct.getPageStartNum(total, currentPage); // 페이지 시작번호
+		int start = serviceProduct.getStartNum(currentPage); // 시작 인덱스
+		
+		List<ProductVO> products = null;
+		if(option == null || option.equals("sold")) {
+			products = serviceProduct.selectProductsByCateSold(cate1, cate2, start); 
+		}else if(option.equals("low")) {
+			products = serviceProduct.selectProductsByCateLow(cate1, cate2, start); 
+		}else if(option.equals("high")) {
+			products = serviceProduct.selectProductsByCateHigh(cate1, cate2, start); 
+		}else if(option.equals("score")) {
+			products = serviceProduct.selectProductsByCateScore(cate1, cate2, start); 
+		}else if(option.equals("review")) {
+			products = serviceProduct.selectProductsByCateReview(cate1, cate2, start); 
+		}else if(option.equals("latest")) {
+			products = serviceProduct.selectProductsByCateLatest(cate1, cate2, start); 
+		}
+				
+		req.setAttribute("products", products);
+		req.setAttribute("lastPageNum", lastPageNum);		
+		req.setAttribute("currentPage", currentPage);		
+		req.setAttribute("pageGroupStart", result[0]);
+		req.setAttribute("pageGroupEnd", result[1]);
+		req.setAttribute("pageStartNum", pageStartNum+1);
+		
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/product/list.jsp?cate1="+cate1+"&cate2="+cate2);
 		dispatcher.forward(req, resp);

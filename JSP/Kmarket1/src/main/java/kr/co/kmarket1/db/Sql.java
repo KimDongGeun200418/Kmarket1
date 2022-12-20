@@ -63,10 +63,24 @@ public class Sql {
 	public static final String SELECT_PRODUCT 			="SELECT * FROM `km_product` WHERE `prodNo`=?";
 	public static final String SELECT_PRODUCTS 			="SELECT * FROM `km_product`";
 	public static final String COUNT_TODAY_PRODUCTS 	="SELECT COUNT(`prodNo`) FROM `km_product` WHERE DATE(`rdate`)=CURDATE()";
-	public static final String SELECT_PRODUCTS_BY_CATE 	="SELECT * FROM `km_product` WHERE `cate1`=? AND `cate2`=?";
+	
+	public static final String SELECT_PRODUCTS_BY_CATE 			="SELECT * FROM `km_product` WHERE `cate1`=? AND `cate2`=? ORDER BY `prodNo` DESC LIMIT ?, 10";
+	public static final String SELECT_PRODUCTS_BY_CATE_SOLD		="SELECT * FROM `km_product` WHERE `cate1`=? AND `cate2`=? ORDER BY `sold` DESC LIMIT ?, 10";
+	public static final String SELECT_PRODUCTS_BY_CATE_LOW		="SELECT * FROM `km_product` WHERE `cate1`=? AND `cate2`=? ORDER BY `price` ASC LIMIT ?, 10";
+	public static final String SELECT_PRODUCTS_BY_CATE_HIGH		="SELECT * FROM `km_product` WHERE `cate1`=? AND `cate2`=? ORDER BY `price` DESC LIMIT ?, 10";
+	public static final String SELECT_PRODUCTS_BY_CATE_SCORE	="SELECT * FROM `km_product` WHERE `cate1`=? AND `cate2`=? ORDER BY `score` DESC LIMIT ?, 10";
+	public static final String SELECT_PRODUCTS_BY_CATE_REVIEW	="SELECT * FROM `km_product` WHERE `cate1`=? AND `cate2`=? ORDER BY `review` DESC LIMIT ?, 10";
+	public static final String SELECT_PRODUCTS_BY_CATE_LATEST	="SELECT * FROM `km_product` WHERE `cate1`=? AND `cate2`=? ORDER BY `rdate` DESC LIMIT ?, 10";
+	public static final String SELECT_COUNT_PRODUCT_TOTAL 		= "SELECT COUNT(`prodNo`) FROM `km_product` WHERE `cate1`=? AND `cate2`=?";
+	
 	public static final String UPDATE_HIT 				="UPDATE `km_product` SET `hit` = `hit`+1 WHERE `prodNo`=?";
-
-	public static final String INSERT_CART ="INSERT INTO `km_product_cart` SET "
+	public static final String SELECT_NAVCATE 	= "SELECT a.`c1Name`, b.`c2Name` "
+												+ "FROM `km_product_cate1` AS a "
+												+ "JOIN `km_product_cate2` AS b "
+												+ "ON a.`cate1` = b.`cate1` "
+												+ "WHERE b.`cate1`=? AND b.`cate2`=?";
+	
+	public static final String INSERT_CART 	="INSERT INTO `km_product_cart` SET "
 											+ "`uid` = ?,`prodNo`=?, `count`=?,"
 											+ "`price`=?, `discount`=?, `point`=?,"
 											+ "`delivery`=?, `total`=?, `rdate`=NOW()";
