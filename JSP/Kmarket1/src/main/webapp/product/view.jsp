@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="java.util.Date" %> 
 <jsp:include page="../_header.jsp"/>
 <jsp:include page="../_menu.jsp"/>
 <link rel="stylesheet" href="/Kmarket1/product/css/product_view.css">
@@ -26,7 +27,7 @@
                 <!-- product info -->                
                 <article class="info">
                     <div class="image">
-                        <img src="https://via.placeholder.com/460x460" alt="상품이미지">
+                        <img src="/Kmarket1/productImg/${ product.detail }" alt="상품이미지">
                     </div>
                     <div class="summary">
                     	<input type="hidden" name="uid" value="${ loginUser.uid }"/>
@@ -37,7 +38,7 @@
                         </nav>                        
                         <nav>
                             <h3>${ product.prodName }</h3>
-                            <p>상품설명 출력</p>
+                            <p>${ product.descript }</p>
                             <h5 class="rating star4"><a href="#">상품평보기</a></h5>
                         </nav>
                         <nav>
@@ -58,7 +59,8 @@
 	                  				<span class="delivery">배송비 ${ product.delivery }</span>
 	                  			</c:otherwise>
                   			</c:choose>
-                            <span class="arrival">모레(금) 7/8 도착예정</span>
+                  			<c:set var="oneDayAfter" value="<%=new Date(new Date().getTime() + 60*60*24*1000*3)%>"/>
+                            <span class="arrival"><fmt:formatDate value="${oneDayAfter}" pattern="MM/dd(E) "/>도착예정</span>
                             <span class="desc">${ product.descript }</span>
                         </nav>
                         <nav>
@@ -77,7 +79,7 @@
                         </div>
                         
                         <div class="total">
-                            <span>35,000</span>
+                            <span><fmt:formatNumber value="${ product.price * (1-(product.discount/100)) }"  pattern="#,###" /></span>
                             <em>총 상품금액</em>
                         </div>
 

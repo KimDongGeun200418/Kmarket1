@@ -4,6 +4,36 @@
 
  $(function(){
 	
+	$('.increase').click(function(){
+		let amount = parseInt($('input[name=num]').val());
+		let price = parseInt($('div.dis_price > ins').text().split(',').join(""));
+		$('input[name=num]').attr('value', amount+1);
+		amount = parseInt($('input[name=num]').val());
+		let total = amount*price;
+
+		$('div.total > span').text(total.toLocaleString());
+		
+	});
+	
+	$('.decrease').click(function(){
+		let amount = parseInt($('input[name=num]').val());
+		let price = parseInt($('div.dis_price > ins').text().split(',').join(""));
+		if(amount<=1){ return; }
+		$('input[name=num]').attr('value', amount-1);
+		amount = parseInt($('input[name=num]').val());
+		let total = amount*price;
+
+		$('div.total > span').text(total.toLocaleString());
+	});
+
+	$('input[name=num]').change(function(){
+		let amount = parseInt($('input[name=num]').val());
+		let price = parseInt($('div.dis_price > ins').val());
+		alert(price);
+		
+	});
+
+	
 	$('.cart').click(function(){
 		
 		
@@ -24,7 +54,8 @@
 				location.href="/Kmarket1/product/productCart.do"
 			}
 		});
-		
 	});
+	
+	
 	 
  });
