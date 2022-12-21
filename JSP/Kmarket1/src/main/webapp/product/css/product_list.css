@@ -94,15 +94,7 @@
     font-size: 12px;
     margin-bottom: 6px;
 }
-#product .badge {
-    font-size: 0;
-    width: 80px;
-    height: 19px;
-    background-repeat: no-repeat;
-}
-#product .badge.power {
-    background-image: url(./img/ico_power_dealer.gif);
-}
+
 #product > .list > table .rating {
     margin-top: 12px;
 }
@@ -142,4 +134,13 @@
 #product > .list > .paging > .num > a.on {
     color: #fe434c;
     font-weight: bold;
+}
+
+#product > .list > table .free {
+    display: inline-block;
+    font-size: 0;
+    vertical-align: text-bottom;
+    width: 55px;
+    height: 13px;
+    background: url(/Kmarket1/img/ico_freeshipping.gif) no-repeat;
 }

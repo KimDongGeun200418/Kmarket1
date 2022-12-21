@@ -5,6 +5,7 @@
 <jsp:include page="../_header.jsp"/>
 <jsp:include page="../_menu.jsp"/>
 <link rel="stylesheet" href="/Kmarket1/product/css/product_view.css">
+<link rel="stylesheet" href="/Kmarket1/product/css/product.css">
 <script src="/Kmarket1/product/js/view.js"></script>
     <style>
         
