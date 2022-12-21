@@ -40,6 +40,10 @@ public class Sql {
 	public static final String SELECT_PRODUCTS_BY_LATEST = "SELECT * FROM `km_product` ORDER BY `prodNo` DESC LIMIT ?";
 	public static final String SELECT_TERMS = "SELECT * FROM `km_member_terms`";
 
+	//review
+	public static final String SELECT_COUNT_REVIEW_TOTAL = "SELECT COUNT(`revNo`) FROM `km_product_review` WHERE `prodNo`=?";
+	public static final String SELECT_REVIEWS = "SELECT * FROM `km_product_review` WHERE `prodNo`=? ORDER BY `rdate` DESC LIMIT ?, 5";
+	
 	//Member
 	public static final String INSERT_MEMBER	= "INSERT INTO `km_member` SET"
 												+ "`uid`=?, `pass`=SHA2(?,256), `name`=?, `gender`=?,"
@@ -61,7 +65,8 @@ public class Sql {
 												+ "`point`=?, `stock`=?, `delivery`=?, `ip`=?, `rdate`=NOW(),"
 												+ "`status`=?, `duty`=?, `receipt`=?, `bizType`=?, `origin`=?,"
 												+ "`thumb1`=?, `thumb2`=?, `thumb3`=?, `detail`=?";
-	public static final String SELECT_PRODUCT 			="SELECT * FROM `km_product` WHERE `prodNo`=?";
+	public static final String SELECT_PRODUCT 			="SELECT a.*, b.`level` FROM `km_product` AS a "
+														+"JOIN `km_member` AS b ON a.`seller` = b.`uid` WHERE `prodNo`=?";
 	public static final String SELECT_PRODUCTS 			="SELECT * FROM `km_product`";
 	public static final String COUNT_TODAY_PRODUCTS 	="SELECT COUNT(`prodNo`) FROM `km_product` WHERE DATE(`rdate`)=CURDATE()";
 	
@@ -93,10 +98,14 @@ public class Sql {
 												+ "ON a.`cate1` = b.`cate1` "
 												+ "WHERE b.`cate1`=? AND b.`cate2`=?";
 	
+	//cart
 	public static final String INSERT_CART 	="INSERT INTO `km_product_cart` SET "
 											+ "`uid` = ?,`prodNo`=?, `count`=?,"
 											+ "`price`=?, `discount`=?, `point`=?,"
 											+ "`delivery`=?, `total`=?, `rdate`=NOW()";
+	public static final String SELECT_CART_PRODUCTS = "SELECT a.*,b.`prodName`, b.`descript`, b.`thumb1` "
+													+ "FROM `km_product_cart` AS a JOIN `km_product` AS b "
+													+ "ON a.`prodNo` = b.`prodNo` WHERE `uid`=?";
 	
 	//admin_cs
 	public static final String DELETE_NOTICE = "delete from `km_cs_notice` where `no`=?";

@@ -45,11 +45,10 @@
 		
 		$.ajax({
 			url: '/Kmarket1/product/addCart.do',
-			method: 'POST',
+			method: 'GET',
 			data: {"prodNo": prodNo, "uid": uid, "count": count, "total": total},
 			dataType: 'json',
 			success: function(data){
-				
 				alert('장바구니에 추가되었습니다.');
 				location.href="/Kmarket1/product/productCart.do"
 			}

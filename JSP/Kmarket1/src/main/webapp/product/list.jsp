@@ -35,11 +35,11 @@
                     	<c:forEach var="product" items="${ products }">
                         <tr>
                             <td>
-                                <a href="/Kmarket1/product/productView.do?prodNo=${ product.prodNo }" class="thumb"><img src="/Kmarket1/productImg/${ product.thumb1 }" alt="상품이미지"></a>
+                                <a href="/Kmarket1/product/productView.do?cate1=${ cate1 }&cate2=${ cate2 }&prodNo=${ product.prodNo }" class="thumb"><img src="/Kmarket1/productImg/${ product.thumb1 }" alt="상품이미지"></a>
                             </td>
                             <td>
                                 <h3 class="name">${ product.prodName }</h3>
-                                <a href="/Kmarket1/product/productView.do?prodNo=${ product.prodNo }" class="desc"> ${ product.descript }</a>
+                                <a href="/Kmarket1/product/productView.do?cate1=${ cate1 }&cate2=${ cate2 }&prodNo=${ product.prodNo }" class="desc"> ${ product.descript }</a>
                             </td>
                             <td>
                                 <ul>
@@ -59,9 +59,9 @@
                                 </ul>
                             </td>
                             <td>
-                               <h4 class="seller"><i class="fas fa-home" aria-hidden="true"></i>&nbsp;${ product.seller }</h4>
-                               <c:choose>
-	                                <c:when test="${ product.level == 1 }">
+                            	<h4 class="seller"><i class="fas fa-home" aria-hidden="true"></i>&nbsp;${ product.seller }</h4>
+                            	<c:choose>
+	                            	<c:when test="${ product.level == 1 }">
 	                                	<h5 class="badge power">판매자등급</h5>
 	                                </c:when>
 	                                <c:when test="${ product.level == 2 }">
@@ -69,9 +69,28 @@
 	                                </c:when>
 	                                <c:when test="${ product.level == 3 }">
 	                                	<h5 class="badge great power">판매자등급</h5>
-	                                </c:when>
-                               </c:choose>
-                               	<h6 class="rating star1">상품평</h6>
+	                            	</c:when>
+                            	</c:choose>
+                            	<c:choose>
+                            		<c:when test="${ product.score >= 4.5 }">
+                            			<h6 class="rating star5">상품평</h6>
+	                            	</c:when>
+	                            	<c:when test="${ product.score >= 3.5 }">
+	                            		<h6 class="rating star4">상품평</h6>
+	                            	</c:when>
+	                            	<c:when test="${ product.score >= 2.5 }">
+	                            		<h6 class="rating star3">상품평</h6>
+	                            	</c:when>
+	                            	<c:when test="${ product.score >= 1.5 }">
+	                            		<h6 class="rating star2">상품평</h6>
+	                            	</c:when>
+	                            	<c:when test="${ product.score >= 0.5 }">
+	                            		<h6 class="rating star1">상품평</h6>
+	                            	</c:when>
+	                            	<c:when test="${ product.score < 0.5 }">
+	                            		<h6 class="rating star0">상품평</h6>
+	                            	</c:when>
+                            	</c:choose>
                             </td>
                         </tr>
                         </c:forEach>
