@@ -31,7 +31,7 @@ public class FaqListController extends HttpServlet{
 		String cate = req.getParameter("cate");
 		
 		List<CsArticleVO> articles = service.selectFaq(cate);
-		List<CsArticleVO> category = service.selectFaqCate(cate);
+		List<CsArticleVO> category = service.selectFaqCate2(cate);
 		
 		req.setAttribute("articles", articles);
 		req.setAttribute("category", category);

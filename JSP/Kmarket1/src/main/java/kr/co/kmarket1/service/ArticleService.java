@@ -51,15 +51,20 @@ public enum ArticleService {
 	public List<CsArticleVO> selectFaq(String cate) {
 		return dao.selectFaq(cate);
 	}
-	public List<CsArticleVO> selectFaqCate(String cate) {
-		return dao.selectFaqCate(cate);
+	public List<CsArticleVO> selectAllFaq() {
+		return dao.selectAllFaq();
+	}
+	public List<CsArticleVO> selectFaqCate2(String cate) {
+		return dao.selectFaqCate2(cate);
+	}
+	public List<CsArticleVO> selectFaqCate() {
+		return dao.selectFaqCate();
 	}
 	public CsArticleVO selectArticleFaq(String no) {
 		return dao.selectArticleFaq(no);
 	}
 	
-	
-	//page
+	//pages
 	public int getLastPageNum(int total) {
 		int lastPageNum = 0;
 		

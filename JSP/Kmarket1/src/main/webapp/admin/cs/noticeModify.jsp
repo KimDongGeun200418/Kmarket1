@@ -19,10 +19,10 @@
 		               		<th>유형</th>
 		               		<td>
 		               			<select name="type">
-	                                    <option value="service" <c:if test="${cate} == service">selected</c:if>>고객서비스</option>
-	                                    <option value="safety" <c:if test="${cate} == safety">selected</c:if>>안전거래</option>
-	                                    <option value="product" <c:if test="${cate} == product">selected</c:if>>위해상품</option>
-	                                    <option value="event" <c:if test="${cate} == event">selected</c:if>>이벤트당첨</option>
+	                                    <option value="고객서비스" <c:if test="${cate} == 고객서비스">selected</c:if>>고객서비스</option>
+	                                    <option value="안전거래" <c:if test="${cate} == 안전거래">selected</c:if>>안전거래</option>
+	                                    <option value="위해상품" <c:if test="${cate} == 위해상품">selected</c:if>>위해상품</option>
+	                                    <option value="이벤트당첨" <c:if test="${cate} == 이벤트당첨">selected</c:if>>이벤트당첨</option>
 	                            </select>
 		               		</td>
 		               	</tr>

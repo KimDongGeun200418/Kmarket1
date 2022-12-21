@@ -20,14 +20,14 @@
 		               		<td>
 		               			<select name="type1">
 		               				<c:forEach var="article" items="${articles}">
-	                                    <option value="${article.cate}" <c:if test="${cate} == ${article.cate}">selected</c:if>>${article.cate}</option>
+	                                    <option value="${article.cate}" <c:if test="${cate} == ${article.cate}">selected</c:if>>${cate}</option>
 	                                </c:forEach>    
 	                            </select>
 		               		</td>
 		               		<td>
 		               			<select name="type2">
 		               				<c:forEach var="article" items="${articles}">
-	                                    <option value="${article.cate2}" <c:if test="${cate2} == ${article.cate2}">selected</c:if>>${article.cate2}</option>
+	                                    <option value="${article.cate2}" <c:if test="${cate2} == ${article.cate2}">selected</c:if>>${cate2}</option>
 	                                </c:forEach>    
 	                            </select>
 		               		</td>

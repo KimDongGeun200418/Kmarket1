@@ -181,6 +181,27 @@ public class ArticleDAO extends DBHelper{
 		}
 	}
 	
+	public int deleteNotice(String no) {
+		
+		int result = 0;
+		
+		try {
+			logger.info("deleteNotice...");
+			
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.DELETE_NOTICE);
+			psmt.setString(1, no);
+			result = psmt.executeUpdate();
+			
+			close();
+			
+		}catch(Exception e) {
+			logger.error(e.getMessage());
+		}
+		
+		return result;
+	}
+	
 	//notice 게시물 카운트
 	public int selectCountNotice(String cate) {
 		
@@ -382,6 +403,27 @@ public class ArticleDAO extends DBHelper{
 	}
 	
 	//faq
+	public void insertArticleFaq(CsArticleVO article) {
+		
+		try {
+			logger.info("insertArticleFaq...");
+			
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.INSERT_ARTICLE_FAQ);
+			psmt.setString(1, article.getTitle());
+			psmt.setString(2, article.getCate());
+			psmt.setString(3, article.getCate2());
+			psmt.setString(4, article.getContent());
+			psmt.setString(5, article.getUid());
+			psmt.setString(6, article.getRegip());
+			psmt.executeUpdate();
+			
+			close();
+			
+		}catch(Exception e) {
+			logger.error(e.getMessage());
+		}
+	}
 	public List<CsArticleVO> selectFaq(String cate){
 		
 		List<CsArticleVO> articles = new ArrayList<>();
@@ -399,6 +441,8 @@ public class ArticleDAO extends DBHelper{
 				article.setNo(rs.getString(1));
 				article.setCate2(rs.getString(2));
 				article.setTitle(rs.getString(3));
+				article.setRdate(rs.getString(4));
+				article.setHit(rs.getString(5));
 				
 				articles.add(article);
 			}
@@ -410,7 +454,7 @@ public class ArticleDAO extends DBHelper{
 		}
 		return articles;
 	}
-	public List<CsArticleVO> selectFaqCate(String cate){
+	public List<CsArticleVO> selectFaqCate2(String cate){
 		
 		List<CsArticleVO> category = new ArrayList<>();
 		
@@ -418,13 +462,38 @@ public class ArticleDAO extends DBHelper{
 			logger.info("selectct...");
 			
 			conn = getConnection();
-			psmt = conn.prepareStatement(Sql.SELECT_FAQ_CATE);
+			psmt = conn.prepareStatement(Sql.SELECT_FAQ_CATE2);
 			psmt.setString(1, cate);
 			rs = psmt.executeQuery();
 			
 			while(rs.next()) {
 				CsArticleVO ct = new CsArticleVO();
 				ct.setCate2(rs.getString(1));
+				
+				category.add(ct);
+			}
+			
+			close();
+			
+		}catch(Exception e) {
+			logger.error(e.getMessage());
+		}
+		return category;
+	}
+	public List<CsArticleVO> selectFaqCate(){
+		
+		List<CsArticleVO> category = new ArrayList<>();
+		
+		try {
+			logger.info("selectcate...");
+			
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.SELECT_FAQ_CATE);
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				CsArticleVO ct = new CsArticleVO();
+				ct.setCate(rs.getString(1));
 				
 				category.add(ct);
 			}
@@ -452,6 +521,8 @@ public class ArticleDAO extends DBHelper{
 				article = new CsArticleVO();
 				article.setTitle(rs.getString(1));
 				article.setContent(rs.getString(2));
+				article.setCate(rs.getString(3));
+				article.setCate2(rs.getString(4));
 			}
 			
 			close();
@@ -462,16 +533,67 @@ public class ArticleDAO extends DBHelper{
 		return article;
 	}
 	
-	//admin-notice
-	public int deleteNotice(String no) {
+	public List<CsArticleVO> selectAllFaq(){
+		
+		List<CsArticleVO> articles = new ArrayList<>();
+		
+		try {
+			logger.info("selectAllFaq...");
+			
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.SELECT_ALL_FAQ);
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				CsArticleVO article = new CsArticleVO();
+				article.setNo(rs.getString(1));
+				article.setTitle(rs.getString(2));
+				article.setRdate(rs.getString(3));
+				article.setHit(rs.getString(4));
+				article.setCate(rs.getString(5));
+				article.setCate2(rs.getString(6));
+				
+				articles.add(article);
+			}
+			
+			close();
+			
+		}catch(Exception e) {
+			logger.error(e.getMessage());
+		}
+		return articles;
+	}
+	
+	public void updateArticleFaq(String no, String cate, String cate2, String title, String content) {
+		
+		try {
+			logger.info("updateArticleFaq...");
+			
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.UPDATE_ARTICLE_FAQ);
+			psmt.setString(1, cate);
+			psmt.setString(1, cate2);
+			psmt.setString(2, title);
+			psmt.setString(3, content);
+			psmt.setString(4, no);
+			psmt.executeUpdate();
+			
+			close();
+			
+		}catch(Exception e) {
+			logger.error(e.getMessage());
+		}
+	}
+	
+	public int deleteFaq(String no) {
 		
 		int result = 0;
 		
 		try {
-			logger.info("deleteNotice...");
+			logger.info("deleteFaq...");
 			
 			conn = getConnection();
-			psmt = conn.prepareStatement(Sql.DELETE_NOTICE);
+			psmt = conn.prepareStatement(Sql.DELETE_FAQ);
 			psmt.setString(1, no);
 			result = psmt.executeUpdate();
 			
@@ -483,4 +605,5 @@ public class ArticleDAO extends DBHelper{
 		
 		return result;
 	}
+
 }

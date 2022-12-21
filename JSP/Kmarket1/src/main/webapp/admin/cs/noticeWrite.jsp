@@ -16,14 +16,11 @@
 		               		<th>유형</th>
 		               		<td>
 		               			<select name="type">
-	                                    <option value="0">유형 선택</option>
-	                                    <option value="member">회원</option>
-	                                    <option value="coupon">쿠폰/이벤트</option>
-	                                    <option value="order">주문/결제</option>
-	                                    <option value="delivery">배송</option>
-	                                    <option value="cancel">취소/반품/교환</option>
-	                                    <option value="trip">여행/숙박/항공</option>
-	                                    <option value="safety">안전거래</option>
+                                    <option value="0">유형 선택</option>
+                                    <option value="고객서비스">고객서비스</option>
+				                	<option value="안전거래">안전거래</option>
+				                	<option value="위해상품">위해상품</option>
+				                	<option value="이벤트당첨">이벤트당첨</option>
 	                            </select>
 		               		</td>
 		               	</tr>
@@ -37,7 +34,7 @@
 		               	</tr>
 		               </table>
 	                   <div>
-	                        <a href="/Kmarket1/admin/cs/noticeList.do?group=${group}&cate=${cate}" class="btnList">취소하기</a>
+	                        <a href="/Kmarket1/admin/cs/noticeList.do?group=${group}" class="btnList">취소하기</a>
 	                        <input type="submit" class="btnSubmit" value="등록하기">
 	                   </div>
 	            	</form>
