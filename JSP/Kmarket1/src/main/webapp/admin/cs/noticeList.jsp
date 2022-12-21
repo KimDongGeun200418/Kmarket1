@@ -43,7 +43,8 @@
                 </nav>
                 <article class="list">
 	                <select onchange="if(this.value) location.href=(this.value);">
-	                	<option value=0>유형선택</option>
+	                	<c:if test="${cate != null}"><option value=0 style="font-weight:bold;">${cate}</option></c:if>
+	                	<c:if test="${cate == null || cate eq ''}"><option value=0>유형선택</option></c:if>
 	                	<option value="/Kmarket1/admin/cs/noticeList.do?group=notice&cate=service&pg=1">고객서비스</option>
 	                	<option value="/Kmarket1/admin/cs/noticeList.do?group=notice&cate=safety&pg=1">안전거래</option>
 	                	<option value="/Kmarket1/admin/cs/noticeList.do?group=notice&cate=product&pg=1">위해상품</option>
