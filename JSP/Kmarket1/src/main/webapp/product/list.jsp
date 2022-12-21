@@ -59,9 +59,19 @@
                                 </ul>
                             </td>
                             <td>
-                                <h4 class="seller"><i class="fas fa-home" aria-hidden="true"></i>&nbsp;${ product.seller }</h4>
-                                <h5 class="badge power">판매자등급</h5>
-                                <h6 class="rating star1">상품평</h6>
+                               <h4 class="seller"><i class="fas fa-home" aria-hidden="true"></i>&nbsp;${ product.seller }</h4>
+                               <c:choose>
+	                                <c:when test="${ product.level == 1 }">
+	                                	<h5 class="badge power">판매자등급</h5>
+	                                </c:when>
+	                                <c:when test="${ product.level == 2 }">
+	                                	<h5 class="badge great">판매자등급</h5>
+	                                </c:when>
+	                                <c:when test="${ product.level == 3 }">
+	                                	<h5 class="badge great power">판매자등급</h5>
+	                                </c:when>
+                               </c:choose>
+                               	<h6 class="rating star1">상품평</h6>
                             </td>
                         </tr>
                         </c:forEach>

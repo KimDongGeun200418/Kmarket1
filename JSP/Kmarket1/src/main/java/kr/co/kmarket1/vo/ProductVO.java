@@ -28,6 +28,19 @@ public class ProductVO {
 	private String origin;
 	private String ip;
 	private String rdate;
+	//추가필드
+	private int level;
+	
+	
+	public int getLevel() {
+		return level;
+	}
+	public void setLevel(int level) {
+		this.level = level;
+	}
+	public void setLevel(String level) {
+		this.level = Integer.parseInt(level);
+	}
 	
 	public int getProdNo() {
 		return prodNo;

@@ -90,6 +90,7 @@ public class ProductDAO extends DBHelper{
 				product.setOrigin(rs.getString(25));
 				product.setIp(rs.getString(26));
 				product.setRdate(rs.getString(27));
+				product.setLevel(rs.getInt(28));
 												
 				products.add(product);
 			}
@@ -137,7 +138,7 @@ public class ProductDAO extends DBHelper{
 					product.setOrigin(rs.getString(25));
 					product.setIp(rs.getString(26));
 					product.setRdate(rs.getString(27));
-													
+					product.setLevel(rs.getInt(28));							
 				}
 				close();
 			}catch (Exception e) {
@@ -186,7 +187,7 @@ public class ProductDAO extends DBHelper{
 				product.setOrigin(rs.getString(25));
 				product.setIp(rs.getString(26));
 				product.setRdate(rs.getString(27));
-				
+				product.setLevel(rs.getInt(28));
 				products.add(product);
 			}
 			close();
@@ -236,6 +237,7 @@ public class ProductDAO extends DBHelper{
 				product.setOrigin(rs.getString(25));
 				product.setIp(rs.getString(26));
 				product.setRdate(rs.getString(27));
+				product.setLevel(rs.getInt(28));
 				
 				products.add(product);
 			}
@@ -286,6 +288,7 @@ public class ProductDAO extends DBHelper{
 				product.setOrigin(rs.getString(25));
 				product.setIp(rs.getString(26));
 				product.setRdate(rs.getString(27));
+				product.setLevel(rs.getInt(28));
 				
 				products.add(product);
 			}
@@ -336,6 +339,7 @@ public class ProductDAO extends DBHelper{
 				product.setOrigin(rs.getString(25));
 				product.setIp(rs.getString(26));
 				product.setRdate(rs.getString(27));
+				product.setLevel(rs.getInt(28));
 				
 				products.add(product);
 			}
@@ -386,6 +390,7 @@ public class ProductDAO extends DBHelper{
 				product.setOrigin(rs.getString(25));
 				product.setIp(rs.getString(26));
 				product.setRdate(rs.getString(27));
+				product.setLevel(rs.getInt(28));
 				
 				products.add(product);
 			}
@@ -436,6 +441,7 @@ public class ProductDAO extends DBHelper{
 				product.setOrigin(rs.getString(25));
 				product.setIp(rs.getString(26));
 				product.setRdate(rs.getString(27));
+				product.setLevel(rs.getInt(28));
 				
 				products.add(product);
 			}
@@ -486,6 +492,7 @@ public class ProductDAO extends DBHelper{
 				product.setOrigin(rs.getString(25));
 				product.setIp(rs.getString(26));
 				product.setRdate(rs.getString(27));
+				product.setLevel(rs.getInt(28));
 				
 				products.add(product);
 			}
@@ -535,6 +542,7 @@ public class ProductDAO extends DBHelper{
 				product.setOrigin(rs.getString(25));
 				product.setIp(rs.getString(26));
 				product.setRdate(rs.getString(27));
+				product.setLevel(rs.getInt(28));
 				
 				products.add(product);
 			}
@@ -583,6 +591,7 @@ public class ProductDAO extends DBHelper{
 				product.setOrigin(rs.getString(25));
 				product.setIp(rs.getString(26));
 				product.setRdate(rs.getString(27));
+				product.setLevel(rs.getInt(28));
 				
 				products.add(product);
 			}
@@ -631,6 +640,7 @@ public class ProductDAO extends DBHelper{
 				product.setOrigin(rs.getString(25));
 				product.setIp(rs.getString(26));
 				product.setRdate(rs.getString(27));
+				product.setLevel(rs.getInt(28));
 				
 				products.add(product);
 			}
@@ -679,6 +689,7 @@ public class ProductDAO extends DBHelper{
 				product.setOrigin(rs.getString(25));
 				product.setIp(rs.getString(26));
 				product.setRdate(rs.getString(27));
+				product.setLevel(rs.getInt(28));
 				
 				products.add(product);
 			}
@@ -727,6 +738,7 @@ public class ProductDAO extends DBHelper{
 				product.setOrigin(rs.getString(25));
 				product.setIp(rs.getString(26));
 				product.setRdate(rs.getString(27));
+				product.setLevel(rs.getInt(28));
 				
 				products.add(product);
 			}
