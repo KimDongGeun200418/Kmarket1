@@ -28,19 +28,39 @@
                 <!-- product info -->                
                 <article class="info">
                     <div class="image">
-                        <img src="/Kmarket1/productImg/${ product.detail }" alt="상품이미지">
+                        <img src="/Kmarket1/productImg/${ product.thumb3 }" alt="상품이미지">
                     </div>
                     <div class="summary">
                     	<input type="hidden" name="uid" value="${ loginUser.uid }"/>
                     	<input type="hidden" name="prodNo" value="${ product.prodNo }"/>
                         <nav>
                             <h1>${ product.seller }</h1>
-                            <h2>상품번호&nbsp;:&nbsp;<span>${ product.prodNo }</span></h2>
+                            <h2>상품번호&nbsp;:&nbsp;<span>${ product.cate1 }${ product.cate2 }<fmt:formatNumber type="number" pattern="###" minIntegerDigits="6" value="${ product.prodNo }" /></span></h2>
                         </nav>                        
                         <nav>
                             <h3>${ product.prodName }</h3>
                             <p>${ product.descript }</p>
-                            <h5 class="rating star4"><a href="#">상품평보기</a></h5>
+                            <c:choose>
+                            	<c:when test="${ product.score >= 4.5 }">
+                            		<h5 class="rating star5"><a href="#">상품평보기</a></h5>
+                            	</c:when>
+                            	<c:when test="${ product.score >= 3.5 }">
+                            		<h5 class="rating star4"><a href="#">상품평보기</a></h5>
+                            	</c:when>
+                            	<c:when test="${ product.score >= 2.5 }">
+                            		<h5 class="rating star3"><a href="#">상품평보기</a></h5>
+                            	</c:when>
+                            	<c:when test="${ product.score >= 1.5 }">
+                            		<h5 class="rating star2"><a href="#">상품평보기</a></h5>
+                            	</c:when>
+                            	<c:when test="${ product.score >= 0.5 }">
+                            		<h5 class="rating star1"><a href="#">상품평보기</a></h5>
+                            	</c:when>
+                            	<c:when test="${ product.score < 0.5 }">
+                            		<h5 class="rating star0"><a href="#">상품평보기</a></h5>
+                            	</c:when>
+                            </c:choose>
+                            
                         </nav>
                         <nav>
                             <div class="org_price">
@@ -96,9 +116,7 @@
                     <nav>
                         <h1>상품정보</h1>
                     </nav>
-                    <img src="https://via.placeholder.com/860x460" alt="상세페이지1">
-                    <img src="https://via.placeholder.com/860x460" alt="상세페이지2">
-                    <img src="https://via.placeholder.com/860x460" alt="상세페이지3">
+                    <img src="/Kmarket1/productImg/${ product.detail }" alt="상세페이지1">
                 </article>
 
                 <!-- product notice -->
@@ -110,7 +128,7 @@
                     <table border="0">
                         <tbody><tr>
                             <td>상품번호</td>
-                            <td>10110125435</td>
+                            <td>${ product.cate1 }${ product.cate2 }<fmt:formatNumber type="number" pattern="###" minIntegerDigits="6" value="${ product.prodNo }" /></td>
                         </tr>
                         <tr>
                             <td>상품상태</td>

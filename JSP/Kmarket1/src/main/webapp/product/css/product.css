@@ -46,6 +46,7 @@
     background-position: 36px 0px;
     text-indent: 86px;
 }
+#product h5.rating.star0 {background-position: 0 -20px;}
 #product h5.rating.star1 {background-position: 0 -40px;}
 #product h5.rating.star2 {background-position: 0 -80px;}
 #product h5.rating.star3 {background-position: 0 -120px;}
