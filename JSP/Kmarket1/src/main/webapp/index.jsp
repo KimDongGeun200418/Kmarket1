@@ -41,11 +41,12 @@
         <article class="best" style="position: static;">
             <h1><i class="fas fa-crown" aria-hidden="true"></i>베스트상품</h1>
             <ol>
-            	<c:forEach var="bestProduct" items="${ bestProducts }">
+            	<c:forEach var="bestProduct" items="${ bestProducts }" varStatus="status">
+            	
               	<li>
                 <a href="/Kmarket1/product/productView.do?prodNo=${ bestProduct.prodNo }">
                   	<div class="thumb">
-                  		<i>1</i>
+                  		<i>${ status.count }</i>
                     	<img src="/Kmarket1/productImg/${ bestProduct.thumb1 }" alt="item1">
                   	</div>
                   	<h2>${ bestProduct.prodName }</h2>
@@ -131,7 +132,7 @@
                   				<span class="free">무료배송</span>
                   			</c:when>
                   			<c:otherwise>
-                  				<span class="delivery">배송비 ${ hitProduct.delivery }</span>
+                  				<span class="delivery">배송비 <fmt:formatNumber value="${ hitProduct.delivery }"  pattern="#,###" /></span>
                   			</c:otherwise>
                			</c:choose>
                 	</div>
@@ -161,7 +162,7 @@
                   				<span class="free">무료배송</span>
                   			</c:when>
                   			<c:otherwise>
-                  				<span class="delivery">배송비 ${ scoreProduct.delivery }</span>
+                  				<span class="delivery">배송비 <fmt:formatNumber value="${ scoreProduct.delivery }"  pattern="#,###" /></span>
                   			</c:otherwise>
                			</c:choose>
                 	</div>
@@ -191,7 +192,7 @@
                   				<span class="free">무료배송</span>
                   			</c:when>
                   			<c:otherwise>
-                  				<span class="delivery">배송비 ${ latestProduct.delivery }</span>
+                  				<span class="delivery">배송비 <fmt:formatNumber value="${ latestProduct.delivery }"  pattern="#,###" /></span>
                   			</c:otherwise>
                			</c:choose>
                 	</div>
@@ -221,7 +222,7 @@
                   				<span class="free">무료배송</span>
                   			</c:when>
                   			<c:otherwise>
-                  				<span class="delivery">배송비 ${ discountProduct.delivery }</span>
+                  				<span class="delivery">배송비 <fmt:formatNumber value="${ discountProduct.delivery }"  pattern="#,###" /></span>
                   			</c:otherwise>
                			</c:choose>
                 	</div>

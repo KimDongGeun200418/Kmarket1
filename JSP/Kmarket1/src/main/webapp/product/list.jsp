@@ -4,6 +4,7 @@
 <jsp:include page="../_header.jsp"/>
 <jsp:include page="../_menu.jsp"/>
 <link rel="stylesheet" href="/Kmarket1/product/css/product_list.css">
+<link rel="stylesheet" href="/Kmarket1/product/css/product.css">
     <style>
       
     </style>
@@ -45,9 +46,16 @@
                                     <li><ins class="dis-price"><fmt:formatNumber value="${ product.price * (1-(product.discount/100)) }"  pattern="#,###" /></ins></li>
                                     <li>
                                         <del class="org-price"><fmt:formatNumber value="${ product.price }"  pattern="#,###" /></del>
-                                        <span class="discount">${ product.discount }</span>
+                                        <span class="discount">${ product.discount }%</span>
                                     </li>
-                                    <li><span class="free-delivery">무료배송</span></li>
+                                    <c:choose>
+			                  			<c:when test="${ product.delivery == '0' }">
+			                  				<span class="free">무료배송</span>
+			                  			</c:when>
+			                  			<c:otherwise>
+			                  				<span class="delivery">배송비 <fmt:formatNumber value="${ product.delivery }"  pattern="#,###" /></span>
+			                  			</c:otherwise>
+			               			</c:choose>
                                 </ul>
                             </td>
                             <td>

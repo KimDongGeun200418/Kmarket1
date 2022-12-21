@@ -3,6 +3,7 @@
 <jsp:include page="../_header.jsp"/>
 <jsp:include page="./_menu.jsp"/>
 <link rel="stylesheet" href="/Kmarket1/product/css/product_cart.css">
+<link rel="stylesheet" href="/Kmarket1/product/css/product.css">
     <style>
         
 
