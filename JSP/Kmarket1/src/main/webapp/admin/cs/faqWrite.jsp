@@ -49,37 +49,41 @@
                 <article class="list">
                 	<form action="./faqWrite.do" method="post">
 	                   <input type="hidden" name="group" value="${group}"/>
-        			<input type="hidden" name="uid" value="${uid}"/>
-                    <table>
-                        <tr>
-                            <td>문의유형</td>
-                            <td>
-                                <select name="type1" id="list1" onChange="optionChange();">
-                                    <option value="0">1차 선택</option>
-                                    <c:forEach var="article" items="${articles}">
-				                		<option value="${article.cate}">${article.cate}</option>
-				                	</c:forEach>
-                                </select>
-                                <select name="type2" id="list2">
-                                	<option value="0">2차 선택</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>문의제목</td>
-                            <td>
-                                <input type="text" name="title" placeholder="제목을 입력하세요.">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>문의내용</td>
-                            <td>
-                                <textarea name="content" placeholder="내용을 입력하세요."></textarea>
-                            </td>
-                        </tr>
-                    </table>
+	        			<input type="hidden" name="uid" value="${uid}"/>
+	                    <table>
+	                        <tr>
+	                            <td>문의유형</td>
+	                            <td>
+	                                <select name="type1" id="list1" onChange="optionChange();">
+	                                    <option value="0">1차 선택</option>
+	                                    <option value="회원">회원</option>
+	                                    <option value="쿠폰/혜택/이벤트">쿠폰/혜택/이벤트</option>
+	                                    <option value="주문/결제">주문/결제</option>
+	                                    <option value="배송">배송</option>
+	                                    <option value="취소/반품/교환">취소/반품/교환</option>
+	                                    <option value="여행/숙박/항공">여행/숙박/항공</option>
+	                                    <option value="안전거래">안전거래</option>
+	                                </select>
+	                                <select name="type2" id="list2">
+	                                	<option value="0">2차 선택</option>
+	                                </select>
+	                            </td>
+	                        </tr>
+	                        <tr>
+	                            <td>문의제목</td>
+	                            <td>
+	                                <input type="text" name="title" placeholder="제목을 입력하세요.">
+	                            </td>
+	                        </tr>
+	                        <tr>
+	                            <td>문의내용</td>
+	                            <td>
+	                                <textarea name="content" placeholder="내용을 입력하세요."></textarea>
+	                            </td>
+	                        </tr>
+	                    </table>
 	                   <div>
-	                        <a href="/Kmarket1/admin/cs/faqList.do?group=${group}&cate=${cate}&cate2=${cate2}&pg=${pg}" class="btnList">취소하기</a>
+	                        <a href="/Kmarket1/admin/cs/faqList.do?group=${group} class="btnList">취소하기</a>
 	                        <input type="submit" class="btnSubmit" value="등록하기">
 	                   </div>
 	            	</form>

@@ -39,14 +39,19 @@
                     </p>
                 </nav>
                 <article class="list">
-	                <select name="type1">
-	                	<option value=0>1차유형선택</option>
-	                	
-	                </select>
-	                <select name="type1">
-	                	<option value=0>2차유형선택</option>
-	                	
-	                </select>
+	                <select name="type1" onchange="if(this.value) location.href=(this.value);">
+	                	<c:if test="${cate != null}"><option value=0 style="font-weight:bold;">${cate}</option></c:if>
+	                	<c:if test="${cate == null || cate eq ''}"><option value=0>1차유형선택</option></c:if>
+	                	<c:forEach var="ct" items="${category}">
+	                		<option value="/Kmarket1/admin/cs/faqList.do?group=faq&cate=${ct.cate}&cate2=&pg=1">${ct.cate}</option>
+	                	</c:forEach>
+	                </select name="type2">
+	                <select onchange="if(this.value) location.href=(this.value);">
+                        <option value=0>2차유형선택</option>
+	                	<c:forEach var="ct2" items="${category2}">
+	                		<option value="/Kmarket1/admin/cs/faqList.do?group=faq&cate=${cate}&cate2=${ct2.cate2}&pg=1">${ct2.cate2}</option>
+	                	</c:forEach>
+                    </select>
 	                <table>
 	                	<tr>
 	                		<th><input type="checkbox" onclick="selectAll(this)"/></th>
@@ -98,32 +103,6 @@
 		                	</tr>
 	                	</c:forEach>
 	                </table>
-		            <c:if test="${cate == null || cate eq ''}">
-			            <div class="page">
-		                	<c:if test="${pageGroupStart > 1}">
-		                    <a href="/Kmarket1/admin/cs/faqList.do?group=faq&pg=${pageGroupStart - 1}" class="prev">이전</a>
-		                    </c:if>
-		                    <c:forEach var="num" begin="${pageGroupStart}" end="${pageGroupEnd}">
-		                    <a href="/Kmarket1/admin/cs/faqList.do?group=faq&pg=${num}" class="num ${num == currentPage ? 'current':'off' }">${num}</a>
-		                    </c:forEach>
-		                    <c:if test="${pageGroupEnd < lastPageNum}">
-		                    <a href="/Kmarket1/admin/cs/faqList.do?group=faq&pg=${pageGroupEnd + 1}" class="next">다음</a>
-		                    </c:if>
-		                </div>
-	                </c:if>
-	                <c:if test="${cate != null}">
-			            <div class="page">
-		                	<c:if test="${pageGroupStart > 1}">
-		                    <a href="/Kmarket1/admin/cs/faqList.do?group=faq&cate=${cate}&pg=${pageGroupStart - 1}" class="prev">이전</a>
-		                    </c:if>
-		                    <c:forEach var="num" begin="${pageGroupStart}" end="${pageGroupEnd}">
-		                    <a href="/Kmarket1/admin/cs/faqList.do?group=faq&cate=${cate}&pg=${num}" class="num ${num == currentPage ? 'current':'off' }">${num}</a>
-		                    </c:forEach>
-		                    <c:if test="${pageGroupEnd < lastPageNum}">
-		                    <a href="/Kmarket1/admin/cs/faqList.do?group=faq&cate=${cate}&pg=${pageGroupEnd + 1}" class="next">다음</a>
-		                    </c:if>
-		                </div>
-	                </c:if>
 	                <a href="#" class="btnDelete" onclick="deleteValue();">선택삭제</a>       
 	                <a href="./faqWrite.do?group=faq" class="btnWrite">작성하기</a>       
 	        	</article>        

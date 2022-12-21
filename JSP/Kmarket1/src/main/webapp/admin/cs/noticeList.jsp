@@ -19,7 +19,7 @@
 		let ans = confirm("삭제하시겠습니까?");
 		if(ans){
 			$.ajax({
-				url:'/Kmarket1/admin/cs/deleteNotice.do',
+				url:'/Kmarket1/admin/cs/noticeDelete.do',
 				type:'post',
 				traditional: true,//ajax 배열 넘기기 옵션
 				data:{'checkBoxArr':checkBoxArr},

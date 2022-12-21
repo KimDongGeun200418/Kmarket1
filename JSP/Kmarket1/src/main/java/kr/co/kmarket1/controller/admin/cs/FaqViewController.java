@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import kr.co.kmarket1.service.ArticleService;
 import kr.co.kmarket1.vo.CsArticleVO;
 
-@WebServlet("/admin/cs/faqList.do")
-public class FaqListController extends HttpServlet{
+@WebServlet("/admin/cs/faqView.do")
+public class FaqViewController extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
 	private ArticleService service = ArticleService.INSTANCE;
@@ -28,29 +28,18 @@ public class FaqListController extends HttpServlet{
 	
 		String group = req.getParameter("group");
 		String cate = req.getParameter("cate");
-		String cate2 = req.getParameter("cate2");
 		String pg = req.getParameter("pg");
+		String no = req.getParameter("no");
 		
-		List<CsArticleVO> articles = null;
-		List<CsArticleVO> category = service.selectFaqCate();
-		List<CsArticleVO> category2 = service.selectFaqCate2(cate);
-		
-		if(cate == null || cate.equals("")) {
-			
-			articles = service.selectAllFaq();
-		}else {
-			
-			articles = service.selectFaq(cate);
-		}
+		CsArticleVO article = service.selectArticleFaq(no);
 	
-		req.setAttribute("articles", articles);
-		req.setAttribute("category", category);
-		req.setAttribute("category2", category2);
 		req.setAttribute("group", group);
 		req.setAttribute("cate", cate);
-		req.setAttribute("cate2", cate2);
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/admin/cs/faqList.jsp");
-		dispatcher.forward(req, resp);	
+		req.setAttribute("pg", pg);
+		req.setAttribute("no", no);
+		req.setAttribute("article", article);
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/admin/cs/faqView.jsp");
+		dispatcher.forward(req, resp);
 	}
 	
 	@Override

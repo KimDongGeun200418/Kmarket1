@@ -14,7 +14,10 @@ public class Sql {
 	public static final String SELECT_COUNT_NOTICE = "SELECT COUNT(`no`) FROM `km_cs_notice` where `cate`=?";
 	public static final String SELECT_LATEST_NOTICE = "SELECT `no`,`title`,`rdate`, `cate` FROM `km_cs_notice` "
 												   +"ORDER BY `no` DESC LIMIT 5";
+	public static final String UPDATE_ARTICLE_NOTICE = "update `km_cs_notice` set `cate`=?, `title`=?, `content`=?, `rdate`=NOW() where `no`=?";
+	public static final String DELETE_NOTICE = "delete from `km_cs_notice` where `no`=?";
 	
+	public static final String INSERT_ARTICLE_QNA = "INSERT INTO `km_cs_qna` SET `title`=?, `cate`=?, `cate2`=?, `content`=?, `uid`=?, `regip`=?, `rdate`=now()";
 	public static final String SELECT_QNA = "SELECT `no`, `cate2`, `title`, `uid`, `rdate`, `comment` from `km_cs_qna` WHERE `cate`= ? "
 											+"ORDER BY `no` DESC "
 											+"LIMIT ?, 10";
@@ -24,14 +27,18 @@ public class Sql {
 	public static final String SELECT_LATEST_QNA = "SELECT `no`,`title`, `uid`, `rdate`, `cate` FROM `km_cs_qna` "
 			                                       +"ORDER BY `no` DESC LIMIT 5";
 	
-	public static final String INSERT_ARTICLE_QNA = "INSERT INTO `km_cs_qna` SET `title`=?, `cate`=?, `cate2`=?, `content`=?, `uid`=?, `regip`=?, `rdate`=now()";
-	
-	public static final String SELECT_ARTICLE_FAQ = "SELECT `title`, `content` FROM `km_cs_faq` WHERE `no`= ?";							
+	public static final String INSERT_ARTICLE_FAQ = "INSERT INTO `km_cs_faq` SET `title`=?, `cate`=?, `cate2`=?, `content`=?, `uid`=?, `regip`=?, `rdate`=now()";
+	public static final String SELECT_ARTICLE_FAQ = "SELECT `title`, `content`, `cate`, `cate2` FROM `km_cs_faq` WHERE `no`= ?";							
 											
-	public static final String SELECT_FAQ = "SELECT `no`, `cate2`, `title` from `km_cs_faq` WHERE `cate`= ? "
+	public static final String SELECT_FAQ = "SELECT `no`, `cate2`, `title`, `rdate`, `hit` from `km_cs_faq` WHERE `cate`= ? "
 			                             +"ORDER BY `no` DESC ";
-	public static final String SELECT_FAQ_CATE = "SELECT distinct `cate2` from `km_cs_faq` WHERE `cate`= ? ";
-			
+	public static final String SELECT_FAQ_CATE = "SELECT DISTINCT(`cate`) FROM `km_cs_faq`";
+	public static final String SELECT_FAQ_CATE2 = "SELECT distinct `cate2` from `km_cs_faq` WHERE `cate`= ? ";
+	public static final String SELECT_ALL_FAQ = "SELECT `no`,`title`, `rdate`, `hit`, `cate`, `cate2` from `km_cs_faq` "
+												+"ORDER BY `no` DESC ";
+	public static final String UPDATE_ARTICLE_FAQ = "update `km_cs_notice` set `cate`=?, `cate2`=?, `title`=?, `content`=?, `rdate`=NOW() where `no`=?";
+	public static final String DELETE_FAQ = "delete from `km_cs_faq` where `no`=?";
+	
 	//index
 	public static final String SELECT_PRODUCTS_BY_SOLD = "SELECT * FROM `km_product` ORDER BY `sold` DESC LIMIT ?";
 	public static final String SELECT_PRODUCTS_BY_HIT = "SELECT * FROM `km_product` ORDER BY `hit` DESC LIMIT ?";
@@ -86,8 +93,5 @@ public class Sql {
 											+ "`price`=?, `discount`=?, `point`=?,"
 											+ "`delivery`=?, `total`=?, `rdate`=NOW()";
 	
-	//admin_cs
-	public static final String DELETE_NOTICE = "delete from `km_cs_notice` where `no`=?";
-	public static final String UPDATE_ARTICLE_NOTICE = "update `km_cs_notice` set `cate`=?, `title`=?, `content`=?, `rdate`=NOW() where `no`=?";
 	
 }
