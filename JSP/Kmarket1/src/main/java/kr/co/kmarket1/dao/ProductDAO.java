@@ -8,8 +8,10 @@ import org.slf4j.LoggerFactory;
 
 import kr.co.kmarket1.db.DBHelper;
 import kr.co.kmarket1.db.Sql;
+import kr.co.kmarket1.vo.CartVO;
 import kr.co.kmarket1.vo.NavCateVO;
 import kr.co.kmarket1.vo.ProductVO;
+import kr.co.kmarket1.vo.ReviewVO;
 
 public class ProductDAO extends DBHelper{
 	Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -805,8 +807,8 @@ public class ProductDAO extends DBHelper{
 	}
 	
 	//insertCart
-	public String insertCart(String uid, ProductVO product, int count, int total) {
-		String result= "0";
+	public int insertCart(String uid, ProductVO product, int count, int total) {
+		int result= 0;
 		try {
 			logger.debug("insertCart start...");
 			conn = getConnection();
@@ -819,13 +821,46 @@ public class ProductDAO extends DBHelper{
 			psmt.setInt(6, product.getPoint());
 			psmt.setInt(7, product.getDelivery());
 			psmt.setInt(8, total);
-			result = Integer.toString(psmt.executeUpdate());
+			result = psmt.executeUpdate();
 			close();
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 		} 
-		
 		return result;
+	}
+	//selectCartProducts
+	public List<CartVO> selectCartProducts(String uid) {
+		List<CartVO> cartProducts = new ArrayList<>();
+		try {
+			logger.debug("selectCartProducts start...");
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.SELECT_CART_PRODUCTS);
+			psmt.setString(1, uid);
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				CartVO cartProduct = new CartVO();
+				cartProduct.setCartNo(rs.getInt(1));
+				cartProduct.setUid(rs.getString(2));
+				cartProduct.setProdNo(rs.getInt(3));
+				cartProduct.setCount(rs.getInt(4));
+				cartProduct.setPrice(rs.getInt(5));
+				cartProduct.setDiscount(rs.getInt(6));
+				cartProduct.setPoint(rs.getInt(7));
+				cartProduct.setDelivery(rs.getInt(8));
+				cartProduct.setTotal(rs.getInt(9));
+				cartProduct.setRdate(rs.getString(10).substring(2,11));
+				cartProduct.setProdName(rs.getString(11));
+				cartProduct.setDescript(rs.getString(12));
+				cartProduct.setThumb1(rs.getString(13));
+				
+				cartProducts.add(cartProduct);
+			}
+			close();
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		} 
+		return cartProducts;
 	}
 	
 	//countProductTotal
@@ -847,6 +882,55 @@ public class ProductDAO extends DBHelper{
 			logger.error(e.getMessage());
 		}
 		return total;
+	}
+	
+	//countReviewTotal
+	public int countReviewTotal(String prodNo) {
+		int total = 0;
+		try{
+			logger.info("countReviewTotal start...");
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.SELECT_COUNT_REVIEW_TOTAL);
+			psmt.setString(1, prodNo);
+			rs = psmt.executeQuery();
+			
+			if(rs.next()){
+				total = rs.getInt(1);
+			}
+			close();
+		}catch(Exception e){
+			logger.error(e.getMessage());
+		}
+		return total;
+	}
+	//selectReviews
+	public List<ReviewVO> selectReviews(String prodNo, int start){
+		List<ReviewVO> reviews = new ArrayList<>();
+		try {
+			logger.debug("selectReviews Start...");
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.SELECT_REVIEWS);
+			psmt.setString(1, prodNo);
+			psmt.setInt(2, start);
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				ReviewVO review = new ReviewVO();
+				review.setRevNo(rs.getInt(1));
+				review.setProdNo(rs.getInt(2));
+				review.setContent(rs.getString(3));
+				review.setUid(rs.getString(4));
+				review.setRating(rs.getInt(5));
+				review.setRegip(rs.getString(6));
+				review.setRdate(rs.getString(7).substring(2,11));
+				
+				reviews.add(review);
+			}
+			close();
+		}catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+		return reviews;
 	}
 	
 }

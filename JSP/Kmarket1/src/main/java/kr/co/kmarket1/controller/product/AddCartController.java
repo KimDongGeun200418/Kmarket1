@@ -2,7 +2,6 @@ package kr.co.kmarket1.controller.product;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,14 +33,12 @@ public class AddCartController extends HttpServlet{
 
 		String uid = req.getParameter("uid");
 		String prodNo = req.getParameter("prodNo");
-		int count = Integer.parseInt(req.getParameter("count")) ;
+		int count = Integer.parseInt(req.getParameter("count"));
 		int total = Integer.parseInt(req.getParameter("total"));
 		
 		ProductVO product = serviceProduct.selectProduct(prodNo);
-		serviceProduct.insertCart(uid, product, count, total);
 		String result = serviceProduct.insertCart(uid, product, count, total);
 		resp.getWriter().print(result);
-	
 	
 	}
 

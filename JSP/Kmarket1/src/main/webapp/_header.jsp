@@ -44,7 +44,7 @@
                 		</c:otherwise>
                 	</c:choose>
                     <a href="#">마이페이지</a>
-                    <a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i> 장바구니</a>
+                    <a href="/Kmarket1/product/productCart.do"><i class="fa fa-shopping-cart" aria-hidden="true"></i> 장바구니</a>
                 </div>
             </div>
 

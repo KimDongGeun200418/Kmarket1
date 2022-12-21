@@ -16,8 +16,10 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import kr.co.kmarket1.dao.ProductDAO;
+import kr.co.kmarket1.vo.CartVO;
 import kr.co.kmarket1.vo.NavCateVO;
 import kr.co.kmarket1.vo.ProductVO;
+import kr.co.kmarket1.vo.ReviewVO;
 
 public enum ProductService {
 	INSTANCE;
@@ -113,10 +115,26 @@ public enum ProductService {
 			JsonObject json = new JsonObject();
 			json.addProperty("result", dao.insertCart(uid, product, count, total));
 			return json.toString();
-			
+		}
+		public List<CartVO> selectCartProducts(String uid){
+			return dao.selectCartProducts(uid);
+		}
 		
-		
-		
+		//reviewPage
+		public int countReviewTotal(String prodNo) {
+			return dao.countReviewTotal(prodNo);
+		}
+		public List<ReviewVO> selectReviews(String prodNo, int start) {
+			return dao.selectReviews(prodNo, start);
+		}
+		public int getLastPageNumReview(int total) {
+			int lastPageNum = 0;
+			if(total % 5 == 0){
+				lastPageNum = total / 5;
+			}else{
+				lastPageNum = total / 5 + 1;
+			}
+			return lastPageNum;
 		}
 		
 		//page

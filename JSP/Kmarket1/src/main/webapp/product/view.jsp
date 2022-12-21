@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <%@ page import="java.util.Date" %> 
 <jsp:include page="../_header.jsp"/>
 <jsp:include page="../_menu.jsp"/>
@@ -20,9 +21,7 @@
                 <!-- title, page nav -->
                 <nav>
                     <h1>상품보기</h1>
-                    <p>
-                        HOME &gt; <span>패션·의류·뷰티</span> &gt; <strong>남성의류</strong>
-                    </p>
+                    <p>HOME &gt; <span>${ navCate.cate1 }</span> &gt; <strong>${ navCate.cate2 }</strong></p>
                 </nav>
 
                 <!-- product info -->                
@@ -216,85 +215,57 @@
                         <h1>상품리뷰</h1>
                     </nav>
                     <ul>
+                    <c:forEach var="review" items="${ reviews }">
                         <li>
                             <div>
-                                <h5 class="rating star4">상품평</h5>
-                                <span>seo******	2018-07-10</span>
+                                
+                                <c:choose>
+	                            	<c:when test="${ review.rating >= 4.5 }">
+	                            		<h5 class="rating star5">상품평</h5>
+	                            	</c:when>
+	                            	<c:when test="${ review.rating >= 3.5 }">
+	                            		<h5 class="rating star4">상품평</h5>
+	                            	</c:when>
+	                            	<c:when test="${ review.rating >= 2.5 }">
+	                            		<h5 class="rating star3">상품평</h5>
+	                            	</c:when>
+	                            	<c:when test="${ review.rating >= 1.5 }">
+	                            		<h5 class="rating star2">상품평</h5>
+	                            	</c:when>
+	                            	<c:when test="${ review.rating >= 0.5 }">
+	                            		<h5 class="rating star1">상품평</h5>
+	                            	</c:when>
+	                            	<c:when test="${ review.rating < 0.5 }">
+	                            		<h5 class="rating star0">상품평</h5>
+	                            	</c:when>
+	                            </c:choose>
+                                <span>${fn:substring(review.uid, 0, 3)}<c:forEach begin="4" end="${fn:length(review.uid)}" step="1">*</c:forEach>
+                                ${ review.rdate }
+                                </span>
                             </div>
-                            <h3>상품명1/BLUE/L</h3>
-                            <p>
-                                가격대비 정말 괜찮은 옷이라 생각되네요 핏은 음...제가 입기엔 어깨선이 맞고 루즈핏이라 하기도 좀 힘드네요.
-                                아주 약간 루즈한정도...?그래도 이만한 옷은 없다고 봅니다 깨끗하고 포장도 괜찮고 다음에도 여기서 판매하는
-                                제품들을 구매하고 싶네요 정말 만족하고 후기 남깁니다 많이 파시길 바래요 ~ ~ ~
-                            </p>
+                            <h3>상품명 ${ product.prodName }</h3>
+                            <p>${ review.content }</p>
                         </li>
-                        <li>
-                            <div>
-                                <h5 class="rating star4">상품평</h5>
-                                <span>seo******	2018-07-10</span>
-                            </div>
-                            <h3>상품명1/BLUE/L</h3>
-                            <p>
-                                가격대비 정말 괜찮은 옷이라 생각되네요 핏은 음...제가 입기엔 어깨선이 맞고 루즈핏이라 하기도 좀 힘드네요.
-                                아주 약간 루즈한정도...?그래도 이만한 옷은 없다고 봅니다 깨끗하고 포장도 괜찮고 다음에도 여기서 판매하는
-                                제품들을 구매하고 싶네요 정말 만족하고 후기 남깁니다 많이 파시길 바래요 ~ ~ ~
-                            </p>
-                        </li>
-                        <li>
-                            <div>
-                                <h5 class="rating star4">상품평</h5>
-                                <span>seo******	2018-07-10</span>
-                            </div>
-                            <h3>상품명1/BLUE/L</h3>
-                            <p>
-                                가격대비 정말 괜찮은 옷이라 생각되네요 핏은 음...제가 입기엔 어깨선이 맞고 루즈핏이라 하기도 좀 힘드네요.
-                                아주 약간 루즈한정도...?그래도 이만한 옷은 없다고 봅니다 깨끗하고 포장도 괜찮고 다음에도 여기서 판매하는
-                                제품들을 구매하고 싶네요 정말 만족하고 후기 남깁니다 많이 파시길 바래요 ~ ~ ~
-                            </p>
-                        </li>
-                        <li>
-                            <div>
-                                <h5 class="rating star4">상품평</h5>
-                                <span>seo******	2018-07-10</span>
-                            </div>
-                            <h3>상품명1/BLUE/L</h3>
-                            <p>
-                                가격대비 정말 괜찮은 옷이라 생각되네요 핏은 음...제가 입기엔 어깨선이 맞고 루즈핏이라 하기도 좀 힘드네요.
-                                아주 약간 루즈한정도...?그래도 이만한 옷은 없다고 봅니다 깨끗하고 포장도 괜찮고 다음에도 여기서 판매하는
-                                제품들을 구매하고 싶네요 정말 만족하고 후기 남깁니다 많이 파시길 바래요 ~ ~ ~
-                            </p>
-                        </li>
-                        <li>
-                            <div>
-                                <h5 class="rating star4">상품평</h5>
-                                <span>seo******	2018-07-10</span>
-                            </div>
-                            <h3>상품명1/BLUE/L</h3>
-                            <p>
-                                가격대비 정말 괜찮은 옷이라 생각되네요 핏은 음...제가 입기엔 어깨선이 맞고 루즈핏이라 하기도 좀 힘드네요.
-                                아주 약간 루즈한정도...?그래도 이만한 옷은 없다고 봅니다 깨끗하고 포장도 괜찮고 다음에도 여기서 판매하는
-                                제품들을 구매하고 싶네요 정말 만족하고 후기 남깁니다 많이 파시길 바래요 ~ ~ ~
-                            </p>
-                        </li>
+                    </c:forEach>
                     </ul>
-                    <div class="paging">
-                        <span class="prev">
-                            <a href="#">&lt;&nbsp;이전</a>
-                        </span>
-                        <span class="num">
-                            <a href="#" class="on">1</a>
-                            <a href="#">2</a>
-                            <a href="#">3</a>
-                            <a href="#">4</a>
-                            <a href="#">5</a>
-                            <a href="#">6</a>
-                            <a href="#">7</a>
-                        </span>
-                        <span class="next">
-                            <a href="#">다음&nbsp;&gt;</a>
-                        </span>
-                    </div>
-
+                    <!-- page number -->
+	                <div class="paging">
+						<c:if test="${pageGroupStart > 1}">
+						<span class="prev">
+			            	<a href="/Kmarket1/product/productView.do?cate1=${ cate1 }&cate2=${ cate2 }&prodNo=${ prodNo }&pg=${pageGroupStart - 1}">&lt; 이전</a>
+			            </span>
+			            </c:if>
+			            <span class="num">
+			            <c:forEach var="num" begin="${pageGroupStart}" end="${pageGroupEnd}">
+			            	<a href="/Kmarket1/product/productView.do?cate1=${ cate1 }&cate2=${ cate2 }&prodNo=${ prodNo }&pg=${num}" class="${num == currentPage ? 'on':'off'}">${num}</a>
+			            </c:forEach>
+			            </span>
+			            <c:if test="${pageGroupEnd < lastPageNum}">
+			            <span class="next">
+			            	<a href="/Kmarket1/product/productView.do?cate1=${ cate1 }&cate2=${ cate2 }&prodNo=${ prodNo }&pg=${pageGroupEnd + 1}" class="next">다음&nbsp;&gt;</a>
+			            </span>
+			            </c:if>
+	                </div>
                 </article>
                 
             </section>
