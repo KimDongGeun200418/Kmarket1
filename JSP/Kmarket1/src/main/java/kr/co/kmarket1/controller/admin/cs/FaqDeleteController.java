@@ -66,8 +66,6 @@ public class FaqDeleteController extends HttpServlet{
 		PrintWriter writer = resp.getWriter();
 		writer.print(jsonData);
 		
-		resp.sendRedirect("/Kmarket1/admin/cs/faqList.do?group="+group+"&cate="+cate+"&cate2="+cate2+"&pg="+pg);
-		
 	}
 	
 }

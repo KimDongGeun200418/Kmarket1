@@ -10,7 +10,6 @@ public class CsArticleVO {
 	private String cate;
 	private String cate1;
 	private String cate2;
-	private String parent;
 	private String comment;
 	private String hit;
 	
@@ -73,12 +72,6 @@ public class CsArticleVO {
 	}
 	public void setCate2(String cate2) {
 		this.cate2 = cate2;
-	}
-	public String getParent() {
-		return parent;
-	}
-	public void setParent(String parent) {
-		this.parent = parent;
 	}
 	public String getComment() {
 		return comment;

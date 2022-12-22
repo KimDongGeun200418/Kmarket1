@@ -13,13 +13,13 @@
             <aside>
                 <h2>문의하기</h2>
                 <ul>
-                    <li class="${cate eq 'member' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=member">회원</a></li>
-                    <li class="${cate eq 'coupon' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=coupon">쿠폰/이벤트</a></li>
-                    <li class="${cate eq 'order' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=order">주문/결제</a></li>
-                    <li class="${cate eq 'delivery' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=delivery">배송</a></li>
-                    <li class="${cate eq 'cancel' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=cancel">취소/반폼/교환</a></li>
-                    <li class="${cate eq 'trip' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=trip">여행/숙박/항공</a></li>
-                    <li class="${cate eq 'safety' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=safety">안전거래</a></li>
+                    <li class="${cate eq '회원' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=회원">회원</a></li>
+                    <li class="${cate eq '쿠폰/혜택/이벤트' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=쿠폰/혜택/이벤트">쿠폰/이벤트</a></li>
+                    <li class="${cate eq '주문/결제' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=주문/결제">주문/결제</a></li>
+                    <li class="${cate eq '배송' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=배송">배송</a></li>
+                    <li class="${cate eq '취소/반품/교환' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=취소/반품/교환">취소/반품/교환</a></li>
+                    <li class="${cate eq '여행/숙박/항공' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=여행/숙박/항공">여행/숙박/항공</a></li>
+                    <li class="${cate eq '안전거래' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=안전거래">안전거래</a></li>
                 </ul>
             </aside>
             <article>

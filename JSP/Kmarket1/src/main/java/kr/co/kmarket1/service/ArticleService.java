@@ -29,13 +29,13 @@ public enum ArticleService {
 	public List<CsArticleVO> selectLatestNotice() {
 		return dao.selectLatestNotice();
 	}
-	public List<CsArticleVO> selectLatestQna() {
-		return dao.selectLatestQna();
-	}
 	
 	//qna
 	public List<CsArticleVO> selectQna(String cate, int start){
 		return dao.selectQna(cate, start);
+	}
+	public List<CsArticleVO> selectAllQna(int start) {
+		return dao.selectAllQna(start);
 	}
 	public int selectCountQna(String cate) {
 		return dao.selectCountQna(cate);
@@ -43,8 +43,14 @@ public enum ArticleService {
 	public CsArticleVO selectArticleQna(String no) {
 		return dao.selectArticleQna(no);
 	}
-	public int insertArticleQna(CsArticleVO article) {
-		return dao.insertArticleQna(article);
+	public List<CsArticleVO> selectQnaCate2(String cate) {
+		return dao.selectQnaCate2(cate);
+	}
+	public List<CsArticleVO> selectQnaCate() {
+		return dao.selectQnaCate();
+	}
+	public List<CsArticleVO> selectLatestQna() {
+		return dao.selectLatestQna();
 	}
 	
 	//faq

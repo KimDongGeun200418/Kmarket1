@@ -24,9 +24,9 @@
 				traditional: true,//ajax 배열 넘기기 옵션
 				data:{'checkBoxArr':checkBoxArr},
 				dataType:'json',
-				success:function(result){
-					if(result > 0){
-						location.reload();//안됨
+				success:function(data){
+					if(data.result > 0){
+						location.reload();
 					}
 				}
 			});
@@ -45,10 +45,10 @@
 	                <select onchange="if(this.value) location.href=(this.value);">
 	                	<c:if test="${cate != null}"><option value=0 style="font-weight:bold;">${cate}</option></c:if>
 	                	<c:if test="${cate == null || cate eq ''}"><option value=0>유형선택</option></c:if>
-	                	<option value="/Kmarket1/admin/cs/noticeList.do?group=notice&cate=service&pg=1">고객서비스</option>
-	                	<option value="/Kmarket1/admin/cs/noticeList.do?group=notice&cate=safety&pg=1">안전거래</option>
-	                	<option value="/Kmarket1/admin/cs/noticeList.do?group=notice&cate=product&pg=1">위해상품</option>
-	                	<option value="/Kmarket1/admin/cs/noticeList.do?group=notice&cate=event&pg=1">이벤트당첨</option>
+	                	<option value="/Kmarket1/admin/cs/noticeList.do?group=notice&cate=고객서비스&pg=1">고객서비스</option>
+	                	<option value="/Kmarket1/admin/cs/noticeList.do?group=notice&cate=안전거래&pg=1">안전거래</option>
+	                	<option value="/Kmarket1/admin/cs/noticeList.do?group=notice&cate=위해상품&pg=1">위해상품</option>
+	                	<option value="/Kmarket1/admin/cs/noticeList.do?group=notice&cate=이벤트당첨&pg=1">이벤트당첨</option>
 	                </select>
 	                <table>
 	                	<tr>
@@ -80,10 +80,10 @@
 		                		<td>${article.rdate.substring(2, 10)}</td>
 		                		<td>
 		                			<c:if test="${cate == null || cate eq ''}">
-		                				<a href="./deleteNotice.do?group=notice&cate=${article.cate}&pg=${currentPage}&no=${article.no}">[삭제]
+		                				<a href="./noticeDelete.do?group=notice&cate=${article.cate}&pg=${currentPage}&no=${article.no}">[삭제]
 		                			</c:if>
 		                			<c:if test="${cate != null}">
-		                				<a href="./deleteNotice.do?group=notice&cate=${cate}&pg=${currentPage}&no=${article.no}">[삭제]
+		                				<a href="./noticeDelete.do?group=notice&cate=${cate}&pg=${currentPage}&no=${article.no}">[삭제]
 		                			</c:if>
 		                			<br/>
 		                			<c:if test="${cate == null || cate eq ''}">
