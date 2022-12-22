@@ -38,8 +38,6 @@ public enum ProductService {
 			return dao.selectProduct(prodNo);
 		}
 
-		
-		
 
 		
 		//write
@@ -121,6 +119,14 @@ public enum ProductService {
 			json.addProperty("result", dao.deleteCart(cartNo));
 			return json.toString();
 		};
+		
+		//order
+		public int addOrderFrame(String uid) {
+			return dao.addOrderFrame(uid);
+		}
+		public void insertOrderItem(int ordNo, List<String> prodInfoList) {
+			dao.insertOrderItem(ordNo, prodInfoList);
+		}
 		
 		//reviewPage
 		public int countReviewTotal(String prodNo) {

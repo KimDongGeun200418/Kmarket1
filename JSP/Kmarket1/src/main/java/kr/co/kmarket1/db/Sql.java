@@ -121,4 +121,11 @@ public class Sql {
 													+ "ON a.`prodNo` = b.`prodNo` WHERE `uid`=?";
 	public static final String DELETE_CART = "DELETE FROM `km_product_cart` WHERE `cartNo`=?";
 	
+	//order
+	public static final String INSERT_ORDER 		= "INSERT INTO `km_product_order` SET `uid`=?";
+	public static final String SELECT_ORDERNUM 		= "SELECT MAX(`ordNo`) FROM `km_product_order` WHERE `uid`=?";
+	public static final String INSERT_ORDER_ITEM	= "INSERT INTO `km_product_order_item` SET `ordNo`=?,"
+													+ "`prodNo`=?, `count`=?, `price`=?, `discount`=?,"
+													+ "`point`=?, `delivery`=?, `total`=?";
+	
 }

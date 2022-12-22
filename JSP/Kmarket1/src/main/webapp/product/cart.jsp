@@ -24,9 +24,9 @@
                 	<p>HOME &gt; <span>마이페이지</span> &gt; <strong>장바구니</strong></p>
                 </nav>
                               
-                <form action="#">
+                <form action="#" class="orderForm">
                 	<!-- 장바구니 목록 -->
-                	<table>
+                	<table class="orderList">
                     	<thead>
                       		<tr>
 	                        	<th><input type="checkbox" name="all"></th>
@@ -66,7 +66,7 @@
 		                        </td>
 		                        <td><fmt:formatNumber value="${ cartProduct.count }" pattern="#,###" /></td>
 		                        <td><fmt:formatNumber value="${ cartProduct.price }" pattern="#,###" /></td>
-		                        <td>${ cartProduct.discount }</td>
+		                        <td>${ cartProduct.discount }%</td>
 		                        <td><fmt:formatNumber value="${ cartProduct.point }" pattern="#,###" /></td>
 		                        <td><fmt:formatNumber value="${ cartProduct.delivery }" pattern="#,###" /></td>
 		                        <td><fmt:formatNumber value="${ cartProduct.total }" pattern="#,###" /></td>
@@ -114,7 +114,7 @@
                       		</tr>
                     	</tbody>
                     	</table>
-                    	<input type="submit" name="" value="주문하기">    
+                    	<input type="submit" name="order" value="주문하기">    
                   	</div>
                 </form>
               </section>

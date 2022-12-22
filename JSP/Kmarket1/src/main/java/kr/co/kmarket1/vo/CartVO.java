@@ -16,7 +16,16 @@ public class CartVO {
 	private String prodName;
 	private String descript;
 	private String thumb1;
+	//for order
+	private int ordNo;
 	
+	
+	public int getOrdNo() {
+		return ordNo;
+	}
+	public void setOrdNo(int ordNo) {
+		this.ordNo = ordNo;
+	}
 	
 	public String getProdName() {
 		return prodName;
