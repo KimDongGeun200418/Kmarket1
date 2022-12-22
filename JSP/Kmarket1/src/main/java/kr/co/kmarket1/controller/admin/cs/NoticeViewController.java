@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.co.kmarket1.dao.ArticleDAO;
 import kr.co.kmarket1.service.ArticleService;
 import kr.co.kmarket1.vo.CsArticleVO;
 
@@ -32,6 +33,7 @@ public class NoticeViewController extends HttpServlet{
 		String no = req.getParameter("no");
 		
 		CsArticleVO article = service.selectArticleNotice(no);
+		ArticleDAO.getInstance().updateNoticeHit(no);
 	
 		req.setAttribute("group", group);
 		req.setAttribute("cate", cate);

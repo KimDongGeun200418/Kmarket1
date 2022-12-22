@@ -56,7 +56,7 @@
 	                            <td>
 	                                <select name="type1" id="list1" onChange="optionChange();">
 	                                    <option value="0">1차 선택</option>
-	                                    <option value="회원">회원</option>
+	                                    <option value="회원" >회원</option>
 	                                    <option value="쿠폰/혜택/이벤트">쿠폰/혜택/이벤트</option>
 	                                    <option value="주문/결제">주문/결제</option>
 	                                    <option value="배송">배송</option>

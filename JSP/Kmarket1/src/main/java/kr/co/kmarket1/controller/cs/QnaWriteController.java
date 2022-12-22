@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.co.kmarket1.dao.ArticleDAO;
 import kr.co.kmarket1.service.ArticleService;
 import kr.co.kmarket1.vo.CsArticleVO;
 
@@ -56,7 +57,7 @@ public class QnaWriteController extends HttpServlet{
 		article.setContent(content);
 		article.setRegip(regip);
 		
-		int parent = service.insertArticleQna(article);
+		ArticleDAO.getInstance().insertArticleQna(article);
 		
 		resp.sendRedirect("/Kmarket1/cs/qna/list.do?group="+group+"&cate="+cate);
 	

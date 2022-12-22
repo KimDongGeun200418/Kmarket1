@@ -17,17 +17,21 @@
 			console.log(checkBoxArr);
 		})
 		
-		$.ajax({
-			url:'/admin/cs/faqDelete.do',
-			type:'get',
-			data:{checkBoxArr:checkBoxArr},
-			dataType:'json',
-			success:function(result){
-				if(result == 1){
-					location.reload();
+		let ans = confirm("삭제하시겠습니까?");
+		if(ans){
+			$.ajax({
+				url:'/Kmarket1/admin/cs/FaqDelete.do',
+				type:'post',
+				traditional: true,//ajax 배열 넘기기 옵션
+				data:{'checkBoxArr':checkBoxArr},
+				dataType:'json',
+				success:function(data){
+					if(data.result > 0){
+						location.reload();
+					}
 				}
-			}
-		});
+			});
+		}
 	}
 </script>
 <jsp:include page="../_header.jsp"/>
@@ -43,13 +47,14 @@
 	                	<c:if test="${cate != null}"><option value=0 style="font-weight:bold;">${cate}</option></c:if>
 	                	<c:if test="${cate == null || cate eq ''}"><option value=0>1차유형선택</option></c:if>
 	                	<c:forEach var="ct" items="${category}">
-	                		<option value="/Kmarket1/admin/cs/faqList.do?group=faq&cate=${ct.cate}&cate2=&pg=1">${ct.cate}</option>
+	                		<option value="/Kmarket1/admin/cs/faqList.do?group=faq&cate=${ct.cate}&cate2=">${ct.cate}</option>
 	                	</c:forEach>
 	                </select name="type2">
 	                <select onchange="if(this.value) location.href=(this.value);">
-                        <option value=0>2차유형선택</option>
+                        <c:if test="${cate2 != null}"><option value=0 style="font-weight:bold;">${cate2}</option></c:if>
+	                	<c:if test="${cate2 == null || cate2 eq ''}"><option value=0>2차유형선택</option></c:if>
 	                	<c:forEach var="ct2" items="${category2}">
-	                		<option value="/Kmarket1/admin/cs/faqList.do?group=faq&cate=${cate}&cate2=${ct2.cate2}&pg=1">${ct2.cate2}</option>
+	                		<option value="/Kmarket1/admin/cs/faqList.do?group=faq&cate=${cate}&cate2=${ct2.cate2}">${ct2.cate2}</option>
 	                	</c:forEach>
                     </select>
 	                <table>
@@ -77,27 +82,27 @@
 		                		</td>
 		                		<td>
 		                			<c:if test="${cate == null || cate eq ''}">
-		                				<a href="./faqView.do?group=faq&cate=${article.cate}&cate=${article.cate2}&pg=${currentPage}&no=${article.no}">${article.title}
+		                				<a href="./faqView.do?group=faq&cate=${article.cate}&cate2=${article.cate2}&no=${article.no}">${article.title}
 		                			</c:if>
 		                			<c:if test="${cate != null}">
-		                				<a href="./faqView.do?group=faq&cate=${cate}&cate=${article.cate2}&pg=${currentPage}&no=${article.no}">${article.title}
+		                				<a href="./faqView.do?group=faq&cate=${cate}&cate2=${article.cate2}&no=${article.no}">${article.title}
 		                			</c:if>
 		                		</td>
 		                		<td>${article.hit}</td>
 		                		<td>${article.rdate.substring(2, 10)}</td>
 		                		<td>
 		                			<c:if test="${cate == null || cate eq ''}">
-		                				<a href="./deleteFaq.do?group=faq&cate=${article.cate}&cate=${article.cate2}&pg=${currentPage}&no=${article.no}">[삭제]
+		                				<a href="./deleteFaq.do?group=faq&cate=${article.cate}&cate2=${article.cate2}&no=${article.no}">[삭제]
 		                			</c:if>
 		                			<c:if test="${cate != null}">
-		                				<a href="./faqDelete.do?group=faq&cate=${cate}&cate=${article.cate2}&pg=${currentPage}&no=${article.no}">[삭제]
+		                				<a href="./faqDelete.do?group=faq&cate=${cate}&cate2=${article.cate2}&no=${article.no}">[삭제]
 		                			</c:if>
 		                			<br/>
 		                			<c:if test="${cate == null || cate eq ''}">
-		                				<a href="./faqModify.do?group=faq&cate=${article.cate}&cate=${article.cate2}&pg=${currentPage}&no=${article.no}">[수정]
+		                				<a href="./faqModify.do?group=faq&cate=${article.cate}&cate2=${article.cate2}&no=${article.no}">[수정]
 		                			</c:if>
 		                			<c:if test="${cate != null}">
-		                				<a href="./faqModify.do?group=faq&cate=${cate}&cate=${article.cate2}&pg=${currentPage}&no=${article.no}">[수정]
+		                				<a href="./faqModify.do?group=faq&cate=${cate}&cate2=${article.cate2}&no=${article.no}">[수정]
 		                			</c:if>
 		                		</td>
 		                	</tr>

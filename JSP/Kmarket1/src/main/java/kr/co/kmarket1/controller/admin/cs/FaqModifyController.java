@@ -31,7 +31,6 @@ public class FaqModifyController extends HttpServlet{
 		String cate = req.getParameter("cate");
 		String cate2 = req.getParameter("cate2");
 		String no = req.getParameter("no");
-		String pg = req.getParameter("pg");
 		
 		CsArticleVO article = ArticleDAO.getInstance().selectArticleFaq(no);
 		
@@ -39,7 +38,6 @@ public class FaqModifyController extends HttpServlet{
 		req.setAttribute("cate", cate);
 		req.setAttribute("cate2", cate2);
 		req.setAttribute("no", no);
-		req.setAttribute("pg", pg);
 		req.setAttribute("article", article);
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/admin/cs/faqModify.jsp");
@@ -53,7 +51,6 @@ public class FaqModifyController extends HttpServlet{
 		String uid = req.getParameter("uid");
 		String cate = req.getParameter("type1");
 		String cate2 = req.getParameter("type2");
-		String pg = req.getParameter("pg");
 		String no = req.getParameter("no");
 		String title = req.getParameter("title");
 		String content = req.getParameter("content");

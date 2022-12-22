@@ -181,6 +181,21 @@ public class ArticleDAO extends DBHelper{
 		}
 	}
 	
+	public void updateNoticeHit(String no) {
+		try {
+			logger.info("updateNoticeHit...");
+			
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.UPDATE_NOTICE_HIT);
+			psmt.setString(1, no);
+			psmt.executeUpdate();
+			
+			close();
+		}catch(Exception e) {
+			logger.error(e.getMessage());
+		}
+	}
+	
 	public int deleteNotice(String no) {
 		
 		int result = 0;
@@ -198,7 +213,6 @@ public class ArticleDAO extends DBHelper{
 		}catch(Exception e) {
 			logger.error(e.getMessage());
 		}
-		
 		return result;
 	}
 	
@@ -250,17 +264,12 @@ public class ArticleDAO extends DBHelper{
 	}
 	
 	//qna
-	public int insertArticleQna(CsArticleVO article) {
-		
-		int parent = 0;
+	public void insertArticleQna(CsArticleVO article) {
 		
 		try {
 			logger.info("insertArticleQna...");
 			
 			conn = getConnection();
-			conn.setAutoCommit(false);
-			
-			stmt = conn.createStatement();
 			psmt = conn.prepareStatement(Sql.INSERT_ARTICLE_QNA);
 			psmt.setString(1, article.getTitle());
 			psmt.setString(2, article.getCate());
@@ -270,20 +279,29 @@ public class ArticleDAO extends DBHelper{
 			psmt.setString(6, article.getRegip());
 			psmt.executeUpdate();
 			
-			rs = stmt.executeQuery(Sql.SELECT_MAX_NO);
+			close();
 			
-			conn.commit();
+		}catch(Exception e) {
+			logger.error(e.getMessage());
+		}
+	}
+	
+	public void insertCommentQna(String comment, String no) {
+		
+		try {
+			logger.info("insertCommentQna...");
 			
-			if(rs.next()) {
-				parent = rs.getInt(1);
-			}
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.INSERT_COMMENT_QNA);
+			psmt.setString(1, comment);
+			psmt.setString(2, no);
+			psmt.executeUpdate();
 			
 			close();
 			
 		}catch(Exception e) {
 			logger.error(e.getMessage());
 		}
-		return parent;
 	}
 	
 	public List<CsArticleVO> selectQna(String cate, int start){
@@ -318,6 +336,93 @@ public class ArticleDAO extends DBHelper{
 		}
 		return articles;
 	}
+	
+	public List<CsArticleVO> selectAllQna(int start){
+		
+		List<CsArticleVO> articles = new ArrayList<>();
+		
+		try {
+			logger.info("selectAllQna...");
+			
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.SELECT_ALL_QNA);
+			psmt.setInt(1, start);
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				CsArticleVO article = new CsArticleVO();
+				article.setNo(rs.getString(1));
+				article.setCate(rs.getString(2));
+				article.setCate2(rs.getString(3));
+				article.setTitle(rs.getString(4));
+				article.setUid(rs.getString(5));
+				article.setRdate(rs.getString(6));
+				article.setComment(rs.getString(7));
+				
+				articles.add(article);
+			}
+			
+			close();
+			
+		}catch(Exception e) {
+			logger.error(e.getMessage());
+		}
+		return articles;
+	}
+	
+	public List<CsArticleVO> selectQnaCate2(String cate){
+		
+		List<CsArticleVO> category = new ArrayList<>();
+		
+		try {
+			logger.info("selectQnacate2...");
+			
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.SELECT_QNA_CATE2);
+			psmt.setString(1, cate);
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				CsArticleVO ct = new CsArticleVO();
+				ct.setCate2(rs.getString(1));
+				
+				category.add(ct);
+			}
+			
+			close();
+			
+		}catch(Exception e) {
+			logger.error(e.getMessage());
+		}
+		return category;
+	}
+	
+	public List<CsArticleVO> selectQnaCate(){
+		
+		List<CsArticleVO> category = new ArrayList<>();
+		
+		try {
+			logger.info("selectQnacate...");
+			
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.SELECT_QNA_CATE);
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				CsArticleVO ct = new CsArticleVO();
+				ct.setCate(rs.getString(1));
+				
+				category.add(ct);
+			}
+			
+			close();
+			
+		}catch(Exception e) {
+			logger.error(e.getMessage());
+		}
+		return category;
+	}
+	
 	public CsArticleVO selectArticleQna(String no){
 		
 		 CsArticleVO article = null;
@@ -337,6 +442,7 @@ public class ArticleDAO extends DBHelper{
 				article.setUid(rs.getString(3));
 				article.setRdate(rs.getString(4).substring(0, 10));
 				article.setContent(rs.getString(5));
+				article.setComment(rs.getString(6));
 			}
 			
 			close();
@@ -459,7 +565,7 @@ public class ArticleDAO extends DBHelper{
 		List<CsArticleVO> category = new ArrayList<>();
 		
 		try {
-			logger.info("selectct...");
+			logger.info("selectcate2...");
 			
 			conn = getConnection();
 			psmt = conn.prepareStatement(Sql.SELECT_FAQ_CATE2);
@@ -572,14 +678,29 @@ public class ArticleDAO extends DBHelper{
 			conn = getConnection();
 			psmt = conn.prepareStatement(Sql.UPDATE_ARTICLE_FAQ);
 			psmt.setString(1, cate);
-			psmt.setString(1, cate2);
-			psmt.setString(2, title);
-			psmt.setString(3, content);
-			psmt.setString(4, no);
+			psmt.setString(2, cate2);
+			psmt.setString(3, title);
+			psmt.setString(4, content);
+			psmt.setString(5, no);
 			psmt.executeUpdate();
 			
 			close();
 			
+		}catch(Exception e) {
+			logger.error(e.getMessage());
+		}
+	}
+	
+	public void updateFaqHit(String no) {
+		try {
+			logger.info("updateFaqHit...");
+			
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.UPDATE_FAQ_HIT);
+			psmt.setString(1, no);
+			psmt.executeUpdate();
+			
+			close();
 		}catch(Exception e) {
 			logger.error(e.getMessage());
 		}

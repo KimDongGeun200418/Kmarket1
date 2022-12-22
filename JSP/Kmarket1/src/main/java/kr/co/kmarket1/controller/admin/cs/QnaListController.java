@@ -10,12 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.co.kmarket1.dao.ArticleDAO;
 import kr.co.kmarket1.service.ArticleService;
 import kr.co.kmarket1.vo.CsArticleVO;
 
-@WebServlet("/admin/cs/noticeList.do")
-public class NoticeListController extends HttpServlet{
+@WebServlet("/admin/cs/qnaList.do")
+public class QnaListController extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
 	private ArticleService service = ArticleService.INSTANCE;
@@ -29,6 +28,7 @@ public class NoticeListController extends HttpServlet{
 	
 		String group = req.getParameter("group");
 		String cate = req.getParameter("cate");
+		String cate2 = req.getParameter("cate2");
 		String pg = req.getParameter("pg");
 		
 		int currentPage = 0;//현재 페이지 번호
@@ -36,9 +36,11 @@ public class NoticeListController extends HttpServlet{
 		int lastPageNum = 0;//마지막 페이지 번호
 		int[] results = null;//페이지 그룹 번호
 		int pageStartNum = 0;//페이지 시작 번호
-		int start = 0;//시작 인덱스		
+		int start = 0;//시작 인덱스
 		
 		List<CsArticleVO> articles = null;
+		List<CsArticleVO> category = service.selectQnaCate();
+		List<CsArticleVO> category2 = service.selectQnaCate2(cate);
 		
 		if(cate == null || cate.equals("")) {
 			currentPage = service.getCurrentPage(pg);//현재 페이지 번호
@@ -48,7 +50,7 @@ public class NoticeListController extends HttpServlet{
 			pageStartNum = service.getPageStartNum(total, currentPage);//페이지 시작 번호
 			start = service.getStartNum(currentPage);//시작 인덱스		
 			
-			articles = service.selectAllNotice(start);
+			articles = service.selectAllQna(start);
 		}else {
 			currentPage = service.getCurrentPage(pg);//현재 페이지 번호
 			total = service.selectCountNotice(cate);//전체 게시물 개수
@@ -57,18 +59,23 @@ public class NoticeListController extends HttpServlet{
 			pageStartNum = service.getPageStartNum(total, currentPage);//페이지 시작 번호
 			start = service.getStartNum(currentPage);//시작 인덱스		
 			
-			articles = service.selectNotice(cate, start);
+			articles = service.selectQna(cate, start);
 		}
 	
-		req.setAttribute("articles", articles);
 		req.setAttribute("lastPageNum", lastPageNum);
 		req.setAttribute("currentPage", currentPage);
 		req.setAttribute("pageGroupStart", results[0]);
 		req.setAttribute("pageGroupEnd", results[1]);
 		req.setAttribute("pageStartNum", pageStartNum +1);
+		
+		req.setAttribute("articles", articles);
+		req.setAttribute("category", category);
+		req.setAttribute("category2", category2);
 		req.setAttribute("group", group);
 		req.setAttribute("cate", cate);
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/admin/cs/noticeList.jsp");
+		req.setAttribute("cate2", cate2);
+		
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/admin/cs/qnaList.jsp");
 		dispatcher.forward(req, resp);	
 	}
 	
