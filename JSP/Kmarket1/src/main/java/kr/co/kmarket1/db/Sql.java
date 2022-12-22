@@ -112,6 +112,6 @@ public class Sql {
 	public static final String SELECT_CART_PRODUCTS = "SELECT a.*,b.`prodName`, b.`descript`, b.`thumb1` "
 													+ "FROM `km_product_cart` AS a JOIN `km_product` AS b "
 													+ "ON a.`prodNo` = b.`prodNo` WHERE `uid`=?";
-	
+	public static final String DELETE_CART = "DELETE FROM `km_product_cart` WHERE `cartNo`=?";
 	
 }

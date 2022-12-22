@@ -66,9 +66,6 @@ public enum ProductService {
 		}
 		
 		//list
-		public List<ProductVO> selectProductsByCate(String cate1, String cate2, int start){
-			return dao.selectProductsByCate(cate1, cate2, start);
-		}
 		public List<ProductVO> selectProductsByCateSold(String cate1, String cate2, int start){
 			return dao.selectProductsByCateSold(cate1, cate2, start);
 		}
@@ -119,6 +116,11 @@ public enum ProductService {
 		public List<CartVO> selectCartProducts(String uid){
 			return dao.selectCartProducts(uid);
 		}
+		public String deleteCart(String cartNo) {
+			JsonObject json = new JsonObject();
+			json.addProperty("result", dao.deleteCart(cartNo));
+			return json.toString();
+		};
 		
 		//reviewPage
 		public int countReviewTotal(String prodNo) {
@@ -135,6 +137,9 @@ public enum ProductService {
 				lastPageNum = total / 5 + 1;
 			}
 			return lastPageNum;
+		}
+		public int getStartNumReview(int currentPage) {
+			return (currentPage - 1) * 5;
 		}
 		
 		//page
