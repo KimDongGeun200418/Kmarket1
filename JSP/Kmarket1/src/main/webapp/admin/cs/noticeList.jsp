@@ -32,6 +32,11 @@
 			});
 		}
 	}
+	
+	//삭제버튼 클릭
+	function deleteClick(){
+		return confirm("삭제하시겠습니까?");
+	}
 </script>
 <jsp:include page="../_header.jsp"/>
             <section id="admin-notice-list">
@@ -80,10 +85,10 @@
 		                		<td>${article.rdate.substring(2, 10)}</td>
 		                		<td>
 		                			<c:if test="${cate == null || cate eq ''}">
-		                				<a href="./noticeDelete.do?group=notice&cate=${article.cate}&pg=${currentPage}&no=${article.no}">[삭제]
+		                				<a href="./noticeDelete.do?group=notice&cate=${article.cate}&pg=${currentPage}&no=${article.no}" onclick="return deleteClick();">[삭제]
 		                			</c:if>
 		                			<c:if test="${cate != null}">
-		                				<a href="./noticeDelete.do?group=notice&cate=${cate}&pg=${currentPage}&no=${article.no}">[삭제]
+		                				<a href="./noticeDelete.do?group=notice&cate=${cate}&pg=${currentPage}&no=${article.no}" onclick="return deleteClick();">[삭제]
 		                			</c:if>
 		                			<br/>
 		                			<c:if test="${cate == null || cate eq ''}">

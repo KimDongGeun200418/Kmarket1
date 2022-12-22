@@ -471,44 +471,7 @@ button[type=submit] {
 }
 
 /* 고객센터 버튼 공통 */
-.btnWrite{
-    float: right;
-    padding: 10px 20px;
-    text-align: center;
-    margin-top: -40px;
-    background-color: #067dfd;
-    border: 1px solid #0063ce;
-    border-radius: 4px;
-    font-size: 20px;
-    color: #fff;
-    box-sizing: border-box;
-}
-.btnDelete{
-    float: left;
-    padding: 10px 20px;
-    text-align: center;
-    margin-top: -40px;
-    background-color: #bcc3cb;
-    border: 1px solid #aeb0b3;
-    border-radius: 4px;
-    font-size: 20px;
-    color: #fff;
-    box-sizing: border-box;
-}
-.btnList{
-    display: inline-block;
-    width: 200px;
-    height: 60px;
-    margin: 40px auto 0;
-    border: 1px solid #ccc;
-    border-radius: 34px;
-    font-size: 16px;
-    color: #000;
-    line-height: 58px;
-    text-align: center;
-    box-sizing: border-box;
-}
-.btnList:hover{background-color: #f7f7f7;}
+
 .btnSubmit{
     display: inline-block;
     width: 200px;
@@ -523,7 +486,6 @@ button[type=submit] {
     text-align: center;
     box-sizing: border-box;
 }
-.btnSubmit:hover{background-color: #0954f6;}
 
 /* 고객센터 글목록 */
 #admin-notice-list > .list > select{
@@ -590,6 +552,30 @@ button[type=submit] {
     color: #fff;
 }
 
+#admin-notice-list > .list .btnWrite{
+    float: right;
+    padding: 10px 20px;
+    text-align: center;
+    margin-top: -40px;
+    background-color: #067dfd;
+    border: 1px solid #0063ce;
+    border-radius: 4px;
+    font-size: 20px;
+    color: #fff;
+    box-sizing: border-box;
+}
+#admin-notice-list > .list .btnDelete{
+    float: left;
+    padding: 10px 20px;
+    text-align: center;
+    margin-top: -40px;
+    background-color: #bcc3cb;
+    border: 1px solid #aeb0b3;
+    border-radius: 4px;
+    font-size: 20px;
+    color: #fff;
+    box-sizing: border-box;
+}
 /* 고객센터 글보기 */
 #admin-notice-view > .list > table{
     width: 100%;
@@ -608,9 +594,6 @@ button[type=submit] {
     width: 8%;
     text-align: center;
 }
-#admin-notice-view > .list > table th:last-child{
-	padding: 50px 0;
-}
 #admin-notice-view > .list > table td{
    padding: 16px;
    border-bottom: 1px solid #ccc;
@@ -621,9 +604,11 @@ button[type=submit] {
 }
 #admin-notice-view .btnDelete{
     float: right;
+    width: 150px;
     padding: 10px 20px;
     text-align: center;
-    margin-top: -40px;
+    margin-top: -10px;
+    margin-left: 10px;
     background-color: #bcc3cb;
     border: 1px solid #aeb0b3;
     border-radius: 4px;
@@ -633,9 +618,11 @@ button[type=submit] {
 }
 #admin-notice-view .btnModify{
     float: right;
+    width: 150px;
     padding: 10px 20px;
     text-align: center;
-    margin-top: -40px;
+    margin-top: -10px;
+    margin-left: 10px;
     background-color: #bcc3cb;
     border: 1px solid #aeb0b3;
     border-radius: 4px;
@@ -644,6 +631,60 @@ button[type=submit] {
     box-sizing: border-box;
 }
 #admin-notice-view .btnList{
+    float: right;
+    width: 150px;
+    padding: 10px 20px;
+    text-align: center;
+    margin-top: -10px;
+    margin-left: 10px;
+    background-color: #067dfd;
+    border: 1px solid #0063ce;
+    border-radius: 4px;
+    font-size: 20px;
+    color: #fff;
+    box-sizing: border-box;
+}
+/* 고객센터 글쓰기 */
+#admin-notice-wirte > .list table{
+    width: 100%;
+    height: auto;
+    border-collapse: collapse;
+    margin: 50px 0;
+    text-align: left;
+    border-top: 2px solid #111;
+}
+#admin-notice-wirte > .list table tr{
+}
+#admin-notice-wirte > .list table th{
+    padding: 16px;
+    border-bottom: 1px solid #ccc;
+    font-weight: bold;
+    width: 8%;
+    text-align: center;
+}
+#admin-notice-wirte > .list table td{
+   padding: 16px;
+   border-bottom: 1px solid #ccc;
+   text-align: left;
+}
+#admin-notice-wirte > .list table a{
+   font-size: 12px;
+}
+#admin-notice-wirte .btnDelete{
+    float: right;
+    width: 150px;
+    padding: 10px 20px;
+    text-align: center;
+    margin-top: -10px;
+    margin-left: 10px;
+    background-color: #bcc3cb;
+    border: 1px solid #aeb0b3;
+    border-radius: 4px;
+    font-size: 20px;
+    color: #fff;
+    box-sizing: border-box;
+}
+#admin-notice-wirte .btnWrite{
     float: right;
     padding: 10px 20px;
     text-align: center;

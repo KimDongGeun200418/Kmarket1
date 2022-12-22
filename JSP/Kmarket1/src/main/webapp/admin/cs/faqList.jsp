@@ -20,7 +20,7 @@
 		let ans = confirm("삭제하시겠습니까?");
 		if(ans){
 			$.ajax({
-				url:'/Kmarket1/admin/cs/FaqDelete.do',
+				url:'/Kmarket1/admin/cs/faqDelete.do',
 				type:'post',
 				traditional: true,//ajax 배열 넘기기 옵션
 				data:{'checkBoxArr':checkBoxArr},
@@ -32,6 +32,10 @@
 				}
 			});
 		}
+	}
+	//삭제버튼 클릭
+	function deleteClick(){
+		return confirm("삭제하시겠습니까?");
 	}
 </script>
 <jsp:include page="../_header.jsp"/>
@@ -68,7 +72,7 @@
 	                		<th>날짜</th>
 	                		<th>관리</th>
 	                	</tr>
-	                	<c:forEach var="article" items="${articles}">
+	                	<c:forEach var="article" items="${articles}" begin=0 end=10>
 		                	<tr>
 		                		<td><input type="checkbox" name="rowCheck" value="${article.no}"/></td>
 		                		<td>${article.no}</td>
@@ -92,10 +96,10 @@
 		                		<td>${article.rdate.substring(2, 10)}</td>
 		                		<td>
 		                			<c:if test="${cate == null || cate eq ''}">
-		                				<a href="./deleteFaq.do?group=faq&cate=${article.cate}&cate2=${article.cate2}&no=${article.no}">[삭제]
+		                				<a href="./faqDelete.do?group=faq&cate=${article.cate}&cate2=${article.cate2}&no=${article.no}" onclick="return deleteClick();">[삭제]
 		                			</c:if>
 		                			<c:if test="${cate != null}">
-		                				<a href="./faqDelete.do?group=faq&cate=${cate}&cate2=${article.cate2}&no=${article.no}">[삭제]
+		                				<a href="./faqDelete.do?group=faq&cate=${cate}&cate2=${article.cate2}&no=${article.no}" onclick="return deleteClick();">[삭제]
 		                			</c:if>
 		                			<br/>
 		                			<c:if test="${cate == null || cate eq ''}">

@@ -12,7 +12,7 @@
     <script src="/Kmarket1/admin/js/gnb.js"></script>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="/Kmarket1/admin/css/style.css">
+    <link rel="stylesheet" href="/Kmarket1/admin/css/style.css?after">
     <title>케이마켓::관리자</title>
 </head>
 <body>
