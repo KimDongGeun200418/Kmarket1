@@ -1,5 +1,6 @@
 package kr.co.kmarket1.dao;
 
+import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -821,6 +822,52 @@ public class ProductDAO extends DBHelper{
 			logger.error(e.getMessage());
 		} 
 		return result;
+	}
+	
+	//addOrderFrame
+	public int addOrderFrame(String uid) {
+		int result = 0;
+		try {
+			logger.debug("addOrderFrame start...");
+			conn = getConnection();
+			conn.setAutoCommit(false);
+			
+			psmt = conn.prepareStatement(Sql.INSERT_ORDER);
+			psmt.setString(1, uid);
+			psmt.executeUpdate();
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(Sql.SELECT_ORDERNUM);
+			conn.commit();
+
+			if(rs.next()) {
+				result = rs.getInt(1);
+			}
+			
+			close();
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		} 
+		return result;
+	}
+	//insertOrderItem(ordNo);
+	public void insertOrderItem(int ordNo, List<String> prodInfoList) {
+		try {
+			logger.debug("insertOrderItem start...");
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.INSERT_ORDER_ITEM);
+			psmt.setInt(1, ordNo);
+			psmt.setString(2, prodInfoList.get(0));
+			psmt.setString(3, prodInfoList.get(1));
+			psmt.setString(4, prodInfoList.get(2));
+			psmt.setString(5, prodInfoList.get(3));
+			psmt.setString(6, prodInfoList.get(4));
+			psmt.setString(7, prodInfoList.get(5));
+			psmt.setString(8, prodInfoList.get(6));
+			psmt.executeUpdate();
+			close();
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
 	}
 	
 	//countProductTotal
