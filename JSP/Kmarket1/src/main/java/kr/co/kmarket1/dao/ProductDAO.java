@@ -804,7 +804,23 @@ public class ProductDAO extends DBHelper{
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 		} 
+		logger.debug("selectCartProducts start...");
 		return cartProducts;
+	}
+	//deleteCart
+	public int deleteCart(String cartNo) {
+		int result= 0;
+		try {
+			logger.debug("deleteCart start...");
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.DELETE_CART);
+			psmt.setString(1, cartNo);
+			result = psmt.executeUpdate();
+			close();
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		} 
+		return result;
 	}
 	
 	//countProductTotal

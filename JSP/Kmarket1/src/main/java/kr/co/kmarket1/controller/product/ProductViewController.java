@@ -49,7 +49,7 @@ public class ProductViewController extends HttpServlet{
 		int lastPageNum = serviceProduct.getLastPageNumReview(total); // 마지막 페이지 번호
 		int[] result = serviceProduct.getPageGroupNum(currentPage, lastPageNum); // 페이지 그룹 start, end 번호
 		int pageStartNum = serviceProduct.getPageStartNum(total, currentPage); // 페이지 시작번호
-		int start = serviceProduct.getStartNum(currentPage); // 시작 인덱스
+		int start = serviceProduct.getStartNumReview(currentPage); // 시작 인덱스
 		
 		List<ReviewVO> reviews = null;
 		reviews = serviceProduct.selectReviews(prodNo, start);

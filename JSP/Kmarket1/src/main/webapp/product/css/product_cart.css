@@ -28,7 +28,7 @@
     width: 60px;
 }
 
-#product > .cart > form > table .empty {
+#product > .cart > form .empty {
     display: none;
 }
 #product > .cart > form > table td {
