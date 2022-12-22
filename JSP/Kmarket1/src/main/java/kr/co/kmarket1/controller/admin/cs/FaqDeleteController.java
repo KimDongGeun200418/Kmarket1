@@ -2,6 +2,7 @@ package kr.co.kmarket1.controller.admin.cs;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLEncoder;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -30,16 +31,15 @@ public class FaqDeleteController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String group = req.getParameter("group");
-		String cate = req.getParameter("cate");
-		String cate2 = req.getParameter("cate2");
-		String pg = req.getParameter("pg");
+		String cate = URLEncoder.encode(req.getParameter("cate"));
+		String cate2 = URLEncoder.encode(req.getParameter("cate2"));
 		String no = req.getParameter("no");
 		
 		ArticleDAO dao = ArticleDAO.getInstance();
 		
 		dao.deleteFaq(no);
 		
-		resp.sendRedirect("/Kmarket1/admin/cs/faqList.do?group="+group+"&cate="+cate+"&cate2="+cate2+"&pg="+pg);
+		resp.sendRedirect("/Kmarket1/admin/cs/faqList.do?group="+group+"&cate="+cate+"&cate2="+cate2);
 		
 	}
 	
@@ -48,11 +48,9 @@ public class FaqDeleteController extends HttpServlet{
 		String group = req.getParameter("group");
 		String cate = req.getParameter("cate");
 		String cate2 = req.getParameter("cate2");
-		String pg = req.getParameter("pg");
 		String no = req.getParameter("no");
 		String [] checkBoxArr = req.getParameterValues("checkBoxArr");
 		int result = 0;
-		
 		
 		for(int i = 0; i < checkBoxArr.length; i++) {
 			result = ArticleDAO.getInstance().deleteFaq(checkBoxArr[i]);

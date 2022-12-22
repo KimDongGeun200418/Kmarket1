@@ -14,7 +14,7 @@
                 <h2>문의하기</h2>
                 <ul>
                     <li class="${cate eq '회원' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=회원">회원</a></li>
-                    <li class="${cate eq '쿠폰/혜택/이벤트' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=쿠폰/혜택/이벤트">쿠폰/이벤트</a></li>
+                    <li class="${cate eq '쿠폰/혜택/이벤트' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=쿠폰/혜택/이벤트">쿠폰/혜택/이벤트</a></li>
                     <li class="${cate eq '주문/결제' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=주문/결제">주문/결제</a></li>
                     <li class="${cate eq '배송' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=배송">배송</a></li>
                     <li class="${cate eq '취소/반품/교환' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=취소/반품/교환">취소/반품/교환</a></li>
@@ -47,7 +47,7 @@
                 <!-- 답변 -->
                 <div class="comment">
                 	<h2>[답변]${article.title}</h2>
-                	<p class="content">답변내용</p>
+                	<p class="content">${article.comment}</p>
                 </div>
                 <a href="/Kmarket1/cs/qna/list.do?group=qna&cate=${cate}&pg=${pg}" class="btnList">목록보기</a>
             </article>

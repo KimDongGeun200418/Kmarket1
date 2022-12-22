@@ -1,6 +1,7 @@
 package kr.co.kmarket1.controller.cs;
 
 import java.io.IOException;
+import java.net.URLEncoder;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -39,7 +40,7 @@ public class QnaWriteController extends HttpServlet{
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	
+
 		String group = req.getParameter("group");
 		String uid = req.getParameter("uid");
 		String cate = req.getParameter("type1");
