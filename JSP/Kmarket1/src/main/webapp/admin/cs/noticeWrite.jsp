@@ -34,7 +34,7 @@
 		               	</tr>
 		               </table>
 	                   <div>
-	                        <a href="/Kmarket1/admin/cs/noticeList.do?group=${group}" class="btnList">취소하기</a>
+	                        <a href="/Kmarket1/admin/cs/noticeList.do?group=${group}" class="btnCancel">취소하기</a>
 	                        <input type="submit" class="btnSubmit" value="등록하기">
 	                   </div>
 	            	</form>

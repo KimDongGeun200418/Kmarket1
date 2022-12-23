@@ -55,8 +55,7 @@
 	                	</c:forEach>
 	                </select name="type2">
 	                <select onchange="if(this.value) location.href=(this.value);">
-                        <c:if test="${cate2 != null}"><option value=0 style="font-weight:bold;">${cate2}</option></c:if>
-	                	<c:if test="${cate2 == null || cate2 eq ''}"><option value=0>2차유형선택</option></c:if>
+	                	<option value=0>2차유형선택</option>
 	                	<c:forEach var="ct2" items="${category2}">
 	                		<option value="/Kmarket1/admin/cs/faqList.do?group=faq&cate=${cate}&cate2=${ct2.cate2}">${ct2.cate2}</option>
 	                	</c:forEach>
@@ -72,7 +71,7 @@
 	                		<th>날짜</th>
 	                		<th>관리</th>
 	                	</tr>
-	                	<c:forEach var="article" items="${articles}" begin=0 end=10>
+	                	<c:forEach var="article" items="${articles}" begin="0" end="9">
 		                	<tr>
 		                		<td><input type="checkbox" name="rowCheck" value="${article.no}"/></td>
 		                		<td>${article.no}</td>

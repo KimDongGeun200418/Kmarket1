@@ -495,7 +495,7 @@ button[type=submit] {
 #admin-notice-list > .list > table{
     width: 100%;
     border-collapse: collapse;
-    border-top: 1px solid #ccc;
+    border-top: 2px solid #ccc;
 }
 #admin-notice-list > .list > table tr{
     width: 100%;
@@ -556,7 +556,6 @@ button[type=submit] {
     float: right;
     padding: 10px 20px;
     text-align: center;
-    margin-top: -40px;
     background-color: #067dfd;
     border: 1px solid #0063ce;
     border-radius: 4px;
@@ -568,7 +567,6 @@ button[type=submit] {
     float: left;
     padding: 10px 20px;
     text-align: center;
-    margin-top: -40px;
     background-color: #bcc3cb;
     border: 1px solid #aeb0b3;
     border-radius: 4px;

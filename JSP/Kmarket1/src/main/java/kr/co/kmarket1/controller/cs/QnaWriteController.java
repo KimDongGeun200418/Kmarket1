@@ -60,7 +60,7 @@ public class QnaWriteController extends HttpServlet{
 		
 		ArticleDAO.getInstance().insertArticleQna(article);
 		
-		resp.sendRedirect("/Kmarket1/cs/qna/list.do?group="+group+"&cate="+cate);
+		resp.sendRedirect("/Kmarket1/cs/qna/list.do?group="+group+"&cate="+URLEncoder.encode(cate));
 	
 	}
 	

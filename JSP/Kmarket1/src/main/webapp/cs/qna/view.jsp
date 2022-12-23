@@ -37,18 +37,17 @@
                 </nav>
                 <div class="content">
                     <p>${article.content}</p>
-                    <p>
-                        ※피싱 관련 피해신고<br><br>
-                        ▶ 경찰청 사이버수사국 (국번없이)182 : http://cyberbureau.police.go.kr<br>
-                        ▶ KISA 인터넷침해대응센터 (국번없이)118 : http://www.krcert.or.kr<br>
-                        감사합니다.<br>
-                    </p>
                 </div>
                 <!-- 답변 -->
-                <div class="comment">
-                	<h2>[답변]${article.title}</h2>
-                	<p class="content">${article.comment}</p>
-                </div>
+                <c:choose>
+                	<c:when test="${article.comment != null}">
+                		<div class="comment">
+		                	<h2 class="title">▶ [답변]${article.title}</h2>
+		                	<p class="content">${article.comment}</p>
+                		</div>
+                	</c:when>
+                	<c:otherwise></c:otherwise>
+                </c:choose>
                 <a href="/Kmarket1/cs/qna/list.do?group=qna&cate=${cate}&pg=${pg}" class="btnList">목록보기</a>
             </article>
         </section>
