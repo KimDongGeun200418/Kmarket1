@@ -76,7 +76,7 @@
 #product > .order > form > .final {
     float: right;
     width: 360px;
-    height: 412px;
+    height: 440px;
     padding: 20px;
     margin-top: 12px;
     background: #fff;
@@ -240,4 +240,11 @@
 #product > .order > form > .alert > ul > li > span {
     position: relative;
     left: -6px;
+}
+
+#product > section > form > article.delivery > table > tbody > tr > td > input[type=text] {
+	padding-left: 3px;
+}
+#product > section > form > article.discount > div > label > input[type=text]:nth-child(1) {
+	padding-left: 3px;
 }

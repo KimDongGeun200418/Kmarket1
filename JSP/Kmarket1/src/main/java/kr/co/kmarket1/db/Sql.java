@@ -113,6 +113,8 @@ public class Sql {
 													+ "FROM `km_product_cart` AS a JOIN `km_product` AS b "
 													+ "ON a.`prodNo` = b.`prodNo` WHERE `uid`=?";
 	public static final String DELETE_CART = "DELETE FROM `km_product_cart` WHERE `cartNo`=?";
+	public static final String CHECK_CART_PRODUCT	= "SELECT COUNT(`prodNo`) FROM `km_product_cart` WHERE `uid`=? AND `prodNo`=?";
+	
 	
 	//order
 	public static final String INSERT_ORDER 		= "INSERT INTO `km_product_order` SET `uid`=?";
@@ -120,5 +122,8 @@ public class Sql {
 	public static final String INSERT_ORDER_ITEM	= "INSERT INTO `km_product_order_item` SET `ordNo`=?,"
 													+ "`prodNo`=?, `count`=?, `price`=?, `discount`=?,"
 													+ "`point`=?, `delivery`=?, `total`=?";
+	public static final String SELECT_MAX_ORDER_ITEM		= "SELECT MAX(`ordNo`) from `km_product_order_item`";
+	public static final String SELECT_FOR_CLEAN_ORDER_LIST	= "SELECT `prodName`, `descript`, `thumb1` FROM `km_product` WHERE `prodNo`=?";
+	public static final String CHECK_MEMBER_FOR_ORDER 		= "select * from `km_member` where `uid`=?";
 	
 }

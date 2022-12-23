@@ -39,9 +39,9 @@ public class RegisterSellerController extends HttpServlet{
 		String kms_tel = req.getParameter("kms_tel");
 		String kms_fax = req.getParameter("kms_fax");
 		String km_email = req.getParameter("km_email");
-		String zip = req.getParameter("zip");
-		String addr1 = req.getParameter("addr1");
-		String addr2 = req.getParameter("addr2");
+		String zip = req.getParameter("km_zip");
+		String addr1 = req.getParameter("km_addr1");
+		String addr2 = req.getParameter("km_addr2");
 		String provLocation = req.getParameter("provLocation");
 		String type = req.getParameter("type");
 		String kms_manager = req.getParameter("kms_manager");
