@@ -36,10 +36,11 @@ public class AddCartController extends HttpServlet{
 		int count = Integer.parseInt(req.getParameter("count"));
 		int total = Integer.parseInt(req.getParameter("total"));
 		
-		ProductVO product = serviceProduct.selectProduct(prodNo);
-		String result = serviceProduct.insertCart(uid, product, count, total);
-		resp.getWriter().print(result);
-	
+		if(serviceProduct.checkCartProduct(uid, prodNo) == 0) {
+			ProductVO product = serviceProduct.selectProduct(prodNo);
+			String result = serviceProduct.insertCart(uid, product, count, total);
+			resp.getWriter().print(result);
+		}
 	}
 
 }

@@ -39,13 +39,15 @@
 			method: 'POST',
 			data: {"prodNo": prodNo, "uid": uid, "count": count, "total": total},
 			dataType: 'json',
+			error: function() {
+          		alert('이미 장바구니에 있는 상품입니다.');
+        	},
 			success: function(data){
-				
+				if(confirm('장바구니에 추가되었습니다. 장바구니로 이동하시겠습니까?')){
+					location.href="/Kmarket1/product/productCart.do"
+				}
 			}
 		});
-		if(confirm('장바구니에 추가되었습니다. 장바구니로 이동하시겠습니까?')){
-			location.href="/Kmarket1/product/productCart.do"
-		}
 	});
 	
 	$('#product > section > article.info > div.summary > nav:nth-child(4) > h5 > a').click(function(){

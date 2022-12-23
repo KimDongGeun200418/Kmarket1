@@ -25,4 +25,7 @@ public enum MemberService {
 	public MemberVO login(String uid, String pass) {
 		return dao.selectMemberForLogin(uid, pass);
 	}
+	public MemberVO order(String uid) {
+		return dao.selectMemberForOrder(uid);
+	}
 }

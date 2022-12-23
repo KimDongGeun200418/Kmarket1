@@ -119,13 +119,19 @@ public enum ProductService {
 			json.addProperty("result", dao.deleteCart(cartNo));
 			return json.toString();
 		};
+		public int checkCartProduct(String uid, String prodNo) {
+			return dao.checkCartProduct(uid, prodNo);
+		};
 		
 		//order
-		public int addOrderFrame(String uid) {
-			return dao.addOrderFrame(uid);
+		public int insertOrder(String uid) {
+			return dao.insertOrder(uid);
 		}
-		public void insertOrderItem(int ordNo, List<String> prodInfoList) {
-			dao.insertOrderItem(ordNo, prodInfoList);
+		public void insertOrderItem(List<String> orderList) {
+			dao.insertOrderItem(orderList);
+		}
+		public List<CartVO> cleanOrderList(String[] items) {
+			return dao.cleanOrderList(items);
 		}
 		
 		//reviewPage

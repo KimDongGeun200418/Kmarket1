@@ -68,19 +68,32 @@
 				orderList.push(prodInfoList);
 			}
 			i++;
-			
 		})
-		
-		$.ajax({
-			url:'/Kmarket1/product/productOrder.do',
-			type:'POST',
-			traditional: true,
-			data:{'orderList': orderList},
-			dataType:'json',
-			success:function(data){
-				alert('성공');
-			}
-		});
+		if(confirm('주문하시겠습니까?')){
+			$.redirectPost('/Kmarket1/product/productOrder.do', orderList);
+		}
+	});
+	
+	$.extend({
+	    redirectPost: function (location, args) {
+	        let form = $('<form></form>');
+	        form.attr("method", "post");
+	        form.attr("action", location);
+	        
+	        // key value 형식으로 바꾼 후에 form 으로 변환
+	        $.each(args, function (key, value) {
+	            let field = $('<input></input>');
+	            
+	            field.attr('type', 'hidden');
+	            field.attr("name", 'orderList');
+	            field.attr("value", value);
+	            
+	            form.append(field);
+	        });
+	        
+	        // 위에서 생성된 폼을 제출 한다
+	        $(form).appendTo('body').submit();
+	    }
 	});
 	
 });

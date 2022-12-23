@@ -1,7 +1,7 @@
 package kr.co.kmarket1.dao;
 
-import java.sql.PreparedStatement;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -805,7 +805,6 @@ public class ProductDAO extends DBHelper{
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 		} 
-		logger.debug("selectCartProducts start...");
 		return cartProducts;
 	}
 	//deleteCart
@@ -823,21 +822,70 @@ public class ProductDAO extends DBHelper{
 		} 
 		return result;
 	}
-	
-	//addOrderFrame
-	public int addOrderFrame(String uid) {
+	//checkCartProduct
+	public int checkCartProduct(String uid, String prodNo) {
 		int result = 0;
 		try {
-			logger.debug("addOrderFrame start...");
+			logger.debug("checkCartProduct start...");
 			conn = getConnection();
-			conn.setAutoCommit(false);
+			psmt = conn.prepareStatement(Sql.CHECK_CART_PRODUCT);
+			psmt.setString(1, uid);
+			psmt.setString(2, prodNo);
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				result = rs.getInt(1);
+			}
+			close();
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		} 
+		return result;
+	}
+	
+	//cleanOrderList
+	public List<CartVO> cleanOrderList(String[] items) {
+		List<CartVO> orderList = new ArrayList<>();
+		try {
+			logger.debug("cleanOrderList start...");
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.SELECT_FOR_CLEAN_ORDER_LIST);
+			for(String item : items) {
+				CartVO product = new CartVO();
+				List<String> itemInfoList = Arrays.asList(item.split(","));
+				psmt.setString(1, itemInfoList.get(0));
+				rs = psmt.executeQuery();
+				
+				if (rs.next()) {
+					product.setProdName(rs.getString(1));
+					product.setDescript(rs.getString(2));
+					product.setThumb1(rs.getString(3));
+					product.setProdNo(itemInfoList.get(0));
+					product.setCount(itemInfoList.get(1));
+					product.setPrice(itemInfoList.get(2));
+					product.setDiscount(itemInfoList.get(3));
+					product.setPoint(itemInfoList.get(4));
+					product.setDelivery(itemInfoList.get(5));
+					product.setTotal(itemInfoList.get(6));
+					orderList.add(product);
+				}
+			}
+			close();
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+		return orderList;
+	}
+	
+	//insertOrder
+	public int insertOrder(String uid) {
+		int result = 0;
+		try {
+			logger.debug("insertOrder start...");
+			conn = getConnection();
 			
 			psmt = conn.prepareStatement(Sql.INSERT_ORDER);
 			psmt.setString(1, uid);
 			psmt.executeUpdate();
-			stmt = conn.createStatement();
-			rs = stmt.executeQuery(Sql.SELECT_ORDERNUM);
-			conn.commit();
 
 			if(rs.next()) {
 				result = rs.getInt(1);
@@ -849,21 +897,35 @@ public class ProductDAO extends DBHelper{
 		} 
 		return result;
 	}
-	//insertOrderItem(ordNo);
-	public void insertOrderItem(int ordNo, List<String> prodInfoList) {
+	//insertOrderItem
+	public void insertOrderItem(List<String> orderList) {
+		List<String> prodInfoList = new ArrayList<>();
 		try {
 			logger.debug("insertOrderItem start...");
 			conn = getConnection();
-			psmt = conn.prepareStatement(Sql.INSERT_ORDER_ITEM);
-			psmt.setInt(1, ordNo);
-			psmt.setString(2, prodInfoList.get(0));
-			psmt.setString(3, prodInfoList.get(1));
-			psmt.setString(4, prodInfoList.get(2));
-			psmt.setString(5, prodInfoList.get(3));
-			psmt.setString(6, prodInfoList.get(4));
-			psmt.setString(7, prodInfoList.get(5));
-			psmt.setString(8, prodInfoList.get(6));
-			psmt.executeUpdate();
+			conn.setAutoCommit(false);
+			//ordNo 구하기
+			int ordNo = 1;
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(Sql.SELECT_MAX_ORDER_ITEM);
+			if(rs.next()) {
+				ordNo = rs.getInt(1)+1;
+			}
+			//아이템 추가
+			for(String orderItem : orderList) {
+				prodInfoList = Arrays.asList(orderItem.split(","));
+				psmt = conn.prepareStatement(Sql.INSERT_ORDER_ITEM);
+				psmt.setInt(1, ordNo);
+				psmt.setString(2, prodInfoList.get(0));
+				psmt.setString(3, prodInfoList.get(1));
+				psmt.setString(4, prodInfoList.get(2));
+				psmt.setString(5, prodInfoList.get(3));
+				psmt.setString(6, prodInfoList.get(4));
+				psmt.setString(7, prodInfoList.get(5));
+				psmt.setString(8, prodInfoList.get(6));
+				psmt.executeUpdate();
+			}
+			conn.commit();
 			close();
 		} catch (Exception e) {
 			logger.error(e.getMessage());
