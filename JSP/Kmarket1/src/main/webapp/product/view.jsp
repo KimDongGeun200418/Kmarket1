@@ -32,13 +32,16 @@
                     <div class="summary">
                     	<input type="hidden" name="uid" value="${ loginUser.uid }"/>
                     	<input type="hidden" name="prodNo" value="${ product.prodNo }"/>
+                    	<input type="hidden" name="price" value="${ product.price }"/>
+                    	<input type="hidden" name="discount" value="${ product.discount }"/>
+                    	<input type="hidden" name="point" value="${ product.point }"/>
+                    	<input type="hidden" name="delivery" value="${ product.delivery }"/>
                         <nav>
                             <h1>${ product.seller }</h1>
                             <h2>상품번호&nbsp;:&nbsp;<span>${ product.cate1 }${ product.cate2 }<fmt:formatNumber type="number" pattern="###" minIntegerDigits="6" value="${ product.prodNo }" /></span></h2>
                         </nav>                        
                         <nav>
                             <h3>${ product.prodName }</h3>
-                            <p>${ product.descript }</p>
                             <c:choose>
                             	<c:when test="${ product.score >= 4.5 }">
                             		<h5 class="rating star5"><a href="#">상품평보기</a></h5>
