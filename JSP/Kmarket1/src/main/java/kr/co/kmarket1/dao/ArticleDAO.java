@@ -1,6 +1,5 @@
 package kr.co.kmarket1.dao;
 
-import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.List;
 
