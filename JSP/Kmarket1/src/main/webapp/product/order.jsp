@@ -1,10 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
 <jsp:include page="../_header.jsp"/>
 <jsp:include page="../_menu.jsp"/>
 <link rel="stylesheet" href="/Kmarket1/product/css/product_order.css">
 <link rel="stylesheet" href="/Kmarket1/product/css/product.css">
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="/Kmarket1/product/js/order.js"></script>
     <style>
   
@@ -25,9 +27,10 @@
   
                 <form action="#">
                   	<!-- order List -->                  
-                  	<table>
+                  	<table class="orderList">
                    	<thead>
                      	<tr>
+                     		<th><input type="checkbox" name="all"></th>
 	                       	<th>상품명</th>
 	                        <th>총수량</th>
 	                        <th>판매가</th>
@@ -38,6 +41,11 @@
                      	</tr>
                    	</thead>
                     <tbody>
+                    	<c:if test="${ fn:length(orderList) == 0 }">
+                   			<tr>
+                       			<td colspan="7">장바구니에 상품이 없습니다.</td>
+                     		</tr>
+                    	</c:if>
                      	<c:forEach var="product" items="${ orderList }">
                      	<!-- 합계 구하기 -->
                      	<c:set var= "totalCount" value="${totalCount + product.count }"/>
@@ -45,18 +53,17 @@
                    		<c:set var= "totalDiscount" value="${totalDiscount + ((product.price * (product.discount/100))* product.count) }"/>
                    		<c:set var= "totalDelivery" value="${totalDelivery + product.delivery }"/>
                    		<c:set var= "totalPoint" value="${totalPoint + (product.count * product.point) }"/>
-                      	<tr class="empty">
-                        	<td colspan="7">장바구니에 상품이 없습니다.</td>
-                      	</tr>
+                      	
                       	<tr>
+                      		<td><input type="checkbox" name="prodNo" value="${ product.prodNo }"></td>
                         	<td>
-                          	<article>
-	                            <a href="/Kmarket1/product/productView.do?no=${ product.prodNo }"><img src="/Kmarket1/productImg/${ product.thumb1 }" alt=""></a>
-	                            <div>
-	                              	<h2><a href="#">${ product.prodName }</a></h2>
-	                              	<p>${ product.descript }</p>
-	                            </div>
-                          	</article>
+	                          	<article>
+		                            <a href="/Kmarket1/product/productView.do?no=${ product.prodNo }"><img src="/Kmarket1/productImg/${ product.thumb1 }" alt=""></a>
+		                            <div>
+		                              	<h2><a href="#">${ product.prodName }</a></h2>
+		                              	<p>${ product.descript }</p>
+		                            </div>
+	                          	</article>
 	                        </td>
 	                        <td><fmt:formatNumber value="${ product.count }" pattern="#,###" /></td>
 	                        <td><fmt:formatNumber value="${ product.price }" pattern="#,###" /></td>
@@ -72,11 +79,11 @@
                   	<!-- order info -->
                   	<div class="final">
                   		<h2>최종결제 정보</h2>
-                    	<table border="0">
+                    	<table border="0" class="totalList">
                       		<tbody>
                       		<tr>
 	                        	<td>총</td>
-	                        	<td><fmt:formatNumber value="${ totalCount }" pattern="#,###" /> 건</td>
+	                        	<td><fmt:formatNumber value="${ totalCount }" pattern="#,###" /></td>
 	                      	</tr>
                       		<tr>
                         		<td>상품금액</td>
@@ -92,7 +99,7 @@
                       		</tr>
                       		<tr>
 		                        <td>포인트 할인</td>
-		                        <td>-</td>
+		                        <td>-0</td>
                      		</tr>
                      		<tr>
 	                        	<td>적립 포인트</td>
@@ -104,13 +111,13 @@
 	                      	</tr>                            
                     		</tbody>
                     	</table>
-                    	<input type="button" name="" value="결제하기">              
+                    	<input type="button" name="btnOrder" value="결제하기">              
                   	</div>
                     
                   	<!-- delivery -->
                   	<article class="delivery">
                     	<h1>배송정보</h1>                          
-                    	<table>
+                    	<table class="deliveryList">
                       	<tbody>
                       		<tr>
                         		<td>주문자</td>
@@ -126,20 +133,20 @@
                       		<tr>
                         		<td>우편번호</td>
                         		<td>
-	                          		<input type="text" name="zip" value="${ user.zip }" readonly/>
-	                          		<input type="button" value="검색">
+	                          		<input type="text" name="zip" value="${ user.zip }" id="zip" readonly/>
+	                          		<input type="button" name="btnSearch" value="검색">
                         		</td>
                       		</tr>
                       		<tr>
 		                        <td>기본주소</td>
 		                        <td>
-		                          	<input type="text" name="addr1" value="${ user.addr1 }"/>
+		                          	<input type="text" name="addr1" value="${ user.addr1 }" id="addr1"/>
 		                        </td>
                       		</tr>
                       		<tr>
                         		<td>상세주소</td>
                         		<td>
-                          			<input type="text" name="addr2" value="${ user.addr2 }"/>
+                          			<input type="text" name="addr2" value="${ user.addr2 }" id="addr2"/>
                         		</td>
                       		</tr>
                     	</tbody>

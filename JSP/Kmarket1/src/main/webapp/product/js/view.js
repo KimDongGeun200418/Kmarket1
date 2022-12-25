@@ -70,7 +70,10 @@
 		prodInfoList.push(point);
 		prodInfoList.push(delivery);
 		prodInfoList.push(total.split(',').join(""));
+		prodInfoList.push('fromView');
 		orderList.push(prodInfoList);
+		
+		console.log(orderList);
 		
 		if(confirm('주문하시겠습니까?')){
 			$.redirectPost('/Kmarket1/product/productOrder.do', orderList);

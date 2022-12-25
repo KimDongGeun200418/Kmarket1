@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import kr.co.kmarket1.db.DBHelper;
 import kr.co.kmarket1.db.Sql;
 import kr.co.kmarket1.vo.MemberVO;
+import kr.co.kmarket1.vo.PointVO;
 
 public class MemberDAO extends DBHelper{
 Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -176,5 +177,60 @@ Logger logger = LoggerFactory.getLogger(this.getClass());
 		}
 		return member;
 	}
+	//insertPoint
+	public void insertPoint(int ordNo) {
+		try {
+			logger.debug("insertPoint Start...");
+			conn = getConnection();
+			PointVO point = new PointVO();
+			
+			//거래내역가져오기
+			psmt = conn.prepareStatement(Sql.SELECT_ORDER_FOR_POINT);
+			psmt.setInt(1, ordNo);
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				point.setUid(rs.getString(1));
+				point.setOrdNo(ordNo);
+				point.setPoint(rs.getInt(2) - rs.getInt(3));
+				point.setPointDate(rs.getString(4));
+			}
+			
+			//포인트내역추가
+			psmt = conn.prepareStatement(Sql.INSERT_POINT);
+			psmt.setString(1, point.getUid());
+			psmt.setInt(2, ordNo);
+			psmt.setInt(3, point.getPoint());
+			psmt.setString(4, point.getPointDate());
+			psmt.executeUpdate();
+			
+			close();
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+	};
+	//updatePoint
+		public void updatePoint(String uid) {
+			try {
+				logger.debug("updatePoint Start...");
+				conn = getConnection();
+				int point = 0;
+				//포인트내역 가져오기
+				psmt = conn.prepareStatement(Sql.SELECT_POINTS);
+				psmt.setString(1, uid);
+				rs = psmt.executeQuery();
+				while(rs.next()) {
+					point += rs.getInt(1);
+				}
+				//멤버포인트 업데이트
+				psmt = conn.prepareStatement(Sql.UPDATE_POINT);
+				psmt.setInt(1, point);
+				psmt.setString(2, uid);
+				psmt.executeUpdate();
+				
+				close();
+			} catch (Exception e) {
+				logger.error(e.getMessage());
+			}
+		};
 	
 }

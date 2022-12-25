@@ -17,6 +17,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import kr.co.kmarket1.dao.ProductDAO;
 import kr.co.kmarket1.vo.CartVO;
+import kr.co.kmarket1.vo.MemberVO;
 import kr.co.kmarket1.vo.NavCateVO;
 import kr.co.kmarket1.vo.ProductVO;
 import kr.co.kmarket1.vo.ReviewVO;
@@ -124,14 +125,34 @@ public enum ProductService {
 		};
 		
 		//order
-		public int insertOrder(String uid) {
-			return dao.insertOrder(uid);
+		public void insertOrderItem(int ordNo, String[] items) {
+			dao.insertOrderItem(ordNo, items);
 		}
-		public void insertOrderItem(List<String> orderList) {
-			dao.insertOrderItem(orderList);
-		}
-		public List<CartVO> cleanOrderList(String[] items) {
+		public List<CartVO> cleanOrderListFromCart(String[] items) {
 			return dao.cleanOrderList(items);
+		}
+		public List<CartVO> cleanOrderListFromView(String[] items) {
+			return dao.cleanOrderListForOrder(items);
+		}
+		public List<CartVO> cleanOrderListForOrder(String[] items) {
+			return dao.cleanOrderListForOrder(items);
+		}
+		public int insertOrder(MemberVO user, List<String> totalInfo, List<String> deliveryInfo) {
+			return dao.insertOrder(user.getUid(), totalInfo, deliveryInfo);
+		}
+		public void deleteCartForOrder(MemberVO user, int prodNo) {
+			dao.deleteCartForOrder(user.getUid(), prodNo);
+		};
+		public String selectPayment(String paymentNo) {
+			String payment = null;
+			if(paymentNo.equals("1")) { payment = "신용카드"; }
+			else if(paymentNo.equals("2")) { payment = "체크카드"; }
+			else if(paymentNo.equals("3")) { payment = "실시간 계좌이체"; }
+			else if(paymentNo.equals("4")) { payment = "무통장입금"; }
+			else if(paymentNo.equals("5")) { payment = "휴대폰결제"; }
+			else if(paymentNo.equals("6")) { payment = "카카오페이"; }
+			
+			return payment;
 		}
 		
 		//reviewPage
