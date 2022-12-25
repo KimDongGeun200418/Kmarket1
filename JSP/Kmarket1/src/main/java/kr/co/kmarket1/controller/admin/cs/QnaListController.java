@@ -39,21 +39,31 @@ public class QnaListController extends HttpServlet{
 		int start = 0;//시작 인덱스
 		
 		List<CsArticleVO> articles = null;
+		List<CsArticleVO> articles2 = null;
 		List<CsArticleVO> category = service.selectQnaCate();
 		List<CsArticleVO> category2 = service.selectQnaCate2(cate);
 		
 		if(cate == null || cate.equals("")) {
 			currentPage = service.getCurrentPage(pg);//현재 페이지 번호
-			total = service.selectCountNoticeAll();//전체 게시물 개수
+			total = service.selectCountQnaAll();//전체 게시물 개수
 			lastPageNum = service.getLastPageNum(total);//마지막 페이지 번호
 			results = service.getPageGroupNum(currentPage, lastPageNum);//페이지 그룹 번호
 			pageStartNum = service.getPageStartNum(total, currentPage);//페이지 시작 번호
 			start = service.getStartNum(currentPage);//시작 인덱스		
 			
 			articles = service.selectAllQna(start);
-		}else {
+		}else if(cate != null && cate2 != null){
 			currentPage = service.getCurrentPage(pg);//현재 페이지 번호
-			total = service.selectCountNotice(cate);//전체 게시물 개수
+			total = service.selectCountQna2(cate, cate2);//전체 게시물 개수
+			lastPageNum = service.getLastPageNum(total);//마지막 페이지 번호
+			results = service.getPageGroupNum(currentPage, lastPageNum);//페이지 그룹 번호
+			pageStartNum = service.getPageStartNum(total, currentPage);//페이지 시작 번호
+			start = service.getStartNum(currentPage);//시작 인덱스		
+			
+			articles = service.selectQna2(cate, cate2, start);
+		}else if(cate != null && (cate2 == null || cate2.equals(""))){
+			currentPage = service.getCurrentPage(pg);//현재 페이지 번호
+			total = service.selectCountQna(cate);//전체 게시물 개수
 			lastPageNum = service.getLastPageNum(total);//마지막 페이지 번호
 			results = service.getPageGroupNum(currentPage, lastPageNum);//페이지 그룹 번호
 			pageStartNum = service.getPageStartNum(total, currentPage);//페이지 시작 번호

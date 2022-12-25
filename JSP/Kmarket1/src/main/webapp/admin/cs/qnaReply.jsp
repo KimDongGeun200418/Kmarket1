@@ -1,4 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script>
+	//삭제버튼 클릭
+	function deleteClick(){
+		return confirm("삭제하시겠습니까?");
+	}
+</script>
 <jsp:include page="../_header.jsp"/>
             <section id="admin-qna-view">
                 <nav>
@@ -34,8 +41,9 @@
 		               	</tr>
 		               </table>
 		               <div>
-		                   <a href="/Kmarket1/admin/cs/qnaList.do?group=qna&cate=${cate}&cate=${cate2}&pg=${pg}" class="btnList">목록</a>
-		                   <input type="submit" class="btnDelete" value="등록하기">
+		                   <a href="/Kmarket1/admin/cs/qnaList.do?group=qna&cate=${cate}&cate2=${cate2}&pg=${pg}" class="btnList">목록</a>
+		                   <input type="submit" class="btnModify" value="답변등록">
+		                   <a href="./qnaDelete.do?group=${group}&cate=${cate}&cate2=${cate2}&pg=${pg}&no=${no}" class="btnDelete" onclick="return deleteClick();">삭제</a>
 		        		</div>
 		        	</form>
 	        	</article>        

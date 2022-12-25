@@ -39,7 +39,7 @@
 	
 </script>
 <jsp:include page="../_header.jsp"/>
-            <section id="admin-faq-modify">
+            <section id="admin-faq-write">
                 <nav>
                     <h3>자주묻는질문 수정</h3>
                     <p>
@@ -66,8 +66,6 @@
                                     <option value="여행/숙박/항공">여행/숙박/항공</option>
                                     <option value="안전거래">안전거래</option>
 	                            </select>
-		               		</td>
-		               		<td>
 		               			<select name="type2" id="list2" >
                                 	<option value="${cate2}" id="first">${cate2}</option>
 	                            </select>
@@ -79,11 +77,11 @@
 		               	</tr>
 		               	<tr>
 		               		<th>내용</th>
-		               		<td><textarea name="content" >${article.content}</textarea></td>
+		               		<td><textarea name="content">${article.content}</textarea></td>
 		               	</tr>
 		               </table>
 	                   <div>
-	                        <a href="/Kmarket1/admin/cs/faqView.do?group=${group}&cate=${cate}&no=${no}&pg=${pg}" class="btnList">취소하기</a>
+	                        <a href="/Kmarket1/admin/cs/faqView.do?group=${group}&cate=${cate}&no=${no}&pg=${pg}" class="btnCancel">취소하기</a>
 	                        <input type="submit" class="btnSubmit" value="수정하기">
 	                   </div>
 	            	</form>

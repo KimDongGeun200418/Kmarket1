@@ -533,8 +533,7 @@ button[type=submit] {
 }
 #admin-notice-list > .list > .page > .current {
     border: 1px solid #6d6d6d;
-    background: #888;
-    color: #fff;
+    border-radius: 10px;
 }
 
 #admin-notice-list > .list .btnWrite{
@@ -916,6 +915,40 @@ button[type=submit] {
 #admin-qna-list > .list > table a{
    font-size: 12px;
 }
+#admin-qna-list > .list > .page{
+   text-align: center;
+   margin-top: 26px;;
+}
+#admin-qna-list > .list > .page > a{
+   display: inline-block;
+   width: 34px;
+   height: 34px;
+   box-sizing: border-box;
+   text-align: center;
+   line-height: 34px;
+   font-size: 13px;
+   font-weight: bold;
+   vertical-align: bottom;
+}
+#admin-qna-list > .list > .page > .prev{
+    font-size: 0;
+    background-image: url(../img/cs_sprites.png);
+    background-position: -706px -652px;
+}
+#admin-qna-list > .list > .page > .next{
+    font-size: 0;
+    background-image: url(../img/cs_sprites.png);
+    background-position: -628px -652px;
+}
+#admin-qna-list > .list > .page > .on{
+    background: #006cff;
+    border-radius: 17px;
+    color: #fff;
+}
+#admin-qna-list > .list > .page > .current {
+    border: 1px solid #6d6d6d;
+    border-radius: 10px;
+}
 #admin-qna-list > .list .btnWrite{
     float: right;
     padding: 10px 20px;
@@ -1004,8 +1037,8 @@ button[type=submit] {
     text-align: center;
     margin-top: -10px;
     margin-left: 10px;
-    background-color: #bcc3cb;
-    border: 1px solid #aeb0b3;
+    background-color: #067dfd;
+    border: 1px solid #0063ce;
     border-radius: 4px;
     font-size: 20px;
     color: #fff;

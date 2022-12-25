@@ -31,14 +31,23 @@ public enum ArticleService {
 	}
 	
 	//qna
+	public int selectCountQna(String cate) {
+		return dao.selectCountQna(cate);
+	}
+	public int selectCountQna2(String cate, String cate2) {
+		return dao.selectCountQna2(cate, cate2);
+	}
+	public int selectCountQnaAll() {
+		return dao.selectCountNoticeAll();
+	}
 	public List<CsArticleVO> selectQna(String cate, int start){
 		return dao.selectQna(cate, start);
 	}
+	public List<CsArticleVO> selectQna2(String cate, String cate2, int start){
+		return dao.selectQna2(cate, cate2, start);
+	}
 	public List<CsArticleVO> selectAllQna(int start) {
 		return dao.selectAllQna(start);
-	}
-	public int selectCountQna(String cate) {
-		return dao.selectCountQna(cate);
 	}
 	public CsArticleVO selectArticleQna(String no) {
 		return dao.selectArticleQna(no);
