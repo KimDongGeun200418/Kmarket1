@@ -17,17 +17,25 @@
 			console.log(checkBoxArr);
 		})
 		
-		$.ajax({
-			url:'/admin/cs/faqDelete.do',
-			type:'get',
-			data:{checkBoxArr:checkBoxArr},
-			dataType:'json',
-			success:function(result){
-				if(result == 1){
-					location.reload();
+		let ans = confirm("삭제하시겠습니까?");
+		if(ans){
+			$.ajax({
+				url:'/Kmarket1/admin/cs/faqDelete.do',
+				type:'post',
+				traditional: true,//ajax 배열 넘기기 옵션
+				data:{'checkBoxArr':checkBoxArr},
+				dataType:'json',
+				success:function(data){
+					if(data.result > 0){
+						location.reload();
+					}
 				}
-			}
-		});
+			});
+		}
+	}
+	//삭제버튼 클릭
+	function deleteClick(){
+		return confirm("삭제하시겠습니까?");
 	}
 </script>
 <jsp:include page="../_header.jsp"/>
@@ -43,13 +51,13 @@
 	                	<c:if test="${cate != null}"><option value=0 style="font-weight:bold;">${cate}</option></c:if>
 	                	<c:if test="${cate == null || cate eq ''}"><option value=0>1차유형선택</option></c:if>
 	                	<c:forEach var="ct" items="${category}">
-	                		<option value="/Kmarket1/admin/cs/faqList.do?group=faq&cate=${ct.cate}&cate2=&pg=1">${ct.cate}</option>
+	                		<option value="/Kmarket1/admin/cs/faqList.do?group=faq&cate=${ct.cate}&cate2=">${ct.cate}</option>
 	                	</c:forEach>
 	                </select name="type2">
 	                <select onchange="if(this.value) location.href=(this.value);">
-                        <option value=0>2차유형선택</option>
+	                	<option value=0>2차유형선택</option>
 	                	<c:forEach var="ct2" items="${category2}">
-	                		<option value="/Kmarket1/admin/cs/faqList.do?group=faq&cate=${cate}&cate2=${ct2.cate2}&pg=1">${ct2.cate2}</option>
+	                		<option value="/Kmarket1/admin/cs/faqList.do?group=faq&cate=${cate}&cate2=${ct2.cate2}">${ct2.cate2}</option>
 	                	</c:forEach>
                     </select>
 	                <table>
@@ -63,7 +71,7 @@
 	                		<th>날짜</th>
 	                		<th>관리</th>
 	                	</tr>
-	                	<c:forEach var="article" items="${articles}">
+	                	<c:forEach var="article" items="${articles}" begin="0" end="9">
 		                	<tr>
 		                		<td><input type="checkbox" name="rowCheck" value="${article.no}"/></td>
 		                		<td>${article.no}</td>
@@ -77,28 +85,33 @@
 		                		</td>
 		                		<td>
 		                			<c:if test="${cate == null || cate eq ''}">
-		                				<a href="./faqView.do?group=faq&cate=${article.cate}&cate=${article.cate2}&pg=${currentPage}&no=${article.no}">${article.title}
+		                				<a href="./faqView.do?group=faq&cate=${article.cate}&cate2=${article.cate2}&no=${article.no}">${article.title}
 		                			</c:if>
 		                			<c:if test="${cate != null}">
-		                				<a href="./faqView.do?group=faq&cate=${cate}&cate=${article.cate2}&pg=${currentPage}&no=${article.no}">${article.title}
+		                				<a href="./faqView.do?group=faq&cate=${cate}&cate2=${article.cate2}&no=${article.no}">${article.title}
 		                			</c:if>
 		                		</td>
 		                		<td>${article.hit}</td>
 		                		<td>${article.rdate.substring(2, 10)}</td>
 		                		<td>
-		                			<c:if test="${cate == null || cate eq ''}">
-		                				<a href="./deleteFaq.do?group=faq&cate=${article.cate}&cate=${article.cate2}&pg=${currentPage}&no=${article.no}">[삭제]
-		                			</c:if>
-		                			<c:if test="${cate != null}">
-		                				<a href="./faqDelete.do?group=faq&cate=${cate}&cate=${article.cate2}&pg=${currentPage}&no=${article.no}">[삭제]
-		                			</c:if>
-		                			<br/>
-		                			<c:if test="${cate == null || cate eq ''}">
-		                				<a href="./faqModify.do?group=faq&cate=${article.cate}&cate=${article.cate2}&pg=${currentPage}&no=${article.no}">[수정]
-		                			</c:if>
-		                			<c:if test="${cate != null}">
-		                				<a href="./faqModify.do?group=faq&cate=${cate}&cate=${article.cate2}&pg=${currentPage}&no=${article.no}">[수정]
-		                			</c:if>
+		                			<c:choose>
+		                				<c:when test="${cate != null}">
+		                					<c:choose>
+		                					<c:when test="${cate2 != null}">
+		                						<a href="./faqDelete.do?group=faq&cate=${cate}&cate2=${cate2}&no=${article.no}" onclick="return deleteClick();">[삭제]<br>
+		                						<a href="./faqModify.do?group=faq&cate=${cate}&cate2=${cate2}&no=${article.no}">[수정]
+		                					</c:when>
+		                					<c:otherwise>
+		                						<a href="./faqDelete.do?group=faq&cate=${cate}&cate2=${article.cate2}&no=${article.no}" onclick="return deleteClick();">[삭제]<br>
+		                						<a href="./faqModify.do?group=faq&cate=${cate}&cate2=${article.cate2}&no=${article.no}">[수정]
+		                					</c:otherwise>
+		                					</c:choose>
+		                				</c:when>
+		                				<c:otherwise>
+		                					<a href="./faqDelete.do?group=faq&cate=${article.cate}&cate2=${article.cate2}&no=${article.no}" onclick="return deleteClick();">[삭제]<br>
+		                					<a href="./faqModify.do?group=faq&cate=${article.cate}&cate2=${article.cate2}&no=${article.no}">[수정]
+		                				</c:otherwise>
+		                			</c:choose>
 		                		</td>
 		                	</tr>
 	                	</c:forEach>

@@ -17,10 +17,10 @@
 	            <li><a href="#">할인상품</a></li>
 	        </ul>
 	        <ul>
-	            <li><a href="#">공지사항</a></li>
-	            <li><a href="#">자주묻는질문</a></li>
-	            <li><a href="#">문의하기</a></li>
-	            <li><a href="#">고객센터</a></li>
+	            <li><a href="/Kmarket1/cs/notice/list.do?group=notice">공지사항</a></li>
+	            <li><a href="/Kmarket1/cs/faq/list.do?group=faq&cate=회원">자주묻는질문</a></li>
+	            <li><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=회원">문의하기</a></li>
+	            <li><a href="/Kmarket1/cs/index.do">고객센터</a></li>
 	        </ul>
 	    </div>
 	</div>

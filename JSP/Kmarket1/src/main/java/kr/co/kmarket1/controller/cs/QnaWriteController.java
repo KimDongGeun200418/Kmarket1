@@ -1,6 +1,7 @@
 package kr.co.kmarket1.controller.cs;
 
 import java.io.IOException;
+import java.net.URLEncoder;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.co.kmarket1.dao.ArticleDAO;
 import kr.co.kmarket1.service.ArticleService;
 import kr.co.kmarket1.vo.CsArticleVO;
 
@@ -38,7 +40,7 @@ public class QnaWriteController extends HttpServlet{
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	
+
 		String group = req.getParameter("group");
 		String uid = req.getParameter("uid");
 		String cate = req.getParameter("type1");
@@ -56,9 +58,9 @@ public class QnaWriteController extends HttpServlet{
 		article.setContent(content);
 		article.setRegip(regip);
 		
-		int parent = service.insertArticleQna(article);
+		ArticleDAO.getInstance().insertArticleQna(article);
 		
-		resp.sendRedirect("/Kmarket1/cs/qna/list.do?group="+group+"&cate="+cate);
+		resp.sendRedirect("/Kmarket1/cs/qna/list.do?group="+group+"&cate="+URLEncoder.encode(cate));
 	
 	}
 	

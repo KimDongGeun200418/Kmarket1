@@ -1,7 +1,7 @@
 package kr.co.kmarket1.db;
 
 public class Sql {
-	//Cs
+	//cs-notice
 	public static final String INSERT_ARTICLE_NOTICE = "INSERT INTO `km_cs_notice` SET `title`=?, `cate`=?, `content`=?, `uid`=?, `regip`=?, `rdate`=now()";
 	public static final String SELECT_NOTICE = "SELECT `no`,`title`, `rdate`, `hit` from `km_cs_notice` WHERE `cate`= ? "
 											+"ORDER BY `no` DESC "
@@ -15,28 +15,41 @@ public class Sql {
 	public static final String SELECT_LATEST_NOTICE = "SELECT `no`,`title`,`rdate`, `cate` FROM `km_cs_notice` "
 												   +"ORDER BY `no` DESC LIMIT 5";
 	public static final String UPDATE_ARTICLE_NOTICE = "update `km_cs_notice` set `cate`=?, `title`=?, `content`=?, `rdate`=NOW() where `no`=?";
+	public static final String UPDATE_NOTICE_HIT = "UPDATE `km_cs_notice` SET `hit` = `hit` + 1 WHERE `no`=?";
 	public static final String DELETE_NOTICE = "delete from `km_cs_notice` where `no`=?";
-	
+	//cs-qna
 	public static final String INSERT_ARTICLE_QNA = "INSERT INTO `km_cs_qna` SET `title`=?, `cate`=?, `cate2`=?, `content`=?, `uid`=?, `regip`=?, `rdate`=now()";
+	public static final String INSERT_COMMENT_QNA = "UPDATE `km_cs_qna` SET `comment`=? where `no`=?";
 	public static final String SELECT_QNA = "SELECT `no`, `cate2`, `title`, `uid`, `rdate`, `comment` from `km_cs_qna` WHERE `cate`= ? "
 											+"ORDER BY `no` DESC "
 											+"LIMIT ?, 10";
+	public static final String SELECT_QNA2 = "SELECT `no`, `title`, `uid`, `rdate`, `comment` from `km_cs_qna` WHERE `cate`= ? and `cate2`=? "
+											+"ORDER BY `no` DESC "
+											+"LIMIT ?, 10";
+	public static final String SELECT_ALL_QNA = "SELECT `no`, `cate`, `cate2`, `title`, `uid`, `rdate`, `comment` from `km_cs_qna` "
+											+"ORDER BY `no` DESC "
+											+"LIMIT ?, 10";
+	public static final String SELECT_QNA_CATE = "SELECT DISTINCT(`cate`) FROM `km_cs_qna`";
+	public static final String SELECT_QNA_CATE2 = "SELECT distinct `cate2` from `km_cs_qna` WHERE `cate`= ? ";
+	public static final String SELECT_COUNT_QNA_ALL = "SELECT COUNT(`no`) FROM `km_cs_qna`";
 	public static final String SELECT_COUNT_QNA = "SELECT COUNT(`no`) FROM `km_cs_qna` where `cate`=?";
-	public static final String SELECT_ARTICLE_QNA = "SELECT `cate2`, `title`, `uid`, `rdate`,`content` FROM `km_cs_qna` WHERE `no`= ?";							
+	public static final String SELECT_COUNT_QNA2 = "SELECT COUNT(`no`) FROM `km_cs_qna` where `cate`=? and `cate2`=?";
+	public static final String SELECT_ARTICLE_QNA = "SELECT `cate2`, `title`, `uid`, `rdate`,`content`, `comment` FROM `km_cs_qna` WHERE `no`= ?";							
 	public static final String SELECT_MAX_NO = "select max(`no`) from `km_cs_qna`";
 	public static final String SELECT_LATEST_QNA = "SELECT `no`,`title`, `uid`, `rdate`, `cate` FROM `km_cs_qna` "
 			                                       +"ORDER BY `no` DESC LIMIT 5";
-	
+	public static final String DELETE_QNA = "delete from `km_cs_qna` where `no`=?";
+	//cs-faq
 	public static final String INSERT_ARTICLE_FAQ = "INSERT INTO `km_cs_faq` SET `title`=?, `cate`=?, `cate2`=?, `content`=?, `uid`=?, `regip`=?, `rdate`=now()";
 	public static final String SELECT_ARTICLE_FAQ = "SELECT `title`, `content`, `cate`, `cate2` FROM `km_cs_faq` WHERE `no`= ?";							
-											
 	public static final String SELECT_FAQ = "SELECT `no`, `cate2`, `title`, `rdate`, `hit` from `km_cs_faq` WHERE `cate`= ? "
 			                             +"ORDER BY `no` DESC ";
 	public static final String SELECT_FAQ_CATE = "SELECT DISTINCT(`cate`) FROM `km_cs_faq`";
 	public static final String SELECT_FAQ_CATE2 = "SELECT distinct `cate2` from `km_cs_faq` WHERE `cate`= ? ";
 	public static final String SELECT_ALL_FAQ = "SELECT `no`,`title`, `rdate`, `hit`, `cate`, `cate2` from `km_cs_faq` "
 												+"ORDER BY `no` DESC ";
-	public static final String UPDATE_ARTICLE_FAQ = "update `km_cs_notice` set `cate`=?, `cate2`=?, `title`=?, `content`=?, `rdate`=NOW() where `no`=?";
+	public static final String UPDATE_ARTICLE_FAQ = "update `km_cs_faq` set `cate`=?, `cate2`=?, `title`=?, `content`=?, `rdate`=NOW() where `no`=?";
+	public static final String UPDATE_FAQ_HIT = "UPDATE `km_cs_faq` SET `hit` = `hit` + 1 WHERE `no`=?";
 	public static final String DELETE_FAQ = "delete from `km_cs_faq` where `no`=?";
 	
 	//index
@@ -117,13 +130,21 @@ public class Sql {
 	
 	
 	//order
-	public static final String INSERT_ORDER 		= "INSERT INTO `km_product_order` SET `uid`=?";
+	public static final String INSERT_ORDER 		= "INSERT INTO `km_product_order` SET `uid`=?,"
+													+ "`ordCount`=?, `ordPrice`=?, `ordDiscount`=?,`ordDelivery`=?,"
+													+ "`savePoint`=?, `usedPoint`=?, `ordTotPrice`=?,"
+													+ "`recipName`=?, `recipHp`=?, `recipZip`=?, `recipAddr1`=?, `recipAddr2`=?,"
+													+ "`ordPayment`=?, `ordComplete`=?, `ordDate`=NOW()";
 	public static final String SELECT_ORDERNUM 		= "SELECT MAX(`ordNo`) FROM `km_product_order` WHERE `uid`=?";
 	public static final String INSERT_ORDER_ITEM	= "INSERT INTO `km_product_order_item` SET `ordNo`=?,"
 													+ "`prodNo`=?, `count`=?, `price`=?, `discount`=?,"
 													+ "`point`=?, `delivery`=?, `total`=?";
-	public static final String SELECT_MAX_ORDER_ITEM		= "SELECT MAX(`ordNo`) from `km_product_order_item`";
-	public static final String SELECT_FOR_CLEAN_ORDER_LIST	= "SELECT `prodName`, `descript`, `thumb1` FROM `km_product` WHERE `prodNo`=?";
+	public static final String SELECT_PRODNO_BY_CARTNO	= "SELECT `prodNo` FROM `km_product_cart` WHERE `cartNo`=?";
+	public static final String SELECT_FOR_CLEAN_ORDER_LIST	= "SELECT `prodName`, `descript`, `thumb1`, `prodNo` FROM `km_product` WHERE `prodNo`=?";
 	public static final String CHECK_MEMBER_FOR_ORDER 		= "select * from `km_member` where `uid`=?";
-	
+	public static final String SELECT_ORDER_FOR_POINT = "SELECT `uid`, `savePoint`, `usedPoint`, `ordDate` FROM `km_product_order` WHERE `ordNo`=?";
+	public static final String INSERT_POINT 		= "INSERT INTO `km_member_point` SET `uid`=?, `ordNo`=?, `point`=?, `pointDate`=?";
+	public static final String SELECT_POINTS 		= "SELECT `point` FROM `km_member_point` WHERE `uid`=?";
+	public static final String UPDATE_POINT 		= "UPDATE `km_member` SET `point`=? WHERE `uid`=?";
+	public static final String DELETE_CART_FOR_ORDER= "DELETE FROM `km_product_cart` WHERE `uid`=? AND `prodNo`=?"; 
 }

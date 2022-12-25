@@ -21,33 +21,33 @@
             </ul>
         </section>
         <section class="faq">
-            <h1>자주 묻는 질문<a href="/Kmarket1/Kmarket1/cs/faq/list.do?group=faq&cate=member">전체보기</a></h1>
+            <h1>자주 묻는 질문<a href="/Kmarket1/Kmarket1/cs/faq/list.do?group=faq&cate=회원">전체보기</a></h1>
             <ol>
                 <li>
-                    <a href="/Kmarket1/cs/faq/list.do?group=faq&cate=member"><span>회원</span></a>
+                    <a href="/Kmarket1/cs/faq/list.do?group=faq&cate=회원"><span>회원</span></a>
                 </li>
                 <li>
-                    <a href="/Kmarket1/cs/faq/list.do?group=faq&cate=coupon"><span>쿠폰/이벤트</span></a>
+                    <a href="/Kmarket1/cs/faq/list.do?group=faq&cate=쿠폰/혜택/이벤트"><span>쿠폰/이벤트</span></a>
                 </li>
                 <li>
-                    <a href="/Kmarket1/cs/faq/list.do?group=faq&cate=order"><span>주문/결제</span></a>
+                    <a href="/Kmarket1/cs/faq/list.do?group=faq&cate=주문/결제"><span>주문/결제</span></a>
                 </li>
                 <li>
-                    <a href="/Kmarket1/cs/faq/list.do?group=faq&cate=delivery"><span>배송</span></a>
+                    <a href="/Kmarket1/cs/faq/list.do?group=faq&cate=배송"><span>배송</span></a>
                 </li>
                 <li>
-                    <a href="/Kmarket1/cs/faq/list.do?group=faq&cate=cancel"><span>취소/반품/교환</span></a>
+                    <a href="/Kmarket1/cs/faq/list.do?group=faq&cate=취소/반품/교환"><span>취소/반품/교환</span></a>
                 </li>
                 <li>
-                    <a href="/Kmarket1/cs/faq/list.do?group=faq&cate=trip"><span>여행/숙박/항공</span></a>
+                    <a href="/Kmarket1/cs/faq/list.do?group=faq&cate=여행/숙박/항공"><span>여행/숙박/항공</span></a>
                 </li>
                 <li>
-                    <a href="/Kmarket1/cs/faq/list.do?group=faq&cate=safety"><span>안전거래</span></a>
+                    <a href="/Kmarket1/cs/faq/list.do?group=faq&cate=안전거래"><span>안전거래</span></a>
                 </li>
             </ol>
         </section>
         <section class="qna">
-            <h1>문의하기<a href="/Kmarket1/cs/qna/list.do?group=qna&cate=member">전체보기</a></h1>
+            <h1>문의하기<a href="/Kmarket1/cs/qna/list.do?group=qna&cate=회원">전체보기</a></h1>
             <ul>
             	<c:forEach var="lq" items="${qnas}">
 	                <li>

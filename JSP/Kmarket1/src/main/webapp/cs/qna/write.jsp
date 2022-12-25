@@ -13,19 +13,19 @@
 		var v = $('#list1').val();
 		var opt;
 	
-		if(v == 'member'){
+		if(v == '회원'){
 			opt = c1;
-		}else if(v == 'coupon'){
+		}else if(v == '쿠폰/혜택/이벤트'){
 			opt = c2;
-		}else if(v == 'order'){
+		}else if(v == '주문/결제'){
 			opt = c3;
-		}else if(v == 'delivery'){
+		}else if(v == '배송'){
 			opt = c4;
-		}else if(v == 'cancel'){
+		}else if(v == '취소/반품/교환'){
 			opt = c5;
-		}else if(v == 'trip'){
+		}else if(v == '여행/숙박/항공'){
 			opt = c6;
-		}else if(v == 'safety'){
+		}else if(v == '안전거래'){
 			opt = c7;
 		}
 		
@@ -50,16 +50,19 @@
             <aside>
                 <h2>문의하기</h2>
                 <ul>
-                    <li class="${cate eq 'member' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=member">회원</a></li>
-                    <li class="${cate eq 'coupon' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=coupon">쿠폰/이벤트</a></li>
-                    <li class="${cate eq 'order' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=order">주문/결제</a></li>
-                    <li class="${cate eq 'delivery' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=delivery">배송</a></li>
-                    <li class="${cate eq 'cancel' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=cancel">취소/반품/교환</a></li>
-                    <li class="${cate eq 'trip' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=trip">여행/숙박/항공</a></li>
-                    <li class="${cate eq 'safety' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=safety">안전거래</a></li>
+                    <li class="${cate eq '회원' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=회원">회원</a></li>
+                    <li class="${cate eq '쿠폰/혜택/이벤트' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=쿠폰/혜택/이벤트">쿠폰/혜택/이벤트</a></li>
+                    <li class="${cate eq '주문/결제' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=주문/결제">주문/결제</a></li>
+                    <li class="${cate eq '배송' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=배송">배송</a></li>
+                    <li class="${cate eq '취소/반품/교환' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=취소/반품/교환">취소/반품/교환</a></li>
+                    <li class="${cate eq '여행/숙박/항공' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=여행/숙박/항공">여행/숙박/항공</a></li>
+                    <li class="${cate eq '안전거래' ? 'on':'off' }"><a href="/Kmarket1/cs/qna/list.do?group=qna&cate=안전거래">안전거래</a></li>
                 </ul>
             </aside>
             <article>
+            	<div class="explain">
+           			<h1>${cate}</h1><h2>${cate}관련 문의내용입니다.</h2>
+                </div>
                 <form action="./write.do" method="post">
                 	<input type="hidden" name="group" value="${group}"/>
         			<input type="hidden" name="uid" value="${uid}"/>
@@ -69,13 +72,13 @@
                             <td>
                                 <select name="type1" id="list1" onChange="optionChange();">
                                     <option value="0">1차 선택</option>
-                                    <option value="member">회원</option>
-                                    <option value="coupon">쿠폰/이벤트</option>
-                                    <option value="order">주문/결제</option>
-                                    <option value="delivery">배송</option>
-                                    <option value="cancel">취소/반품/교환</option>
-                                    <option value="trip">여행/숙박/항공</option>
-                                    <option value="safety">안전거래</option>
+                                    <option value="회원">회원</option>
+                                    <option value="쿠폰/혜택/이벤트">쿠폰/혜택/이벤트</option>
+                                    <option value="주문/결제">주문/결제</option>
+                                    <option value="배송">배송</option>
+                                    <option value="취소/반품/교환">취소/반품/교환</option>
+                                    <option value="여행/숙박/항공">여행/숙박/항공</option>
+                                    <option value="안전거래">안전거래</option>
                                 </select>
                                 <select name="type2" id="list2">
                                 	<option value="0">2차 선택</option>
@@ -96,7 +99,7 @@
                         </tr>
                     </table>
                     <div>
-                        <a href="/Kmarket1/cs/qna/list.do?group=${group}&cate=${cate}" class="btnList">취소하기</a>
+                        <a href="/Kmarket1/cs/qna/list.do?group=${group}&cate=${cate}" class="btnDelete">취소하기</a>
                         <input type="submit" class="btnSubmit" value="등록하기">
                     </div>
                 </form>

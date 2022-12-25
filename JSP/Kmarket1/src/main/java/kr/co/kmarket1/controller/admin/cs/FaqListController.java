@@ -29,7 +29,6 @@ public class FaqListController extends HttpServlet{
 		String group = req.getParameter("group");
 		String cate = req.getParameter("cate");
 		String cate2 = req.getParameter("cate2");
-		String pg = req.getParameter("pg");
 		
 		List<CsArticleVO> articles = null;
 		List<CsArticleVO> category = service.selectFaqCate();

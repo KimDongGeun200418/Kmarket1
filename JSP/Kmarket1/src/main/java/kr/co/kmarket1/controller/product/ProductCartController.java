@@ -32,11 +32,13 @@ public class ProductCartController extends HttpServlet{
 		//유저값으로 cart 조회
 		HttpSession session = req.getSession();
 		MemberVO loginUser = (MemberVO) session.getAttribute("loginUser");
-		List<CartVO> cartProducts = service.selectCartProducts(loginUser.getUid());
-		req.setAttribute("cartProducts", cartProducts);
-		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/product/cart.jsp");
-		dispatcher.forward(req, resp);
+		if(loginUser!=null) {
+			List<CartVO> cartProducts = service.selectCartProducts(loginUser.getUid());
+			req.setAttribute("cartProducts", cartProducts);
+			
+			RequestDispatcher dispatcher = req.getRequestDispatcher("/product/cart.jsp");
+			dispatcher.forward(req, resp);
+		}
 	}
 	
 	@Override

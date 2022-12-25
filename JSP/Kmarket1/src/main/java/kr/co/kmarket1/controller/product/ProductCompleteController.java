@@ -9,9 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.co.kmarket1.service.ProductService;
-import kr.co.kmarket1.vo.ProductVO;
-
 @WebServlet("/product/productComplete.do")
 public class ProductCompleteController extends HttpServlet{
 	

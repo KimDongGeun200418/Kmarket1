@@ -41,14 +41,20 @@ public class ProductOrderController extends HttpServlet {
 		String[] items = req.getParameterValues("orderList");
 		HttpSession session = req.getSession();
 		MemberVO loginUser = (MemberVO) session.getAttribute("loginUser");
-		
-		List<CartVO> orderList = serviceProduct.cleanOrderList(items);
-		MemberVO user = serviceMember.order(loginUser.getUid());
-		
-		req.setAttribute("orderList", orderList);
-		req.setAttribute("user", user);
-		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/product/order.jsp");
-		dispatcher.forward(req, resp);
+
+		if(loginUser != null) {
+			List<CartVO> orderList = null;
+			if(items[0].length() > 7) {
+				orderList = serviceProduct.cleanOrderListFromView(items);
+			}else {
+				orderList = serviceProduct.cleanOrderListFromCart(items);
+			}
+			MemberVO user = serviceMember.order(loginUser.getUid());
+			req.setAttribute("orderList", orderList);
+			req.setAttribute("user", user);
+			
+			RequestDispatcher dispatcher = req.getRequestDispatcher("/product/order.jsp");
+			dispatcher.forward(req, resp);
+		}
 	}
 }

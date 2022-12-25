@@ -2,6 +2,7 @@ package kr.co.kmarket1.controller.admin.cs;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLEncoder;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -29,8 +30,9 @@ public class NoticeDeleteController extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
 		String group = req.getParameter("group");
-		String cate = req.getParameter("cate");
+		String cate = URLEncoder.encode(req.getParameter("cate"));
 		String pg = req.getParameter("pg");
 		String no = req.getParameter("no");
 		
@@ -63,8 +65,6 @@ public class NoticeDeleteController extends HttpServlet{
 		String jsonData = json.toString();
 		PrintWriter writer = resp.getWriter();
 		writer.print(jsonData);
-		
-		resp.sendRedirect("/Kmarket1/admin/cs/noticeList.do?group="+group+"&cate="+cate+"&pg="+pg);
 		
 	}
 	

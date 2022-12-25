@@ -1,4 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script>
+	//삭제버튼 클릭
+	function deleteClick(){
+		return confirm("삭제하시겠습니까?");
+	}
+</script>
 <jsp:include page="../_header.jsp"/>
             <section id="admin-faq-view">
                 <nav>
@@ -23,9 +30,9 @@
 	               	</tr>
 	               </table>
 	               <div>
-	                   <a href="./faqDelete.do?group=${group}&cate=${cate}&cate2=${cate2}&no=${no}&pg=${pg}" class="btnDelete">삭제</a>
-	                   <a href="./faqModify.do?group=${group}&cate=${article.cate}&cate2=${article.cate2}&no=${no}&pg=${pg}" class="btnmodify">수정</a>
-	                   <a href="/Kmarket1/admin/cs/faqList.do?group=faq&cate=${cate}&cate2=${cate2}&pg=${pg}" class="btnList">목록</a>
+	               	   <a href="/Kmarket1/admin/cs/faqList.do?group=faq&cate=${cate}&cate2=${cate2}&pg=${pg}" class="btnList">목록</a>
+	                   <a href="./faqModify.do?group=${group}&cate=${article.cate}&cate2=${article.cate2}&no=${no}" class="btnModify">수정</a>
+	                   <a href="./faqDelete.do?group=${group}&cate=${cate}&cate2=${cate2}&no=${no}" class="btnDelete" onclick="return deleteClick();">삭제</a>
 	        		</div>
 	        	</article>        
             </section>

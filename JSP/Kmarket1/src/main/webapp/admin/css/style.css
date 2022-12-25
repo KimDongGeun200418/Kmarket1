@@ -471,61 +471,8 @@ button[type=submit] {
 }
 
 /* 고객센터 버튼 공통 */
-.btnWrite{
-    float: right;
-    padding: 10px 20px;
-    text-align: center;
-    margin-top: -40px;
-    background-color: #067dfd;
-    border: 1px solid #0063ce;
-    border-radius: 4px;
-    font-size: 20px;
-    color: #fff;
-    box-sizing: border-box;
-}
-.btnDelete{
-    float: left;
-    padding: 10px 20px;
-    text-align: center;
-    margin-top: -40px;
-    background-color: #bcc3cb;
-    border: 1px solid #aeb0b3;
-    border-radius: 4px;
-    font-size: 20px;
-    color: #fff;
-    box-sizing: border-box;
-}
-.btnList{
-    display: inline-block;
-    width: 200px;
-    height: 60px;
-    margin: 40px auto 0;
-    border: 1px solid #ccc;
-    border-radius: 34px;
-    font-size: 16px;
-    color: #000;
-    line-height: 58px;
-    text-align: center;
-    box-sizing: border-box;
-}
-.btnList:hover{background-color: #f7f7f7;}
-.btnSubmit{
-    display: inline-block;
-    width: 200px;
-    height: 60px;
-    margin: 40px auto 0;
-    background-color: #067dfd;
-    border: 1px solid #0063ce;
-    border-radius: 34px;
-    font-size: 16px;
-    color: #fff;
-    line-height: 58px;
-    text-align: center;
-    box-sizing: border-box;
-}
-.btnSubmit:hover{background-color: #0954f6;}
 
-/* 고객센터 글목록 */
+/* 고객센터 notice 글목록 */
 #admin-notice-list > .list > select{
     margin-bottom: 10px;
     
@@ -533,7 +480,7 @@ button[type=submit] {
 #admin-notice-list > .list > table{
     width: 100%;
     border-collapse: collapse;
-    border-top: 1px solid #ccc;
+    border-top: 2px solid #ccc;
 }
 #admin-notice-list > .list > table tr{
     width: 100%;
@@ -586,11 +533,32 @@ button[type=submit] {
 }
 #admin-notice-list > .list > .page > .current {
     border: 1px solid #6d6d6d;
-    background: #888;
-    color: #fff;
+    border-radius: 10px;
 }
 
-/* 고객센터 글보기 */
+#admin-notice-list > .list .btnWrite{
+    float: right;
+    padding: 10px 20px;
+    text-align: center;
+    background-color: #067dfd;
+    border: 1px solid #0063ce;
+    border-radius: 4px;
+    font-size: 20px;
+    color: #fff;
+    box-sizing: border-box;
+}
+#admin-notice-list > .list .btnDelete{
+    float: left;
+    padding: 10px 20px;
+    text-align: center;
+    background-color: #bcc3cb;
+    border: 1px solid #aeb0b3;
+    border-radius: 4px;
+    font-size: 20px;
+    color: #fff;
+    box-sizing: border-box;
+}
+/* 고객센터 notice 글보기 */
 #admin-notice-view > .list > table{
     width: 100%;
     height: auto;
@@ -608,9 +576,6 @@ button[type=submit] {
     width: 8%;
     text-align: center;
 }
-#admin-notice-view > .list > table th:last-child{
-	padding: 50px 0;
-}
 #admin-notice-view > .list > table td{
    padding: 16px;
    border-bottom: 1px solid #ccc;
@@ -621,9 +586,11 @@ button[type=submit] {
 }
 #admin-notice-view .btnDelete{
     float: right;
+    width: 150px;
     padding: 10px 20px;
     text-align: center;
-    margin-top: -40px;
+    margin-top: -10px;
+    margin-left: 10px;
     background-color: #bcc3cb;
     border: 1px solid #aeb0b3;
     border-radius: 4px;
@@ -633,9 +600,11 @@ button[type=submit] {
 }
 #admin-notice-view .btnModify{
     float: right;
+    width: 150px;
     padding: 10px 20px;
     text-align: center;
-    margin-top: -40px;
+    margin-top: -10px;
+    margin-left: 10px;
     background-color: #bcc3cb;
     border: 1px solid #aeb0b3;
     border-radius: 4px;
@@ -645,9 +614,429 @@ button[type=submit] {
 }
 #admin-notice-view .btnList{
     float: right;
+    width: 150px;
     padding: 10px 20px;
     text-align: center;
-    margin-top: -40px;
+    margin-top: -10px;
+    margin-left: 10px;
+    background-color: #067dfd;
+    border: 1px solid #0063ce;
+    border-radius: 4px;
+    font-size: 20px;
+    color: #fff;
+    box-sizing: border-box;
+}
+/* 고객센터 notice 글쓰기 */
+#admin-notice-write > .list table{
+    width: 100%;
+    height: auto;
+    border-collapse: collapse;
+    margin: 50px 0;
+    text-align: left;
+    border-top: 2px solid #111;
+}
+#admin-notice-write > .list table tr{
+}
+#admin-notice-write > .list table th{
+    padding: 16px;
+    border-bottom: 1px solid #ccc;
+    font-weight: bold;
+    width: 8%;
+    text-align: center;
+}
+#admin-notice-write > .list table td{
+   padding: 16px;
+   border-bottom: 1px solid #ccc;
+   text-align: left;
+}
+#admin-notice-write > .list table a{
+   font-size: 12px;
+}
+#admin-notice-write > .list input{
+   width: 60%;
+}
+#admin-notice-write > .list textarea{
+   width: 60%;
+   height: 300px;
+   background: white;
+}
+#admin-notice-write > .list .btnCancel{
+    display: inline-block;
+    width: 150px;
+    height: 60px;
+    margin: 40px 40% 0;
+    background-color: #bcc3cb;
+    border: 1px solid #aeb0b3;
+    border-radius: 4px;
+    font-size: 20px;
+    color: #fff;
+    line-height: 58px;
+    text-align: center;
+    box-sizing: border-box;
+}
+#admin-notice-write > .list .btnCancel:hover{background-color: #9c9ea2;}
+#admin-notice-write > .list .btnSubmit{
+    display: inline-block;
+    width: 150px;
+    height: 60px;
+    margin: -77px 55% 0;
+    background-color: #0954f6;
+    border: 1px solid #0063ce;
+    border-radius: 4px;
+    font-size: 20px;
+    color: #fff;
+    line-height: 58px;
+    text-align: center;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+#admin-notice-write > .list .btnSubmit:hover{background-color: #7aa0f2;}
+
+/*고객센터 faq 글목록*/
+#admin-faq-list > .list > select{
+    margin-bottom: 10px;
+    
+}
+#admin-faq-list > .list > table{
+    width: 100%;
+    border-collapse: collapse;
+    border-top: 2px solid #ccc;
+    margin-bottom: 30px;
+}
+#admin-faq-list > .list > table tr{
+    width: 100%;
+    height: 26px;
+}
+#admin-faq-list > .list > table th{
+    padding: 16px;
+    border-bottom: 1px solid #ccc;
+    font-weight: bold;
+}
+#admin-faq-list > .list > table td:first-child{
+	background:#fefefe;
+	width: 5%;
+}
+#admin-faq-list > .list > table td:nth-child(5){
+	text-align: left;
+}
+#admin-faq-list > .list > table td{
+   padding: 16px;
+   text-align: center;
+}
+#admin-faq-list > .list > table a{
+   font-size: 12px;
+}
+#admin-faq-list > .list .btnWrite{
+    float: right;
+    padding: 10px 20px;
+    text-align: center;
+    background-color: #067dfd;
+    border: 1px solid #0063ce;
+    border-radius: 4px;
+    font-size: 20px;
+    color: #fff;
+    box-sizing: border-box;
+}
+#admin-faq-list > .list .btnDelete{
+    float: left;
+    padding: 10px 20px;
+    text-align: center;
+    background-color: #bcc3cb;
+    border: 1px solid #aeb0b3;
+    border-radius: 4px;
+    font-size: 20px;
+    color: #fff;
+    box-sizing: border-box;
+}
+/* 고객센터 faq 글보기 */
+#admin-faq-view > .list > table{
+    width: 100%;
+    height: auto;
+    border-collapse: collapse;
+    margin: 50px 0;
+    text-align: left;
+    border-top: 2px solid #111;
+}
+#admin-faq-view > .list > table tr{
+}
+#admin-faq-view > .list > table th{
+    padding: 16px;
+    border-bottom: 1px solid #ccc;
+    font-weight: bold;
+    width: 8%;
+    text-align: center;
+}
+#admin-faq-view > .list > table td{
+   padding: 16px;
+   border-bottom: 1px solid #ccc;
+   text-align: left;
+}
+#admin-faq-view > .list > table a{
+   font-size: 12px;
+}
+#admin-faq-view .btnDelete{
+    float: right;
+    width: 150px;
+    padding: 10px 20px;
+    text-align: center;
+    margin-top: -10px;
+    margin-left: 10px;
+    background-color: #bcc3cb;
+    border: 1px solid #aeb0b3;
+    border-radius: 4px;
+    font-size: 20px;
+    color: #fff;
+    box-sizing: border-box;
+}
+#admin-faq-view .btnList{
+    float: right;
+    width: 150px;
+    padding: 10px 20px;
+    text-align: center;
+    margin-top: -10px;
+    margin-left: 10px;
+    background-color: #067dfd;
+    border: 1px solid #0063ce;
+    border-radius: 4px;
+    font-size: 20px;
+    color: #fff;
+    box-sizing: border-box;
+}
+#admin-faq-view .btnModify{
+    float: right;
+    width: 150px;
+    padding: 10px 20px;
+    text-align: center;
+    margin-top: -10px;
+    margin-left: 10px;
+    background-color: #bcc3cb;
+    border: 1px solid #aeb0b3;
+    border-radius: 4px;
+    font-size: 20px;
+    color: #fff;
+    box-sizing: border-box;
+}
+/* 고객센터 faq 글쓰기 */
+#admin-faq-write > .list table{
+    width: 100%;
+    height: auto;
+    border-collapse: collapse;
+    margin: 50px 0;
+    text-align: left;
+    border-top: 2px solid #111;
+}
+#admin-faq-write > .list table tr{
+}
+#admin-faq-write > .list table th{
+    padding: 16px;
+    border-bottom: 1px solid #ccc;
+    font-weight: bold;
+    width: 8%;
+    text-align: center;
+}
+#admin-faq-write > .list table td{
+   padding: 16px;
+   border-bottom: 1px solid #ccc;
+   text-align: left;
+}
+#admin-faq-write > .list table a{
+   font-size: 12px;
+}
+#admin-faq-write > .list input{
+   width: 60%;
+}
+#admin-faq-write > .list textarea{
+   width: 60%;
+   height: 300px;
+   background: white;
+}
+#admin-faq-write > .list .btnCancel{
+    display: inline-block;
+    width: 150px;
+    height: 60px;
+    margin: 40px 40% 0;
+    background-color: #bcc3cb;
+    border: 1px solid #aeb0b3;
+    border-radius: 4px;
+    font-size: 20px;
+    color: #fff;
+    line-height: 58px;
+    text-align: center;
+    box-sizing: border-box;
+}
+#admin-faq-write > .list .btnCancel:hover{background-color: #9c9ea2;}
+#admin-faq-write > .list .btnSubmit{
+    display: inline-block;
+    width: 150px;
+    height: 60px;
+    margin: -59px 55% 0;
+    background-color: #0954f6;
+    border: 1px solid #0063ce;
+    border-radius: 4px;
+    font-size: 20px;
+    color: #fff;
+    line-height: 58px;
+    text-align: center;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+#admin-faq-write > .list .btnSubmit:hover{background-color: #7aa0f2;}
+/*고객센터 qna 글목록*/
+#admin-qna-list > .list > select{
+    margin-bottom: 10px;
+    
+}
+#admin-qna-list > .list > table{
+    width: 100%;
+    border-collapse: collapse;
+    border-top: 2px solid #ccc;
+    margin-bottom: 30px;
+}
+#admin-qna-list > .list > table tr{
+    width: 100%;
+    height: 26px;
+}
+#admin-qna-list > .list > table th{
+    padding: 16px;
+    border-bottom: 1px solid #ccc;
+    font-weight: bold;
+}
+#admin-qna-list > .list > table td:first-child{
+	background:#fefefe;
+	width: 5%;
+}
+#admin-qna-list > .list > table td:nth-child(5){
+	text-align: left;
+}
+#admin-qna-list > .list > table td{
+   padding: 16px;
+   text-align: center;
+}
+#admin-qna-list > .list > table a{
+   font-size: 12px;
+}
+#admin-qna-list > .list > .page{
+   text-align: center;
+   margin-top: 26px;;
+}
+#admin-qna-list > .list > .page > a{
+   display: inline-block;
+   width: 34px;
+   height: 34px;
+   box-sizing: border-box;
+   text-align: center;
+   line-height: 34px;
+   font-size: 13px;
+   font-weight: bold;
+   vertical-align: bottom;
+}
+#admin-qna-list > .list > .page > .prev{
+    font-size: 0;
+    background-image: url(../img/cs_sprites.png);
+    background-position: -706px -652px;
+}
+#admin-qna-list > .list > .page > .next{
+    font-size: 0;
+    background-image: url(../img/cs_sprites.png);
+    background-position: -628px -652px;
+}
+#admin-qna-list > .list > .page > .on{
+    background: #006cff;
+    border-radius: 17px;
+    color: #fff;
+}
+#admin-qna-list > .list > .page > .current {
+    border: 1px solid #6d6d6d;
+    border-radius: 10px;
+}
+#admin-qna-list > .list .btnWrite{
+    float: right;
+    padding: 10px 20px;
+    text-align: center;
+    background-color: #067dfd;
+    border: 1px solid #0063ce;
+    border-radius: 4px;
+    font-size: 20px;
+    color: #fff;
+    box-sizing: border-box;
+}
+#admin-qna-list > .list .btnDelete{
+    float: left;
+    padding: 10px 20px;
+    text-align: center;
+    background-color: #bcc3cb;
+    border: 1px solid #aeb0b3;
+    border-radius: 4px;
+    font-size: 20px;
+    color: #fff;
+    box-sizing: border-box;
+}
+/*고객센터 qna 글보기*/
+#admin-qna-view > .list table{
+    width: 100%;
+    height: auto;
+    border-collapse: collapse;
+    margin: 50px 0;
+    text-align: left;
+    border-top: 2px solid #111;
+}
+#admin-qna-view > .list table tr{
+}
+#admin-qna-view > .list table th{
+    padding: 16px;
+    border-bottom: 1px solid #ccc;
+    font-weight: bold;
+    width: 8%;
+    text-align: center;
+}
+#admin-qna-view > .list table td{
+   padding: 16px;
+   border-bottom: 1px solid #ccc;
+   text-align: left;
+}
+#admin-qna-view > .list table a{
+   font-size: 12px;
+}
+#admin-qna-view > .list textarea{
+   width: 60%;
+   height: 300px;
+   background: white;
+}
+#admin-qna-view .btnDelete{
+    float: right;
+    width: 150px;
+    padding: 10px 20px;
+    text-align: center;
+    margin-top: -10px;
+    margin-left: 10px;
+    background-color: #bcc3cb;
+    border: 1px solid #aeb0b3;
+    border-radius: 4px;
+    font-size: 20px;
+    color: #fff;
+    box-sizing: border-box;
+}
+#admin-qna-view .btnList{
+    float: right;
+    width: 150px;
+    padding: 10px 20px;
+    text-align: center;
+    margin-top: -10px;
+    margin-left: 10px;
+    background-color: #067dfd;
+    border: 1px solid #0063ce;
+    border-radius: 4px;
+    font-size: 20px;
+    color: #fff;
+    box-sizing: border-box;
+}
+#admin-qna-view .btnModify{
+    float: right;
+    width: 150px;
+    padding: 10px 20px;
+    text-align: center;
+    margin-top: -10px;
+    margin-left: 10px;
     background-color: #067dfd;
     border: 1px solid #0063ce;
     border-radius: 4px;

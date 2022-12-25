@@ -41,9 +41,9 @@
 <jsp:include page="../_header.jsp"/>
             <section id="admin-faq-write">
                 <nav>
-                    <h3>공지사항 작성</h3>
+                    <h3>자주묻는질문 작성</h3>
                     <p>
-                        HOME > 고객센터 > <strong>공지사항</strong>
+                        HOME > 고객센터 > <strong>자주묻는질문</strong>
                     </p>
                 </nav>
                 <article class="list">
@@ -52,11 +52,11 @@
 	        			<input type="hidden" name="uid" value="${uid}"/>
 	                    <table>
 	                        <tr>
-	                            <td>문의유형</td>
+	                            <th>문의유형</th>
 	                            <td>
 	                                <select name="type1" id="list1" onChange="optionChange();">
 	                                    <option value="0">1차 선택</option>
-	                                    <option value="회원">회원</option>
+	                                    <option value="회원" >회원</option>
 	                                    <option value="쿠폰/혜택/이벤트">쿠폰/혜택/이벤트</option>
 	                                    <option value="주문/결제">주문/결제</option>
 	                                    <option value="배송">배송</option>
@@ -70,20 +70,20 @@
 	                            </td>
 	                        </tr>
 	                        <tr>
-	                            <td>문의제목</td>
+	                            <th>문의제목</th>
 	                            <td>
 	                                <input type="text" name="title" placeholder="제목을 입력하세요.">
 	                            </td>
 	                        </tr>
 	                        <tr>
-	                            <td>문의내용</td>
+	                            <th>문의내용</th>
 	                            <td>
 	                                <textarea name="content" placeholder="내용을 입력하세요."></textarea>
 	                            </td>
 	                        </tr>
 	                    </table>
 	                   <div>
-	                        <a href="/Kmarket1/admin/cs/faqList.do?group=${group} class="btnList">취소하기</a>
+	                        <a href="/Kmarket1/admin/cs/faqList.do?group=${group}" class="btnCancel">취소하기</a>
 	                        <input type="submit" class="btnSubmit" value="등록하기">
 	                   </div>
 	            	</form>
