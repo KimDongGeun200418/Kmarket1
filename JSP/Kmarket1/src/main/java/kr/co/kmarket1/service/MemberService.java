@@ -25,7 +25,14 @@ public enum MemberService {
 	public MemberVO login(String uid, String pass) {
 		return dao.selectMemberForLogin(uid, pass);
 	}
+	//order
 	public MemberVO order(String uid) {
 		return dao.selectMemberForOrder(uid);
+	}
+	public void insertPoint(int ordNo) {
+		dao.insertPoint(ordNo);
+	}
+	public void updatePoint(MemberVO user) {
+		dao.updatePoint(user.getUid());
 	}
 }

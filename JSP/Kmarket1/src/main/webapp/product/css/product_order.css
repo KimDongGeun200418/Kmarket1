@@ -248,3 +248,6 @@
 #product > section > form > article.discount > div > label > input[type=text]:nth-child(1) {
 	padding-left: 3px;
 }
+#product > section > form > div > table > tbody > tr:nth-child(1) > td:nth-child(2)::after {
+	content: "건";
+}

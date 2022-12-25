@@ -130,13 +130,21 @@ public class Sql {
 	
 	
 	//order
-	public static final String INSERT_ORDER 		= "INSERT INTO `km_product_order` SET `uid`=?";
+	public static final String INSERT_ORDER 		= "INSERT INTO `km_product_order` SET `uid`=?,"
+													+ "`ordCount`=?, `ordPrice`=?, `ordDiscount`=?,`ordDelivery`=?,"
+													+ "`savePoint`=?, `usedPoint`=?, `ordTotPrice`=?,"
+													+ "`recipName`=?, `recipHp`=?, `recipZip`=?, `recipAddr1`=?, `recipAddr2`=?,"
+													+ "`ordPayment`=?, `ordComplete`=?, `ordDate`=NOW()";
 	public static final String SELECT_ORDERNUM 		= "SELECT MAX(`ordNo`) FROM `km_product_order` WHERE `uid`=?";
 	public static final String INSERT_ORDER_ITEM	= "INSERT INTO `km_product_order_item` SET `ordNo`=?,"
 													+ "`prodNo`=?, `count`=?, `price`=?, `discount`=?,"
 													+ "`point`=?, `delivery`=?, `total`=?";
-	public static final String SELECT_MAX_ORDER_ITEM		= "SELECT MAX(`ordNo`) from `km_product_order_item`";
-	public static final String SELECT_FOR_CLEAN_ORDER_LIST	= "SELECT `prodName`, `descript`, `thumb1` FROM `km_product` WHERE `prodNo`=?";
+	public static final String SELECT_PRODNO_BY_CARTNO	= "SELECT `prodNo` FROM `km_product_cart` WHERE `cartNo`=?";
+	public static final String SELECT_FOR_CLEAN_ORDER_LIST	= "SELECT `prodName`, `descript`, `thumb1`, `prodNo` FROM `km_product` WHERE `prodNo`=?";
 	public static final String CHECK_MEMBER_FOR_ORDER 		= "select * from `km_member` where `uid`=?";
-	
+	public static final String SELECT_ORDER_FOR_POINT = "SELECT `uid`, `savePoint`, `usedPoint`, `ordDate` FROM `km_product_order` WHERE `ordNo`=?";
+	public static final String INSERT_POINT 		= "INSERT INTO `km_member_point` SET `uid`=?, `ordNo`=?, `point`=?, `pointDate`=?";
+	public static final String SELECT_POINTS 		= "SELECT `point` FROM `km_member_point` WHERE `uid`=?";
+	public static final String UPDATE_POINT 		= "UPDATE `km_member` SET `point`=? WHERE `uid`=?";
+	public static final String DELETE_CART_FOR_ORDER= "DELETE FROM `km_product_cart` WHERE `uid`=? AND `prodNo`=?"; 
 }
