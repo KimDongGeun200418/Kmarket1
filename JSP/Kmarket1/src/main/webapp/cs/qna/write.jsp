@@ -60,6 +60,9 @@
                 </ul>
             </aside>
             <article>
+            	<div class="explain">
+           			<h1>${cate}</h1><h2>${cate}관련 문의내용입니다.</h2>
+                </div>
                 <form action="./write.do" method="post">
                 	<input type="hidden" name="group" value="${group}"/>
         			<input type="hidden" name="uid" value="${uid}"/>
@@ -96,7 +99,7 @@
                         </tr>
                     </table>
                     <div>
-                        <a href="/Kmarket1/cs/qna/list.do?group=${group}&cate=${cate}" class="btnList">취소하기</a>
+                        <a href="/Kmarket1/cs/qna/list.do?group=${group}&cate=${cate}" class="btnDelete">취소하기</a>
                         <input type="submit" class="btnSubmit" value="등록하기">
                     </div>
                 </form>

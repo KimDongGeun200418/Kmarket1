@@ -21,6 +21,9 @@
                 </ul>
             </aside>
             <article>
+            	<div class="explain">
+           			<h1>${cate}</h1><h2>${cate}관련 자주묻는 질문입니다.</h2>
+                </div>
                 <nav>
                     <h2 class="title">
                         <span>Q.</span>${article.title}
@@ -29,7 +32,7 @@
                 <div class="content">
                     <p>
                         ${article.content}   
-                    </p>
+                    </p><br><br>
                     <p>
                         ※피싱 관련 피해신고<br><br>
                         ▶ 경찰청 사이버수사국 (국번없이)182 : http://cyberbureau.police.go.kr<br>
@@ -37,7 +40,7 @@
                         감사합니다.<br>
                     </p>
                 </div>
-                <a href="/Kmarket1/cs/faq/list.do?group=${group}&cate=${cate}" class="btnList">목록보기</a>
+                <a href="/Kmarket1/cs/faq/list.do?group=${group}&cate=${cate}" class="btnList">목록</a>
             </article>
         </section>
     </div>

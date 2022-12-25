@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <jsp:include page="../_header.jsp"/>
-            <section id="admin-qna-reply">
+            <section id="admin-qna-view">
                 <nav>
                     <h3>문의하기 답변</h3>
                     <p>
@@ -34,9 +34,8 @@
 		               	</tr>
 		               </table>
 		               <div>
-		                   <a href="./qnaDelete.do?group=${group}&cate=${cate}&cate=${cate2}&no=${no}&pg=${pg}" class="btnDelete">삭제</a>
-		                   <input type="submit" class="btnSubmit" value="등록하기">답변등록
 		                   <a href="/Kmarket1/admin/cs/qnaList.do?group=qna&cate=${cate}&cate=${cate2}&pg=${pg}" class="btnList">목록</a>
+		                   <input type="submit" class="btnDelete" value="등록하기">
 		        		</div>
 		        	</form>
 	        	</article>        

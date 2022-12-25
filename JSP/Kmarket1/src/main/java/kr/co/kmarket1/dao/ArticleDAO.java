@@ -482,6 +482,27 @@ public class ArticleDAO extends DBHelper{
 		return qnas;
 	}
 	
+	public int deleteQna(String no) {
+		
+		int result = 0;
+		
+		try {
+			logger.info("deleteFaq...");
+			
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.DELETE_QNA);
+			psmt.setString(1, no);
+			result = psmt.executeUpdate();
+			
+			close();
+			
+		}catch(Exception e) {
+			logger.error(e.getMessage());
+		}
+		
+		return result;
+	}
+	
 	//qna 게시물 카운트
 	public int selectCountQna(String cate) {
 		

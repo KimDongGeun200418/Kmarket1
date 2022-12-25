@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="../_header.jsp"/>
 <section id="cs">
     <div class="notice">
@@ -19,12 +20,18 @@
                 </ul>
             </aside>
             <article>
+            	<div class="explain">
+            		<c:choose>
+            			<c:when test="${cate == null || cate eq ''}"><h1>전체</h1><h2>공지사항 전체내용입니다.</h2></c:when>
+            			<c:otherwise><h1>${cate}</h1><h2>공지사항 ${cate}내용입니다.</h2></c:otherwise>
+            		</c:choose>
+                </div>
                 <nav>
                     <h2 class="title">${article.title}</h2>
                     <span class="date">${article.rdate.substring(0, 10)}</span>
                 </nav>
                 <div class="content">
-                	<p>${article.content}</p>
+                	<p>${article.content}</p><br><br>
                     <p>
                         ※피싱 관련 피해신고<br><br>
                         ▶ 경찰청 사이버수사국 (국번없이)182 : http://cyberbureau.police.go.kr<br>
@@ -32,7 +39,7 @@
                         감사합니다.<br>
                     </p>
                 </div>
-                <a href="/Kmarket1/cs/notice/list.do?group=notice&cate=${cate}&pg=${pg}" class="btnList">목록보기</a>
+                <a href="/Kmarket1/cs/notice/list.do?group=notice&cate=${cate}&pg=${pg}" class="btnList">목록</a>
             </article>
         </section>
     </div>
