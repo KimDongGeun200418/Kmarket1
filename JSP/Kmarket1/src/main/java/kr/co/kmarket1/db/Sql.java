@@ -33,6 +33,7 @@ public class Sql {
 	public static final String SELECT_MAX_NO = "select max(`no`) from `km_cs_qna`";
 	public static final String SELECT_LATEST_QNA = "SELECT `no`,`title`, `uid`, `rdate`, `cate` FROM `km_cs_qna` "
 			                                       +"ORDER BY `no` DESC LIMIT 5";
+	public static final String DELETE_QNA = "delete from `km_cs_qna` where `no`=?";
 	//cs-faq
 	public static final String INSERT_ARTICLE_FAQ = "INSERT INTO `km_cs_faq` SET `title`=?, `cate`=?, `cate2`=?, `content`=?, `uid`=?, `regip`=?, `rdate`=now()";
 	public static final String SELECT_ARTICLE_FAQ = "SELECT `title`, `content`, `cate`, `cate2` FROM `km_cs_faq` WHERE `no`= ?";							

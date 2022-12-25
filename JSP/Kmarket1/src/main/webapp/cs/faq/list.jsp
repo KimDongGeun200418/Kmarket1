@@ -66,12 +66,10 @@
 			                    </c:if>
                    	        </c:forEach>
                    	        <c:choose>
-                   	        	<c:when test="${fn:length(articles) < 3}">
-                   	        		
-                   	        	</c:when>
-                   	        	<c:otherwise>
+                   	        	<c:when test="${fn:length(articles) > 3}">
                    	        		<li class="more">더보기</li>
-                   	        	</c:otherwise>
+                   	        	</c:when>
+                   	        	<c:otherwise></c:otherwise>
                    	        </c:choose>
                     	</ul>
                     </c:forEach>

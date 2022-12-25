@@ -23,16 +23,19 @@
                 </ul>
             </aside>
             <article>
+            	<div class="explain">
+           			<h1>${cate}</h1><h2>${cate}관련 문의내용입니다.</h2>
+                </div>
                 <nav>
                    	<h2 class="title">[${article.cate2}]${article.title}</h2>
                     <p>
-                        <span>
+                        <span style="margin-right:10px;">
                         	${fn:substring(article.uid,0,3)}
                         	<c:forEach begin="4" end="${fn:length(article.uid) }" step="1">
                         	*
                         	</c:forEach>
                         </span>
-                        <span>${article.rdate.substring(0, 10)}</span>
+                        <span style="color:grey;">${article.rdate.substring(0, 10)}</span>
                     </p>
                 </nav>
                 <div class="content">
@@ -48,7 +51,7 @@
                 	</c:when>
                 	<c:otherwise></c:otherwise>
                 </c:choose>
-                <a href="/Kmarket1/cs/qna/list.do?group=qna&cate=${cate}&pg=${pg}" class="btnList">목록보기</a>
+                <a href="/Kmarket1/cs/qna/list.do?group=qna&cate=${cate}&pg=${pg}" class="btnList">목록</a>
             </article>
         </section>
     </div>

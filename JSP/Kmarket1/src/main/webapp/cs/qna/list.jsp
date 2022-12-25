@@ -43,7 +43,7 @@
                             	[${article.cate2}]${article.title}
                             </a>
                         </td>
-                        <td style="text-align: center">
+                        <td>
                         	<c:if test="${article.comment == null}"><span style="color:#cecbcb; font-weight:bold">검토중</span></c:if>
                         	<c:if test="${article.comment != null}"><span style="color:#2da9e9; font-weight:bold">답변완료</span></c:if>
                         </td>

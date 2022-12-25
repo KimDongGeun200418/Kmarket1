@@ -23,9 +23,9 @@
 	               	</tr>
 	               </table>
 	               <div>
+	               	   <a href="/Kmarket1/admin/cs/faqList.do?group=faq&cate=${cate}&cate2=${cate2}&pg=${pg}" class="btnList">목록</a>
+	                   <a href="./faqModify.do?group=${group}&cate=${article.cate}&cate2=${article.cate2}&no=${no}&pg=${pg}" class="btnModify">수정</a>
 	                   <a href="./faqDelete.do?group=${group}&cate=${cate}&cate2=${cate2}&no=${no}&pg=${pg}" class="btnDelete">삭제</a>
-	                   <a href="./faqModify.do?group=${group}&cate=${article.cate}&cate2=${article.cate2}&no=${no}&pg=${pg}" class="btnmodify">수정</a>
-	                   <a href="/Kmarket1/admin/cs/faqList.do?group=faq&cate=${cate}&cate2=${cate2}&pg=${pg}" class="btnList">목록</a>
 	        		</div>
 	        	</article>        
             </section>

@@ -27,8 +27,8 @@
 		               	</tr>
 		               </table>
 		               <div>
+		               	   <a href="/Kmarket1/admin/cs/qnaList.do?group=qna&cate=${cate}&cate=${cate2}&pg=${pg}" class="btnList">목록</a>
 		                   <a href="./qnaDelete.do?group=${group}&cate=${cate}&cate=${cate2}&no=${no}&pg=${pg}" class="btnDelete">삭제</a>
-		                   <a href="/Kmarket1/admin/cs/qnaList.do?group=qna&cate=${cate}&cate=${cate2}&pg=${pg}" class="btnList">목록</a>
 		        		</div>
 		        	</form>
 	        	</article>        
