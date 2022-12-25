@@ -335,6 +335,38 @@ public class ArticleDAO extends DBHelper{
 		}
 		return articles;
 	}
+	public List<CsArticleVO> selectQna2(String cate, String cate2, int start){
+		
+		List<CsArticleVO> articles = new ArrayList<>();
+		
+		try {
+			logger.info("selectQna2...");
+			
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.SELECT_QNA2);
+			psmt.setString(1, cate);
+			psmt.setString(2, cate2);
+			psmt.setInt(3, start);
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				CsArticleVO article = new CsArticleVO();
+				article.setNo(rs.getString(1));
+				article.setTitle(rs.getString(2));
+				article.setUid(rs.getString(3));
+				article.setRdate(rs.getString(4));
+				article.setComment(rs.getString(5));
+				
+				articles.add(article);
+			}
+			
+			close();
+			
+		}catch(Exception e) {
+			logger.error(e.getMessage());
+		}
+		return articles;
+	}
 	
 	public List<CsArticleVO> selectAllQna(int start){
 		
@@ -527,7 +559,52 @@ public class ArticleDAO extends DBHelper{
 		
 		return total;
 	}
-	
+	public int selectCountQna2(String cate, String cate2) {
+		
+		int total = 0;
+		
+		try {
+			logger.info("selectCountQna2...");
+			
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.SELECT_COUNT_QNA2);
+			psmt.setString(1, cate);
+			psmt.setString(2, cate2);
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				total = rs.getInt(1);
+			}
+			
+			close();
+		}catch(Exception e) {
+			logger.error(e.getMessage());
+		}
+		
+		return total;
+	}
+	public int selectCountQnaAll() {
+		
+		int total = 0;
+		
+		try {
+			logger.info("selectCountQnaAll...");
+			
+			conn = getConnection();
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(Sql.SELECT_COUNT_NOTICE_ALL);
+			
+			if(rs.next()) {
+				total = rs.getInt(1);
+			}
+			
+			close();
+		}catch(Exception e) {
+			logger.error(e.getMessage());
+		}
+		
+		return total;
+	}
 	//faq
 	public void insertArticleFaq(CsArticleVO article) {
 		

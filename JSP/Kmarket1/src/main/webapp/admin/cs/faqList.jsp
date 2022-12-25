@@ -94,19 +94,24 @@
 		                		<td>${article.hit}</td>
 		                		<td>${article.rdate.substring(2, 10)}</td>
 		                		<td>
-		                			<c:if test="${cate == null || cate eq ''}">
-		                				<a href="./faqDelete.do?group=faq&cate=${article.cate}&cate2=${article.cate2}&no=${article.no}" onclick="return deleteClick();">[삭제]
-		                			</c:if>
-		                			<c:if test="${cate != null}">
-		                				<a href="./faqDelete.do?group=faq&cate=${cate}&cate2=${article.cate2}&no=${article.no}" onclick="return deleteClick();">[삭제]
-		                			</c:if>
-		                			<br/>
-		                			<c:if test="${cate == null || cate eq ''}">
-		                				<a href="./faqModify.do?group=faq&cate=${article.cate}&cate2=${article.cate2}&no=${article.no}">[수정]
-		                			</c:if>
-		                			<c:if test="${cate != null}">
-		                				<a href="./faqModify.do?group=faq&cate=${cate}&cate2=${article.cate2}&no=${article.no}">[수정]
-		                			</c:if>
+		                			<c:choose>
+		                				<c:when test="${cate != null}">
+		                					<c:choose>
+		                					<c:when test="${cate2 != null}">
+		                						<a href="./faqDelete.do?group=faq&cate=${cate}&cate2=${cate2}&no=${article.no}" onclick="return deleteClick();">[삭제]<br>
+		                						<a href="./faqModify.do?group=faq&cate=${cate}&cate2=${cate2}&no=${article.no}">[수정]
+		                					</c:when>
+		                					<c:otherwise>
+		                						<a href="./faqDelete.do?group=faq&cate=${cate}&cate2=${article.cate2}&no=${article.no}" onclick="return deleteClick();">[삭제]<br>
+		                						<a href="./faqModify.do?group=faq&cate=${cate}&cate2=${article.cate2}&no=${article.no}">[수정]
+		                					</c:otherwise>
+		                					</c:choose>
+		                				</c:when>
+		                				<c:otherwise>
+		                					<a href="./faqDelete.do?group=faq&cate=${article.cate}&cate2=${article.cate2}&no=${article.no}" onclick="return deleteClick();">[삭제]<br>
+		                					<a href="./faqModify.do?group=faq&cate=${article.cate}&cate2=${article.cate2}&no=${article.no}">[수정]
+		                				</c:otherwise>
+		                			</c:choose>
 		                		</td>
 		                	</tr>
 	                	</c:forEach>

@@ -23,12 +23,17 @@ public class Sql {
 	public static final String SELECT_QNA = "SELECT `no`, `cate2`, `title`, `uid`, `rdate`, `comment` from `km_cs_qna` WHERE `cate`= ? "
 											+"ORDER BY `no` DESC "
 											+"LIMIT ?, 10";
+	public static final String SELECT_QNA2 = "SELECT `no`, `title`, `uid`, `rdate`, `comment` from `km_cs_qna` WHERE `cate`= ? and `cate2`=? "
+											+"ORDER BY `no` DESC "
+											+"LIMIT ?, 10";
 	public static final String SELECT_ALL_QNA = "SELECT `no`, `cate`, `cate2`, `title`, `uid`, `rdate`, `comment` from `km_cs_qna` "
 											+"ORDER BY `no` DESC "
 											+"LIMIT ?, 10";
 	public static final String SELECT_QNA_CATE = "SELECT DISTINCT(`cate`) FROM `km_cs_qna`";
 	public static final String SELECT_QNA_CATE2 = "SELECT distinct `cate2` from `km_cs_qna` WHERE `cate`= ? ";
+	public static final String SELECT_COUNT_QNA_ALL = "SELECT COUNT(`no`) FROM `km_cs_qna`";
 	public static final String SELECT_COUNT_QNA = "SELECT COUNT(`no`) FROM `km_cs_qna` where `cate`=?";
+	public static final String SELECT_COUNT_QNA2 = "SELECT COUNT(`no`) FROM `km_cs_qna` where `cate`=? and `cate2`=?";
 	public static final String SELECT_ARTICLE_QNA = "SELECT `cate2`, `title`, `uid`, `rdate`,`content`, `comment` FROM `km_cs_qna` WHERE `no`= ?";							
 	public static final String SELECT_MAX_NO = "select max(`no`) from `km_cs_qna`";
 	public static final String SELECT_LATEST_QNA = "SELECT `no`,`title`, `uid`, `rdate`, `cate` FROM `km_cs_qna` "
