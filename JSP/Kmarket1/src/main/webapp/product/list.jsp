@@ -94,6 +94,8 @@
                             </td>
                         </tr>
                         </c:forEach>
+                    </tbody>
+                </table>
                 <!-- page number -->
                 <div class="paging">
 					<c:if test="${pageGroupStart > 1}">
