@@ -89,7 +89,7 @@ public class Sql {
 												+ "`thumb1`=?, `thumb2`=?, `thumb3`=?, `detail`=?";
 	public static final String SELECT_PRODUCT 			="SELECT a.*, b.`level` FROM `km_product` AS a "
 														+"JOIN `km_member` AS b ON a.`seller` = b.`uid` WHERE `prodNo`=?";
-	public static final String SELECT_PRODUCTS 			="SELECT * FROM `km_product`";
+	public static final String SELECT_PRODUCTS 			="SELECT * FROM `km_product` WHERE `seller`=? LIMIT ?, 10";
 	public static final String COUNT_TODAY_PRODUCTS 	="SELECT COUNT(`prodNo`) FROM `km_product` WHERE DATE(`rdate`)=CURDATE()";
 	
 	public static final String SELECT_PRODUCTS_BY_CATE_SOLD		="SELECT a.*, b.`level` FROM `km_product` AS a "
@@ -110,7 +110,8 @@ public class Sql {
 	public static final String SELECT_PRODUCTS_BY_CATE_LATEST	="SELECT a.*, b.`level` FROM `km_product` AS a "
 																+"JOIN `km_member` AS b ON a.`seller` = b.`uid` "
 																+"WHERE `cate1`=? AND `cate2`=? ORDER BY `rdate` DESC LIMIT ?, 10";
-	public static final String SELECT_COUNT_PRODUCT_TOTAL 		= "SELECT COUNT(`prodNo`) FROM `km_product` WHERE `cate1`=? AND `cate2`=?";
+	public static final String SELECT_COUNT_PRODUCT_TOTAL 			= "SELECT COUNT(`prodNo`) FROM `km_product` WHERE `cate1`=? AND `cate2`=?";
+	public static final String SELECT_COUNT_PRODUCT_TOTAL_IN_ADMIN 	= "SELECT COUNT(`prodNo`) FROM `km_product` WHERE `seller`=?";
 	
 	public static final String UPDATE_HIT 				="UPDATE `km_product` SET `hit` = `hit`+1 WHERE `prodNo`=?";
 	public static final String SELECT_NAVCATE 	= "SELECT a.`c1Name`, b.`c2Name` "

@@ -94,57 +94,6 @@
                             </td>
                         </tr>
                         </c:forEach>
-                        
-                        <tr>
-                            <td>
-                                <a href="#" class="thumb"><img src="https://via.placeholder.com/120x120" alt="상품이미지"></a>
-                            </td>
-                            <td>
-                                <h3 class="name">상품명</h3>
-                                <a href="#" class="desc">상품설명</a>
-                            </td>
-                            <td>
-                                <ul>
-                                    <li><ins class="dis-price">27,000</ins></li>
-                                    <li>
-                                        <del class="org-price">30,000</del>
-                                        <span class="discount">10%</span>
-                                    </li>
-                                    <li><span class="free-delivery">무료배송</span></li>
-                                </ul>
-                            </td>
-                            <td>
-                                <h4 class="seller"><i class="fas fa-home" aria-hidden="true"></i>&nbsp;판매자</h4>
-                                <h5 class="badge power">판매자등급</h5>
-                                <h6 class="rating star2">상품평</h6>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a href="#" class="thumb"><img src="https://via.placeholder.com/120x120" alt="상품이미지"></a>
-                            </td>
-                            <td>
-                                <h3 class="name">상품명</h3>
-                                <a href="#" class="desc">상품설명</a>
-                            </td>
-                            <td>
-                                <ul>
-                                    <li><ins class="dis-price">27,000</ins></li>
-                                    <li>
-                                        <del class="org-price">30,000</del>
-                                        <span class="discount">10%</span>
-                                    </li>
-                                    <li><span class="free-delivery">무료배송</span></li>
-                                </ul>
-                            </td>
-                            <td>
-                                <h4 class="seller"><i class="fas fa-home" aria-hidden="true"></i>&nbsp;판매자명</h4>
-                                <h5 class="badge power">판매자등급</h5>
-                                <h6 class="rating star3">상품평</h6>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
                 <!-- page number -->
                 <div class="paging">
 					<c:if test="${pageGroupStart > 1}">

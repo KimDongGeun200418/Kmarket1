@@ -82,7 +82,7 @@
                                     <td>할인율</td>
                                     <td>
                                         <span>0을 입력하면 할인율 없음</span>
-                                        <input type="text" name="discount"/>%
+                                        <input type="text" name="discount" value="0"/>%
                                     </td>
                                 </tr>
                                 <tr>
@@ -100,7 +100,7 @@
                                     <td>배송비</td>
                                     <td>
                                         <span>0을 입력하면 배송비 무료</span>
-                                        <input type="text" name="delivery"/>원
+                                        <input type="text" name="delivery" value="0"/>원
                                     </td>
                                 </tr>
                                 <tr>

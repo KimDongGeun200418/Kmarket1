@@ -141,7 +141,7 @@
 		
 		
 		if(confirm('결제하시겠습니까?')){
-			$.redirectPost('/Kmarket1/product/completeOrder.do', orderList, otherInfo);
+			$.redirectPost('/Kmarket1/product/productComplete.do', orderList, otherInfo);
 		}
 		
 	});
