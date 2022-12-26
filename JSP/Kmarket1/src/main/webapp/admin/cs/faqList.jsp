@@ -76,20 +76,32 @@
 		                		<td><input type="checkbox" name="rowCheck" value="${article.no}"/></td>
 		                		<td>${article.no}</td>
 		                		<td>
-		                			<c:if test="${cate == null || cate eq ''}">${article.cate}</c:if>
-		                			<c:if test="${cate != null}">${cate}</c:if>
+		                			<c:choose>
+		               				<c:when test="${cate != null}">${cate}</c:when>
+		                			<c:otherwise>${article.cate}</c:otherwise>
+		                			</c:choose>
 		                		</td>
 		                		<td>
-		                			<c:if test="${cate2 == null || cate2 eq ''}">${article.cate2}</c:if>
-		                			<c:if test="${cate2 != null}">${cate2}</c:if>
+		                			<c:if test="${cate != null && cate2 != null}">${cate2}</c:if>
+		                			<c:if test="${cate != null && (cate2 == null || cate2 eq '')}">${article.cate2}</c:if>
+		                			<c:if test="${cate == null && (cate2 == null || cate2 eq '')}">${article.cate2}</c:if>
 		                		</td>
 		                		<td>
-		                			<c:if test="${cate == null || cate eq ''}">
-		                				<a href="./faqView.do?group=faq&cate=${article.cate}&cate2=${article.cate2}&no=${article.no}">${article.title}
-		                			</c:if>
-		                			<c:if test="${cate != null}">
-		                				<a href="./faqView.do?group=faq&cate=${cate}&cate2=${article.cate2}&no=${article.no}">${article.title}
-		                			</c:if>
+		                			<c:choose>
+	                				<c:when test="${cate != null}">
+	                					<c:choose>
+	                					<c:when test="${cate2 != null}">
+	                						<a href="./faqView.do?group=faq&cate=${cate}&cate2=${cate2}&no=${article.no}">${article.title}
+	                					</c:when>
+	                					<c:otherwise>
+	                						<a href="./faqView.do?group=faq&cate=${cate}&cate2=${article.cate2}&no=${article.no}">${article.title}
+	                					</c:otherwise>
+	                					</c:choose>
+		                			</c:when>
+		                			<c:otherwise>
+	                					<a href="./faqView.do?group=faq&cate=${cate}&cate2=${article.cate2}&no=${article.no}">${article.title}
+		                			</c:otherwise>
+		                			</c:choose>
 		                		</td>
 		                		<td>${article.hit}</td>
 		                		<td>${article.rdate.substring(2, 10)}</td>

@@ -657,6 +657,37 @@ public class ArticleDAO extends DBHelper{
 		}
 		return articles;
 	}
+	public List<CsArticleVO> selectFaq2(String cate, String cate2){
+		
+		List<CsArticleVO> articles = new ArrayList<>();
+		
+		try {
+			logger.info("selectFaq2...");
+			
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.SELECT_FAQ2);
+			psmt.setString(1, cate);
+			psmt.setString(2, cate2);
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				CsArticleVO article = new CsArticleVO();
+				article.setNo(rs.getString(1));
+				article.setTitle(rs.getString(2));
+				article.setRdate(rs.getString(3));
+				article.setHit(rs.getString(4));
+				
+				articles.add(article);
+			}
+			
+			close();
+			
+		}catch(Exception e) {
+			logger.error(e.getMessage());
+		}
+		return articles;
+	}
+	
 	public List<CsArticleVO> selectFaqCate2(String cate){
 		
 		List<CsArticleVO> category = new ArrayList<>();

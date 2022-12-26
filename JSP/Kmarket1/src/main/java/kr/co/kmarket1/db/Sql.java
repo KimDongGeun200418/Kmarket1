@@ -44,6 +44,8 @@ public class Sql {
 	public static final String SELECT_ARTICLE_FAQ = "SELECT `title`, `content`, `cate`, `cate2` FROM `km_cs_faq` WHERE `no`= ?";							
 	public static final String SELECT_FAQ = "SELECT `no`, `cate2`, `title`, `rdate`, `hit` from `km_cs_faq` WHERE `cate`= ? "
 			                             +"ORDER BY `no` DESC ";
+	public static final String SELECT_FAQ2 = "SELECT `no`, `title`, `rdate`, `hit` from `km_cs_faq` WHERE `cate`= ? and `cate2`=? "
+											+"ORDER BY `no` DESC ";
 	public static final String SELECT_FAQ_CATE = "SELECT DISTINCT(`cate`) FROM `km_cs_faq`";
 	public static final String SELECT_FAQ_CATE2 = "SELECT distinct `cate2` from `km_cs_faq` WHERE `cate`= ? ";
 	public static final String SELECT_ALL_FAQ = "SELECT `no`,`title`, `rdate`, `hit`, `cate`, `cate2` from `km_cs_faq` "
