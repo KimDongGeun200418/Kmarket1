@@ -99,7 +99,10 @@
                         </tr>
                     </table>
                     <div>
-                        <a href="/Kmarket1/cs/qna/list.do?group=${group}&cate=${cate}" class="btnDelete">취소하기</a>
+                    	<c:choose>
+                    	<c:when test="${cate != null}"><a href="/Kmarket1/cs/qna/list.do?group=${group}&cate=${cate}" class="btnDelete">취소하기</a></c:when>
+                    	<c:otherwise><a href="/Kmarket1/cs/qna/list.do?group=${group}&cate=회원" class="btnDelete">취소하기</a></c:otherwise>
+                    	</c:choose>
                         <input type="submit" class="btnSubmit" value="등록하기">
                     </div>
                 </form>
