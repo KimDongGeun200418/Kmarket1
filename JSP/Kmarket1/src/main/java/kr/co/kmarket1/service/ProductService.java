@@ -30,8 +30,8 @@ public enum ProductService {
 			dao.insertProduct(product);
 		}
 
-		public List<ProductVO> selectProducts() {
-			 return dao.selectProducts();
+		public List<ProductVO> selectProductsInAdmin(MemberVO seller, int start) {
+			 return dao.selectProductsInAdmin(seller.getUid(), start);
 		}
 
 		public ProductVO selectProduct(String prodNo) {
@@ -178,6 +178,9 @@ public enum ProductService {
 		//page
 		public int countProductTotal(String cate1, String cate2) {
 			return dao.countProductTotal(cate1, cate2);
+		}
+		public int countProductTotalInAdmin(MemberVO seller) {
+			return dao.countProductTotalInAdmin(seller.getUid());
 		}
 		
 		public int getLastPageNum(int total) {

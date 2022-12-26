@@ -56,13 +56,14 @@ public class ProductDAO extends DBHelper{
 		}
 	}
 	// selectProducts
-	public List<ProductVO> selectProducts() {
+	public List<ProductVO> selectProductsInAdmin(String seller, int start) {
 		List<ProductVO> products = new ArrayList<>();
 		try {
 			logger.debug("selectProducts Start...");
 			conn = getConnection();
 			psmt = conn.prepareStatement(Sql.SELECT_PRODUCTS);
-			
+			psmt.setString(1, seller);
+			psmt.setInt(2, start);
 			rs = psmt.executeQuery();
 			while(rs.next()) {
 				ProductVO product = new ProductVO();
@@ -1018,6 +1019,26 @@ public class ProductDAO extends DBHelper{
 		}
 		return total;
 	}
+	
+	//countProductTotal
+		public int countProductTotalInAdmin(String uid) {
+			int total = 0;
+			try{
+				logger.info("countProductTotal start...");
+				conn = getConnection();
+				psmt = conn.prepareStatement(Sql.SELECT_COUNT_PRODUCT_TOTAL_IN_ADMIN);
+				psmt.setString(1, uid);
+				rs = psmt.executeQuery();
+				
+				if(rs.next()){
+					total = rs.getInt(1);
+				}
+				close();
+			}catch(Exception e){
+				logger.error(e.getMessage());
+			}
+			return total;
+		}
 	
 	//countReviewTotal
 	public int countReviewTotal(String prodNo) {

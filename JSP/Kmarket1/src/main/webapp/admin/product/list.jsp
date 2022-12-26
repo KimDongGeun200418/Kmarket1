@@ -60,23 +60,22 @@
 
 
                     <div class="paging">
-                        <span class="prev">
-                            <a href="#"><&nbsp;이전</a>
-                        </span>
-                        <span class="num">
-                            <a href="#" class="on">1</a>
-                            <a href="#">2</a>
-                            <a href="#">3</a>
-                            <a href="#">4</a>
-                            <a href="#">5</a>
-                            <a href="#">6</a>
-                            <a href="#">7</a>
-                        </span>
-                        <span class="next">
-                            <a href="#">다음&nbsp;></a>
-                        </span>
-                        </div>
-
+						<c:if test="${pageGroupStart > 1}">
+						<span class="prev">
+			            	<a href="/Kmarket1/admin/product/list.do?pg=${pageGroupStart - 1}">&lt; 이전</a>
+			            </span>
+			            </c:if>
+			            <span class="num">
+			            <c:forEach var="num" begin="${pageGroupStart}" end="${pageGroupEnd}">
+			            	<a href="/Kmarket1/admin/product/list.do?pg=${num}" class="${num == currentPage ? 'on':'off'}">${num}</a>
+			            </c:forEach>
+			            </span>
+			            <c:if test="${pageGroupEnd < lastPageNum}">
+			            <span class="next">
+			            	<a href="/Kmarket1/admin/product/list.do?pg=${pageGroupEnd + 1}" class="next">다음&nbsp;&gt;</a>
+			            </span>
+			            </c:if>
+                	</div>
                 </section>                
 
                 
