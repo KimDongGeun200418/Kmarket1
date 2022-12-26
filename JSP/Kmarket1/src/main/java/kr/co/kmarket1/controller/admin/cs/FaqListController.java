@@ -37,9 +37,14 @@ public class FaqListController extends HttpServlet{
 		if(cate == null || cate.equals("")) {
 			
 			articles = service.selectAllFaq();
-		}else {
+			
+		}else if(cate != null && (cate2 == null || cate2.equals(""))){
 			
 			articles = service.selectFaq(cate);
+			
+		}else if(cate != null && cate2 != null) {
+			
+			articles = service.selectFaq2(cate, cate2);
 		}
 	
 		req.setAttribute("articles", articles);

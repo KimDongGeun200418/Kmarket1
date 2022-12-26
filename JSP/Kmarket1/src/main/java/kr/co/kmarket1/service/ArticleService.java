@@ -66,6 +66,9 @@ public enum ArticleService {
 	public List<CsArticleVO> selectFaq(String cate) {
 		return dao.selectFaq(cate);
 	}
+	public List<CsArticleVO> selectFaq2(String cate, String cate2) {
+		return dao.selectFaq2(cate, cate2);
+	}
 	public List<CsArticleVO> selectAllFaq() {
 		return dao.selectAllFaq();
 	}
