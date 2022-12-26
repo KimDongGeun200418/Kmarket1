@@ -47,9 +47,9 @@
               <ol>
                 <li><a href="/Kmarket1/product/productList.do?cate1=14&cate2=10&option=sold">가구/DIY</a></li>
                 <li><a href="/Kmarket1/product/productList.do?cate1=14&cate2=17&option=sold">악기/취미</a></li>
-                <li><a href="/Kmarket1/product/productList.do?cate1=17&cate2=11&option=sold">휘트니스/수영</a></li>
-                <li><a href="/Kmarket1/product/productList.do?cate1=17&cate2=15&option=sold">캠핑/낚시</a></li>
-                <li><a href="/Kmarket1/product/productList.do?cate1=17&cate2=16&option=sold">등산/아웃도어</a></li>
+                <li><a href="/Kmarket1/product/productList.do?cate1=16&cate2=11&option=sold">휘트니스/수영</a></li>
+                <li><a href="/Kmarket1/product/productList.do?cate1=16&cate2=15&option=sold">캠핑/낚시</a></li>
+                <li><a href="/Kmarket1/product/productList.do?cate1=16&cate2=16&option=sold">등산/아웃도어</a></li>
                 <li><a href="/Kmarket1/product/productList.do?cate1=18&cate2=11&option=sold">도서/음반/e교육</a></li>
                 <li><a href="/Kmarket1/product/productList.do?cate1=18&cate2=14&option=sold">상품권</a></li>
               </ol>

@@ -73,7 +73,7 @@ $(function(){
 		if(isNaN($('input[name=price]').val())){
 			return;
 		}
-		let price = Number($('input[name=price]').val())/10;
+		let price = Number($('input[name=price]').val())/100;
 		$('input[name=point]').attr('value', parseInt(price));
 		
 	});
