@@ -41,13 +41,12 @@ public class SignupController extends HttpServlet{
 		}
 		
 		String url = null;
-		if(type == 1 ) { url = "register.jsp"; }
-		else if(type == 2 ) { url = "registerSeller.jsp"; }
+		if(type == 1 ) { url = "register.do"; }
+		else if(type == 2 ) { url = "registerSeller.do"; }
 		
 		req.setAttribute("type", type);
 		req.setAttribute("provLocation", provLocation);
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/member/"+url);
-		dispatcher.forward(req, resp);
+		resp.sendRedirect("/Kmarket1/member/"+url);
 	
 	}
 	
