@@ -1,7 +1,6 @@
 package kr.co.kmarket1.controller.admin.cs;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,7 +13,6 @@ import kr.co.kmarket1.dao.ArticleDAO;
 import kr.co.kmarket1.service.ArticleService;
 import kr.co.kmarket1.vo.CsArticleVO;
 
-@WebServlet("/admin/cs/faqModify.do")
 public class FaqModifyController extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;

@@ -3,9 +3,7 @@ package kr.co.kmarket1.controller.admin.cs;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URLEncoder;
-import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,7 +14,6 @@ import com.google.gson.JsonObject;
 
 import kr.co.kmarket1.dao.ArticleDAO;
 import kr.co.kmarket1.service.ArticleService;
-import kr.co.kmarket1.vo.CsArticleVO;
 
 @WebServlet("/admin/cs/qnaDelete.do")
 public class QnaDeleteController extends HttpServlet{

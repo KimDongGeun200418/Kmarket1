@@ -44,7 +44,7 @@ public class ProductOrderController extends HttpServlet {
 
 		if(loginUser != null) {
 			List<CartVO> orderList = null;
-			if(items[0].length() > 7) {
+			if(items[0].split(",").length > 7) {
 				orderList = serviceProduct.cleanOrderListFromView(items);
 			}else {
 				orderList = serviceProduct.cleanOrderListFromCart(items);

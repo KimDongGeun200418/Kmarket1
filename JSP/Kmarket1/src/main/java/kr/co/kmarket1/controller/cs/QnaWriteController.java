@@ -2,7 +2,6 @@ package kr.co.kmarket1.controller.cs;
 
 import java.io.IOException;
 import java.net.URLEncoder;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
