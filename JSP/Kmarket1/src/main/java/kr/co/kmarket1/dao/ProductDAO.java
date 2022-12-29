@@ -1242,6 +1242,25 @@ public class ProductDAO extends DBHelper{
 			logger.error(e.getMessage());
 		}
 	}
+	//updateProduct(String[] items)
+	public void updateProduct(String[] items) {
+		try {
+			logger.debug("updateProduct start...");
+			conn = getConnection();
+			//아이템 추가
+			for(String item : items) {
+				List<String> prodInfoList = Arrays.asList(item.split(","));
+				psmt = conn.prepareStatement(Sql.UPDATE_PRODUCT);
+				psmt.setString(1, prodInfoList.get(1)); //count
+				psmt.setString(2, prodInfoList.get(1)); //count
+				psmt.setString(3, prodInfoList.get(0)); //no
+				psmt.executeUpdate();
+			}
+			close();
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+	}
 	
 	//countProductTotal
 	public int countProductTotal(String cate1, String cate2) {

@@ -51,6 +51,7 @@ public class CompleteOrderController extends HttpServlet {
 			
 			int ordNo = serviceProduct.insertOrder(user, totalInfo, deliveryInfo);
 			serviceProduct.insertOrderItem(ordNo, items);
+			serviceProduct.updateProduct(items);
 			serviceMember.insertPoint(ordNo);
 			serviceMember.updatePoint(user);
 			for(CartVO item : orderList) {
