@@ -61,7 +61,10 @@ public class Sql {
 	public static final String SELECT_PRODUCTS_BY_DISCOUNT = "SELECT * FROM `km_product` ORDER BY `discount` DESC LIMIT ?";
 	public static final String SELECT_PRODUCTS_BY_LATEST = "SELECT * FROM `km_product` ORDER BY `prodNo` DESC LIMIT ?";
 	public static final String SELECT_TERMS = "SELECT * FROM `km_member_terms`";
-
+	public static final String SELECT_PRODUCTS_BY_NAME 		="SELECT * FROM `km_product` WHERE `prodName` LIKE ? ORDER BY `prodNo` DESC LIMIT ?, 10";
+	public static final String SELECT_PRODUCTS_BY_NO		="SELECT * FROM `km_product` WHERE `prodNo` LIKE ? ORDER BY `prodNo` DESC LIMIT ?, 10";
+	public static final String SELECT_PRODUCTS_BY_COMPANY 	="SELECT * FROM `km_product` WHERE `company` LIKE ? ORDER BY `prodNo` DESC LIMIT ?, 10";
+	public static final String SELECT_PRODUCTS_BY_SELLER	="SELECT * FROM `km_product` WHERE `seller` LIKE ? ORDER BY `prodNo` DESC LIMIT ?, 10";
 	//review
 	public static final String SELECT_COUNT_REVIEW_TOTAL = "SELECT COUNT(`revNo`) FROM `km_product_review` WHERE `prodNo`=?";
 	public static final String SELECT_REVIEWS = "SELECT * FROM `km_product_review` WHERE `prodNo`=? ORDER BY `rdate` DESC LIMIT ?, 5";
@@ -89,7 +92,8 @@ public class Sql {
 												+ "`thumb1`=?, `thumb2`=?, `thumb3`=?, `detail`=?";
 	public static final String SELECT_PRODUCT 			="SELECT a.*, b.`level` FROM `km_product` AS a "
 														+"JOIN `km_member` AS b ON a.`seller` = b.`uid` WHERE `prodNo`=?";
-	public static final String SELECT_PRODUCTS 			="SELECT * FROM `km_product` WHERE `seller`=? LIMIT ?, 10";
+	public static final String SELECT_PRODUCTS_IN_ADMIN ="SELECT * FROM `km_product` WHERE `seller`=? LIMIT ?, 10";
+	public static final String SELECT_PRODUCTS_FOR_CEO 	="SELECT * FROM `km_product` LIMIT ?, 10";
 	public static final String COUNT_TODAY_PRODUCTS 	="SELECT COUNT(`prodNo`) FROM `km_product` WHERE DATE(`rdate`)=CURDATE()";
 	
 	public static final String SELECT_PRODUCTS_BY_CATE_SOLD		="SELECT a.*, b.`level` FROM `km_product` AS a "
@@ -112,6 +116,11 @@ public class Sql {
 																+"WHERE `cate1`=? AND `cate2`=? ORDER BY `rdate` DESC LIMIT ?, 10";
 	public static final String SELECT_COUNT_PRODUCT_TOTAL 			= "SELECT COUNT(`prodNo`) FROM `km_product` WHERE `cate1`=? AND `cate2`=?";
 	public static final String SELECT_COUNT_PRODUCT_TOTAL_IN_ADMIN 	= "SELECT COUNT(`prodNo`) FROM `km_product` WHERE `seller`=?";
+	public static final String SELECT_COUNT_PRODUCT_TOTAL_FOR_CEO 	= "SELECT COUNT(`prodNo`) FROM `km_product`";
+	public static final String SELECT_COUNT_PRODUCT_TOTAL_FOR_SEARCH_BY_NAME 	= "SELECT COUNT(`prodNo`) FROM `km_product` WHERE `prodName` LIKE ?";
+	public static final String SELECT_COUNT_PRODUCT_TOTAL_FOR_SEARCH_BY_NO 		= "SELECT COUNT(`prodNo`) FROM `km_product` WHERE `prodNo` LIKE ?";
+	public static final String SELECT_COUNT_PRODUCT_TOTAL_FOR_SEARCH_BY_COMPANY	= "SELECT COUNT(`prodNo`) FROM `km_product` WHERE `company` LIKE ?";
+	public static final String SELECT_COUNT_PRODUCT_TOTAL_FOR_SEARCH_BY_SELLER 	= "SELECT COUNT(`prodNo`) FROM `km_product` WHERE `seller` LIKE ?";
 	
 	public static final String UPDATE_HIT 				="UPDATE `km_product` SET `hit` = `hit`+1 WHERE `prodNo`=?";
 	public static final String SELECT_NAVCATE 	= "SELECT a.`c1Name`, b.`c2Name` "

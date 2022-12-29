@@ -33,6 +33,9 @@ public enum ProductService {
 		public List<ProductVO> selectProductsInAdmin(MemberVO seller, int start) {
 			 return dao.selectProductsInAdmin(seller.getUid(), start);
 		}
+		public List<ProductVO> selectProductsForCEO(int start) {
+			 return dao.selectProductsForCEO(start);
+		}
 
 		public ProductVO selectProduct(String prodNo) {
 			dao.updateHit(prodNo);
@@ -86,6 +89,18 @@ public enum ProductService {
 		
 		public NavCateVO selectNavCate(String cate1, String cate2) {
 			return dao.selectNavCate(cate1, cate2);
+		}
+		public List<ProductVO> selectProductsByName(String keyword, int start){
+			return dao.selectProductsByName(keyword, start);
+		}
+		public List<ProductVO> selectProductsByNo(String keyword, int start){
+			return dao.selectProductsByNo(keyword, start);
+		}
+		public List<ProductVO> selectProductsByCompany(String keyword, int start){
+			return dao.selectProductsByCompany(keyword, start);
+		}
+		public List<ProductVO> selectProductsBySeller(String keyword, int start){
+			return dao.selectProductsBySeller(keyword, start);
 		}
 		
 		
@@ -181,6 +196,21 @@ public enum ProductService {
 		}
 		public int countProductTotalInAdmin(MemberVO seller) {
 			return dao.countProductTotalInAdmin(seller.getUid());
+		}
+		public int countProductTotalForCEO() {
+			return dao.countProductTotalForCEO();
+		}
+		public int countProductTotalForSearchByName(String keyword) {
+			return dao.countProductTotalForSearchByName(keyword);
+		}
+		public int countProductTotalForSearchByNo(String keyword) {
+			return dao.countProductTotalForSearchByNo(keyword);
+		}
+		public int countProductTotalForSearchByCompany(String keyword) {
+			return dao.countProductTotalForSearchByCompany(keyword);
+		}
+		public int countProductTotalForSearchBySeller(String keyword) {
+			return dao.countProductTotalForSearchBySeller(keyword);
 		}
 		
 		public int getLastPageNum(int total) {
