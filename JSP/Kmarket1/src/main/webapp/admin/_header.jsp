@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -78,13 +79,15 @@
                             <li><a href="#">배송관리</a></li>
                         </ol>
                     </li>
+                    <c:if test="${ loginUser.level eq 7 }">
                     <li>
                         <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>고객센터</a>
                         <ol>
-                            <li><a href="#">공지사항</a></li>
-                            <li><a href="#">자주묻는질문</a></li>
-                            <li><a href="#">문의하기</a></li>
+                            <li><a href="/Kmarket1/admin/cs/noticeList.do">공지사항</a></li>
+                            <li><a href="/Kmarket1/admin/cs/faqList.do">자주묻는질문</a></li>
+                            <li><a href="/Kmarket1/admin/cs/qnaList.do">문의하기</a></li>
                         </ol>
                     </li>
+                    </c:if>
                 </ul>
             </aside>

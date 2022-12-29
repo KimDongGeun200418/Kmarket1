@@ -38,7 +38,7 @@
                 		<c:otherwise>
                 		<span class="nick">${ loginUser.name }</span>님 반갑습니다.
 	                	<a href="/Kmarket1/member/logout.do" class="logout">[로그아웃]</a>
-                			<c:if test="${ loginUser.type == 2 }">
+                			<c:if test="${ loginUser.type == 2 or loginUser.level == 7}">
                 			<a href="/Kmarket1/admin/index.do" class="admin">[관리자]</a>
                 			</c:if>
                 		</c:otherwise>

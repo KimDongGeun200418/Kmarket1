@@ -55,13 +55,13 @@ public class ProductDAO extends DBHelper{
 			logger.error(e.getMessage());
 		}
 	}
-	// selectProducts
+	// selectProductsInAdmin
 	public List<ProductVO> selectProductsInAdmin(String seller, int start) {
 		List<ProductVO> products = new ArrayList<>();
 		try {
-			logger.debug("selectProducts Start...");
+			logger.debug("selectProductsInAdmin Start...");
 			conn = getConnection();
-			psmt = conn.prepareStatement(Sql.SELECT_PRODUCTS);
+			psmt = conn.prepareStatement(Sql.SELECT_PRODUCTS_IN_ADMIN);
 			psmt.setString(1, seller);
 			psmt.setInt(2, start);
 			rs = psmt.executeQuery();
@@ -103,6 +103,53 @@ public class ProductDAO extends DBHelper{
 		}
 		return products;	
 	}
+	// selectProductsForCEO
+		public List<ProductVO> selectProductsForCEO(int start) {
+			List<ProductVO> products = new ArrayList<>();
+			try {
+				logger.debug("selectProductsForCEO Start...");
+				conn = getConnection();
+				psmt = conn.prepareStatement(Sql.SELECT_PRODUCTS_FOR_CEO);
+				psmt.setInt(1, start);
+				rs = psmt.executeQuery();
+				while(rs.next()) {
+					ProductVO product = new ProductVO();
+					product.setProdNo(rs.getInt(1));
+					product.setCate1(rs.getInt(2));
+					product.setCate2(rs.getInt(3));
+					product.setProdName(rs.getString(4));
+					product.setDescript(rs.getString(5));
+					product.setCompany(rs.getString(6));
+					product.setSeller(rs.getString(7));
+					product.setPrice(rs.getInt(8));
+					product.setDiscount(rs.getInt(9));
+					product.setPoint(rs.getInt(10));
+					product.setStock(rs.getInt(11));
+					product.setSold(rs.getInt(12));
+					product.setDelivery(rs.getInt(13));
+					product.setHit(rs.getInt(14));
+					product.setScore(rs.getInt(15));
+					product.setReview(rs.getInt(16));
+					product.setThumb1(rs.getString(17));
+					product.setThumb2(rs.getString(18));
+					product.setThumb3(rs.getString(19));
+					product.setDetail(rs.getString(20));
+					product.setStatus(rs.getString(21));
+					product.setDuty(rs.getString(22));
+					product.setReceipt(rs.getString(23));
+					product.setBizType(rs.getString(24));
+					product.setOrigin(rs.getString(25));
+					product.setIp(rs.getString(26));
+					product.setRdate(rs.getString(27));
+													
+					products.add(product);
+				}
+				close();
+			}catch (Exception e) {
+				logger.error(e.getMessage());
+			}
+			return products;	
+		}
 	// selectProduct
 		public ProductVO selectProduct(String prodNo) {
 			ProductVO product = null;
@@ -697,6 +744,203 @@ public class ProductDAO extends DBHelper{
 		return products;
 	}
 	
+	//selectProductsByName
+	public List<ProductVO> selectProductsByName(String keyword, int start){
+		List<ProductVO> products = new ArrayList<>();
+		try {
+			logger.debug("selectProductsByName Start...");
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.SELECT_PRODUCTS_BY_NAME);
+			psmt.setString(1, "%"+keyword+"%");
+			psmt.setInt(2, start);
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				ProductVO product = new ProductVO();
+				product.setProdNo(rs.getInt(1));
+				product.setCate1(rs.getInt(2));
+				product.setCate2(rs.getInt(3));
+				product.setProdName(rs.getString(4));
+				product.setDescript(rs.getString(5));
+				product.setCompany(rs.getString(6));
+				product.setSeller(rs.getString(7));
+				product.setPrice(rs.getInt(8));
+				product.setDiscount(rs.getInt(9));
+				product.setPoint(rs.getInt(10));
+				product.setStock(rs.getInt(11));
+				product.setSold(rs.getInt(12));
+				product.setDelivery(rs.getInt(13));
+				product.setHit(rs.getInt(14));
+				product.setScore(rs.getInt(15));
+				product.setReview(rs.getInt(16));
+				product.setThumb1(rs.getString(17));
+				product.setThumb2(rs.getString(18));
+				product.setThumb3(rs.getString(19));
+				product.setDetail(rs.getString(20));
+				product.setStatus(rs.getString(21));
+				product.setDuty(rs.getString(22));
+				product.setReceipt(rs.getString(23));
+				product.setBizType(rs.getString(24));
+				product.setOrigin(rs.getString(25));
+				product.setIp(rs.getString(26));
+				product.setRdate(rs.getString(27));
+				
+				products.add(product);
+			}
+			close();
+		}catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+		return products;
+	}
+	//selectProductsByNo
+	public List<ProductVO> selectProductsByNo(String keyword, int start){
+		List<ProductVO> products = new ArrayList<>();
+		try {
+			logger.debug("selectProductsByNo Start...");
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.SELECT_PRODUCTS_BY_NO);
+			psmt.setString(1, "%"+keyword+"%");
+			psmt.setInt(2, start);
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				ProductVO product = new ProductVO();
+				product.setProdNo(rs.getInt(1));
+				product.setCate1(rs.getInt(2));
+				product.setCate2(rs.getInt(3));
+				product.setProdName(rs.getString(4));
+				product.setDescript(rs.getString(5));
+				product.setCompany(rs.getString(6));
+				product.setSeller(rs.getString(7));
+				product.setPrice(rs.getInt(8));
+				product.setDiscount(rs.getInt(9));
+				product.setPoint(rs.getInt(10));
+				product.setStock(rs.getInt(11));
+				product.setSold(rs.getInt(12));
+				product.setDelivery(rs.getInt(13));
+				product.setHit(rs.getInt(14));
+				product.setScore(rs.getInt(15));
+				product.setReview(rs.getInt(16));
+				product.setThumb1(rs.getString(17));
+				product.setThumb2(rs.getString(18));
+				product.setThumb3(rs.getString(19));
+				product.setDetail(rs.getString(20));
+				product.setStatus(rs.getString(21));
+				product.setDuty(rs.getString(22));
+				product.setReceipt(rs.getString(23));
+				product.setBizType(rs.getString(24));
+				product.setOrigin(rs.getString(25));
+				product.setIp(rs.getString(26));
+				product.setRdate(rs.getString(27));
+				
+				products.add(product);
+			}
+			close();
+		}catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+		return products;
+	}
+	//selectProductsByCompany
+	public List<ProductVO> selectProductsByCompany(String keyword, int start){
+		List<ProductVO> products = new ArrayList<>();
+		try {
+			logger.debug("selectProductsByCompany Start...");
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.SELECT_PRODUCTS_BY_COMPANY);
+			psmt.setString(1, "%"+keyword+"%");
+			psmt.setInt(2, start);
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				ProductVO product = new ProductVO();
+				product.setProdNo(rs.getInt(1));
+				product.setCate1(rs.getInt(2));
+				product.setCate2(rs.getInt(3));
+				product.setProdName(rs.getString(4));
+				product.setDescript(rs.getString(5));
+				product.setCompany(rs.getString(6));
+				product.setSeller(rs.getString(7));
+				product.setPrice(rs.getInt(8));
+				product.setDiscount(rs.getInt(9));
+				product.setPoint(rs.getInt(10));
+				product.setStock(rs.getInt(11));
+				product.setSold(rs.getInt(12));
+				product.setDelivery(rs.getInt(13));
+				product.setHit(rs.getInt(14));
+				product.setScore(rs.getInt(15));
+				product.setReview(rs.getInt(16));
+				product.setThumb1(rs.getString(17));
+				product.setThumb2(rs.getString(18));
+				product.setThumb3(rs.getString(19));
+				product.setDetail(rs.getString(20));
+				product.setStatus(rs.getString(21));
+				product.setDuty(rs.getString(22));
+				product.setReceipt(rs.getString(23));
+				product.setBizType(rs.getString(24));
+				product.setOrigin(rs.getString(25));
+				product.setIp(rs.getString(26));
+				product.setRdate(rs.getString(27));
+				
+				products.add(product);
+			}
+			close();
+		}catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+		return products;
+	}
+	//selectProductsBySeller
+	public List<ProductVO> selectProductsBySeller(String keyword, int start){
+		List<ProductVO> products = new ArrayList<>();
+		try {
+			logger.debug("selectProductsBySeller Start...");
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.SELECT_PRODUCTS_BY_SELLER);
+			psmt.setString(1, "%"+keyword+"%");
+			psmt.setInt(2, start);
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				ProductVO product = new ProductVO();
+				product.setProdNo(rs.getInt(1));
+				product.setCate1(rs.getInt(2));
+				product.setCate2(rs.getInt(3));
+				product.setProdName(rs.getString(4));
+				product.setDescript(rs.getString(5));
+				product.setCompany(rs.getString(6));
+				product.setSeller(rs.getString(7));
+				product.setPrice(rs.getInt(8));
+				product.setDiscount(rs.getInt(9));
+				product.setPoint(rs.getInt(10));
+				product.setStock(rs.getInt(11));
+				product.setSold(rs.getInt(12));
+				product.setDelivery(rs.getInt(13));
+				product.setHit(rs.getInt(14));
+				product.setScore(rs.getInt(15));
+				product.setReview(rs.getInt(16));
+				product.setThumb1(rs.getString(17));
+				product.setThumb2(rs.getString(18));
+				product.setThumb3(rs.getString(19));
+				product.setDetail(rs.getString(20));
+				product.setStatus(rs.getString(21));
+				product.setDuty(rs.getString(22));
+				product.setReceipt(rs.getString(23));
+				product.setBizType(rs.getString(24));
+				product.setOrigin(rs.getString(25));
+				product.setIp(rs.getString(26));
+				product.setRdate(rs.getString(27));
+				
+				products.add(product);
+			}
+			close();
+		}catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+		return products;
+	}
+	
 	//selectNavCate
 	public NavCateVO selectNavCate(String cate1, String cate2) {
 		NavCateVO cate = null;
@@ -1020,25 +1264,120 @@ public class ProductDAO extends DBHelper{
 		return total;
 	}
 	
-	//countProductTotal
-		public int countProductTotalInAdmin(String uid) {
-			int total = 0;
-			try{
-				logger.info("countProductTotal start...");
-				conn = getConnection();
-				psmt = conn.prepareStatement(Sql.SELECT_COUNT_PRODUCT_TOTAL_IN_ADMIN);
-				psmt.setString(1, uid);
-				rs = psmt.executeQuery();
-				
-				if(rs.next()){
-					total = rs.getInt(1);
-				}
-				close();
-			}catch(Exception e){
-				logger.error(e.getMessage());
+	//countProductTotalInAdmin
+	public int countProductTotalInAdmin(String uid) {
+		int total = 0;
+		try{
+			logger.info("countProductTotalInAdmin start...");
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.SELECT_COUNT_PRODUCT_TOTAL_IN_ADMIN);
+			psmt.setString(1, uid);
+			rs = psmt.executeQuery();
+			
+			if(rs.next()){
+				total = rs.getInt(1);
 			}
-			return total;
+			close();
+		}catch(Exception e){
+			logger.error(e.getMessage());
 		}
+		return total;
+	}
+	//countProductTotalForCEO
+	public int countProductTotalForCEO() {
+		int total = 0;
+		try{
+			logger.info("countProductTotalForCEO start...");
+			conn = getConnection();
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(Sql.SELECT_COUNT_PRODUCT_TOTAL_FOR_CEO);
+			
+			if(rs.next()){
+				total = rs.getInt(1);
+			}
+			close();
+		}catch(Exception e){
+			logger.error(e.getMessage());
+		}
+		return total;
+	}
+	
+	//countProductTotalForSearchByName
+	public int countProductTotalForSearchByName(String keyword) {
+		int total = 0;
+		try{
+			logger.info("countProductTotalForSearchByName start...");
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.SELECT_COUNT_PRODUCT_TOTAL_FOR_SEARCH_BY_NAME);
+			psmt.setString(1, "%"+keyword+"%");
+			rs = psmt.executeQuery();
+			
+			if(rs.next()){
+				total = rs.getInt(1);
+			}
+			close();
+		}catch(Exception e){
+			logger.error(e.getMessage());
+		}
+		return total;
+	}
+	//countProductTotalForSearchByNo
+	public int countProductTotalForSearchByNo(String keyword) {
+		int total = 0;
+		try{
+			logger.info("countProductTotalForSearchByNo start...");
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.SELECT_COUNT_PRODUCT_TOTAL_FOR_SEARCH_BY_NO);
+			psmt.setString(1, "%"+keyword+"%");
+			rs = psmt.executeQuery();
+			
+			if(rs.next()){
+				total = rs.getInt(1);
+			}
+			close();
+		}catch(Exception e){
+			logger.error(e.getMessage());
+		}
+		return total;
+	}
+	//countProductTotalForSearchByCompany
+	public int countProductTotalForSearchByCompany(String keyword) {
+		int total = 0;
+		try{
+			logger.info("countProductTotalForSearchByCompany start...");
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.SELECT_COUNT_PRODUCT_TOTAL_FOR_SEARCH_BY_COMPANY);
+			psmt.setString(1, "%"+keyword+"%");
+			rs = psmt.executeQuery();
+			
+			if(rs.next()){
+				total = rs.getInt(1);
+			}
+			close();
+		}catch(Exception e){
+			logger.error(e.getMessage());
+		}
+		return total;
+	}
+	//countProductTotalForSearchBySeller
+	public int countProductTotalForSearchBySeller(String keyword) {
+		int total = 0;
+		try{
+			logger.info("countProductTotalForSearchBySeller start...");
+			conn = getConnection();
+			psmt = conn.prepareStatement(Sql.SELECT_COUNT_PRODUCT_TOTAL_FOR_SEARCH_BY_SELLER);
+			psmt.setString(1, "%"+keyword+"%");
+			rs = psmt.executeQuery();
+			
+			if(rs.next()){
+				total = rs.getInt(1);
+			}
+			close();
+		}catch(Exception e){
+			logger.error(e.getMessage());
+		}
+		return total;
+	}
 	
 	//countReviewTotal
 	public int countReviewTotal(String prodNo) {
