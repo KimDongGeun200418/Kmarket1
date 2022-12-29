@@ -151,6 +151,8 @@ public class Sql {
 	public static final String INSERT_ORDER_ITEM	= "INSERT INTO `km_product_order_item` SET `ordNo`=?,"
 													+ "`prodNo`=?, `count`=?, `price`=?, `discount`=?,"
 													+ "`point`=?, `delivery`=?, `total`=?";
+	
+	public static final String UPDATE_PRODUCT		= "UPDATE `km_product` SET `sold`=`sold`+?, `stock`=`stock`-? WHERE `prodNo`=?";
 	public static final String SELECT_PRODNO_BY_CARTNO	= "SELECT `prodNo` FROM `km_product_cart` WHERE `cartNo`=?";
 	public static final String SELECT_FOR_CLEAN_ORDER_LIST	= "SELECT `prodName`, `descript`, `thumb1`, `prodNo` FROM `km_product` WHERE `prodNo`=?";
 	public static final String CHECK_MEMBER_FOR_ORDER 		= "select * from `km_member` where `uid`=?";

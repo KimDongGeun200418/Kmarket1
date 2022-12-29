@@ -143,6 +143,9 @@ public enum ProductService {
 		public void insertOrderItem(int ordNo, String[] items) {
 			dao.insertOrderItem(ordNo, items);
 		}
+		public void updateProduct(String[] items) {
+			dao.updateProduct(items);
+		}
 		public List<CartVO> cleanOrderListFromCart(String[] items) {
 			return dao.cleanOrderList(items);
 		}
