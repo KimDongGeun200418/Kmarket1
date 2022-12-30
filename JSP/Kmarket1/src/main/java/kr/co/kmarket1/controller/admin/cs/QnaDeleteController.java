@@ -36,7 +36,7 @@ public class QnaDeleteController extends HttpServlet{
 		
 		dao.deleteQna(no);
 		
-		resp.sendRedirect("/Kmarket1/admin/cs/qnaList.do?group="+group+"&cate="+cate+"&cate2="+cate2);
+		resp.sendRedirect("/Kmarket1/admin/cs/qnaList.do");
 		
 	}
 	
