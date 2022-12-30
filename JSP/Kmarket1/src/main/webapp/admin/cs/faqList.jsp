@@ -91,15 +91,15 @@
 	                				<c:when test="${cate != null}">
 	                					<c:choose>
 	                					<c:when test="${cate2 != null}">
-	                						<a href="./faqView.do?group=faq&cate=${cate}&cate2=${cate2}&no=${article.no}">${article.title}
+	                						<a href="/Kmarket1/admin/cs/faqView.do?group=faq&cate=${cate}&cate2=${cate2}&no=${article.no}">${article.title}
 	                					</c:when>
 	                					<c:otherwise>
-	                						<a href="./faqView.do?group=faq&cate=${cate}&cate2=${article.cate2}&no=${article.no}">${article.title}
+	                						<a href="/Kmarket1/admin/cs/faqView.do?group=faq&cate=${cate}&cate2=${article.cate2}&no=${article.no}">${article.title}
 	                					</c:otherwise>
 	                					</c:choose>
 		                			</c:when>
 		                			<c:otherwise>
-	                					<a href="./faqView.do?group=faq&cate=${cate}&cate2=${article.cate2}&no=${article.no}">${article.title}
+	                					<a href="/Kmarket1/admin/cs/faqView.do?group=faq&cate=${cate}&cate2=${article.cate2}&no=${article.no}">${article.title}
 		                			</c:otherwise>
 		                			</c:choose>
 		                		</td>
@@ -110,18 +110,18 @@
 		                				<c:when test="${cate != null}">
 		                					<c:choose>
 		                					<c:when test="${cate2 != null}">
-		                						<a href="./faqDelete.do?group=faq&cate=${cate}&cate2=${cate2}&no=${article.no}" onclick="return deleteClick();">[삭제]<br>
-		                						<a href="./faqModify.do?group=faq&cate=${cate}&cate2=${cate2}&no=${article.no}">[수정]
+		                						<a href="/Kmarket1/admin/cs/faqDelete.do?group=faq&cate=${cate}&cate2=${cate2}&no=${article.no}" onclick="return deleteClick();">[삭제]<br>
+		                						<a href="/Kmarket1/admin/cs/faqModify.do?group=faq&cate=${cate}&cate2=${cate2}&no=${article.no}">[수정]
 		                					</c:when>
 		                					<c:otherwise>
-		                						<a href="./faqDelete.do?group=faq&cate=${cate}&cate2=${article.cate2}&no=${article.no}" onclick="return deleteClick();">[삭제]<br>
-		                						<a href="./faqModify.do?group=faq&cate=${cate}&cate2=${article.cate2}&no=${article.no}">[수정]
+		                						<a href="/Kmarket1/admin/cs/faqDelete.do?group=faq&cate=${cate}&cate2=${article.cate2}&no=${article.no}" onclick="return deleteClick();">[삭제]<br>
+		                						<a href="/Kmarket1/admin/cs/faqModify.do?group=faq&cate=${cate}&cate2=${article.cate2}&no=${article.no}">[수정]
 		                					</c:otherwise>
 		                					</c:choose>
 		                				</c:when>
 		                				<c:otherwise>
-		                					<a href="./faqDelete.do?group=faq&cate=${article.cate}&cate2=${article.cate2}&no=${article.no}" onclick="return deleteClick();">[삭제]<br>
-		                					<a href="./faqModify.do?group=faq&cate=${article.cate}&cate2=${article.cate2}&no=${article.no}">[수정]
+		                					<a href="/Kmarket1/admin/cs/faqDelete.do?group=faq&cate=${article.cate}&cate2=${article.cate2}&no=${article.no}" onclick="return deleteClick();">[삭제]<br>
+		                					<a href="/Kmarket1/admin/cs/faqModify.do?group=faq&cate=${article.cate}&cate2=${article.cate2}&no=${article.no}">[수정]
 		                				</c:otherwise>
 		                			</c:choose>
 		                		</td>
@@ -129,7 +129,7 @@
 	                	</c:forEach>
 	                </table>
 	                <a href="#" class="btnDelete" onclick="deleteValue();">선택삭제</a>       
-	                <a href="./faqWrite.do?group=faq" class="btnWrite">작성하기</a>       
+	                <a href="/Kmarket1/admin/cs/faqWrite.do?group=faq" class="btnWrite">작성하기</a>       
 	        	</article>        
             </section>
         </main>

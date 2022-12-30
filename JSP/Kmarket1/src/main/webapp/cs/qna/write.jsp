@@ -38,7 +38,7 @@
 	}
 	
 </script>
-<jsp:include page="../_header.jsp"/>
+<jsp:include page="../../_header.jsp"/>
 <section id="cs">
     <div class="qna">
         <nav>
@@ -110,4 +110,4 @@
         </section>
     </div>
 </section>
-<jsp:include page="../_footer.jsp"/>
+<jsp:include page="../../_footer.jsp"/>

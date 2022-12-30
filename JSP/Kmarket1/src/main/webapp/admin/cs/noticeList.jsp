@@ -75,27 +75,27 @@
 		                		</td>
 		                		<td>
 		                			<c:if test="${cate == null || cate eq ''}">
-		                				<a href="./noticeView.do?group=notice&cate=${article.cate}&pg=${currentPage}&no=${article.no}">${article.title}
+		                				<a href="/Kmarket1/admin/cs/noticeView.do?group=notice&cate=${article.cate}&pg=${currentPage}&no=${article.no}">${article.title}
 		                			</c:if>
 		                			<c:if test="${cate != null}">
-		                				<a href="./noticeView.do?group=notice&cate=${cate}&pg=${currentPage}&no=${article.no}">${article.title}
+		                				<a href="/Kmarket1/admin/cs/noticeView.do?group=notice&cate=${cate}&pg=${currentPage}&no=${article.no}">${article.title}
 		                			</c:if>
 		                		</td>
 		                		<td>${article.hit}</td>
 		                		<td>${article.rdate.substring(2, 10)}</td>
 		                		<td>
 		                			<c:if test="${cate == null || cate eq ''}">
-		                				<a href="./noticeDelete.do?group=notice&cate=${article.cate}&pg=${currentPage}&no=${article.no}" onclick="return deleteClick();">[삭제]
+		                				<a href="/Kmarket1/admin/cs/noticeDelete.do?group=notice&cate=${article.cate}&pg=${currentPage}&no=${article.no}" onclick="return deleteClick();">[삭제]
 		                			</c:if>
 		                			<c:if test="${cate != null}">
-		                				<a href="./noticeDelete.do?group=notice&cate=${cate}&pg=${currentPage}&no=${article.no}" onclick="return deleteClick();">[삭제]
+		                				<a href="/Kmarket1/admin/cs/noticeDelete.do?group=notice&cate=${cate}&pg=${currentPage}&no=${article.no}" onclick="return deleteClick();">[삭제]
 		                			</c:if>
 		                			<br/>
 		                			<c:if test="${cate == null || cate eq ''}">
-		                				<a href="./noticeModify.do?group=notice&cate=${article.cate}&pg=${currentPage}&no=${article.no}">[수정]
+		                				<a href="/Kmarket1/admin/cs/noticeModify.do?group=notice&cate=${article.cate}&pg=${currentPage}&no=${article.no}">[수정]
 		                			</c:if>
 		                			<c:if test="${cate != null}">
-		                				<a href="./noticeModify.do?group=notice&cate=${cate}&pg=${currentPage}&no=${article.no}">[수정]
+		                				<a href="/Kmarket1/admin/cs/noticeModify.do?group=notice&cate=${cate}&pg=${currentPage}&no=${article.no}">[수정]
 		                			</c:if>
 		                		</td>
 		                	</tr>
