@@ -37,7 +37,7 @@ public class NoticeDeleteController extends HttpServlet{
 		
 		dao.deleteNotice(no);
 		
-		resp.sendRedirect("/Kmarket1/admin/cs/noticeList.do?group="+group+"&cate="+cate+"&pg="+pg);
+		resp.sendRedirect("/Kmarket1/admin/cs/noticeList.do");
 		
 	}
 	
