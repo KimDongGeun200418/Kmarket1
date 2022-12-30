@@ -39,7 +39,7 @@ public class QnaWriteController extends HttpServlet{
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+		resp.setHeader("Content-Type", "text/html;charset=utf-8"); 
 		String group = req.getParameter("group");
 		String uid = req.getParameter("uid");
 		String cate = req.getParameter("type1");

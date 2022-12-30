@@ -42,14 +42,22 @@ public class ListController extends HttpServlet {
 		
 		//페이징
 		if(keyword!=null) {
-			if(option.equals("1")) {
-				total = serviceProduct.countProductTotalForSearchByName(keyword);
-			}else if(option.equals("2")) {
-				total = serviceProduct.countProductTotalForSearchByNo(keyword);
-			}else if(option.equals("3")) {
-				total = serviceProduct.countProductTotalForSearchByCompany(keyword);
-			}else if(option.equals("4")) {
-				total = serviceProduct.countProductTotalForSearchBySeller(keyword);
+			if(keyword.equals("")) {
+				if(seller.getLevel() == 7) {
+					total = serviceProduct.countProductTotalForCEO();
+				}else {
+					total = serviceProduct.countProductTotalInAdmin(seller); // 게시글 개수
+				}
+			}else {
+				if(option.equals("1")) {
+					total = serviceProduct.countProductTotalForSearchByName(keyword);
+				}else if(option.equals("2")) {
+					total = serviceProduct.countProductTotalForSearchByNo(keyword);
+				}else if(option.equals("3")) {
+					total = serviceProduct.countProductTotalForSearchByCompany(keyword);
+				}else if(option.equals("4")) {
+					total = serviceProduct.countProductTotalForSearchBySeller(keyword);
+				}
 			}
 		}else if(seller.getLevel() == 7) {
 			total = serviceProduct.countProductTotalForCEO();
@@ -63,14 +71,22 @@ public class ListController extends HttpServlet {
 		int start = serviceProduct.getStartNum(currentPage); // 시작 인덱스
 		
 		if(keyword!=null) {
-			if(option.equals("1")) {
-				products = serviceProduct.selectProductsByName(keyword, start);
-			}else if(option.equals("2")) {
-				products = serviceProduct.selectProductsByNo(keyword, start);;
-			}else if(option.equals("3")) {
-				products = serviceProduct.selectProductsByCompany(keyword, start);
-			}else if(option.equals("4")) {
-				products = serviceProduct.selectProductsBySeller(keyword, start);
+			if(keyword.equals("")) {
+				if(seller.getLevel() == 7) {
+					products = serviceProduct.selectProductsForCEO(start);
+				}else {
+					products = serviceProduct.selectProductsInAdmin(seller, start); // 게시글 개수
+				}
+			}else {
+				if(option.equals("1")) {
+					products = serviceProduct.selectProductsByName(keyword, start);
+				}else if(option.equals("2")) {
+					products = serviceProduct.selectProductsByNo(keyword, start);;
+				}else if(option.equals("3")) {
+					products = serviceProduct.selectProductsByCompany(keyword, start);
+				}else if(option.equals("4")) {
+					products = serviceProduct.selectProductsBySeller(keyword, start);
+				}
 			}
 		}else if(seller.getLevel() == 7) {
 			products = serviceProduct.selectProductsForCEO(start);

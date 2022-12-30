@@ -13,6 +13,7 @@ import kr.co.kmarket1.dao.ArticleDAO;
 import kr.co.kmarket1.service.ArticleService;
 import kr.co.kmarket1.vo.CsArticleVO;
 
+@WebServlet("/admin/cs/faqModify.do")
 public class FaqModifyController extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
