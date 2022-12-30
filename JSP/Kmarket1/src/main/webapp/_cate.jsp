@@ -54,4 +54,52 @@
                 <li><a href="/Kmarket1/product/productList.do?cate1=18&cate2=14&option=sold">상품권</a></li>
               </ol>
             </li>
+            <li>
+            	<a href="#">
+                	<i class="fas fa-laptop" aria-hidden="true"></i>컴퓨터·디지털·가전<i class="fas fa-angle-right" aria-hidden="true"></i>
+            	</a>
+              	<ol>
+	                <li><a href="/Kmarket1/product/productList.do?cate1=16&cate2=11&option=sold">휘트니스/수영</a></li>
+	                <li><a href="/Kmarket1/product/productList.do?cate1=16&cate2=15&option=sold">캠핑/낚시</a></li>
+	                <li><a href="/Kmarket1/product/productList.do?cate1=16&cate2=16&option=sold">등산/아웃도어</a></li>
+	                <li><a href="/Kmarket1/product/productList.do?cate1=18&cate2=11&option=sold">도서/음반/e교육</a></li>
+	                <li><a href="/Kmarket1/product/productList.do?cate1=18&cate2=14&option=sold">상품권</a></li>
+              </ol>
+            </li>
+            <li>
+            	<a href="#">
+                	<i class="fas fa-heart" aria-hidden="true"></i>스포츠·건강·렌탈<i class="fas fa-angle-right" aria-hidden="true"></i>
+            	</a>
+              	<ol>
+	                <li><a href="/Kmarket1/product/productList.do?cate1=16&cate2=11&option=sold">휘트니스/수영</a></li>
+	                <li><a href="/Kmarket1/product/productList.do?cate1=16&cate2=15&option=sold">캠핑/낚시</a></li>
+	                <li><a href="/Kmarket1/product/productList.do?cate1=16&cate2=16&option=sold">등산/아웃도어</a></li>
+	                <li><a href="/Kmarket1/product/productList.do?cate1=18&cate2=11&option=sold">도서/음반/e교육</a></li>
+	                <li><a href="/Kmarket1/product/productList.do?cate1=18&cate2=14&option=sold">상품권</a></li>
+              </ol>
+            </li>
+            <li>
+            	<a href="#">
+                	<i class="fas fa-car" aria-hidden="true"></i>자동차·공구<i class="fas fa-angle-right" aria-hidden="true"></i>
+            	</a>
+              	<ol>
+	                <li><a href="/Kmarket1/product/productList.do?cate1=16&cate2=11&option=sold">휘트니스/수영</a></li>
+	                <li><a href="/Kmarket1/product/productList.do?cate1=16&cate2=15&option=sold">캠핑/낚시</a></li>
+	                <li><a href="/Kmarket1/product/productList.do?cate1=16&cate2=16&option=sold">등산/아웃도어</a></li>
+	                <li><a href="/Kmarket1/product/productList.do?cate1=18&cate2=11&option=sold">도서/음반/e교육</a></li>
+	                <li><a href="/Kmarket1/product/productList.do?cate1=18&cate2=14&option=sold">상품권</a></li>
+              </ol>
+            </li>
+            <li>
+            	<a href="#">
+                	<i class="fas fa-book" aria-hidden="true"></i>여행·도서·티켓·e쿠폰<i class="fas fa-angle-right" aria-hidden="true"></i>
+            	</a>
+              	<ol>
+	                <li><a href="/Kmarket1/product/productList.do?cate1=16&cate2=11&option=sold">휘트니스/수영</a></li>
+	                <li><a href="/Kmarket1/product/productList.do?cate1=16&cate2=15&option=sold">캠핑/낚시</a></li>
+	                <li><a href="/Kmarket1/product/productList.do?cate1=16&cate2=16&option=sold">등산/아웃도어</a></li>
+	                <li><a href="/Kmarket1/product/productList.do?cate1=18&cate2=11&option=sold">도서/음반/e교육</a></li>
+	                <li><a href="/Kmarket1/product/productList.do?cate1=18&cate2=14&option=sold">상품권</a></li>
+              </ol>
+            </li>
         </ul>

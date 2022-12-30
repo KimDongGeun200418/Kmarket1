@@ -92,3 +92,8 @@ main > aside > .category ol > li {
     padding: 10px;
     box-sizing: border-box;
 }
+
+main > aside > .category ol > li > a:hover {
+	color:green;
+	text-decoration: underline;
+}
